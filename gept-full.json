@@ -1,0 +1,9026 @@
+[
+  {
+    "Vocabulary": "ability",
+    "Chinese": "能力、才能"
+  },
+  {
+    "Vocabulary": "able",
+    "Chinese": "能夠的、有才能的"
+  },
+  {
+    "Vocabulary": "about",
+    "Chinese": "大約、關於；大約、幾乎、在周圍"
+  },
+  {
+    "Vocabulary": "above",
+    "Chinese": "在…上面、超過、大於"
+  },
+  {
+    "Vocabulary": "above",
+    "Chinese": "上文、前文；前文述及的、上述的"
+  },
+  {
+    "Vocabulary": "abroad",
+    "Chinese": "在國外、到國外"
+  },
+  {
+    "Vocabulary": "absent",
+    "Chinese": "缺席的、不在場的、心不在焉的"
+  },
+  {
+    "Vocabulary": "accept",
+    "Chinese": "收受、接受(提議、邀請)、同意、接納"
+  },
+  {
+    "Vocabulary": "accident",
+    "Chinese": "意外事故"
+  },
+  {
+    "Vocabulary": "achieve",
+    "Chinese": "達到、完成、實現"
+  },
+  {
+    "Vocabulary": "across",
+    "Chinese": "橫過、在對面"
+  },
+  {
+    "Vocabulary": "across",
+    "Chinese": "在...各處、遍及"
+  },
+  {
+    "Vocabulary": "act",
+    "Chinese": "表演者、(戲劇的)幕；演出、扮演"
+  },
+  {
+    "Vocabulary": "act",
+    "Chinese": "行為、作為；行事、表現"
+  },
+  {
+    "Vocabulary": "action",
+    "Chinese": "行動、行為、動作"
+  },
+  {
+    "Vocabulary": "active",
+    "Chinese": "活躍的、積極的"
+  },
+  {
+    "Vocabulary": "activity",
+    "Chinese": "活動"
+  },
+  {
+    "Vocabulary": "actor",
+    "Chinese": "演員"
+  },
+  {
+    "Vocabulary": "actress",
+    "Chinese": "女演員"
+  },
+  {
+    "Vocabulary": "actually",
+    "Chinese": "實際上、事實上"
+  },
+  {
+    "Vocabulary": "add",
+    "Chinese": "加上、增加、補充說"
+  },
+  {
+    "Vocabulary": "addition",
+    "Chinese": "加法、添加、增加的人或物"
+  },
+  {
+    "Vocabulary": "address",
+    "Chinese": "地址、網址、位址；演講、演說"
+  },
+  {
+    "Vocabulary": "admire",
+    "Chinese": "欽佩、欣賞"
+  },
+  {
+    "Vocabulary": "admit",
+    "Chinese": "承認；准許進入"
+  },
+  {
+    "Vocabulary": "adopt",
+    "Chinese": "領養、接受、採納"
+  },
+  {
+    "Vocabulary": "adult",
+    "Chinese": "成年人；成年的、成熟的、僅限成人的"
+  },
+  {
+    "Vocabulary": "advance",
+    "Chinese": "(使)前進、使發展、促進"
+  },
+  {
+    "Vocabulary": "advance",
+    "Chinese": "前進、發展、進展"
+  },
+  {
+    "Vocabulary": "advance",
+    "Chinese": "預先的、事先的"
+  },
+  {
+    "Vocabulary": "advantage",
+    "Chinese": "優點、優勢、好處"
+  },
+  {
+    "Vocabulary": "adventure",
+    "Chinese": "冒險、冒險經歷、奇遇"
+  },
+  {
+    "Vocabulary": "advice",
+    "Chinese": "建議、忠告"
+  },
+  {
+    "Vocabulary": "advise",
+    "Chinese": "建議、忠告、正式告知"
+  },
+  {
+    "Vocabulary": "affair",
+    "Chinese": "事務、事件"
+  },
+  {
+    "Vocabulary": "affect",
+    "Chinese": "影響、(疾病)感染"
+  },
+  {
+    "Vocabulary": "afraid",
+    "Chinese": "害怕的、擔憂的"
+  },
+  {
+    "Vocabulary": "after",
+    "Chinese": "在...後面；在...以後；以後、後來"
+  },
+  {
+    "Vocabulary": "afternoon",
+    "Chinese": "下午"
+  },
+  {
+    "Vocabulary": "again",
+    "Chinese": "又、再一次"
+  },
+  {
+    "Vocabulary": "age",
+    "Chinese": "年齡、老化；時代、時期"
+  },
+  {
+    "Vocabulary": "age",
+    "Chinese": "衰老、使變老、使成熟"
+  },
+  {
+    "Vocabulary": "ago",
+    "Chinese": "在…以前"
+  },
+  {
+    "Vocabulary": "agree",
+    "Chinese": "同意、贊成、相符"
+  },
+  {
+    "Vocabulary": "ahead",
+    "Chinese": "在前面、領先、提早"
+  },
+  {
+    "Vocabulary": "aid",
+    "Chinese": "幫助、援助；救援物資、輔助設備"
+  },
+  {
+    "Vocabulary": "aim",
+    "Chinese": "計劃、瞄準；目標、瞄準"
+  },
+  {
+    "Vocabulary": "air",
+    "Chinese": "空氣、空中"
+  },
+  {
+    "Vocabulary": "air conditioner",
+    "Chinese": "冷氣機、空調"
+  },
+  {
+    "Vocabulary": "aircraft",
+    "Chinese": "飛機"
+  },
+  {
+    "Vocabulary": "airline",
+    "Chinese": "航空公司"
+  },
+  {
+    "Vocabulary": "airport",
+    "Chinese": "機場"
+  },
+  {
+    "Vocabulary": "alarm",
+    "Chinese": "鬧鐘、鬧鈴裝置；警報、警報器"
+  },
+  {
+    "Vocabulary": "album",
+    "Chinese": "相簿、集郵簿、音樂專輯"
+  },
+  {
+    "Vocabulary": "alike",
+    "Chinese": "相似地、同樣地；相似的"
+  },
+  {
+    "Vocabulary": "alive",
+    "Chinese": "活著的、仍然存在的"
+  },
+  {
+    "Vocabulary": "all",
+    "Chinese": "全部(的/地)"
+  },
+  {
+    "Vocabulary": "allow",
+    "Chinese": "准許"
+  },
+  {
+    "Vocabulary": "almost",
+    "Chinese": "幾乎、差不多"
+  },
+  {
+    "Vocabulary": "alone",
+    "Chinese": "單獨(的)、獨自(的)、孤獨無伴(的)"
+  },
+  {
+    "Vocabulary": "along",
+    "Chinese": "沿著"
+  },
+  {
+    "Vocabulary": "along",
+    "Chinese": "向前、一起、來到"
+  },
+  {
+    "Vocabulary": "aloud",
+    "Chinese": "大聲地"
+  },
+  {
+    "Vocabulary": "alphabet",
+    "Chinese": "字母表"
+  },
+  {
+    "Vocabulary": "already",
+    "Chinese": "已經"
+  },
+  {
+    "Vocabulary": "also",
+    "Chinese": "也、此外"
+  },
+  {
+    "Vocabulary": "although",
+    "Chinese": "雖然"
+  },
+  {
+    "Vocabulary": "altogether",
+    "Chinese": "全部、總共、總之"
+  },
+  {
+    "Vocabulary": "always",
+    "Chinese": "總是、一直"
+  },
+  {
+    "Vocabulary": "am",
+    "Chinese": "(主語為第一人稱單數)是"
+  },
+  {
+    "Vocabulary": "ambulance",
+    "Chinese": "救護車"
+  },
+  {
+    "Vocabulary": "America",
+    "Chinese": "美國、美洲"
+  },
+  {
+    "Vocabulary": "American",
+    "Chinese": "美國的、美洲的；美國人"
+  },
+  {
+    "Vocabulary": "among",
+    "Chinese": "在...之中、在三者或以上之間"
+  },
+  {
+    "Vocabulary": "amount",
+    "Chinese": "數量"
+  },
+  {
+    "Vocabulary": "ancient",
+    "Chinese": "古代的、古老的"
+  },
+  {
+    "Vocabulary": "and",
+    "Chinese": "和、又、加上、接連"
+  },
+  {
+    "Vocabulary": "angel",
+    "Chinese": "天使"
+  },
+  {
+    "Vocabulary": "anger",
+    "Chinese": "憤怒、怒氣"
+  },
+  {
+    "Vocabulary": "angry",
+    "Chinese": "生氣的、憤怒的"
+  },
+  {
+    "Vocabulary": "animal",
+    "Chinese": "動物"
+  },
+  {
+    "Vocabulary": "ankle",
+    "Chinese": "腳踝"
+  },
+  {
+    "Vocabulary": "another",
+    "Chinese": "另一個、再一個；另外的、再一"
+  },
+  {
+    "Vocabulary": "answer",
+    "Chinese": "答案、回答；答覆、作答"
+  },
+  {
+    "Vocabulary": "ant",
+    "Chinese": "螞蟻"
+  },
+  {
+    "Vocabulary": "any",
+    "Chinese": "任何一個、一些；任何的、絲毫的"
+  },
+  {
+    "Vocabulary": "any",
+    "Chinese": "(用於否定或疑問句)稍、根本"
+  },
+  {
+    "Vocabulary": "anything",
+    "Chinese": "任何東西、任何事情"
+  },
+  {
+    "Vocabulary": "anyway",
+    "Chinese": "無論如何、不管怎樣、反正"
+  },
+  {
+    "Vocabulary": "appear",
+    "Chinese": "出現、顯現"
+  },
+  {
+    "Vocabulary": "appearance",
+    "Chinese": "出現、公開露面；外貌、外表"
+  },
+  {
+    "Vocabulary": "apple",
+    "Chinese": "蘋果"
+  },
+  {
+    "Vocabulary": "apply",
+    "Chinese": "申請、請求；應用；適用；塗、敷"
+  },
+  {
+    "Vocabulary": "appreciate",
+    "Chinese": "欣賞、賞識；感激、感謝"
+  },
+  {
+    "Vocabulary": "are",
+    "Chinese": "(主詞為we、you、they的現在式)是"
+  },
+  {
+    "Vocabulary": "area",
+    "Chinese": "地區、範圍、面積"
+  },
+  {
+    "Vocabulary": "argue",
+    "Chinese": "爭吵、爭論"
+  },
+  {
+    "Vocabulary": "arm",
+    "Chinese": "手臂、袖子、扶手"
+  },
+  {
+    "Vocabulary": "arm",
+    "Chinese": "武裝、備戰"
+  },
+  {
+    "Vocabulary": "armchair",
+    "Chinese": "扶手椅"
+  },
+  {
+    "Vocabulary": "army",
+    "Chinese": "軍隊、陸軍；大批、大群"
+  },
+  {
+    "Vocabulary": "around",
+    "Chinese": "圍繞、在...附近、大約"
+  },
+  {
+    "Vocabulary": "arrange",
+    "Chinese": "安排、籌劃；排列、佈置"
+  },
+  {
+    "Vocabulary": "arrest",
+    "Chinese": "逮捕"
+  },
+  {
+    "Vocabulary": "arrive",
+    "Chinese": "到達、來臨"
+  },
+  {
+    "Vocabulary": "art",
+    "Chinese": "藝術、美術"
+  },
+  {
+    "Vocabulary": "article",
+    "Chinese": "文章、報導；物品、物件、(語法)冠詞"
+  },
+  {
+    "Vocabulary": "artist",
+    "Chinese": "藝術家、畫家"
+  },
+  {
+    "Vocabulary": "as",
+    "Chinese": "因為、當...時、以...的方式"
+  },
+  {
+    "Vocabulary": "as",
+    "Chinese": "作為、以...的身分"
+  },
+  {
+    "Vocabulary": "as",
+    "Chinese": "像...一樣、和...一樣"
+  },
+  {
+    "Vocabulary": "Asia",
+    "Chinese": "亞洲"
+  },
+  {
+    "Vocabulary": "Asian",
+    "Chinese": "亞洲的、亞洲人的；亞洲人"
+  },
+  {
+    "Vocabulary": "ask",
+    "Chinese": "詢問、請求"
+  },
+  {
+    "Vocabulary": "asleep",
+    "Chinese": "睡著的"
+  },
+  {
+    "Vocabulary": "assistant",
+    "Chinese": "助手、助理；(常用於頭銜)助理的、副的"
+  },
+  {
+    "Vocabulary": "assume",
+    "Chinese": "假定為、假設"
+  },
+  {
+    "Vocabulary": "at",
+    "Chinese": "在...時刻、在...地點或位置、對著"
+  },
+  {
+    "Vocabulary": "attack",
+    "Chinese": "攻擊、進攻、抨擊"
+  },
+  {
+    "Vocabulary": "attend",
+    "Chinese": "出席、參加"
+  },
+  {
+    "Vocabulary": "attention",
+    "Chinese": "注意力、關注"
+  },
+  {
+    "Vocabulary": "audience",
+    "Chinese": "聽眾、觀眾"
+  },
+  {
+    "Vocabulary": "Australia",
+    "Chinese": "澳洲"
+  },
+  {
+    "Vocabulary": "available",
+    "Chinese": "有空的、可獲得的"
+  },
+  {
+    "Vocabulary": "avoid",
+    "Chinese": "避免、避開"
+  },
+  {
+    "Vocabulary": "aware",
+    "Chinese": "意識到、發覺、有...意識的"
+  },
+  {
+    "Vocabulary": "away",
+    "Chinese": "去別處、(距此)...遠、逐漸消失"
+  },
+  {
+    "Vocabulary": "baby",
+    "Chinese": "嬰兒、幼稚的人、(暱稱)寶貝"
+  },
+  {
+    "Vocabulary": "back",
+    "Chinese": "背部、後面；背部的、後面的"
+  },
+  {
+    "Vocabulary": "back",
+    "Chinese": "回原處、返回、向後、在背面"
+  },
+  {
+    "Vocabulary": "back",
+    "Chinese": "贊助、支持；使倒退、後退"
+  },
+  {
+    "Vocabulary": "bad",
+    "Chinese": "壞的、不好的、劣質的"
+  },
+  {
+    "Vocabulary": "badly",
+    "Chinese": "差地、嚴重地；很、非常"
+  },
+  {
+    "Vocabulary": "badminton",
+    "Chinese": "羽毛球"
+  },
+  {
+    "Vocabulary": "bag",
+    "Chinese": "袋子、一袋(的量)"
+  },
+  {
+    "Vocabulary": "bake",
+    "Chinese": "烘烤"
+  },
+  {
+    "Vocabulary": "bakery",
+    "Chinese": "麵包店"
+  },
+  {
+    "Vocabulary": "balcony",
+    "Chinese": "陽台、(劇院的)樓座"
+  },
+  {
+    "Vocabulary": "ball",
+    "Chinese": "球、球狀物"
+  },
+  {
+    "Vocabulary": "balloon",
+    "Chinese": "氣球"
+  },
+  {
+    "Vocabulary": "banana",
+    "Chinese": "香蕉"
+  },
+  {
+    "Vocabulary": "band",
+    "Chinese": "樂團、樂隊；帶、細繩；(數目、年齡、價格等的)範圍"
+  },
+  {
+    "Vocabulary": "bank",
+    "Chinese": "銀行；堤、岸"
+  },
+  {
+    "Vocabulary": "banker",
+    "Chinese": "銀行家、莊家"
+  },
+  {
+    "Vocabulary": "bar",
+    "Chinese": "條狀物、條紋、欄杆；酒吧、吧檯"
+  },
+  {
+    "Vocabulary": "bar",
+    "Chinese": "障礙；阻擋、禁止"
+  },
+  {
+    "Vocabulary": "barber",
+    "Chinese": "理髮師"
+  },
+  {
+    "Vocabulary": "bark",
+    "Chinese": "吠叫、咆哮；狗吠聲"
+  },
+  {
+    "Vocabulary": "bark",
+    "Chinese": "樹皮"
+  },
+  {
+    "Vocabulary": "base",
+    "Chinese": "以...為據點、將總部設在；基地、基底、基礎"
+  },
+  {
+    "Vocabulary": "base",
+    "Chinese": "(棒球運動中的)壘"
+  },
+  {
+    "Vocabulary": "baseball",
+    "Chinese": "棒球"
+  },
+  {
+    "Vocabulary": "basement",
+    "Chinese": "地下室"
+  },
+  {
+    "Vocabulary": "basic",
+    "Chinese": "基本的"
+  },
+  {
+    "Vocabulary": "basis",
+    "Chinese": "基礎、根據"
+  },
+  {
+    "Vocabulary": "basket",
+    "Chinese": "籃子、線上購物籃"
+  },
+  {
+    "Vocabulary": "basketball",
+    "Chinese": "籃球"
+  },
+  {
+    "Vocabulary": "bat",
+    "Chinese": "蝙蝠"
+  },
+  {
+    "Vocabulary": "bat",
+    "Chinese": "球棒、球拍；用球棒或球拍擊球"
+  },
+  {
+    "Vocabulary": "bathroom",
+    "Chinese": "浴室、廁所"
+  },
+  {
+    "Vocabulary": "be",
+    "Chinese": "是(助動詞)"
+  },
+  {
+    "Vocabulary": "beach",
+    "Chinese": "海灘、湖濱"
+  },
+  {
+    "Vocabulary": "bean",
+    "Chinese": "豆子、豆莢，豆科植物"
+  },
+  {
+    "Vocabulary": "bear",
+    "Chinese": "熊"
+  },
+  {
+    "Vocabulary": "bear",
+    "Chinese": "承擔、忍受、負荷；具有；生孩子、結果實"
+  },
+  {
+    "Vocabulary": "beard",
+    "Chinese": "鬍鬚"
+  },
+  {
+    "Vocabulary": "beat",
+    "Chinese": "打敗、戰勝；敲打、攪打"
+  },
+  {
+    "Vocabulary": "beat",
+    "Chinese": "跳動聲、擊鼓聲；節拍"
+  },
+  {
+    "Vocabulary": "beautiful",
+    "Chinese": "美麗的、極好的"
+  },
+  {
+    "Vocabulary": "become",
+    "Chinese": "成為、變得"
+  },
+  {
+    "Vocabulary": "bed",
+    "Chinese": "床、床位"
+  },
+  {
+    "Vocabulary": "bedroom",
+    "Chinese": "臥室"
+  },
+  {
+    "Vocabulary": "bee",
+    "Chinese": "蜜蜂"
+  },
+  {
+    "Vocabulary": "beef",
+    "Chinese": "牛肉"
+  },
+  {
+    "Vocabulary": "beer",
+    "Chinese": "啤酒"
+  },
+  {
+    "Vocabulary": "before",
+    "Chinese": "在…之前、先於；在...以前；曾經、在前"
+  },
+  {
+    "Vocabulary": "begin",
+    "Chinese": "開始、以...起頭"
+  },
+  {
+    "Vocabulary": "beginner",
+    "Chinese": "初學者、新手"
+  },
+  {
+    "Vocabulary": "beginning",
+    "Chinese": "開端、起點"
+  },
+  {
+    "Vocabulary": "behave",
+    "Chinese": "表現"
+  },
+  {
+    "Vocabulary": "behind",
+    "Chinese": "在…後面；在背後、在原處、落後於"
+  },
+  {
+    "Vocabulary": "belief",
+    "Chinese": "相信、信念、信仰"
+  },
+  {
+    "Vocabulary": "believe",
+    "Chinese": "相信"
+  },
+  {
+    "Vocabulary": "bell",
+    "Chinese": "鈴、鐘"
+  },
+  {
+    "Vocabulary": "belong",
+    "Chinese": "屬於、應在...地方"
+  },
+  {
+    "Vocabulary": "below",
+    "Chinese": "在...下面、低於"
+  },
+  {
+    "Vocabulary": "belt",
+    "Chinese": "腰帶"
+  },
+  {
+    "Vocabulary": "bench",
+    "Chinese": "長椅"
+  },
+  {
+    "Vocabulary": "beside",
+    "Chinese": "在...旁邊"
+  },
+  {
+    "Vocabulary": "besides",
+    "Chinese": "除…之外；此外、而且"
+  },
+  {
+    "Vocabulary": "best",
+    "Chinese": "最、最適當地；最好的、最適當的"
+  },
+  {
+    "Vocabulary": "best",
+    "Chinese": "最好的人或事"
+  },
+  {
+    "Vocabulary": "best",
+    "Chinese": "打敗、戰勝"
+  },
+  {
+    "Vocabulary": "better",
+    "Chinese": "更、更好地；更好的、好轉的"
+  },
+  {
+    "Vocabulary": "better",
+    "Chinese": "更好的事物、更好者"
+  },
+  {
+    "Vocabulary": "better",
+    "Chinese": "勝過、超過"
+  },
+  {
+    "Vocabulary": "between",
+    "Chinese": "在…之間"
+  },
+  {
+    "Vocabulary": "beyond",
+    "Chinese": "遠於、超出；在更遠處"
+  },
+  {
+    "Vocabulary": "big",
+    "Chinese": "大的、年齡較大的、重大的"
+  },
+  {
+    "Vocabulary": "bill",
+    "Chinese": "鈔票、帳單；開立帳單"
+  },
+  {
+    "Vocabulary": "bill",
+    "Chinese": "議案、法案"
+  },
+  {
+    "Vocabulary": "biology",
+    "Chinese": "生物學"
+  },
+  {
+    "Vocabulary": "bird",
+    "Chinese": "鳥"
+  },
+  {
+    "Vocabulary": "birthday",
+    "Chinese": "生日"
+  },
+  {
+    "Vocabulary": "bit",
+    "Chinese": "稍微、小塊、少量、一點點"
+  },
+  {
+    "Vocabulary": "bite",
+    "Chinese": "咬、叮"
+  },
+  {
+    "Vocabulary": "bitter",
+    "Chinese": "有苦味的、(天氣)嚴寒的、怨恨的、令人不快的"
+  },
+  {
+    "Vocabulary": "black",
+    "Chinese": "黑色的；黑色"
+  },
+  {
+    "Vocabulary": "blackboard",
+    "Chinese": "黑板"
+  },
+  {
+    "Vocabulary": "blame",
+    "Chinese": "責備"
+  },
+  {
+    "Vocabulary": "blank",
+    "Chinese": "空白的；空白處、空格"
+  },
+  {
+    "Vocabulary": "blanket",
+    "Chinese": "毛毯、毯子；以厚層覆蓋"
+  },
+  {
+    "Vocabulary": "blind",
+    "Chinese": "失明的、盲目的；使失明、蒙蔽"
+  },
+  {
+    "Vocabulary": "block",
+    "Chinese": "街區；大樓；大塊；堵塞物、障礙物"
+  },
+  {
+    "Vocabulary": "block",
+    "Chinese": "堵塞；阻擋；擋住；妨礙"
+  },
+  {
+    "Vocabulary": "blood",
+    "Chinese": "血液、血統"
+  },
+  {
+    "Vocabulary": "blouse",
+    "Chinese": "女襯衫"
+  },
+  {
+    "Vocabulary": "blow",
+    "Chinese": "吹；吹奏；擤鼻子；炸毀；爆裂"
+  },
+  {
+    "Vocabulary": "blow",
+    "Chinese": "吹；吹奏(樂器)；擤(鼻子)；重擊；打擊"
+  },
+  {
+    "Vocabulary": "blue",
+    "Chinese": "藍色的；藍色"
+  },
+  {
+    "Vocabulary": "blue",
+    "Chinese": "悲傷的、憂鬱的"
+  },
+  {
+    "Vocabulary": "board",
+    "Chinese": "上(交通工具)；在船上(或其他交通工具)"
+  },
+  {
+    "Vocabulary": "board",
+    "Chinese": "木板、牌子、佈告欄、黑板或白板、棋盤"
+  },
+  {
+    "Vocabulary": "board",
+    "Chinese": "董事會、理事會"
+  },
+  {
+    "Vocabulary": "board",
+    "Chinese": "寄宿、住校；(住宿處提供的)伙食、膳食"
+  },
+  {
+    "Vocabulary": "boat",
+    "Chinese": "船"
+  },
+  {
+    "Vocabulary": "body",
+    "Chinese": "身體、軀幹、屍體"
+  },
+  {
+    "Vocabulary": "boil",
+    "Chinese": "(水等)沸騰"
+  },
+  {
+    "Vocabulary": "bomb",
+    "Chinese": "炸彈；投彈於、轟炸"
+  },
+  {
+    "Vocabulary": "bone",
+    "Chinese": "骨頭"
+  },
+  {
+    "Vocabulary": "book",
+    "Chinese": "書、簿冊"
+  },
+  {
+    "Vocabulary": "book",
+    "Chinese": "預訂、預約"
+  },
+  {
+    "Vocabulary": "bookcase",
+    "Chinese": "書架、書櫃"
+  },
+  {
+    "Vocabulary": "bored",
+    "Chinese": "感到無聊的、感到厭煩的"
+  },
+  {
+    "Vocabulary": "boring",
+    "Chinese": "無聊的、乏味的"
+  },
+  {
+    "Vocabulary": "born",
+    "Chinese": "出生、產生；天生的"
+  },
+  {
+    "Vocabulary": "borrow",
+    "Chinese": "借入、借貸"
+  },
+  {
+    "Vocabulary": "boss",
+    "Chinese": "老闆、上司"
+  },
+  {
+    "Vocabulary": "both",
+    "Chinese": "兩個、兩者、雙方"
+  },
+  {
+    "Vocabulary": "bother",
+    "Chinese": "打擾、使人煩擾；麻煩、令人煩惱的人(或事物)"
+  },
+  {
+    "Vocabulary": "bottle",
+    "Chinese": "瓶子；把(液體)裝入瓶中"
+  },
+  {
+    "Vocabulary": "bottom",
+    "Chinese": "底部、屁股；最底下的、最後的；到達底部、降到最低點"
+  },
+  {
+    "Vocabulary": "bottom",
+    "Chinese": "套裝的裙或褲"
+  },
+  {
+    "Vocabulary": "bow",
+    "Chinese": "鞠躬、點頭致意"
+  },
+  {
+    "Vocabulary": "bowl",
+    "Chinese": "碗、缽"
+  },
+  {
+    "Vocabulary": "bowling",
+    "Chinese": "保齡球運動"
+  },
+  {
+    "Vocabulary": "box",
+    "Chinese": "箱、盒、方格；把...裝箱"
+  },
+  {
+    "Vocabulary": "boy",
+    "Chinese": "男孩"
+  },
+  {
+    "Vocabulary": "brain",
+    "Chinese": "頭腦"
+  },
+  {
+    "Vocabulary": "branch",
+    "Chinese": "樹枝；支流、岔路；分支機構"
+  },
+  {
+    "Vocabulary": "branch",
+    "Chinese": "發出新枝；分岔、岔開"
+  },
+  {
+    "Vocabulary": "brave",
+    "Chinese": "勇敢的"
+  },
+  {
+    "Vocabulary": "bread",
+    "Chinese": "麵包"
+  },
+  {
+    "Vocabulary": "break",
+    "Chinese": "打破、弄壞；毀壞、打破、裂縫"
+  },
+  {
+    "Vocabulary": "break",
+    "Chinese": "休息時間、課間休息、假期"
+  },
+  {
+    "Vocabulary": "break",
+    "Chinese": "中止、中斷"
+  },
+  {
+    "Vocabulary": "break",
+    "Chinese": "違反、違背"
+  },
+  {
+    "Vocabulary": "breakfast",
+    "Chinese": "早餐"
+  },
+  {
+    "Vocabulary": "brick",
+    "Chinese": "磚塊"
+  },
+  {
+    "Vocabulary": "bridge",
+    "Chinese": "橋、橋梁；在...上架橋、縮短差異"
+  },
+  {
+    "Vocabulary": "brief",
+    "Chinese": "簡短的、短暫的"
+  },
+  {
+    "Vocabulary": "brief",
+    "Chinese": "概要、簡報；簡報、向...介紹情況"
+  },
+  {
+    "Vocabulary": "bright",
+    "Chinese": "明亮的、鮮豔的、快樂的；聰明的"
+  },
+  {
+    "Vocabulary": "bring",
+    "Chinese": "帶來、導致"
+  },
+  {
+    "Vocabulary": "Britain",
+    "Chinese": "英國"
+  },
+  {
+    "Vocabulary": "broad",
+    "Chinese": "寬廣的、廣泛的"
+  },
+  {
+    "Vocabulary": "broadcast",
+    "Chinese": "廣播(節目)；廣播"
+  },
+  {
+    "Vocabulary": "brother",
+    "Chinese": "兄弟"
+  },
+  {
+    "Vocabulary": "brown",
+    "Chinese": "棕褐色的；棕褐色；(把食物)炒成褐色"
+  },
+  {
+    "Vocabulary": "brunch",
+    "Chinese": "早午餐"
+  },
+  {
+    "Vocabulary": "brush",
+    "Chinese": "刷子、畫筆、刷抹；刷、擦掉"
+  },
+  {
+    "Vocabulary": "buffet",
+    "Chinese": "自助餐"
+  },
+  {
+    "Vocabulary": "bug",
+    "Chinese": "小蟲子；病菌；(電腦程式的)漏洞；竊聽器"
+  },
+  {
+    "Vocabulary": "bug",
+    "Chinese": "煩擾、使惱怒；裝竊聽器"
+  },
+  {
+    "Vocabulary": "build",
+    "Chinese": "建造、開闢"
+  },
+  {
+    "Vocabulary": "building",
+    "Chinese": "建築物、房子"
+  },
+  {
+    "Vocabulary": "bun",
+    "Chinese": "小圓麵包"
+  },
+  {
+    "Vocabulary": "bundle",
+    "Chinese": "束、捆"
+  },
+  {
+    "Vocabulary": "burn",
+    "Chinese": "燃燒、著火、發燒"
+  },
+  {
+    "Vocabulary": "burn",
+    "Chinese": "燒傷、曬傷、燙傷"
+  },
+  {
+    "Vocabulary": "burst",
+    "Chinese": "爆炸、迸裂；爆裂、迸發"
+  },
+  {
+    "Vocabulary": "bus",
+    "Chinese": "公車、大客車"
+  },
+  {
+    "Vocabulary": "business",
+    "Chinese": "生意、公司、商務活動、職責"
+  },
+  {
+    "Vocabulary": "busy",
+    "Chinese": "忙碌的、繁忙的、(電話)佔線的"
+  },
+  {
+    "Vocabulary": "but",
+    "Chinese": "只有、僅僅；但是；除…以外"
+  },
+  {
+    "Vocabulary": "butter",
+    "Chinese": "奶油；塗奶油於"
+  },
+  {
+    "Vocabulary": "butterfly",
+    "Chinese": "蝴蝶"
+  },
+  {
+    "Vocabulary": "button",
+    "Chinese": "鈕扣、按鈕；扣鈕扣"
+  },
+  {
+    "Vocabulary": "buy",
+    "Chinese": "買；購買、買賣"
+  },
+  {
+    "Vocabulary": "by",
+    "Chinese": "藉由、被、在旁邊、早於；經過"
+  },
+  {
+    "Vocabulary": "cabbage",
+    "Chinese": "甘藍、包心菜、高麗菜"
+  },
+  {
+    "Vocabulary": "cabinet",
+    "Chinese": "櫥櫃"
+  },
+  {
+    "Vocabulary": "cable",
+    "Chinese": "電纜、纜繩、有線電視；鋪設電纜"
+  },
+  {
+    "Vocabulary": "cafeteria",
+    "Chinese": "自助餐廳"
+  },
+  {
+    "Vocabulary": "cage",
+    "Chinese": "籠子；關進籠子裡"
+  },
+  {
+    "Vocabulary": "cake",
+    "Chinese": "蛋糕"
+  },
+  {
+    "Vocabulary": "calendar",
+    "Chinese": "日曆、曆法、行事曆"
+  },
+  {
+    "Vocabulary": "call",
+    "Chinese": "打電話；打電話、通話"
+  },
+  {
+    "Vocabulary": "call",
+    "Chinese": "給...命名、稱呼、把...視為"
+  },
+  {
+    "Vocabulary": "call",
+    "Chinese": "呼叫、鳴叫、召喚"
+  },
+  {
+    "Vocabulary": "calm",
+    "Chinese": "冷靜的、平靜的；使冷靜、使鎮靜；寧靜的狀態"
+  },
+  {
+    "Vocabulary": "camera",
+    "Chinese": "照相機"
+  },
+  {
+    "Vocabulary": "camp",
+    "Chinese": "營地、兵營、陣營；露營、紮營"
+  },
+  {
+    "Vocabulary": "campus",
+    "Chinese": "校園、校區"
+  },
+  {
+    "Vocabulary": "can",
+    "Chinese": "(助動詞)能、會、可以"
+  },
+  {
+    "Vocabulary": "Canada",
+    "Chinese": "加拿大"
+  },
+  {
+    "Vocabulary": "cancel",
+    "Chinese": "取消"
+  },
+  {
+    "Vocabulary": "cancer",
+    "Chinese": "癌症"
+  },
+  {
+    "Vocabulary": "candle",
+    "Chinese": "蠟燭"
+  },
+  {
+    "Vocabulary": "cap",
+    "Chinese": "便帽、蓋；用...覆蓋頂部"
+  },
+  {
+    "Vocabulary": "captain",
+    "Chinese": "隊長、機長、船長、上尉"
+  },
+  {
+    "Vocabulary": "car",
+    "Chinese": "汽車、車廂"
+  },
+  {
+    "Vocabulary": "card",
+    "Chinese": "卡片、紙牌、賀卡"
+  },
+  {
+    "Vocabulary": "care",
+    "Chinese": "照顧、擔憂、謹慎；照顧、關心、在意"
+  },
+  {
+    "Vocabulary": "career",
+    "Chinese": "職業、生涯"
+  },
+  {
+    "Vocabulary": "careful",
+    "Chinese": "小心的、仔細的"
+  },
+  {
+    "Vocabulary": "careless",
+    "Chinese": "粗心的、不小心的"
+  },
+  {
+    "Vocabulary": "carpet",
+    "Chinese": "地毯；用地毯鋪地"
+  },
+  {
+    "Vocabulary": "carrot",
+    "Chinese": "胡蘿蔔"
+  },
+  {
+    "Vocabulary": "carry",
+    "Chinese": "背、搬運、攜帶、運送"
+  },
+  {
+    "Vocabulary": "cartoon",
+    "Chinese": "卡通"
+  },
+  {
+    "Vocabulary": "case",
+    "Chinese": "箱、盒、容器；案件、案例"
+  },
+  {
+    "Vocabulary": "cash",
+    "Chinese": "現金；兌現"
+  },
+  {
+    "Vocabulary": "castle",
+    "Chinese": "城堡、堡壘"
+  },
+  {
+    "Vocabulary": "cat",
+    "Chinese": "貓、貓科動物"
+  },
+  {
+    "Vocabulary": "catch",
+    "Chinese": "接住、捕捉；罹患、染病；聽見、聽清楚；趕上(交通工具)、追上"
+  },
+  {
+    "Vocabulary": "catch",
+    "Chinese": "接球；捕獲量"
+  },
+  {
+    "Vocabulary": "cause",
+    "Chinese": "導致、由於；原因、理由"
+  },
+  {
+    "Vocabulary": "ceiling",
+    "Chinese": "天花板"
+  },
+  {
+    "Vocabulary": "celebrate",
+    "Chinese": "慶祝、祝賀、讚揚"
+  },
+  {
+    "Vocabulary": "cent",
+    "Chinese": "分(貨幣單位)"
+  },
+  {
+    "Vocabulary": "central",
+    "Chinese": "中心的"
+  },
+  {
+    "Vocabulary": "century",
+    "Chinese": "一百年、世紀"
+  },
+  {
+    "Vocabulary": "cereal",
+    "Chinese": "穀物、穀類食物"
+  },
+  {
+    "Vocabulary": "certain",
+    "Chinese": "肯定的、確定的、必然的"
+  },
+  {
+    "Vocabulary": "certainly",
+    "Chinese": "必定、當然"
+  },
+  {
+    "Vocabulary": "chair",
+    "Chinese": "椅子"
+  },
+  {
+    "Vocabulary": "chair",
+    "Chinese": "主持人、主席、系主任；擔任主席、主持"
+  },
+  {
+    "Vocabulary": "chalk",
+    "Chinese": "粉筆；用粉筆書寫"
+  },
+  {
+    "Vocabulary": "chance",
+    "Chinese": "機會、可能性、巧合"
+  },
+  {
+    "Vocabulary": "change",
+    "Chinese": "改變；交換、兌換"
+  },
+  {
+    "Vocabulary": "change",
+    "Chinese": "改變；零錢"
+  },
+  {
+    "Vocabulary": "channel",
+    "Chinese": "電視頻道、渠道、管道、途徑"
+  },
+  {
+    "Vocabulary": "chapter",
+    "Chinese": "章節"
+  },
+  {
+    "Vocabulary": "character",
+    "Chinese": "角色、人物；個性、特徵"
+  },
+  {
+    "Vocabulary": "charge",
+    "Chinese": "收費；指控、控告；指示、吩咐；充電"
+  },
+  {
+    "Vocabulary": "charge",
+    "Chinese": "費用；指控、控告；職責、責任；充電量、電荷"
+  },
+  {
+    "Vocabulary": "chart",
+    "Chinese": "圖表"
+  },
+  {
+    "Vocabulary": "chase",
+    "Chinese": "追趕、追捕、追求"
+  },
+  {
+    "Vocabulary": "chat",
+    "Chinese": "聊天"
+  },
+  {
+    "Vocabulary": "cheap",
+    "Chinese": "便宜的、價低質劣的；便宜地、廉價地"
+  },
+  {
+    "Vocabulary": "cheat",
+    "Chinese": "欺騙、作弊；欺騙手段、騙子"
+  },
+  {
+    "Vocabulary": "check",
+    "Chinese": "檢查、核對；打勾"
+  },
+  {
+    "Vocabulary": "cheer",
+    "Chinese": "歡呼、鼓舞；歡呼聲、歡樂"
+  },
+  {
+    "Vocabulary": "cheese",
+    "Chinese": "起司、乳酪"
+  },
+  {
+    "Vocabulary": "chemical",
+    "Chinese": "化學製品；化學的"
+  },
+  {
+    "Vocabulary": "chess",
+    "Chinese": "西洋棋"
+  },
+  {
+    "Vocabulary": "chicken",
+    "Chinese": "雞肉、雞"
+  },
+  {
+    "Vocabulary": "chief",
+    "Chinese": "首要的、最主要的、首席的；領導人、首領"
+  },
+  {
+    "Vocabulary": "child",
+    "Chinese": "小孩、兒童"
+  },
+  {
+    "Vocabulary": "childhood",
+    "Chinese": "童年、孩童時期"
+  },
+  {
+    "Vocabulary": "childish",
+    "Chinese": "孩子氣的、稚嫩的、幼稚的"
+  },
+  {
+    "Vocabulary": "childlike",
+    "Chinese": "孩子般的、天真無邪的"
+  },
+  {
+    "Vocabulary": "chin",
+    "Chinese": "下巴"
+  },
+  {
+    "Vocabulary": "China",
+    "Chinese": "中國"
+  },
+  {
+    "Vocabulary": "Chinese",
+    "Chinese": "中文、中國人；中國的、中國人的"
+  },
+  {
+    "Vocabulary": "chocolate",
+    "Chinese": "巧克力"
+  },
+  {
+    "Vocabulary": "choice",
+    "Chinese": "選擇、選項；優質的、上等的"
+  },
+  {
+    "Vocabulary": "choose",
+    "Chinese": "選擇、挑選"
+  },
+  {
+    "Vocabulary": "chopstick",
+    "Chinese": "筷子"
+  },
+  {
+    "Vocabulary": "chubby",
+    "Chinese": "圓胖的"
+  },
+  {
+    "Vocabulary": "church",
+    "Chinese": "教堂、教會"
+  },
+  {
+    "Vocabulary": "circle",
+    "Chinese": "圓形、圓圈、圈子；畫圓圈、圈出、盤旋"
+  },
+  {
+    "Vocabulary": "citizen",
+    "Chinese": "公民、居民"
+  },
+  {
+    "Vocabulary": "city",
+    "Chinese": "城市"
+  },
+  {
+    "Vocabulary": "claim",
+    "Chinese": "聲稱、主張；認領、索取；索款、索賠"
+  },
+  {
+    "Vocabulary": "claim",
+    "Chinese": "說法、斷言；權利、所有權"
+  },
+  {
+    "Vocabulary": "clap",
+    "Chinese": "拍手、鼓掌"
+  },
+  {
+    "Vocabulary": "class",
+    "Chinese": "課、班級"
+  },
+  {
+    "Vocabulary": "class",
+    "Chinese": "階級、等級；把...歸類、把...分級"
+  },
+  {
+    "Vocabulary": "classic",
+    "Chinese": "古典的、典型的、經典的；經典作品、名著"
+  },
+  {
+    "Vocabulary": "classical",
+    "Chinese": "古典的、經典的、傳統的"
+  },
+  {
+    "Vocabulary": "classmate",
+    "Chinese": "同班同學"
+  },
+  {
+    "Vocabulary": "classroom",
+    "Chinese": "教室"
+  },
+  {
+    "Vocabulary": "clean",
+    "Chinese": "乾淨的、清潔的；清潔、打掃；清潔、打掃"
+  },
+  {
+    "Vocabulary": "clean",
+    "Chinese": "完全的、徹底的；完全地、徹底地"
+  },
+  {
+    "Vocabulary": "clear",
+    "Chinese": "清除、清掃；使變清楚、使清晰"
+  },
+  {
+    "Vocabulary": "clear",
+    "Chinese": "清楚的、清晰的；暢通的、無阻礙的；不接觸的、不靠近的"
+  },
+  {
+    "Vocabulary": "clear",
+    "Chinese": "不觸及地、不靠近地"
+  },
+  {
+    "Vocabulary": "clerk",
+    "Chinese": "店員、職員"
+  },
+  {
+    "Vocabulary": "clever",
+    "Chinese": "聰明的、機靈的、精巧的"
+  },
+  {
+    "Vocabulary": "click",
+    "Chinese": "點按(滑鼠)"
+  },
+  {
+    "Vocabulary": "climate",
+    "Chinese": "氣候"
+  },
+  {
+    "Vocabulary": "climb",
+    "Chinese": "爬、攀登"
+  },
+  {
+    "Vocabulary": "climb",
+    "Chinese": "上升、晉升、上漲、增長"
+  },
+  {
+    "Vocabulary": "clock",
+    "Chinese": "時鐘"
+  },
+  {
+    "Vocabulary": "close",
+    "Chinese": "關閉(門窗)、合攏；(商點或場所)關門、不開放、停業"
+  },
+  {
+    "Vocabulary": "close",
+    "Chinese": "結束、停止；結局、結尾"
+  },
+  {
+    "Vocabulary": "close",
+    "Chinese": "(空間或時間上)靠近、接近"
+  },
+  {
+    "Vocabulary": "close",
+    "Chinese": "親密的、密切的"
+  },
+  {
+    "Vocabulary": "closet",
+    "Chinese": "衣櫥、壁櫥"
+  },
+  {
+    "Vocabulary": "clothes",
+    "Chinese": "衣服"
+  },
+  {
+    "Vocabulary": "cloudy",
+    "Chinese": "多雲的、陰天的"
+  },
+  {
+    "Vocabulary": "club",
+    "Chinese": "俱樂部、社團"
+  },
+  {
+    "Vocabulary": "coach",
+    "Chinese": "教練；培訓、指導"
+  },
+  {
+    "Vocabulary": "coast",
+    "Chinese": "海岸"
+  },
+  {
+    "Vocabulary": "coat",
+    "Chinese": "外套、大衣"
+  },
+  {
+    "Vocabulary": "coffee",
+    "Chinese": "咖啡"
+  },
+  {
+    "Vocabulary": "coin",
+    "Chinese": "硬幣"
+  },
+  {
+    "Vocabulary": "Coke",
+    "Chinese": "可口可樂"
+  },
+  {
+    "Vocabulary": "cold",
+    "Chinese": "冷的、冷淡的；寒冷、感冒"
+  },
+  {
+    "Vocabulary": "collect",
+    "Chinese": "收集"
+  },
+  {
+    "Vocabulary": "collection",
+    "Chinese": "收藏品、收集"
+  },
+  {
+    "Vocabulary": "college",
+    "Chinese": "大學、學院"
+  },
+  {
+    "Vocabulary": "comb",
+    "Chinese": "梳子；梳理"
+  },
+  {
+    "Vocabulary": "come",
+    "Chinese": "來"
+  },
+  {
+    "Vocabulary": "comfortable",
+    "Chinese": "舒適的"
+  },
+  {
+    "Vocabulary": "comic",
+    "Chinese": "滑稽的、好笑的"
+  },
+  {
+    "Vocabulary": "comic",
+    "Chinese": "漫畫"
+  },
+  {
+    "Vocabulary": "command",
+    "Chinese": "命令、指揮、掌握"
+  },
+  {
+    "Vocabulary": "comment",
+    "Chinese": "評論"
+  },
+  {
+    "Vocabulary": "common",
+    "Chinese": "常見的、共同的"
+  },
+  {
+    "Vocabulary": "company",
+    "Chinese": "公司；陪伴"
+  },
+  {
+    "Vocabulary": "compare",
+    "Chinese": "比較"
+  },
+  {
+    "Vocabulary": "complain",
+    "Chinese": "抱怨"
+  },
+  {
+    "Vocabulary": "complete",
+    "Chinese": "完成、使完整；完全的、完整的"
+  },
+  {
+    "Vocabulary": "computer",
+    "Chinese": "電腦"
+  },
+  {
+    "Vocabulary": "concern",
+    "Chinese": "擔心、關心"
+  },
+  {
+    "Vocabulary": "confident",
+    "Chinese": "自信的"
+  },
+  {
+    "Vocabulary": "confirm",
+    "Chinese": "確認"
+  },
+  {
+    "Vocabulary": "conflict",
+    "Chinese": "衝突"
+  },
+  {
+    "Vocabulary": "Confucius",
+    "Chinese": "孔子"
+  },
+  {
+    "Vocabulary": "confuse",
+    "Chinese": "使…困惑"
+  },
+  {
+    "Vocabulary": "congratulation",
+    "Chinese": "祝賀"
+  },
+  {
+    "Vocabulary": "consider",
+    "Chinese": "考慮、認為"
+  },
+  {
+    "Vocabulary": "contact",
+    "Chinese": "聯繫、接觸;聯繫"
+  },
+  {
+    "Vocabulary": "contact lens",
+    "Chinese": "隱形眼鏡"
+  },
+  {
+    "Vocabulary": "contain",
+    "Chinese": "包含"
+  },
+  {
+    "Vocabulary": "continue",
+    "Chinese": "繼續"
+  },
+  {
+    "Vocabulary": "contract",
+    "Chinese": "合約；訂約"
+  },
+  {
+    "Vocabulary": "control",
+    "Chinese": "控制"
+  },
+  {
+    "Vocabulary": "convenience store",
+    "Chinese": "便利商店"
+  },
+  {
+    "Vocabulary": "convenient",
+    "Chinese": "方便的"
+  },
+  {
+    "Vocabulary": "conversation",
+    "Chinese": "對話"
+  },
+  {
+    "Vocabulary": "cook",
+    "Chinese": "烹調；廚師"
+  },
+  {
+    "Vocabulary": "cookie",
+    "Chinese": "(甜)餅乾"
+  },
+  {
+    "Vocabulary": "cool",
+    "Chinese": "涼快的、酷的；使冷卻"
+  },
+  {
+    "Vocabulary": "copy",
+    "Chinese": "副本；複製"
+  },
+  {
+    "Vocabulary": "corn",
+    "Chinese": "玉米"
+  },
+  {
+    "Vocabulary": "corner",
+    "Chinese": "角落、轉角"
+  },
+  {
+    "Vocabulary": "correct",
+    "Chinese": "正確的；改正"
+  },
+  {
+    "Vocabulary": "cost",
+    "Chinese": "費用、成本；花費"
+  },
+  {
+    "Vocabulary": "cotton",
+    "Chinese": "棉"
+  },
+  {
+    "Vocabulary": "couch",
+    "Chinese": "沙發"
+  },
+  {
+    "Vocabulary": "cough",
+    "Chinese": "咳嗽"
+  },
+  {
+    "Vocabulary": "could",
+    "Chinese": "can的過去式"
+  },
+  {
+    "Vocabulary": "count",
+    "Chinese": "數、計算；計數、計算"
+  },
+  {
+    "Vocabulary": "country",
+    "Chinese": "國家；鄉下"
+  },
+  {
+    "Vocabulary": "countryside",
+    "Chinese": "鄉間"
+  },
+  {
+    "Vocabulary": "county",
+    "Chinese": "縣、郡"
+  },
+  {
+    "Vocabulary": "couple",
+    "Chinese": "一對、幾個、一對情侶或夫妻"
+  },
+  {
+    "Vocabulary": "courage",
+    "Chinese": "勇氣"
+  },
+  {
+    "Vocabulary": "course",
+    "Chinese": "課程"
+  },
+  {
+    "Vocabulary": "court",
+    "Chinese": "法庭；球場"
+  },
+  {
+    "Vocabulary": "cousin",
+    "Chinese": "堂(表)兄弟姊妹"
+  },
+  {
+    "Vocabulary": "cover",
+    "Chinese": "遮蓋、涵蓋；覆蓋物、封面"
+  },
+  {
+    "Vocabulary": "cow",
+    "Chinese": "母牛"
+  },
+  {
+    "Vocabulary": "crab",
+    "Chinese": "螃蟹"
+  },
+  {
+    "Vocabulary": "crayon",
+    "Chinese": "蠟筆"
+  },
+  {
+    "Vocabulary": "crazy",
+    "Chinese": "瘋狂的"
+  },
+  {
+    "Vocabulary": "cream",
+    "Chinese": "鮮奶油、奶霜；乳霜、護膚霜"
+  },
+  {
+    "Vocabulary": "create",
+    "Chinese": "創造"
+  },
+  {
+    "Vocabulary": "credit card",
+    "Chinese": "信用卡"
+  },
+  {
+    "Vocabulary": "crime",
+    "Chinese": "罪行"
+  },
+  {
+    "Vocabulary": "crisis",
+    "Chinese": "危機"
+  },
+  {
+    "Vocabulary": "cross",
+    "Chinese": "穿越、交叉"
+  },
+  {
+    "Vocabulary": "cross",
+    "Chinese": "十字架、十字形"
+  },
+  {
+    "Vocabulary": "crowd",
+    "Chinese": "人群"
+  },
+  {
+    "Vocabulary": "crowded",
+    "Chinese": "擁擠的"
+  },
+  {
+    "Vocabulary": "cruel",
+    "Chinese": "殘酷的"
+  },
+  {
+    "Vocabulary": "cry",
+    "Chinese": "哭泣、喊叫"
+  },
+  {
+    "Vocabulary": "culture",
+    "Chinese": "文化"
+  },
+  {
+    "Vocabulary": "cup",
+    "Chinese": "杯子"
+  },
+  {
+    "Vocabulary": "cure",
+    "Chinese": "有療效的藥物、治療方法；治癒"
+  },
+  {
+    "Vocabulary": "curious",
+    "Chinese": "好奇的"
+  },
+  {
+    "Vocabulary": "current",
+    "Chinese": "當前的"
+  },
+  {
+    "Vocabulary": "current",
+    "Chinese": "水流、氣流、電流"
+  },
+  {
+    "Vocabulary": "curtain",
+    "Chinese": "窗簾、幕布"
+  },
+  {
+    "Vocabulary": "curve",
+    "Chinese": "曲線；使彎曲"
+  },
+  {
+    "Vocabulary": "custom",
+    "Chinese": "習俗"
+  },
+  {
+    "Vocabulary": "customer",
+    "Chinese": "顧客"
+  },
+  {
+    "Vocabulary": "cut",
+    "Chinese": "切、割、修剪；割傷"
+  },
+  {
+    "Vocabulary": "cute",
+    "Chinese": "可愛的"
+  },
+  {
+    "Vocabulary": "daily",
+    "Chinese": "每日的；每日地"
+  },
+  {
+    "Vocabulary": "damage",
+    "Chinese": "損害"
+  },
+  {
+    "Vocabulary": "dance",
+    "Chinese": "跳舞"
+  },
+  {
+    "Vocabulary": "danger",
+    "Chinese": "危險"
+  },
+  {
+    "Vocabulary": "dangerous",
+    "Chinese": "危險的"
+  },
+  {
+    "Vocabulary": "dark",
+    "Chinese": "黑暗；黑暗的、深色的"
+  },
+  {
+    "Vocabulary": "date",
+    "Chinese": "日期、約會；寫日期、約會"
+  },
+  {
+    "Vocabulary": "daughter",
+    "Chinese": "女兒"
+  },
+  {
+    "Vocabulary": "dawn",
+    "Chinese": "黎明；破曉"
+  },
+  {
+    "Vocabulary": "day",
+    "Chinese": "天、白天"
+  },
+  {
+    "Vocabulary": "dead",
+    "Chinese": "死亡的"
+  },
+  {
+    "Vocabulary": "deaf",
+    "Chinese": "聾的"
+  },
+  {
+    "Vocabulary": "deal",
+    "Chinese": "做生意、買賣；處理；分發、發牌"
+  },
+  {
+    "Vocabulary": "deal",
+    "Chinese": "交易、協議"
+  },
+  {
+    "Vocabulary": "dear",
+    "Chinese": "親愛的；親愛的；哎呀"
+  },
+  {
+    "Vocabulary": "death",
+    "Chinese": "死亡"
+  },
+  {
+    "Vocabulary": "debate",
+    "Chinese": "辯論"
+  },
+  {
+    "Vocabulary": "debt",
+    "Chinese": "債、負債"
+  },
+  {
+    "Vocabulary": "decide",
+    "Chinese": "決定"
+  },
+  {
+    "Vocabulary": "decision",
+    "Chinese": "決定"
+  },
+  {
+    "Vocabulary": "decorate",
+    "Chinese": "裝飾"
+  },
+  {
+    "Vocabulary": "decrease",
+    "Chinese": "減少"
+  },
+  {
+    "Vocabulary": "deep",
+    "Chinese": "深的；深地"
+  },
+  {
+    "Vocabulary": "deer",
+    "Chinese": "鹿"
+  },
+  {
+    "Vocabulary": "degree",
+    "Chinese": "度、程度"
+  },
+  {
+    "Vocabulary": "delay",
+    "Chinese": "延誤、耽擱"
+  },
+  {
+    "Vocabulary": "delicious",
+    "Chinese": "美味的"
+  },
+  {
+    "Vocabulary": "deliver",
+    "Chinese": "運送"
+  },
+  {
+    "Vocabulary": "democracy",
+    "Chinese": "民主"
+  },
+  {
+    "Vocabulary": "democratic",
+    "Chinese": "民主的"
+  },
+  {
+    "Vocabulary": "dentist",
+    "Chinese": "牙醫"
+  },
+  {
+    "Vocabulary": "deny",
+    "Chinese": "否認"
+  },
+  {
+    "Vocabulary": "department",
+    "Chinese": "部門"
+  },
+  {
+    "Vocabulary": "department store",
+    "Chinese": "百貨公司"
+  },
+  {
+    "Vocabulary": "depend",
+    "Chinese": "取決於、依靠"
+  },
+  {
+    "Vocabulary": "describe",
+    "Chinese": "描述"
+  },
+  {
+    "Vocabulary": "desert",
+    "Chinese": "遺棄"
+  },
+  {
+    "Vocabulary": "desert",
+    "Chinese": "沙漠"
+  },
+  {
+    "Vocabulary": "design",
+    "Chinese": "設計"
+  },
+  {
+    "Vocabulary": "desire",
+    "Chinese": "渴望"
+  },
+  {
+    "Vocabulary": "desk",
+    "Chinese": "書桌"
+  },
+  {
+    "Vocabulary": "dessert",
+    "Chinese": "甜點"
+  },
+  {
+    "Vocabulary": "determine",
+    "Chinese": "決定、下決心"
+  },
+  {
+    "Vocabulary": "develop",
+    "Chinese": "發展"
+  },
+  {
+    "Vocabulary": "dial",
+    "Chinese": "撥號；撥號盤、錶面"
+  },
+  {
+    "Vocabulary": "diamond",
+    "Chinese": "鑽石；菱形"
+  },
+  {
+    "Vocabulary": "diary",
+    "Chinese": "日記"
+  },
+  {
+    "Vocabulary": "dictionary",
+    "Chinese": "字典"
+  },
+  {
+    "Vocabulary": "die",
+    "Chinese": "死"
+  },
+  {
+    "Vocabulary": "diet",
+    "Chinese": "飲食、節食；節食；飲食的、節食的"
+  },
+  {
+    "Vocabulary": "difference",
+    "Chinese": "差別"
+  },
+  {
+    "Vocabulary": "different",
+    "Chinese": "不同的"
+  },
+  {
+    "Vocabulary": "difficult",
+    "Chinese": "困難的"
+  },
+  {
+    "Vocabulary": "difficulty",
+    "Chinese": "困難"
+  },
+  {
+    "Vocabulary": "dig",
+    "Chinese": "挖"
+  },
+  {
+    "Vocabulary": "diligent",
+    "Chinese": "勤奮的"
+  },
+  {
+    "Vocabulary": "dining room",
+    "Chinese": "餐廳、飯廳"
+  },
+  {
+    "Vocabulary": "dinner",
+    "Chinese": "晚餐"
+  },
+  {
+    "Vocabulary": "dinosaur",
+    "Chinese": "恐龍"
+  },
+  {
+    "Vocabulary": "diplomat",
+    "Chinese": "外交官"
+  },
+  {
+    "Vocabulary": "direct",
+    "Chinese": "直接的"
+  },
+  {
+    "Vocabulary": "direct",
+    "Chinese": "針對、指揮"
+  },
+  {
+    "Vocabulary": "direction",
+    "Chinese": "方向"
+  },
+  {
+    "Vocabulary": "director",
+    "Chinese": "導演、主管"
+  },
+  {
+    "Vocabulary": "dirty",
+    "Chinese": "髒的；弄髒"
+  },
+  {
+    "Vocabulary": "disappear",
+    "Chinese": "消失"
+  },
+  {
+    "Vocabulary": "discover",
+    "Chinese": "發現"
+  },
+  {
+    "Vocabulary": "discuss",
+    "Chinese": "討論"
+  },
+  {
+    "Vocabulary": "discussion",
+    "Chinese": "討論"
+  },
+  {
+    "Vocabulary": "dish",
+    "Chinese": "盤、菜餚"
+  },
+  {
+    "Vocabulary": "dishonest",
+    "Chinese": "不誠實的"
+  },
+  {
+    "Vocabulary": "distance",
+    "Chinese": "距離"
+  },
+  {
+    "Vocabulary": "divide",
+    "Chinese": "分開、劃分"
+  },
+  {
+    "Vocabulary": "division",
+    "Chinese": "分開；部門"
+  },
+  {
+    "Vocabulary": "dizzy",
+    "Chinese": "頭暈的"
+  },
+  {
+    "Vocabulary": "do",
+    "Chinese": "做"
+  },
+  {
+    "Vocabulary": "do",
+    "Chinese": "助動詞"
+  },
+  {
+    "Vocabulary": "doctor",
+    "Chinese": "醫生、博士"
+  },
+  {
+    "Vocabulary": "document",
+    "Chinese": "文件"
+  },
+  {
+    "Vocabulary": "dodge ball",
+    "Chinese": "躲避球"
+  },
+  {
+    "Vocabulary": "dog",
+    "Chinese": "狗"
+  },
+  {
+    "Vocabulary": "doll",
+    "Chinese": "玩偶"
+  },
+  {
+    "Vocabulary": "dolphin",
+    "Chinese": "海豚"
+  },
+  {
+    "Vocabulary": "donkey",
+    "Chinese": "驢"
+  },
+  {
+    "Vocabulary": "door",
+    "Chinese": "門"
+  },
+  {
+    "Vocabulary": "dot",
+    "Chinese": "小圓點"
+  },
+  {
+    "Vocabulary": "double",
+    "Chinese": "雙重的；加倍；兩倍"
+  },
+  {
+    "Vocabulary": "Double Tenth Day",
+    "Chinese": "雙十節"
+  },
+  {
+    "Vocabulary": "doubt",
+    "Chinese": "疑慮；懷疑、對…不確信"
+  },
+  {
+    "Vocabulary": "down",
+    "Chinese": "向下；在下方"
+  },
+  {
+    "Vocabulary": "down",
+    "Chinese": "情緒低落"
+  },
+  {
+    "Vocabulary": "down",
+    "Chinese": "羽絨"
+  },
+  {
+    "Vocabulary": "download",
+    "Chinese": "下載"
+  },
+  {
+    "Vocabulary": "downstairs",
+    "Chinese": "朝樓下、在樓下；樓下的"
+  },
+  {
+    "Vocabulary": "downtown",
+    "Chinese": "往市區；市區的；市區"
+  },
+  {
+    "Vocabulary": "dozen",
+    "Chinese": "一打"
+  },
+  {
+    "Vocabulary": "dragon",
+    "Chinese": "龍"
+  },
+  {
+    "Vocabulary": "Dragon Boat Festival",
+    "Chinese": "端午節"
+  },
+  {
+    "Vocabulary": "drama",
+    "Chinese": "戲劇"
+  },
+  {
+    "Vocabulary": "draw",
+    "Chinese": "畫"
+  },
+  {
+    "Vocabulary": "drawer",
+    "Chinese": "抽屜"
+  },
+  {
+    "Vocabulary": "dream",
+    "Chinese": "夢；作夢"
+  },
+  {
+    "Vocabulary": "dress",
+    "Chinese": "著裝；洋裝"
+  },
+  {
+    "Vocabulary": "dresser",
+    "Chinese": "斗櫃、衣櫃、梳妝台"
+  },
+  {
+    "Vocabulary": "drink",
+    "Chinese": "喝；飲料"
+  },
+  {
+    "Vocabulary": "drive",
+    "Chinese": "開車；車程"
+  },
+  {
+    "Vocabulary": "driver",
+    "Chinese": "駕駛員"
+  },
+  {
+    "Vocabulary": "drop",
+    "Chinese": "使滴落、丟下、下降；(一)滴"
+  },
+  {
+    "Vocabulary": "drug",
+    "Chinese": "藥品、毒品"
+  },
+  {
+    "Vocabulary": "drugstore",
+    "Chinese": "藥局"
+  },
+  {
+    "Vocabulary": "drum",
+    "Chinese": "鼓"
+  },
+  {
+    "Vocabulary": "dry",
+    "Chinese": "乾的；弄乾"
+  },
+  {
+    "Vocabulary": "dryer",
+    "Chinese": "烘乾機、吹風機"
+  },
+  {
+    "Vocabulary": "duck",
+    "Chinese": "鴨"
+  },
+  {
+    "Vocabulary": "dumb",
+    "Chinese": "(口語)傻的、愚蠢的"
+  },
+  {
+    "Vocabulary": "dumpling",
+    "Chinese": "餃子"
+  },
+  {
+    "Vocabulary": "during",
+    "Chinese": "在…期間"
+  },
+  {
+    "Vocabulary": "duty",
+    "Chinese": "責任、職責"
+  },
+  {
+    "Vocabulary": "each",
+    "Chinese": "每個"
+  },
+  {
+    "Vocabulary": "eagle",
+    "Chinese": "鷹"
+  },
+  {
+    "Vocabulary": "ear",
+    "Chinese": "耳"
+  },
+  {
+    "Vocabulary": "early",
+    "Chinese": "早的；早"
+  },
+  {
+    "Vocabulary": "earn",
+    "Chinese": "賺得"
+  },
+  {
+    "Vocabulary": "earth",
+    "Chinese": "地球"
+  },
+  {
+    "Vocabulary": "east",
+    "Chinese": "東方；向東；東邊的"
+  },
+  {
+    "Vocabulary": "Easter",
+    "Chinese": "復活節"
+  },
+  {
+    "Vocabulary": "eastern",
+    "Chinese": "東方的"
+  },
+  {
+    "Vocabulary": "easy",
+    "Chinese": "容易的"
+  },
+  {
+    "Vocabulary": "eat",
+    "Chinese": "吃"
+  },
+  {
+    "Vocabulary": "edge",
+    "Chinese": "邊緣"
+  },
+  {
+    "Vocabulary": "education",
+    "Chinese": "教育"
+  },
+  {
+    "Vocabulary": "effect",
+    "Chinese": "結果、效果；達到…的效果"
+  },
+  {
+    "Vocabulary": "effective",
+    "Chinese": "有效的"
+  },
+  {
+    "Vocabulary": "effort",
+    "Chinese": "努力"
+  },
+  {
+    "Vocabulary": "egg",
+    "Chinese": "蛋"
+  },
+  {
+    "Vocabulary": "eight",
+    "Chinese": "八"
+  },
+  {
+    "Vocabulary": "eighteen",
+    "Chinese": "十八"
+  },
+  {
+    "Vocabulary": "eighty",
+    "Chinese": "八十"
+  },
+  {
+    "Vocabulary": "either",
+    "Chinese": "也(否定句)"
+  },
+  {
+    "Vocabulary": "either",
+    "Chinese": "(兩者中)任一個"
+  },
+  {
+    "Vocabulary": "elder",
+    "Chinese": "長者；年長的"
+  },
+  {
+    "Vocabulary": "elect",
+    "Chinese": "推選、選舉"
+  },
+  {
+    "Vocabulary": "election",
+    "Chinese": "選舉"
+  },
+  {
+    "Vocabulary": "electric",
+    "Chinese": "電的"
+  },
+  {
+    "Vocabulary": "element",
+    "Chinese": "元素、要素"
+  },
+  {
+    "Vocabulary": "elementary school",
+    "Chinese": "小學"
+  },
+  {
+    "Vocabulary": "elephant",
+    "Chinese": "象"
+  },
+  {
+    "Vocabulary": "eleven",
+    "Chinese": "十一"
+  },
+  {
+    "Vocabulary": "else",
+    "Chinese": "其他"
+  },
+  {
+    "Vocabulary": "email",
+    "Chinese": "電子郵件；寄電子郵件"
+  },
+  {
+    "Vocabulary": "embarrass",
+    "Chinese": "使尷尬"
+  },
+  {
+    "Vocabulary": "emotion",
+    "Chinese": "情感、情緒"
+  },
+  {
+    "Vocabulary": "employ",
+    "Chinese": "雇用"
+  },
+  {
+    "Vocabulary": "empty",
+    "Chinese": "空的；使…變空"
+  },
+  {
+    "Vocabulary": "encourage",
+    "Chinese": "鼓勵"
+  },
+  {
+    "Vocabulary": "end",
+    "Chinese": "結束、末端；結束"
+  },
+  {
+    "Vocabulary": "enemy",
+    "Chinese": "敵人"
+  },
+  {
+    "Vocabulary": "energy",
+    "Chinese": "活力、精力；能源"
+  },
+  {
+    "Vocabulary": "engine",
+    "Chinese": "引擎"
+  },
+  {
+    "Vocabulary": "engineer",
+    "Chinese": "工程師"
+  },
+  {
+    "Vocabulary": "England",
+    "Chinese": "英格蘭"
+  },
+  {
+    "Vocabulary": "English",
+    "Chinese": "英語的、英格蘭的；英語"
+  },
+  {
+    "Vocabulary": "enjoy",
+    "Chinese": "享受"
+  },
+  {
+    "Vocabulary": "enough",
+    "Chinese": "足夠的"
+  },
+  {
+    "Vocabulary": "enter",
+    "Chinese": "進入"
+  },
+  {
+    "Vocabulary": "entire",
+    "Chinese": "全部的"
+  },
+  {
+    "Vocabulary": "entrance",
+    "Chinese": "入口"
+  },
+  {
+    "Vocabulary": "envelope",
+    "Chinese": "信封"
+  },
+  {
+    "Vocabulary": "environment",
+    "Chinese": "環境"
+  },
+  {
+    "Vocabulary": "envy",
+    "Chinese": "羨慕、妒忌"
+  },
+  {
+    "Vocabulary": "equal",
+    "Chinese": "相等的；相等；相等的人事物"
+  },
+  {
+    "Vocabulary": "eraser",
+    "Chinese": "橡皮擦"
+  },
+  {
+    "Vocabulary": "error",
+    "Chinese": "錯誤"
+  },
+  {
+    "Vocabulary": "especially",
+    "Chinese": "尤其"
+  },
+  {
+    "Vocabulary": "Europe",
+    "Chinese": "歐洲"
+  },
+  {
+    "Vocabulary": "European",
+    "Chinese": "歐洲(人)的；歐洲人"
+  },
+  {
+    "Vocabulary": "eve",
+    "Chinese": "前夕"
+  },
+  {
+    "Vocabulary": "even",
+    "Chinese": "甚至、更加"
+  },
+  {
+    "Vocabulary": "evening",
+    "Chinese": "傍晚、晚上"
+  },
+  {
+    "Vocabulary": "event",
+    "Chinese": "事件、活動"
+  },
+  {
+    "Vocabulary": "ever",
+    "Chinese": "從來、在任何時候"
+  },
+  {
+    "Vocabulary": "every",
+    "Chinese": "每個"
+  },
+  {
+    "Vocabulary": "everybody",
+    "Chinese": "每個人"
+  },
+  {
+    "Vocabulary": "everything",
+    "Chinese": "每件事"
+  },
+  {
+    "Vocabulary": "everywhere",
+    "Chinese": "到處"
+  },
+  {
+    "Vocabulary": "evil",
+    "Chinese": "邪惡；邪惡的"
+  },
+  {
+    "Vocabulary": "exact",
+    "Chinese": "確切的"
+  },
+  {
+    "Vocabulary": "exam",
+    "Chinese": "考試"
+  },
+  {
+    "Vocabulary": "examine",
+    "Chinese": "檢查"
+  },
+  {
+    "Vocabulary": "example",
+    "Chinese": "例子"
+  },
+  {
+    "Vocabulary": "excellent",
+    "Chinese": "傑出的"
+  },
+  {
+    "Vocabulary": "except",
+    "Chinese": "除…之外"
+  },
+  {
+    "Vocabulary": "excite",
+    "Chinese": "使興奮"
+  },
+  {
+    "Vocabulary": "excuse",
+    "Chinese": "藉口"
+  },
+  {
+    "Vocabulary": "excuse",
+    "Chinese": "原諒"
+  },
+  {
+    "Vocabulary": "exercise",
+    "Chinese": "運動、練習；運動"
+  },
+  {
+    "Vocabulary": "exist",
+    "Chinese": "存在"
+  },
+  {
+    "Vocabulary": "exit",
+    "Chinese": "出口；離開"
+  },
+  {
+    "Vocabulary": "expect",
+    "Chinese": "預料、期待"
+  },
+  {
+    "Vocabulary": "expensive",
+    "Chinese": "昂貴的"
+  },
+  {
+    "Vocabulary": "experience",
+    "Chinese": "經驗；體驗"
+  },
+  {
+    "Vocabulary": "expert",
+    "Chinese": "專家"
+  },
+  {
+    "Vocabulary": "explain",
+    "Chinese": "解釋"
+  },
+  {
+    "Vocabulary": "export",
+    "Chinese": "出口、輸出"
+  },
+  {
+    "Vocabulary": "express",
+    "Chinese": "表達"
+  },
+  {
+    "Vocabulary": "express",
+    "Chinese": "快車、快遞"
+  },
+  {
+    "Vocabulary": "express",
+    "Chinese": "快的"
+  },
+  {
+    "Vocabulary": "extra",
+    "Chinese": "額外的"
+  },
+  {
+    "Vocabulary": "eye",
+    "Chinese": "眼睛"
+  },
+  {
+    "Vocabulary": "face",
+    "Chinese": "臉；面對"
+  },
+  {
+    "Vocabulary": "fact",
+    "Chinese": "事實"
+  },
+  {
+    "Vocabulary": "factory",
+    "Chinese": "工廠"
+  },
+  {
+    "Vocabulary": "fail",
+    "Chinese": "失敗、不及格"
+  },
+  {
+    "Vocabulary": "failure",
+    "Chinese": "失敗、故障"
+  },
+  {
+    "Vocabulary": "fair",
+    "Chinese": "公平的"
+  },
+  {
+    "Vocabulary": "fair",
+    "Chinese": "市集、商品展覽會、園遊會"
+  },
+  {
+    "Vocabulary": "fall",
+    "Chinese": "跌倒、掉落、下降"
+  },
+  {
+    "Vocabulary": "false",
+    "Chinese": "錯誤的、假的"
+  },
+  {
+    "Vocabulary": "family",
+    "Chinese": "家人、家庭"
+  },
+  {
+    "Vocabulary": "famous",
+    "Chinese": "著名的"
+  },
+  {
+    "Vocabulary": "fan",
+    "Chinese": "迷、狂熱愛好者；扇"
+  },
+  {
+    "Vocabulary": "fancy",
+    "Chinese": "花俏的、昂貴的、豪華的"
+  },
+  {
+    "Vocabulary": "fantastic",
+    "Chinese": "極好的"
+  },
+  {
+    "Vocabulary": "far",
+    "Chinese": "遠、非常；遠的"
+  },
+  {
+    "Vocabulary": "farm",
+    "Chinese": "農場"
+  },
+  {
+    "Vocabulary": "farmer",
+    "Chinese": "農夫"
+  },
+  {
+    "Vocabulary": "fashion",
+    "Chinese": "流行時尚"
+  },
+  {
+    "Vocabulary": "fashion",
+    "Chinese": "塑造成、製作"
+  },
+  {
+    "Vocabulary": "fashionable",
+    "Chinese": "時髦的"
+  },
+  {
+    "Vocabulary": "fast",
+    "Chinese": "快的；快速地"
+  },
+  {
+    "Vocabulary": "fat",
+    "Chinese": "肥胖的；脂肪"
+  },
+  {
+    "Vocabulary": "father",
+    "Chinese": "父親"
+  },
+  {
+    "Vocabulary": "faucet",
+    "Chinese": "水龍頭"
+  },
+  {
+    "Vocabulary": "fault",
+    "Chinese": "過錯、缺點"
+  },
+  {
+    "Vocabulary": "fear",
+    "Chinese": "恐懼、害怕"
+  },
+  {
+    "Vocabulary": "fee",
+    "Chinese": "費用"
+  },
+  {
+    "Vocabulary": "feed",
+    "Chinese": "餵"
+  },
+  {
+    "Vocabulary": "feel",
+    "Chinese": "感覺"
+  },
+  {
+    "Vocabulary": "feeling",
+    "Chinese": "感覺、感情"
+  },
+  {
+    "Vocabulary": "fellow",
+    "Chinese": "夥伴；同類的、同伴的"
+  },
+  {
+    "Vocabulary": "female",
+    "Chinese": "女性的；女性"
+  },
+  {
+    "Vocabulary": "fence",
+    "Chinese": "籬笆"
+  },
+  {
+    "Vocabulary": "festival",
+    "Chinese": "節慶"
+  },
+  {
+    "Vocabulary": "fever",
+    "Chinese": "發燒"
+  },
+  {
+    "Vocabulary": "few",
+    "Chinese": "少數的"
+  },
+  {
+    "Vocabulary": "field",
+    "Chinese": "田地；運動場；領域"
+  },
+  {
+    "Vocabulary": "fifteen",
+    "Chinese": "十五"
+  },
+  {
+    "Vocabulary": "fifty",
+    "Chinese": "五十"
+  },
+  {
+    "Vocabulary": "fight",
+    "Chinese": "打架、爭吵、抗爭"
+  },
+  {
+    "Vocabulary": "figure",
+    "Chinese": "數字、圖表"
+  },
+  {
+    "Vocabulary": "figure",
+    "Chinese": "認為、計算"
+  },
+  {
+    "Vocabulary": "fill",
+    "Chinese": "裝滿"
+  },
+  {
+    "Vocabulary": "film",
+    "Chinese": "電影"
+  },
+  {
+    "Vocabulary": "final",
+    "Chinese": "最後的"
+  },
+  {
+    "Vocabulary": "final",
+    "Chinese": "期末考"
+  },
+  {
+    "Vocabulary": "find",
+    "Chinese": "找到；感到"
+  },
+  {
+    "Vocabulary": "fine",
+    "Chinese": "很好的"
+  },
+  {
+    "Vocabulary": "fine",
+    "Chinese": "處以罰金；罰金"
+  },
+  {
+    "Vocabulary": "finger",
+    "Chinese": "手指"
+  },
+  {
+    "Vocabulary": "finish",
+    "Chinese": "結束"
+  },
+  {
+    "Vocabulary": "fire",
+    "Chinese": "火"
+  },
+  {
+    "Vocabulary": "fire",
+    "Chinese": "開火、發射；開除"
+  },
+  {
+    "Vocabulary": "firm",
+    "Chinese": "公司"
+  },
+  {
+    "Vocabulary": "firm",
+    "Chinese": "堅固的"
+  },
+  {
+    "Vocabulary": "first",
+    "Chinese": "首先"
+  },
+  {
+    "Vocabulary": "fish",
+    "Chinese": "魚；釣魚"
+  },
+  {
+    "Vocabulary": "fisherman",
+    "Chinese": "漁民"
+  },
+  {
+    "Vocabulary": "fit",
+    "Chinese": "合適"
+  },
+  {
+    "Vocabulary": "fit",
+    "Chinese": "健壯的、健康的"
+  },
+  {
+    "Vocabulary": "five",
+    "Chinese": "五"
+  },
+  {
+    "Vocabulary": "fix",
+    "Chinese": "修理"
+  },
+  {
+    "Vocabulary": "flag",
+    "Chinese": "旗"
+  },
+  {
+    "Vocabulary": "flashlight",
+    "Chinese": "手電筒"
+  },
+  {
+    "Vocabulary": "flat",
+    "Chinese": "平坦的"
+  },
+  {
+    "Vocabulary": "flat tire",
+    "Chinese": "沒氣的輪胎"
+  },
+  {
+    "Vocabulary": "flight",
+    "Chinese": "航程、班機"
+  },
+  {
+    "Vocabulary": "floor",
+    "Chinese": "地板、樓層"
+  },
+  {
+    "Vocabulary": "flour",
+    "Chinese": "麵粉"
+  },
+  {
+    "Vocabulary": "flow",
+    "Chinese": "流動"
+  },
+  {
+    "Vocabulary": "flower",
+    "Chinese": "花"
+  },
+  {
+    "Vocabulary": "flu",
+    "Chinese": "流行性感冒"
+  },
+  {
+    "Vocabulary": "flute",
+    "Chinese": "長笛"
+  },
+  {
+    "Vocabulary": "fly",
+    "Chinese": "飛"
+  },
+  {
+    "Vocabulary": "fly",
+    "Chinese": "蒼蠅"
+  },
+  {
+    "Vocabulary": "focus",
+    "Chinese": "焦點；聚焦"
+  },
+  {
+    "Vocabulary": "fog",
+    "Chinese": "霧"
+  },
+  {
+    "Vocabulary": "follow",
+    "Chinese": "跟隨、接著、遵循"
+  },
+  {
+    "Vocabulary": "following",
+    "Chinese": "接著的、下列的；在…之後；下列事物；追隨者"
+  },
+  {
+    "Vocabulary": "food",
+    "Chinese": "食物"
+  },
+  {
+    "Vocabulary": "fool",
+    "Chinese": "傻瓜；愚蠢的"
+  },
+  {
+    "Vocabulary": "fool",
+    "Chinese": "愚弄、欺騙"
+  },
+  {
+    "Vocabulary": "foolish",
+    "Chinese": "愚蠢的"
+  },
+  {
+    "Vocabulary": "foot",
+    "Chinese": "腳"
+  },
+  {
+    "Vocabulary": "football",
+    "Chinese": "足球"
+  },
+  {
+    "Vocabulary": "for",
+    "Chinese": "為了、給、(時間、距離)達"
+  },
+  {
+    "Vocabulary": "for",
+    "Chinese": "因為"
+  },
+  {
+    "Vocabulary": "force",
+    "Chinese": "力量"
+  },
+  {
+    "Vocabulary": "force",
+    "Chinese": "強迫"
+  },
+  {
+    "Vocabulary": "foreign",
+    "Chinese": "外國的"
+  },
+  {
+    "Vocabulary": "foreigner",
+    "Chinese": "外國人"
+  },
+  {
+    "Vocabulary": "forest",
+    "Chinese": "森林"
+  },
+  {
+    "Vocabulary": "forget",
+    "Chinese": "忘記"
+  },
+  {
+    "Vocabulary": "forgive",
+    "Chinese": "原諒"
+  },
+  {
+    "Vocabulary": "fork",
+    "Chinese": "叉子"
+  },
+  {
+    "Vocabulary": "form",
+    "Chinese": "表格、形狀"
+  },
+  {
+    "Vocabulary": "form",
+    "Chinese": "組成"
+  },
+  {
+    "Vocabulary": "formal",
+    "Chinese": "正式的"
+  },
+  {
+    "Vocabulary": "former",
+    "Chinese": "前者；從前的"
+  },
+  {
+    "Vocabulary": "forty",
+    "Chinese": "四十"
+  },
+  {
+    "Vocabulary": "four",
+    "Chinese": "四"
+  },
+  {
+    "Vocabulary": "fourteen",
+    "Chinese": "十四"
+  },
+  {
+    "Vocabulary": "fox",
+    "Chinese": "狐狸"
+  },
+  {
+    "Vocabulary": "France",
+    "Chinese": "法國"
+  },
+  {
+    "Vocabulary": "frank",
+    "Chinese": "坦白的"
+  },
+  {
+    "Vocabulary": "free",
+    "Chinese": "空閒、免費、自由的"
+  },
+  {
+    "Vocabulary": "free",
+    "Chinese": "使自由"
+  },
+  {
+    "Vocabulary": "freedom",
+    "Chinese": "自由"
+  },
+  {
+    "Vocabulary": "freezer",
+    "Chinese": "冰箱"
+  },
+  {
+    "Vocabulary": "French fries",
+    "Chinese": "炸薯條"
+  },
+  {
+    "Vocabulary": "fresh",
+    "Chinese": "新鮮的"
+  },
+  {
+    "Vocabulary": "friend",
+    "Chinese": "朋友"
+  },
+  {
+    "Vocabulary": "friendly",
+    "Chinese": "友善的"
+  },
+  {
+    "Vocabulary": "friendship",
+    "Chinese": "友誼"
+  },
+  {
+    "Vocabulary": "frighten",
+    "Chinese": "使驚恐"
+  },
+  {
+    "Vocabulary": "frisbee",
+    "Chinese": "飛盤"
+  },
+  {
+    "Vocabulary": "frog",
+    "Chinese": "青蛙"
+  },
+  {
+    "Vocabulary": "from",
+    "Chinese": "從"
+  },
+  {
+    "Vocabulary": "front",
+    "Chinese": "前面；前面的"
+  },
+  {
+    "Vocabulary": "fruit",
+    "Chinese": "水果"
+  },
+  {
+    "Vocabulary": "fry",
+    "Chinese": "炒、炸；油炸物"
+  },
+  {
+    "Vocabulary": "full",
+    "Chinese": "滿的、充滿的"
+  },
+  {
+    "Vocabulary": "fun",
+    "Chinese": "樂趣；有趣的"
+  },
+  {
+    "Vocabulary": "function",
+    "Chinese": "功用；發揮功用"
+  },
+  {
+    "Vocabulary": "funny",
+    "Chinese": "有趣的、好笑的"
+  },
+  {
+    "Vocabulary": "furniture",
+    "Chinese": "傢俱"
+  },
+  {
+    "Vocabulary": "further",
+    "Chinese": "進一步地；進一步的"
+  },
+  {
+    "Vocabulary": "future",
+    "Chinese": "未來；未來的"
+  },
+  {
+    "Vocabulary": "gain",
+    "Chinese": "獲得、增加；利潤"
+  },
+  {
+    "Vocabulary": "game",
+    "Chinese": "比賽"
+  },
+  {
+    "Vocabulary": "garage",
+    "Chinese": "車庫"
+  },
+  {
+    "Vocabulary": "garbage",
+    "Chinese": "垃圾"
+  },
+  {
+    "Vocabulary": "garden",
+    "Chinese": "花園"
+  },
+  {
+    "Vocabulary": "gas",
+    "Chinese": "瓦斯、氣體"
+  },
+  {
+    "Vocabulary": "gate",
+    "Chinese": "大門、柵門"
+  },
+  {
+    "Vocabulary": "gather",
+    "Chinese": "聚集"
+  },
+  {
+    "Vocabulary": "general",
+    "Chinese": "一般的、普遍的"
+  },
+  {
+    "Vocabulary": "general",
+    "Chinese": "將軍"
+  },
+  {
+    "Vocabulary": "generation",
+    "Chinese": "世代"
+  },
+  {
+    "Vocabulary": "generous",
+    "Chinese": "慷慨的、大方的"
+  },
+  {
+    "Vocabulary": "genius",
+    "Chinese": "天才"
+  },
+  {
+    "Vocabulary": "gentle",
+    "Chinese": "溫和的"
+  },
+  {
+    "Vocabulary": "gentleman",
+    "Chinese": "紳士、先生"
+  },
+  {
+    "Vocabulary": "geography",
+    "Chinese": "地理學"
+  },
+  {
+    "Vocabulary": "Germany",
+    "Chinese": "德國"
+  },
+  {
+    "Vocabulary": "gesture",
+    "Chinese": "手勢；做手勢"
+  },
+  {
+    "Vocabulary": "get",
+    "Chinese": "使…成為、獲得、到達"
+  },
+  {
+    "Vocabulary": "ghost",
+    "Chinese": "鬼"
+  },
+  {
+    "Vocabulary": "giant",
+    "Chinese": "巨大的；巨人"
+  },
+  {
+    "Vocabulary": "gift",
+    "Chinese": "禮物"
+  },
+  {
+    "Vocabulary": "girl",
+    "Chinese": "女孩"
+  },
+  {
+    "Vocabulary": "give",
+    "Chinese": "給"
+  },
+  {
+    "Vocabulary": "glad",
+    "Chinese": "高興的"
+  },
+  {
+    "Vocabulary": "glass",
+    "Chinese": "玻璃、一杯"
+  },
+  {
+    "Vocabulary": "glasses",
+    "Chinese": "眼鏡"
+  },
+  {
+    "Vocabulary": "glove",
+    "Chinese": "手套"
+  },
+  {
+    "Vocabulary": "glue",
+    "Chinese": "膠水；黏"
+  },
+  {
+    "Vocabulary": "go",
+    "Chinese": "去；進行"
+  },
+  {
+    "Vocabulary": "goal",
+    "Chinese": "目標"
+  },
+  {
+    "Vocabulary": "goat",
+    "Chinese": "山羊"
+  },
+  {
+    "Vocabulary": "God",
+    "Chinese": "神、上帝"
+  },
+  {
+    "Vocabulary": "gold",
+    "Chinese": "金、金子、金色"
+  },
+  {
+    "Vocabulary": "golden",
+    "Chinese": "金色的"
+  },
+  {
+    "Vocabulary": "golf",
+    "Chinese": "高爾夫球"
+  },
+  {
+    "Vocabulary": "good",
+    "Chinese": "好的；好處"
+  },
+  {
+    "Vocabulary": "good-looking",
+    "Chinese": "好看的"
+  },
+  {
+    "Vocabulary": "goose",
+    "Chinese": "鵝"
+  },
+  {
+    "Vocabulary": "government",
+    "Chinese": "政府"
+  },
+  {
+    "Vocabulary": "grade",
+    "Chinese": "成績"
+  },
+  {
+    "Vocabulary": "grand",
+    "Chinese": "重大的"
+  },
+  {
+    "Vocabulary": "granddaughter",
+    "Chinese": "孫女"
+  },
+  {
+    "Vocabulary": "grandson",
+    "Chinese": "孫子"
+  },
+  {
+    "Vocabulary": "grape",
+    "Chinese": "葡萄"
+  },
+  {
+    "Vocabulary": "grass",
+    "Chinese": "草"
+  },
+  {
+    "Vocabulary": "great",
+    "Chinese": "極好的"
+  },
+  {
+    "Vocabulary": "greedy",
+    "Chinese": "貪心的"
+  },
+  {
+    "Vocabulary": "green",
+    "Chinese": "綠色的；綠色"
+  },
+  {
+    "Vocabulary": "greet",
+    "Chinese": "招呼"
+  },
+  {
+    "Vocabulary": "ground",
+    "Chinese": "地面"
+  },
+  {
+    "Vocabulary": "group",
+    "Chinese": "團體"
+  },
+  {
+    "Vocabulary": "grow",
+    "Chinese": "生長"
+  },
+  {
+    "Vocabulary": "growth",
+    "Chinese": "成長"
+  },
+  {
+    "Vocabulary": "guard",
+    "Chinese": "守衛，衛兵；守衛"
+  },
+  {
+    "Vocabulary": "guava",
+    "Chinese": "番石榴"
+  },
+  {
+    "Vocabulary": "guess",
+    "Chinese": "猜測、推測"
+  },
+  {
+    "Vocabulary": "guest",
+    "Chinese": "客人"
+  },
+  {
+    "Vocabulary": "guide",
+    "Chinese": "嚮導；引導"
+  },
+  {
+    "Vocabulary": "guitar",
+    "Chinese": "吉他"
+  },
+  {
+    "Vocabulary": "gun",
+    "Chinese": "槍"
+  },
+  {
+    "Vocabulary": "guy",
+    "Chinese": "傢伙"
+  },
+  {
+    "Vocabulary": "gym",
+    "Chinese": "體育館"
+  },
+  {
+    "Vocabulary": "habit",
+    "Chinese": "習慣"
+  },
+  {
+    "Vocabulary": "hair",
+    "Chinese": "頭髮"
+  },
+  {
+    "Vocabulary": "haircut",
+    "Chinese": "理髮、 髮型"
+  },
+  {
+    "Vocabulary": "half",
+    "Chinese": "一半(之人、物)；一半、半個"
+  },
+  {
+    "Vocabulary": "half",
+    "Chinese": "一半的、不完全的、部分的"
+  },
+  {
+    "Vocabulary": "half",
+    "Chinese": "一半地、部分地"
+  },
+  {
+    "Vocabulary": "hall",
+    "Chinese": "禮堂、(大)廳"
+  },
+  {
+    "Vocabulary": "Halloween",
+    "Chinese": "萬聖節"
+  },
+  {
+    "Vocabulary": "ham",
+    "Chinese": "火腿"
+  },
+  {
+    "Vocabulary": "hammer",
+    "Chinese": "鐵鎚"
+  },
+  {
+    "Vocabulary": "hand",
+    "Chinese": "手"
+  },
+  {
+    "Vocabulary": "hand",
+    "Chinese": "傳遞"
+  },
+  {
+    "Vocabulary": "handkerchief",
+    "Chinese": "手帕"
+  },
+  {
+    "Vocabulary": "handle",
+    "Chinese": "處理"
+  },
+  {
+    "Vocabulary": "handle",
+    "Chinese": "把手"
+  },
+  {
+    "Vocabulary": "handsome",
+    "Chinese": "英俊的"
+  },
+  {
+    "Vocabulary": "hang",
+    "Chinese": "懸掛"
+  },
+  {
+    "Vocabulary": "hanger",
+    "Chinese": "掛鉤、衣架"
+  },
+  {
+    "Vocabulary": "happen",
+    "Chinese": "發生"
+  },
+  {
+    "Vocabulary": "happy",
+    "Chinese": "快樂的"
+  },
+  {
+    "Vocabulary": "hard",
+    "Chinese": "難的、硬的"
+  },
+  {
+    "Vocabulary": "hard",
+    "Chinese": "努力地、猛烈地"
+  },
+  {
+    "Vocabulary": "hardly",
+    "Chinese": "幾乎不"
+  },
+  {
+    "Vocabulary": "hat",
+    "Chinese": "帽子"
+  },
+  {
+    "Vocabulary": "hate",
+    "Chinese": "厭惡"
+  },
+  {
+    "Vocabulary": "have",
+    "Chinese": "有、吃、喝"
+  },
+  {
+    "Vocabulary": "have",
+    "Chinese": "（與動詞的過去分詞連用，構成現在完成式和過去完成式）"
+  },
+  {
+    "Vocabulary": "he",
+    "Chinese": "他"
+  },
+  {
+    "Vocabulary": "head",
+    "Chinese": "頭"
+  },
+  {
+    "Vocabulary": "head",
+    "Chinese": "前往"
+  },
+  {
+    "Vocabulary": "headache",
+    "Chinese": "頭痛"
+  },
+  {
+    "Vocabulary": "health",
+    "Chinese": "健康"
+  },
+  {
+    "Vocabulary": "healthy",
+    "Chinese": "健康的"
+  },
+  {
+    "Vocabulary": "hear",
+    "Chinese": "聽見"
+  },
+  {
+    "Vocabulary": "heart",
+    "Chinese": "心臟"
+  },
+  {
+    "Vocabulary": "heat",
+    "Chinese": "熱度；加熱"
+  },
+  {
+    "Vocabulary": "heater",
+    "Chinese": "暖氣機"
+  },
+  {
+    "Vocabulary": "heavy",
+    "Chinese": "重的"
+  },
+  {
+    "Vocabulary": "height",
+    "Chinese": "高度"
+  },
+  {
+    "Vocabulary": "helicopter",
+    "Chinese": "直昇機"
+  },
+  {
+    "Vocabulary": "hello",
+    "Chinese": "哈囉(問候語)"
+  },
+  {
+    "Vocabulary": "help",
+    "Chinese": "幫助"
+  },
+  {
+    "Vocabulary": "helpful",
+    "Chinese": "有幫助的"
+  },
+  {
+    "Vocabulary": "hen",
+    "Chinese": "母雞"
+  },
+  {
+    "Vocabulary": "her",
+    "Chinese": "她、她的"
+  },
+  {
+    "Vocabulary": "here",
+    "Chinese": "這裡"
+  },
+  {
+    "Vocabulary": "hero",
+    "Chinese": "英雄"
+  },
+  {
+    "Vocabulary": "heroine",
+    "Chinese": "女英雄、女主角"
+  },
+  {
+    "Vocabulary": "hers",
+    "Chinese": "她的"
+  },
+  {
+    "Vocabulary": "herself",
+    "Chinese": "她自己"
+  },
+  {
+    "Vocabulary": "hey",
+    "Chinese": "喂"
+  },
+  {
+    "Vocabulary": "hi",
+    "Chinese": "嗨(問候語)"
+  },
+  {
+    "Vocabulary": "hide",
+    "Chinese": "躲藏"
+  },
+  {
+    "Vocabulary": "high",
+    "Chinese": "高(級)的；高地"
+  },
+  {
+    "Vocabulary": "highway",
+    "Chinese": "公路"
+  },
+  {
+    "Vocabulary": "hike",
+    "Chinese": "健行;（尤指鄉間的）遠足，長途健行"
+  },
+  {
+    "Vocabulary": "hill",
+    "Chinese": "丘陵"
+  },
+  {
+    "Vocabulary": "him",
+    "Chinese": "他"
+  },
+  {
+    "Vocabulary": "himself",
+    "Chinese": "他自己"
+  },
+  {
+    "Vocabulary": "hip",
+    "Chinese": "臀部"
+  },
+  {
+    "Vocabulary": "hire",
+    "Chinese": "僱用；新僱員"
+  },
+  {
+    "Vocabulary": "his",
+    "Chinese": "他的"
+  },
+  {
+    "Vocabulary": "history",
+    "Chinese": "歷史"
+  },
+  {
+    "Vocabulary": "hit",
+    "Chinese": "打擊、碰撞"
+  },
+  {
+    "Vocabulary": "hobby",
+    "Chinese": "啫好"
+  },
+  {
+    "Vocabulary": "hold",
+    "Chinese": "舉辦"
+  },
+  {
+    "Vocabulary": "hold",
+    "Chinese": "握、拿、抓"
+  },
+  {
+    "Vocabulary": "hole",
+    "Chinese": "洞"
+  },
+  {
+    "Vocabulary": "holiday",
+    "Chinese": "假日"
+  },
+  {
+    "Vocabulary": "home",
+    "Chinese": "家；到家、在家；家(的)"
+  },
+  {
+    "Vocabulary": "homesick",
+    "Chinese": "想家的"
+  },
+  {
+    "Vocabulary": "hometown",
+    "Chinese": "家鄉"
+  },
+  {
+    "Vocabulary": "homework",
+    "Chinese": "家庭作業"
+  },
+  {
+    "Vocabulary": "honest",
+    "Chinese": "誠實的"
+  },
+  {
+    "Vocabulary": "honesty",
+    "Chinese": "誠實"
+  },
+  {
+    "Vocabulary": "honey",
+    "Chinese": "蜂蜜、親愛的"
+  },
+  {
+    "Vocabulary": "Hong Kong",
+    "Chinese": "香港"
+  },
+  {
+    "Vocabulary": "hop",
+    "Chinese": "單足跳；單足短距離跳躍"
+  },
+  {
+    "Vocabulary": "hope",
+    "Chinese": "希望"
+  },
+  {
+    "Vocabulary": "horrible",
+    "Chinese": "可怕的"
+  },
+  {
+    "Vocabulary": "horse",
+    "Chinese": "馬"
+  },
+  {
+    "Vocabulary": "hospital",
+    "Chinese": "醫院"
+  },
+  {
+    "Vocabulary": "host",
+    "Chinese": "主人、主辦；作東"
+  },
+  {
+    "Vocabulary": "hostess",
+    "Chinese": "女主人"
+  },
+  {
+    "Vocabulary": "hot",
+    "Chinese": "熱的"
+  },
+  {
+    "Vocabulary": "hot dog",
+    "Chinese": "熱狗"
+  },
+  {
+    "Vocabulary": "hotel",
+    "Chinese": "旅館"
+  },
+  {
+    "Vocabulary": "hour",
+    "Chinese": "小時"
+  },
+  {
+    "Vocabulary": "house",
+    "Chinese": "房子；給…房子住(用)"
+  },
+  {
+    "Vocabulary": "how",
+    "Chinese": "如何、怎麼樣"
+  },
+  {
+    "Vocabulary": "however",
+    "Chinese": "然而、但是；不管怎樣、無論如何"
+  },
+  {
+    "Vocabulary": "Hualian",
+    "Chinese": "花蓮"
+  },
+  {
+    "Vocabulary": "huge",
+    "Chinese": "巨大的"
+  },
+  {
+    "Vocabulary": "human",
+    "Chinese": "人類的；人類"
+  },
+  {
+    "Vocabulary": "humble",
+    "Chinese": "謙虛的"
+  },
+  {
+    "Vocabulary": "humid",
+    "Chinese": "潮濕的"
+  },
+  {
+    "Vocabulary": "humorous",
+    "Chinese": "幽默的"
+  },
+  {
+    "Vocabulary": "hundred",
+    "Chinese": "一百"
+  },
+  {
+    "Vocabulary": "hunger",
+    "Chinese": "飢餓"
+  },
+  {
+    "Vocabulary": "hungry",
+    "Chinese": "飢餓的"
+  },
+  {
+    "Vocabulary": "hunt",
+    "Chinese": "打獵、尋找；打獵、尋找"
+  },
+  {
+    "Vocabulary": "hunter",
+    "Chinese": "獵人"
+  },
+  {
+    "Vocabulary": "hurry",
+    "Chinese": "使加快、催促；匆忙、倉促"
+  },
+  {
+    "Vocabulary": "hurt",
+    "Chinese": "（使）感到疼痛、弄傷；傷害"
+  },
+  {
+    "Vocabulary": "husband",
+    "Chinese": "丈夫"
+  },
+  {
+    "Vocabulary": "I",
+    "Chinese": "我"
+  },
+  {
+    "Vocabulary": "ice",
+    "Chinese": "冰"
+  },
+  {
+    "Vocabulary": "ice cream",
+    "Chinese": "冰淇淋"
+  },
+  {
+    "Vocabulary": "idea",
+    "Chinese": "主意"
+  },
+  {
+    "Vocabulary": "if",
+    "Chinese": "如果"
+  },
+  {
+    "Vocabulary": "ignore",
+    "Chinese": "忽視"
+  },
+  {
+    "Vocabulary": "ill",
+    "Chinese": "生病的"
+  },
+  {
+    "Vocabulary": "image",
+    "Chinese": "形象"
+  },
+  {
+    "Vocabulary": "imagine",
+    "Chinese": "想像"
+  },
+  {
+    "Vocabulary": "import",
+    "Chinese": "進口商品；進口、引進"
+  },
+  {
+    "Vocabulary": "importance",
+    "Chinese": "重要(性)"
+  },
+  {
+    "Vocabulary": "important",
+    "Chinese": "重要的"
+  },
+  {
+    "Vocabulary": "improve",
+    "Chinese": "改進"
+  },
+  {
+    "Vocabulary": "in",
+    "Chinese": "在…裡；在家、在某地；時髦的"
+  },
+  {
+    "Vocabulary": "inch",
+    "Chinese": "英吋"
+  },
+  {
+    "Vocabulary": "include",
+    "Chinese": "包含"
+  },
+  {
+    "Vocabulary": "including",
+    "Chinese": "包含"
+  },
+  {
+    "Vocabulary": "income",
+    "Chinese": "收入"
+  },
+  {
+    "Vocabulary": "increase",
+    "Chinese": "增大、增加、增強；（數量或尺寸）增加、增長"
+  },
+  {
+    "Vocabulary": "independent",
+    "Chinese": "獨立的"
+  },
+  {
+    "Vocabulary": "indicate",
+    "Chinese": "指示"
+  },
+  {
+    "Vocabulary": "individual",
+    "Chinese": "個人的；個體"
+  },
+  {
+    "Vocabulary": "industry",
+    "Chinese": "產業"
+  },
+  {
+    "Vocabulary": "influence",
+    "Chinese": "影響；影響、作用、有影響力的人或物"
+  },
+  {
+    "Vocabulary": "information",
+    "Chinese": "資訊"
+  },
+  {
+    "Vocabulary": "injury",
+    "Chinese": "傷害"
+  },
+  {
+    "Vocabulary": "ink",
+    "Chinese": "墨水"
+  },
+  {
+    "Vocabulary": "insect",
+    "Chinese": "昆蟲"
+  },
+  {
+    "Vocabulary": "inside",
+    "Chinese": "在…裡；裡面的；內部"
+  },
+  {
+    "Vocabulary": "insist",
+    "Chinese": "堅持"
+  },
+  {
+    "Vocabulary": "inspire",
+    "Chinese": "給…靈感"
+  },
+  {
+    "Vocabulary": "instance",
+    "Chinese": "例子"
+  },
+  {
+    "Vocabulary": "instant",
+    "Chinese": "立即的；剎那"
+  },
+  {
+    "Vocabulary": "instrument",
+    "Chinese": "樂器"
+  },
+  {
+    "Vocabulary": "intelligent",
+    "Chinese": "有才智的"
+  },
+  {
+    "Vocabulary": "interest",
+    "Chinese": "興趣；使感興趣"
+  },
+  {
+    "Vocabulary": "international",
+    "Chinese": "國際性的"
+  },
+  {
+    "Vocabulary": "Internet",
+    "Chinese": "網際網路"
+  },
+  {
+    "Vocabulary": "interrupt",
+    "Chinese": "打斷(說話)"
+  },
+  {
+    "Vocabulary": "interview",
+    "Chinese": "面談"
+  },
+  {
+    "Vocabulary": "into",
+    "Chinese": "進入到"
+  },
+  {
+    "Vocabulary": "introduce",
+    "Chinese": "介紹、引進"
+  },
+  {
+    "Vocabulary": "invent",
+    "Chinese": "發明"
+  },
+  {
+    "Vocabulary": "investigate",
+    "Chinese": "調查"
+  },
+  {
+    "Vocabulary": "invitation",
+    "Chinese": "邀請"
+  },
+  {
+    "Vocabulary": "invite",
+    "Chinese": "邀請"
+  },
+  {
+    "Vocabulary": "iron",
+    "Chinese": "鐵"
+  },
+  {
+    "Vocabulary": "iron",
+    "Chinese": "熨"
+  },
+  {
+    "Vocabulary": "is",
+    "Chinese": "(Be動詞)是"
+  },
+  {
+    "Vocabulary": "island",
+    "Chinese": "島嶼"
+  },
+  {
+    "Vocabulary": "it",
+    "Chinese": "它"
+  },
+  {
+    "Vocabulary": "item",
+    "Chinese": "項目"
+  },
+  {
+    "Vocabulary": "its",
+    "Chinese": "它的"
+  },
+  {
+    "Vocabulary": "itself",
+    "Chinese": "它自己"
+  },
+  {
+    "Vocabulary": "jacket",
+    "Chinese": "夾克"
+  },
+  {
+    "Vocabulary": "jam",
+    "Chinese": "堵塞、果醬"
+  },
+  {
+    "Vocabulary": "Japan",
+    "Chinese": "日本"
+  },
+  {
+    "Vocabulary": "Japanese",
+    "Chinese": "日本的；日本人、日語"
+  },
+  {
+    "Vocabulary": "jazz",
+    "Chinese": "爵士樂"
+  },
+  {
+    "Vocabulary": "jealous",
+    "Chinese": "妒忌的"
+  },
+  {
+    "Vocabulary": "jeans",
+    "Chinese": "牛仔褲"
+  },
+  {
+    "Vocabulary": "jeep",
+    "Chinese": "吉普車"
+  },
+  {
+    "Vocabulary": "job",
+    "Chinese": "工作"
+  },
+  {
+    "Vocabulary": "jog",
+    "Chinese": "慢跑"
+  },
+  {
+    "Vocabulary": "join",
+    "Chinese": "參加"
+  },
+  {
+    "Vocabulary": "joint",
+    "Chinese": "共同的"
+  },
+  {
+    "Vocabulary": "joint",
+    "Chinese": "接點"
+  },
+  {
+    "Vocabulary": "joke",
+    "Chinese": "玩笑；開玩笑"
+  },
+  {
+    "Vocabulary": "journalist",
+    "Chinese": "新聞記者"
+  },
+  {
+    "Vocabulary": "joy",
+    "Chinese": "歡樂"
+  },
+  {
+    "Vocabulary": "judge",
+    "Chinese": "法官"
+  },
+  {
+    "Vocabulary": "judge",
+    "Chinese": "判斷"
+  },
+  {
+    "Vocabulary": "juice",
+    "Chinese": "果汁"
+  },
+  {
+    "Vocabulary": "jump",
+    "Chinese": "跳"
+  },
+  {
+    "Vocabulary": "junior high school",
+    "Chinese": "國中、國民中學"
+  },
+  {
+    "Vocabulary": "just",
+    "Chinese": "只是、正好、剛才"
+  },
+  {
+    "Vocabulary": "kangaroo",
+    "Chinese": "袋鼠"
+  },
+  {
+    "Vocabulary": "Kaohsiung",
+    "Chinese": "高雄"
+  },
+  {
+    "Vocabulary": "keep",
+    "Chinese": "使…保持在某狀態、繼續、飼養"
+  },
+  {
+    "Vocabulary": "key",
+    "Chinese": "鑰匙、關鍵"
+  },
+  {
+    "Vocabulary": "key",
+    "Chinese": "重要的"
+  },
+  {
+    "Vocabulary": "kick",
+    "Chinese": "踢"
+  },
+  {
+    "Vocabulary": "kid",
+    "Chinese": "小孩"
+  },
+  {
+    "Vocabulary": "kill",
+    "Chinese": "殺、使痛苦"
+  },
+  {
+    "Vocabulary": "kind",
+    "Chinese": "仁慈、親切的"
+  },
+  {
+    "Vocabulary": "kind",
+    "Chinese": "種類"
+  },
+  {
+    "Vocabulary": "kindergarten",
+    "Chinese": "幼稚園"
+  },
+  {
+    "Vocabulary": "king",
+    "Chinese": "國王"
+  },
+  {
+    "Vocabulary": "kingdom",
+    "Chinese": "王國"
+  },
+  {
+    "Vocabulary": "kiss",
+    "Chinese": "親吻"
+  },
+  {
+    "Vocabulary": "kitchen",
+    "Chinese": "廚房"
+  },
+  {
+    "Vocabulary": "kite",
+    "Chinese": "風箏"
+  },
+  {
+    "Vocabulary": "knee",
+    "Chinese": "膝蓋"
+  },
+  {
+    "Vocabulary": "knife",
+    "Chinese": "刀"
+  },
+  {
+    "Vocabulary": "knock",
+    "Chinese": "敲"
+  },
+  {
+    "Vocabulary": "know",
+    "Chinese": "知道"
+  },
+  {
+    "Vocabulary": "knowledge",
+    "Chinese": "知識"
+  },
+  {
+    "Vocabulary": "koala",
+    "Chinese": "無尾熊"
+  },
+  {
+    "Vocabulary": "Korea",
+    "Chinese": "韓國"
+  },
+  {
+    "Vocabulary": "Korean",
+    "Chinese": "韓國的；韓國人"
+  },
+  {
+    "Vocabulary": "KTV",
+    "Chinese": "卡拉OK店"
+  },
+  {
+    "Vocabulary": "lack",
+    "Chinese": "欠缺"
+  },
+  {
+    "Vocabulary": "lady",
+    "Chinese": "女士"
+  },
+  {
+    "Vocabulary": "lake",
+    "Chinese": "湖"
+  },
+  {
+    "Vocabulary": "lamb",
+    "Chinese": "小羊"
+  },
+  {
+    "Vocabulary": "lamp",
+    "Chinese": "燈"
+  },
+  {
+    "Vocabulary": "land",
+    "Chinese": "土地"
+  },
+  {
+    "Vocabulary": "land",
+    "Chinese": "登陸"
+  },
+  {
+    "Vocabulary": "language",
+    "Chinese": "語言"
+  },
+  {
+    "Vocabulary": "lantern",
+    "Chinese": "燈籠"
+  },
+  {
+    "Vocabulary": "Lantern Festival",
+    "Chinese": "元宵節"
+  },
+  {
+    "Vocabulary": "large",
+    "Chinese": "大的"
+  },
+  {
+    "Vocabulary": "last",
+    "Chinese": "最後的、剛過的"
+  },
+  {
+    "Vocabulary": "late",
+    "Chinese": "遲的"
+  },
+  {
+    "Vocabulary": "later",
+    "Chinese": "更晚的；較晚地、以後"
+  },
+  {
+    "Vocabulary": "latest",
+    "Chinese": "最新的"
+  },
+  {
+    "Vocabulary": "laugh",
+    "Chinese": "笑"
+  },
+  {
+    "Vocabulary": "law",
+    "Chinese": "法律"
+  },
+  {
+    "Vocabulary": "lawyer",
+    "Chinese": "律師"
+  },
+  {
+    "Vocabulary": "lay",
+    "Chinese": "放置"
+  },
+  {
+    "Vocabulary": "lazy",
+    "Chinese": "懶惰的"
+  },
+  {
+    "Vocabulary": "lead",
+    "Chinese": "領導；領先"
+  },
+  {
+    "Vocabulary": "leader",
+    "Chinese": "領導者"
+  },
+  {
+    "Vocabulary": "leadership",
+    "Chinese": "領導(能力)"
+  },
+  {
+    "Vocabulary": "leaf",
+    "Chinese": "葉子"
+  },
+  {
+    "Vocabulary": "learn",
+    "Chinese": "學習"
+  },
+  {
+    "Vocabulary": "least",
+    "Chinese": "最少、最小"
+  },
+  {
+    "Vocabulary": "leave",
+    "Chinese": "離開；假期"
+  },
+  {
+    "Vocabulary": "left",
+    "Chinese": "左邊、左側；向左"
+  },
+  {
+    "Vocabulary": "left",
+    "Chinese": "左邊的、左側的、剩下的"
+  },
+  {
+    "Vocabulary": "left-hand",
+    "Chinese": "左手的、左邊的"
+  },
+  {
+    "Vocabulary": "leg",
+    "Chinese": "腿"
+  },
+  {
+    "Vocabulary": "legal",
+    "Chinese": "合法的"
+  },
+  {
+    "Vocabulary": "lemon",
+    "Chinese": "檸檬"
+  },
+  {
+    "Vocabulary": "lend",
+    "Chinese": "把…借給"
+  },
+  {
+    "Vocabulary": "length",
+    "Chinese": "長度"
+  },
+  {
+    "Vocabulary": "less",
+    "Chinese": "較少(地)"
+  },
+  {
+    "Vocabulary": "lesson",
+    "Chinese": "課程"
+  },
+  {
+    "Vocabulary": "let",
+    "Chinese": "讓"
+  },
+  {
+    "Vocabulary": "letter",
+    "Chinese": "信"
+  },
+  {
+    "Vocabulary": "lettuce",
+    "Chinese": "萵苣"
+  },
+  {
+    "Vocabulary": "level",
+    "Chinese": "水準"
+  },
+  {
+    "Vocabulary": "level",
+    "Chinese": "水平的"
+  },
+  {
+    "Vocabulary": "library",
+    "Chinese": "圖書館"
+  },
+  {
+    "Vocabulary": "lick",
+    "Chinese": "舔"
+  },
+  {
+    "Vocabulary": "lid",
+    "Chinese": "蓋子；眼瞼"
+  },
+  {
+    "Vocabulary": "lie",
+    "Chinese": "躺下、橫臥、擺放"
+  },
+  {
+    "Vocabulary": "lie",
+    "Chinese": "謊言；說謊"
+  },
+  {
+    "Vocabulary": "life",
+    "Chinese": "生命、生活"
+  },
+  {
+    "Vocabulary": "lift",
+    "Chinese": "舉起"
+  },
+  {
+    "Vocabulary": "lift",
+    "Chinese": "舉、順道搭載"
+  },
+  {
+    "Vocabulary": "light",
+    "Chinese": "光、燈；點燃、照亮；明亮的"
+  },
+  {
+    "Vocabulary": "light",
+    "Chinese": "輕(便)、明亮、(顏色)淺、少量"
+  },
+  {
+    "Vocabulary": "lightning",
+    "Chinese": "閃電"
+  },
+  {
+    "Vocabulary": "like",
+    "Chinese": "像、如"
+  },
+  {
+    "Vocabulary": "like",
+    "Chinese": "喜歡、想要"
+  },
+  {
+    "Vocabulary": "likely",
+    "Chinese": "很可能"
+  },
+  {
+    "Vocabulary": "limit",
+    "Chinese": "限制"
+  },
+  {
+    "Vocabulary": "line",
+    "Chinese": "行列；排隊"
+  },
+  {
+    "Vocabulary": "link",
+    "Chinese": "連結"
+  },
+  {
+    "Vocabulary": "lion",
+    "Chinese": "獅子"
+  },
+  {
+    "Vocabulary": "lip",
+    "Chinese": "唇"
+  },
+  {
+    "Vocabulary": "liquid",
+    "Chinese": "液體；液態的、流動的"
+  },
+  {
+    "Vocabulary": "list",
+    "Chinese": "名單；列入名單"
+  },
+  {
+    "Vocabulary": "listen",
+    "Chinese": "聽"
+  },
+  {
+    "Vocabulary": "little",
+    "Chinese": "小的；少"
+  },
+  {
+    "Vocabulary": "live",
+    "Chinese": "活"
+  },
+  {
+    "Vocabulary": "living room",
+    "Chinese": "客廳"
+  },
+  {
+    "Vocabulary": "loaf",
+    "Chinese": "一條（塊）包"
+  },
+  {
+    "Vocabulary": "local",
+    "Chinese": "當地的；本地人"
+  },
+  {
+    "Vocabulary": "lock",
+    "Chinese": "鎖上；鎖"
+  },
+  {
+    "Vocabulary": "lonely",
+    "Chinese": "寂寞的"
+  },
+  {
+    "Vocabulary": "long",
+    "Chinese": "長的、久的；長久地"
+  },
+  {
+    "Vocabulary": "look",
+    "Chinese": "看"
+  },
+  {
+    "Vocabulary": "lose",
+    "Chinese": "失去、輸"
+  },
+  {
+    "Vocabulary": "loser",
+    "Chinese": "失敗者"
+  },
+  {
+    "Vocabulary": "loss",
+    "Chinese": "損失"
+  },
+  {
+    "Vocabulary": "lot",
+    "Chinese": "多量、一批、一塊地"
+  },
+  {
+    "Vocabulary": "loud",
+    "Chinese": "大聲的；大聲地"
+  },
+  {
+    "Vocabulary": "love",
+    "Chinese": "愛"
+  },
+  {
+    "Vocabulary": "lovely",
+    "Chinese": "美好的"
+  },
+  {
+    "Vocabulary": "lover",
+    "Chinese": "愛好者"
+  },
+  {
+    "Vocabulary": "low",
+    "Chinese": "低的"
+  },
+  {
+    "Vocabulary": "luck",
+    "Chinese": "運氣"
+  },
+  {
+    "Vocabulary": "lucky",
+    "Chinese": "幸運的"
+  },
+  {
+    "Vocabulary": "lunch",
+    "Chinese": "午餐"
+  },
+  {
+    "Vocabulary": "ma'am",
+    "Chinese": "夫人"
+  },
+  {
+    "Vocabulary": "machine",
+    "Chinese": "機器"
+  },
+  {
+    "Vocabulary": "mad",
+    "Chinese": "瘋狂的、生氣的"
+  },
+  {
+    "Vocabulary": "magazine",
+    "Chinese": "雜誌"
+  },
+  {
+    "Vocabulary": "magic",
+    "Chinese": "有魔力的；魔術"
+  },
+  {
+    "Vocabulary": "magician",
+    "Chinese": "魔術師"
+  },
+  {
+    "Vocabulary": "mail",
+    "Chinese": "郵件；郵寄"
+  },
+  {
+    "Vocabulary": "main",
+    "Chinese": "主要的"
+  },
+  {
+    "Vocabulary": "maintain",
+    "Chinese": "維持"
+  },
+  {
+    "Vocabulary": "major",
+    "Chinese": "主要的"
+  },
+  {
+    "Vocabulary": "major",
+    "Chinese": "主修科目、主修生；主修"
+  },
+  {
+    "Vocabulary": "make",
+    "Chinese": "做"
+  },
+  {
+    "Vocabulary": "male",
+    "Chinese": "男性(的)"
+  },
+  {
+    "Vocabulary": "mall",
+    "Chinese": "購物中心"
+  },
+  {
+    "Vocabulary": "man",
+    "Chinese": "男人"
+  },
+  {
+    "Vocabulary": "manager",
+    "Chinese": "負責人、經理"
+  },
+  {
+    "Vocabulary": "Mandarin",
+    "Chinese": "中文(國語)"
+  },
+  {
+    "Vocabulary": "mango",
+    "Chinese": "芒果"
+  },
+  {
+    "Vocabulary": "manner",
+    "Chinese": "禮貌（多使用複數形態）、方式、態度"
+  },
+  {
+    "Vocabulary": "many",
+    "Chinese": "許多（的）"
+  },
+  {
+    "Vocabulary": "map",
+    "Chinese": "地圖"
+  },
+  {
+    "Vocabulary": "mark",
+    "Chinese": "標記"
+  },
+  {
+    "Vocabulary": "mark",
+    "Chinese": "分數"
+  },
+  {
+    "Vocabulary": "marker",
+    "Chinese": "標誌；麥克筆、彩色筆"
+  },
+  {
+    "Vocabulary": "market",
+    "Chinese": "市場；行銷、銷售"
+  },
+  {
+    "Vocabulary": "marriage",
+    "Chinese": "婚姻"
+  },
+  {
+    "Vocabulary": "marry",
+    "Chinese": "結婚"
+  },
+  {
+    "Vocabulary": "mask",
+    "Chinese": "面具、口罩"
+  },
+  {
+    "Vocabulary": "mass",
+    "Chinese": "大量（的）"
+  },
+  {
+    "Vocabulary": "master",
+    "Chinese": "主人、大師"
+  },
+  {
+    "Vocabulary": "mat",
+    "Chinese": "蓆子、墊子"
+  },
+  {
+    "Vocabulary": "match",
+    "Chinese": "比賽"
+  },
+  {
+    "Vocabulary": "match",
+    "Chinese": "相配"
+  },
+  {
+    "Vocabulary": "material",
+    "Chinese": "物質、材料"
+  },
+  {
+    "Vocabulary": "matter",
+    "Chinese": "問題；物質"
+  },
+  {
+    "Vocabulary": "matter",
+    "Chinese": "有關係"
+  },
+  {
+    "Vocabulary": "maximum",
+    "Chinese": "最大值（的/地）"
+  },
+  {
+    "Vocabulary": "may",
+    "Chinese": "可能"
+  },
+  {
+    "Vocabulary": "May",
+    "Chinese": "五月"
+  },
+  {
+    "Vocabulary": "maybe",
+    "Chinese": "或許"
+  },
+  {
+    "Vocabulary": "me",
+    "Chinese": "我"
+  },
+  {
+    "Vocabulary": "meal",
+    "Chinese": "一餐、餐點"
+  },
+  {
+    "Vocabulary": "mean",
+    "Chinese": "意思是、意指、意圖"
+  },
+  {
+    "Vocabulary": "meaning",
+    "Chinese": "意義"
+  },
+  {
+    "Vocabulary": "means",
+    "Chinese": "手段"
+  },
+  {
+    "Vocabulary": "measure",
+    "Chinese": "措施"
+  },
+  {
+    "Vocabulary": "measure",
+    "Chinese": "測量"
+  },
+  {
+    "Vocabulary": "meat",
+    "Chinese": "肉"
+  },
+  {
+    "Vocabulary": "mechanic",
+    "Chinese": "機械工、修理工"
+  },
+  {
+    "Vocabulary": "medicine",
+    "Chinese": "藥"
+  },
+  {
+    "Vocabulary": "medium",
+    "Chinese": "中間的、中等的"
+  },
+  {
+    "Vocabulary": "medium",
+    "Chinese": "媒介、方法、媒體"
+  },
+  {
+    "Vocabulary": "meet",
+    "Chinese": "遇見"
+  },
+  {
+    "Vocabulary": "meeting",
+    "Chinese": "會議"
+  },
+  {
+    "Vocabulary": "melon",
+    "Chinese": "瓜"
+  },
+  {
+    "Vocabulary": "member",
+    "Chinese": "成員"
+  },
+  {
+    "Vocabulary": "memory",
+    "Chinese": "記憶、回憶"
+  },
+  {
+    "Vocabulary": "men's room",
+    "Chinese": "男洗手間、男廁所"
+  },
+  {
+    "Vocabulary": "menu",
+    "Chinese": "菜單"
+  },
+  {
+    "Vocabulary": "message",
+    "Chinese": "訊息"
+  },
+  {
+    "Vocabulary": "metal",
+    "Chinese": "金屬"
+  },
+  {
+    "Vocabulary": "method",
+    "Chinese": "方法"
+  },
+  {
+    "Vocabulary": "microwave",
+    "Chinese": "微波(爐)"
+  },
+  {
+    "Vocabulary": "middle",
+    "Chinese": "中間(的)"
+  },
+  {
+    "Vocabulary": "midnight",
+    "Chinese": "午夜"
+  },
+  {
+    "Vocabulary": "might",
+    "Chinese": "可能、或許"
+  },
+  {
+    "Vocabulary": "mile",
+    "Chinese": "英里、哩"
+  },
+  {
+    "Vocabulary": "military",
+    "Chinese": "軍事(的)"
+  },
+  {
+    "Vocabulary": "milk",
+    "Chinese": "牛奶"
+  },
+  {
+    "Vocabulary": "million",
+    "Chinese": "百萬"
+  },
+  {
+    "Vocabulary": "mind",
+    "Chinese": "心思、主意、想法、智力"
+  },
+  {
+    "Vocabulary": "mind",
+    "Chinese": "注意、介意"
+  },
+  {
+    "Vocabulary": "minor",
+    "Chinese": "較小、少的；次要的"
+  },
+  {
+    "Vocabulary": "minor",
+    "Chinese": "副修、未成年"
+  },
+  {
+    "Vocabulary": "minor",
+    "Chinese": "副修"
+  },
+  {
+    "Vocabulary": "minus",
+    "Chinese": "減；減號；負的"
+  },
+  {
+    "Vocabulary": "mirror",
+    "Chinese": "鏡子"
+  },
+  {
+    "Vocabulary": "miss",
+    "Chinese": "錯過；想念"
+  },
+  {
+    "Vocabulary": "Miss",
+    "Chinese": "小姐"
+  },
+  {
+    "Vocabulary": "missing",
+    "Chinese": "缺的、走失的"
+  },
+  {
+    "Vocabulary": "mistake",
+    "Chinese": "錯誤；出差錯"
+  },
+  {
+    "Vocabulary": "mix",
+    "Chinese": "混合"
+  },
+  {
+    "Vocabulary": "model",
+    "Chinese": "模特兒、模型；塑造、模仿"
+  },
+  {
+    "Vocabulary": "modern",
+    "Chinese": "現代的"
+  },
+  {
+    "Vocabulary": "moment",
+    "Chinese": "瞬間、片刻"
+  },
+  {
+    "Vocabulary": "money",
+    "Chinese": "金錢"
+  },
+  {
+    "Vocabulary": "monkey",
+    "Chinese": "猴子"
+  },
+  {
+    "Vocabulary": "monster",
+    "Chinese": "妖怪"
+  },
+  {
+    "Vocabulary": "month",
+    "Chinese": "月"
+  },
+  {
+    "Vocabulary": "monthly",
+    "Chinese": "每月的(地)"
+  },
+  {
+    "Vocabulary": "monthly",
+    "Chinese": "月刊"
+  },
+  {
+    "Vocabulary": "moon",
+    "Chinese": "月亮"
+  },
+  {
+    "Vocabulary": "mop",
+    "Chinese": "拖把；拖地"
+  },
+  {
+    "Vocabulary": "more",
+    "Chinese": "更；更多(的)"
+  },
+  {
+    "Vocabulary": "morning",
+    "Chinese": "早晨"
+  },
+  {
+    "Vocabulary": "mosquito",
+    "Chinese": "蚊子"
+  },
+  {
+    "Vocabulary": "most",
+    "Chinese": "最"
+  },
+  {
+    "Vocabulary": "mother",
+    "Chinese": "養育"
+  },
+  {
+    "Vocabulary": "Mother's Day",
+    "Chinese": "母親節"
+  },
+  {
+    "Vocabulary": "motion",
+    "Chinese": "行動、動作"
+  },
+  {
+    "Vocabulary": "motion",
+    "Chinese": "打手勢"
+  },
+  {
+    "Vocabulary": "mountain",
+    "Chinese": "山"
+  },
+  {
+    "Vocabulary": "mouse",
+    "Chinese": "老鼠"
+  },
+  {
+    "Vocabulary": "mouth",
+    "Chinese": "嘴"
+  },
+  {
+    "Vocabulary": "move",
+    "Chinese": "搬家、移動"
+  },
+  {
+    "Vocabulary": "movement",
+    "Chinese": "動作；活動"
+  },
+  {
+    "Vocabulary": "mass",
+    "Chinese": "transit= subway= underground= metro"
+  },
+  {
+    "Vocabulary": "much",
+    "Chinese": "很多"
+  },
+  {
+    "Vocabulary": "mud",
+    "Chinese": "泥巴"
+  },
+  {
+    "Vocabulary": "museum",
+    "Chinese": "博物館"
+  },
+  {
+    "Vocabulary": "music",
+    "Chinese": "音樂"
+  },
+  {
+    "Vocabulary": "musician",
+    "Chinese": "音樂家"
+  },
+  {
+    "Vocabulary": "must",
+    "Chinese": "必須、一定是"
+  },
+  {
+    "Vocabulary": "my",
+    "Chinese": "我的"
+  },
+  {
+    "Vocabulary": "myself",
+    "Chinese": "我自己"
+  },
+  {
+    "Vocabulary": "nail",
+    "Chinese": "釘子；釘"
+  },
+  {
+    "Vocabulary": "name",
+    "Chinese": "名字；命名"
+  },
+  {
+    "Vocabulary": "napkin",
+    "Chinese": "餐巾"
+  },
+  {
+    "Vocabulary": "narrow",
+    "Chinese": "窄的；變窄"
+  },
+  {
+    "Vocabulary": "nation",
+    "Chinese": "國家"
+  },
+  {
+    "Vocabulary": "national",
+    "Chinese": "全國的、民族的"
+  },
+  {
+    "Vocabulary": "natural",
+    "Chinese": "自然的"
+  },
+  {
+    "Vocabulary": "nature",
+    "Chinese": "自然"
+  },
+  {
+    "Vocabulary": "naughty",
+    "Chinese": "淘氣的"
+  },
+  {
+    "Vocabulary": "near",
+    "Chinese": "接近；近的；在附近"
+  },
+  {
+    "Vocabulary": "nearly",
+    "Chinese": "幾乎"
+  },
+  {
+    "Vocabulary": "necessary",
+    "Chinese": "必要的"
+  },
+  {
+    "Vocabulary": "neck",
+    "Chinese": "脖子"
+  },
+  {
+    "Vocabulary": "necklace",
+    "Chinese": "項鏈"
+  },
+  {
+    "Vocabulary": "need",
+    "Chinese": "需要"
+  },
+  {
+    "Vocabulary": "needle",
+    "Chinese": "針；用針穿刺、用針縫"
+  },
+  {
+    "Vocabulary": "negative",
+    "Chinese": "負面（的）、否定（的）"
+  },
+  {
+    "Vocabulary": "neither",
+    "Chinese": "兩者皆不"
+  },
+  {
+    "Vocabulary": "nephew",
+    "Chinese": "姪子、外甥"
+  },
+  {
+    "Vocabulary": "nervous",
+    "Chinese": "緊張的"
+  },
+  {
+    "Vocabulary": "nest",
+    "Chinese": "巢；築巢"
+  },
+  {
+    "Vocabulary": "never",
+    "Chinese": "從未"
+  },
+  {
+    "Vocabulary": "new",
+    "Chinese": "新的"
+  },
+  {
+    "Vocabulary": "New Year's Day",
+    "Chinese": "新年"
+  },
+  {
+    "Vocabulary": "New Year's Eve",
+    "Chinese": "跨年夜"
+  },
+  {
+    "Vocabulary": "news",
+    "Chinese": "消息、新聞"
+  },
+  {
+    "Vocabulary": "newspaper",
+    "Chinese": "報紙"
+  },
+  {
+    "Vocabulary": "next",
+    "Chinese": "隔壁的、緊接著的；接下去、然後"
+  },
+  {
+    "Vocabulary": "nice",
+    "Chinese": "美好的、宜人的"
+  },
+  {
+    "Vocabulary": "nice-looking",
+    "Chinese": "好看的"
+  },
+  {
+    "Vocabulary": "niece",
+    "Chinese": "姪女、甥女"
+  },
+  {
+    "Vocabulary": "night",
+    "Chinese": "晚上"
+  },
+  {
+    "Vocabulary": "nine",
+    "Chinese": "九"
+  },
+  {
+    "Vocabulary": "nineteen",
+    "Chinese": "十九"
+  },
+  {
+    "Vocabulary": "ninety",
+    "Chinese": "九十"
+  },
+  {
+    "Vocabulary": "nobody",
+    "Chinese": "沒有人"
+  },
+  {
+    "Vocabulary": "nod",
+    "Chinese": "點頭"
+  },
+  {
+    "Vocabulary": "noise",
+    "Chinese": "噪音"
+  },
+  {
+    "Vocabulary": "noisy",
+    "Chinese": "吵鬧的"
+  },
+  {
+    "Vocabulary": "none",
+    "Chinese": "沒有一個(人或物)；絕不"
+  },
+  {
+    "Vocabulary": "noodle",
+    "Chinese": "麵條"
+  },
+  {
+    "Vocabulary": "noon",
+    "Chinese": "正午"
+  },
+  {
+    "Vocabulary": "nor",
+    "Chinese": "也不是"
+  },
+  {
+    "Vocabulary": "north",
+    "Chinese": "北方(的)；向北"
+  },
+  {
+    "Vocabulary": "northern",
+    "Chinese": "北邊的"
+  },
+  {
+    "Vocabulary": "nose",
+    "Chinese": "鼻子"
+  },
+  {
+    "Vocabulary": "not",
+    "Chinese": "不是"
+  },
+  {
+    "Vocabulary": "note",
+    "Chinese": "筆記；記錄、注意"
+  },
+  {
+    "Vocabulary": "notebook",
+    "Chinese": "筆記本"
+  },
+  {
+    "Vocabulary": "nothing",
+    "Chinese": "沒什麼"
+  },
+  {
+    "Vocabulary": "notice",
+    "Chinese": "注意(到)；公告"
+  },
+  {
+    "Vocabulary": "novel",
+    "Chinese": "小說"
+  },
+  {
+    "Vocabulary": "novel",
+    "Chinese": "新穎的"
+  },
+  {
+    "Vocabulary": "now",
+    "Chinese": "現在"
+  },
+  {
+    "Vocabulary": "number",
+    "Chinese": "號碼；編號碼"
+  },
+  {
+    "Vocabulary": "nurse",
+    "Chinese": "護理師；照護"
+  },
+  {
+    "Vocabulary": "obey",
+    "Chinese": "服從"
+  },
+  {
+    "Vocabulary": "object",
+    "Chinese": "物體、對象、目標"
+  },
+  {
+    "Vocabulary": "object",
+    "Chinese": "反對、抗議"
+  },
+  {
+    "Vocabulary": "occur",
+    "Chinese": "發生"
+  },
+  {
+    "Vocabulary": "ocean",
+    "Chinese": "海洋"
+  },
+  {
+    "Vocabulary": "o'clock",
+    "Chinese": "…點鐘"
+  },
+  {
+    "Vocabulary": "of",
+    "Chinese": "...的、屬於、關於"
+  },
+  {
+    "Vocabulary": "off",
+    "Chinese": "(離)開"
+  },
+  {
+    "Vocabulary": "offer",
+    "Chinese": "提供、提議、出價"
+  },
+  {
+    "Vocabulary": "office",
+    "Chinese": "辦公室"
+  },
+  {
+    "Vocabulary": "officer",
+    "Chinese": "官員"
+  },
+  {
+    "Vocabulary": "official",
+    "Chinese": "官員；官方的"
+  },
+  {
+    "Vocabulary": "often",
+    "Chinese": "時常"
+  },
+  {
+    "Vocabulary": "oil",
+    "Chinese": "油；塗油"
+  },
+  {
+    "Vocabulary": "old",
+    "Chinese": "老的"
+  },
+  {
+    "Vocabulary": "omit",
+    "Chinese": "省去"
+  },
+  {
+    "Vocabulary": "on",
+    "Chinese": "在…上"
+  },
+  {
+    "Vocabulary": "once",
+    "Chinese": "一次、曾經；一旦…就…"
+  },
+  {
+    "Vocabulary": "one",
+    "Chinese": "一(個)"
+  },
+  {
+    "Vocabulary": "onion",
+    "Chinese": "洋蔥"
+  },
+  {
+    "Vocabulary": "online",
+    "Chinese": "線上的；在線上"
+  },
+  {
+    "Vocabulary": "only",
+    "Chinese": "僅、只；唯一的"
+  },
+  {
+    "Vocabulary": "open",
+    "Chinese": "打開；開著的"
+  },
+  {
+    "Vocabulary": "operate",
+    "Chinese": "操作"
+  },
+  {
+    "Vocabulary": "operation",
+    "Chinese": "運作"
+  },
+  {
+    "Vocabulary": "opinion",
+    "Chinese": "觀點"
+  },
+  {
+    "Vocabulary": "opportunity",
+    "Chinese": "機會"
+  },
+  {
+    "Vocabulary": "or",
+    "Chinese": "或、否則"
+  },
+  {
+    "Vocabulary": "orange",
+    "Chinese": "柳橙；橙色(的)"
+  },
+  {
+    "Vocabulary": "order",
+    "Chinese": "訂單、順序、命令"
+  },
+  {
+    "Vocabulary": "order",
+    "Chinese": "點菜、訂購、命令"
+  },
+  {
+    "Vocabulary": "ordinary",
+    "Chinese": "普通的"
+  },
+  {
+    "Vocabulary": "other",
+    "Chinese": "其他(的)"
+  },
+  {
+    "Vocabulary": "our",
+    "Chinese": "我們的"
+  },
+  {
+    "Vocabulary": "ours",
+    "Chinese": "我們的"
+  },
+  {
+    "Vocabulary": "ourselves",
+    "Chinese": "我們自己"
+  },
+  {
+    "Vocabulary": "out",
+    "Chinese": "在外；之外；缺"
+  },
+  {
+    "Vocabulary": "outside",
+    "Chinese": "在外地；外面(的)"
+  },
+  {
+    "Vocabulary": "oven",
+    "Chinese": "烤箱"
+  },
+  {
+    "Vocabulary": "over",
+    "Chinese": "在…上面；越過；過去的"
+  },
+  {
+    "Vocabulary": "overpass",
+    "Chinese": "天橋"
+  },
+  {
+    "Vocabulary": "overseas",
+    "Chinese": "在國外"
+  },
+  {
+    "Vocabulary": "own",
+    "Chinese": "自己的"
+  },
+  {
+    "Vocabulary": "own",
+    "Chinese": "擁有"
+  },
+  {
+    "Vocabulary": "owner",
+    "Chinese": "所有者"
+  },
+  {
+    "Vocabulary": "ox",
+    "Chinese": "公牛、牛"
+  },
+  {
+    "Vocabulary": "pack",
+    "Chinese": "打包；包裝"
+  },
+  {
+    "Vocabulary": "package",
+    "Chinese": "包裹"
+  },
+  {
+    "Vocabulary": "pain",
+    "Chinese": "痛苦"
+  },
+  {
+    "Vocabulary": "painful",
+    "Chinese": "痛苦的"
+  },
+  {
+    "Vocabulary": "paint",
+    "Chinese": "油漆"
+  },
+  {
+    "Vocabulary": "painter",
+    "Chinese": "畫家"
+  },
+  {
+    "Vocabulary": "painting",
+    "Chinese": "畫作"
+  },
+  {
+    "Vocabulary": "pair",
+    "Chinese": "對"
+  },
+  {
+    "Vocabulary": "pale",
+    "Chinese": "蒼白的"
+  },
+  {
+    "Vocabulary": "pan",
+    "Chinese": "平底鍋"
+  },
+  {
+    "Vocabulary": "panda",
+    "Chinese": "熊貓"
+  },
+  {
+    "Vocabulary": "papaya",
+    "Chinese": "木瓜"
+  },
+  {
+    "Vocabulary": "paper",
+    "Chinese": "紙"
+  },
+  {
+    "Vocabulary": "pardon",
+    "Chinese": "原諒"
+  },
+  {
+    "Vocabulary": "parent",
+    "Chinese": "父母親"
+  },
+  {
+    "Vocabulary": "park",
+    "Chinese": "公園"
+  },
+  {
+    "Vocabulary": "park",
+    "Chinese": "停(車)"
+  },
+  {
+    "Vocabulary": "parking lot",
+    "Chinese": "停車場"
+  },
+  {
+    "Vocabulary": "parrot",
+    "Chinese": "鸚鵡"
+  },
+  {
+    "Vocabulary": "part",
+    "Chinese": "部分"
+  },
+  {
+    "Vocabulary": "particular",
+    "Chinese": "特殊的、特別的"
+  },
+  {
+    "Vocabulary": "partner",
+    "Chinese": "夥伴"
+  },
+  {
+    "Vocabulary": "party",
+    "Chinese": "宴會"
+  },
+  {
+    "Vocabulary": "pass",
+    "Chinese": "經過；通行證"
+  },
+  {
+    "Vocabulary": "passenger",
+    "Chinese": "乘客"
+  },
+  {
+    "Vocabulary": "past",
+    "Chinese": "過去、經過、（時間）晚於、結束"
+  },
+  {
+    "Vocabulary": "paste",
+    "Chinese": "漿糊；黏貼"
+  },
+  {
+    "Vocabulary": "path",
+    "Chinese": "小徑"
+  },
+  {
+    "Vocabulary": "patient",
+    "Chinese": "有耐心的"
+  },
+  {
+    "Vocabulary": "patient",
+    "Chinese": "病人"
+  },
+  {
+    "Vocabulary": "pattern",
+    "Chinese": "樣式"
+  },
+  {
+    "Vocabulary": "pause",
+    "Chinese": "暫停"
+  },
+  {
+    "Vocabulary": "pay",
+    "Chinese": "支付；薪水"
+  },
+  {
+    "Vocabulary": "peace",
+    "Chinese": "和平"
+  },
+  {
+    "Vocabulary": "peaceful",
+    "Chinese": "和平的、平靜的"
+  },
+  {
+    "Vocabulary": "peach",
+    "Chinese": "桃子、桃紅色"
+  },
+  {
+    "Vocabulary": "pear",
+    "Chinese": "梨"
+  },
+  {
+    "Vocabulary": "pen",
+    "Chinese": "筆"
+  },
+  {
+    "Vocabulary": "pencil",
+    "Chinese": "鉛筆"
+  },
+  {
+    "Vocabulary": "people",
+    "Chinese": "人、人們、民族"
+  },
+  {
+    "Vocabulary": "pepper",
+    "Chinese": "胡椒"
+  },
+  {
+    "Vocabulary": "perfect",
+    "Chinese": "完美的"
+  },
+  {
+    "Vocabulary": "perhaps",
+    "Chinese": "或許"
+  },
+  {
+    "Vocabulary": "period",
+    "Chinese": "期間、時期"
+  },
+  {
+    "Vocabulary": "person",
+    "Chinese": "人"
+  },
+  {
+    "Vocabulary": "personal",
+    "Chinese": "個人的"
+  },
+  {
+    "Vocabulary": "pet",
+    "Chinese": "寵物"
+  },
+  {
+    "Vocabulary": "Philippines",
+    "Chinese": "菲律賓"
+  },
+  {
+    "Vocabulary": "photographer",
+    "Chinese": "攝影師"
+  },
+  {
+    "Vocabulary": "physics",
+    "Chinese": "物理、物理學"
+  },
+  {
+    "Vocabulary": "piano",
+    "Chinese": "鋼琴"
+  },
+  {
+    "Vocabulary": "pick",
+    "Chinese": "採、摘；挑選；剔除"
+  },
+  {
+    "Vocabulary": "picnic",
+    "Chinese": "野餐；去野餐"
+  },
+  {
+    "Vocabulary": "picture",
+    "Chinese": "圖片、照片；拍攝、描繪"
+  },
+  {
+    "Vocabulary": "pie",
+    "Chinese": "派、餡餅"
+  },
+  {
+    "Vocabulary": "piece",
+    "Chinese": "塊、片、（某類事物中的）一件"
+  },
+  {
+    "Vocabulary": "pig",
+    "Chinese": "豬"
+  },
+  {
+    "Vocabulary": "pigeon",
+    "Chinese": "鴿子"
+  },
+  {
+    "Vocabulary": "pile",
+    "Chinese": "堆；(一)堆"
+  },
+  {
+    "Vocabulary": "pillow",
+    "Chinese": "枕頭"
+  },
+  {
+    "Vocabulary": "pin",
+    "Chinese": "別針；(用別針等)別住、釘住"
+  },
+  {
+    "Vocabulary": "pineapple",
+    "Chinese": "鳳梨"
+  },
+  {
+    "Vocabulary": "pink",
+    "Chinese": "粉紅色的；粉紅色"
+  },
+  {
+    "Vocabulary": "pipe",
+    "Chinese": "管子、煙斗"
+  },
+  {
+    "Vocabulary": "pizza",
+    "Chinese": "披薩"
+  },
+  {
+    "Vocabulary": "place",
+    "Chinese": "廣場、地方、位置"
+  },
+  {
+    "Vocabulary": "place",
+    "Chinese": "放置"
+  },
+  {
+    "Vocabulary": "plain",
+    "Chinese": "平原"
+  },
+  {
+    "Vocabulary": "plain",
+    "Chinese": "樸素的、簡單的；完全地、簡直"
+  },
+  {
+    "Vocabulary": "plan",
+    "Chinese": "計畫、方案、平面圖；計劃、打算"
+  },
+  {
+    "Vocabulary": "plane",
+    "Chinese": "飛機"
+  },
+  {
+    "Vocabulary": "planet",
+    "Chinese": "行星"
+  },
+  {
+    "Vocabulary": "plant",
+    "Chinese": "種植"
+  },
+  {
+    "Vocabulary": "plant",
+    "Chinese": "植物"
+  },
+  {
+    "Vocabulary": "plate",
+    "Chinese": "盤子"
+  },
+  {
+    "Vocabulary": "platform",
+    "Chinese": "月台"
+  },
+  {
+    "Vocabulary": "play",
+    "Chinese": "玩、打(球)、演奏"
+  },
+  {
+    "Vocabulary": "play",
+    "Chinese": "比賽、遊戲、戲劇"
+  },
+  {
+    "Vocabulary": "player",
+    "Chinese": "運動員、演奏者、玩遊戲的人、播放器"
+  },
+  {
+    "Vocabulary": "playground",
+    "Chinese": "操場、遊樂場"
+  },
+  {
+    "Vocabulary": "pleasant",
+    "Chinese": "宜人的"
+  },
+  {
+    "Vocabulary": "please",
+    "Chinese": "使高興、取悅"
+  },
+  {
+    "Vocabulary": "please",
+    "Chinese": "請"
+  },
+  {
+    "Vocabulary": "pleased",
+    "Chinese": "喜歡的、滿意的"
+  },
+  {
+    "Vocabulary": "pleasure",
+    "Chinese": "樂趣"
+  },
+  {
+    "Vocabulary": "plus",
+    "Chinese": "加、加上；正數、加號"
+  },
+  {
+    "Vocabulary": "pocket",
+    "Chinese": "口袋；袖珍的、零星花用的；裝入袋內"
+  },
+  {
+    "Vocabulary": "poem",
+    "Chinese": "詩"
+  },
+  {
+    "Vocabulary": "point",
+    "Chinese": "指向、瞄準"
+  },
+  {
+    "Vocabulary": "point",
+    "Chinese": "點、觀點、要點、(特定)時刻"
+  },
+  {
+    "Vocabulary": "poison",
+    "Chinese": "毒、毒藥；使中毒、使(水、空氣等)受污染"
+  },
+  {
+    "Vocabulary": "police",
+    "Chinese": "警方"
+  },
+  {
+    "Vocabulary": "policewoman",
+    "Chinese": "女警察"
+  },
+  {
+    "Vocabulary": "policy",
+    "Chinese": "政策"
+  },
+  {
+    "Vocabulary": "polite",
+    "Chinese": "有禮貌的"
+  },
+  {
+    "Vocabulary": "pollute",
+    "Chinese": "污染"
+  },
+  {
+    "Vocabulary": "pollution",
+    "Chinese": "汙染"
+  },
+  {
+    "Vocabulary": "pond",
+    "Chinese": "池塘"
+  },
+  {
+    "Vocabulary": "pool",
+    "Chinese": "水池"
+  },
+  {
+    "Vocabulary": "poor",
+    "Chinese": "貧窮的、粗劣的、可憐的"
+  },
+  {
+    "Vocabulary": "popcorn",
+    "Chinese": "爆米花"
+  },
+  {
+    "Vocabulary": "popular",
+    "Chinese": "受歡迎的"
+  },
+  {
+    "Vocabulary": "population",
+    "Chinese": "人口"
+  },
+  {
+    "Vocabulary": "pork",
+    "Chinese": "豬肉"
+  },
+  {
+    "Vocabulary": "position",
+    "Chinese": "位置；定位"
+  },
+  {
+    "Vocabulary": "positive",
+    "Chinese": "正面的、明確肯定的"
+  },
+  {
+    "Vocabulary": "possible",
+    "Chinese": "可能的"
+  },
+  {
+    "Vocabulary": "post office",
+    "Chinese": "郵局"
+  },
+  {
+    "Vocabulary": "postcard",
+    "Chinese": "明信片"
+  },
+  {
+    "Vocabulary": "pot",
+    "Chinese": "鍋、壺"
+  },
+  {
+    "Vocabulary": "potato",
+    "Chinese": "馬鈴薯"
+  },
+  {
+    "Vocabulary": "pound",
+    "Chinese": "磅、英鎊"
+  },
+  {
+    "Vocabulary": "powder",
+    "Chinese": "粉末；灑粉末"
+  },
+  {
+    "Vocabulary": "power",
+    "Chinese": "力量、權力"
+  },
+  {
+    "Vocabulary": "powerful",
+    "Chinese": "強有力的"
+  },
+  {
+    "Vocabulary": "praise",
+    "Chinese": "稱讚"
+  },
+  {
+    "Vocabulary": "pray",
+    "Chinese": "祈禱"
+  },
+  {
+    "Vocabulary": "precious",
+    "Chinese": "珍貴的"
+  },
+  {
+    "Vocabulary": "prefer",
+    "Chinese": "較喜歡、偏好"
+  },
+  {
+    "Vocabulary": "prepare",
+    "Chinese": "準備"
+  },
+  {
+    "Vocabulary": "present",
+    "Chinese": "出席的、現在的"
+  },
+  {
+    "Vocabulary": "present",
+    "Chinese": "禮物；現在"
+  },
+  {
+    "Vocabulary": "president",
+    "Chinese": "總統"
+  },
+  {
+    "Vocabulary": "press",
+    "Chinese": "新聞界、印刷出版業"
+  },
+  {
+    "Vocabulary": "press",
+    "Chinese": "按、壓、催迫"
+  },
+  {
+    "Vocabulary": "pretty",
+    "Chinese": "漂亮的"
+  },
+  {
+    "Vocabulary": "pretty",
+    "Chinese": "相當、頗"
+  },
+  {
+    "Vocabulary": "price",
+    "Chinese": "價格；訂價"
+  },
+  {
+    "Vocabulary": "priest",
+    "Chinese": "教士、牧師"
+  },
+  {
+    "Vocabulary": "primary",
+    "Chinese": "初級的、初等的"
+  },
+  {
+    "Vocabulary": "prince",
+    "Chinese": "王子"
+  },
+  {
+    "Vocabulary": "princess",
+    "Chinese": "公主"
+  },
+  {
+    "Vocabulary": "principal",
+    "Chinese": "校長、首長"
+  },
+  {
+    "Vocabulary": "principle",
+    "Chinese": "原則"
+  },
+  {
+    "Vocabulary": "print",
+    "Chinese": "印刷、用印刷體寫；印刷字體、印刷品"
+  },
+  {
+    "Vocabulary": "printer",
+    "Chinese": "印表機"
+  },
+  {
+    "Vocabulary": "prison",
+    "Chinese": "監獄"
+  },
+  {
+    "Vocabulary": "prisoner",
+    "Chinese": "囚犯"
+  },
+  {
+    "Vocabulary": "private",
+    "Chinese": "私人的"
+  },
+  {
+    "Vocabulary": "prize",
+    "Chinese": "獎"
+  },
+  {
+    "Vocabulary": "probably",
+    "Chinese": "大概、有可能"
+  },
+  {
+    "Vocabulary": "problem",
+    "Chinese": "問題"
+  },
+  {
+    "Vocabulary": "produce",
+    "Chinese": "製造、生產"
+  },
+  {
+    "Vocabulary": "product",
+    "Chinese": "產品"
+  },
+  {
+    "Vocabulary": "production",
+    "Chinese": "生產"
+  },
+  {
+    "Vocabulary": "professor",
+    "Chinese": "教授"
+  },
+  {
+    "Vocabulary": "progress",
+    "Chinese": "進步"
+  },
+  {
+    "Vocabulary": "project",
+    "Chinese": "方案、計畫、(學生)研究"
+  },
+  {
+    "Vocabulary": "promise",
+    "Chinese": "承諾、答應"
+  },
+  {
+    "Vocabulary": "pronounce",
+    "Chinese": "宣告、發音"
+  },
+  {
+    "Vocabulary": "propose",
+    "Chinese": "提出建議、求婚"
+  },
+  {
+    "Vocabulary": "protect",
+    "Chinese": "保護"
+  },
+  {
+    "Vocabulary": "protection",
+    "Chinese": "保護"
+  },
+  {
+    "Vocabulary": "proud",
+    "Chinese": "(感到)驕傲的"
+  },
+  {
+    "Vocabulary": "prove",
+    "Chinese": "證明"
+  },
+  {
+    "Vocabulary": "provide",
+    "Chinese": "提供"
+  },
+  {
+    "Vocabulary": "public",
+    "Chinese": "公眾(的)"
+  },
+  {
+    "Vocabulary": "pull",
+    "Chinese": "拉"
+  },
+  {
+    "Vocabulary": "pump",
+    "Chinese": "(用)幫浦"
+  },
+  {
+    "Vocabulary": "pumpkin",
+    "Chinese": "南瓜"
+  },
+  {
+    "Vocabulary": "punish",
+    "Chinese": "處罰"
+  },
+  {
+    "Vocabulary": "puppy",
+    "Chinese": "小狗"
+  },
+  {
+    "Vocabulary": "purchase",
+    "Chinese": "購買"
+  },
+  {
+    "Vocabulary": "purple",
+    "Chinese": "紫色(的)"
+  },
+  {
+    "Vocabulary": "purpose",
+    "Chinese": "目的"
+  },
+  {
+    "Vocabulary": "purse",
+    "Chinese": "錢包"
+  },
+  {
+    "Vocabulary": "push",
+    "Chinese": "推、逼迫；推動"
+  },
+  {
+    "Vocabulary": "put",
+    "Chinese": "放"
+  },
+  {
+    "Vocabulary": "puzzle",
+    "Chinese": "拼圖"
+  },
+  {
+    "Vocabulary": "puzzle",
+    "Chinese": "難題；使...感到為難、困惑"
+  },
+  {
+    "Vocabulary": "quality",
+    "Chinese": "品質"
+  },
+  {
+    "Vocabulary": "quarter",
+    "Chinese": "四分之一"
+  },
+  {
+    "Vocabulary": "queen",
+    "Chinese": "皇后"
+  },
+  {
+    "Vocabulary": "question",
+    "Chinese": "(問)問題；懷疑"
+  },
+  {
+    "Vocabulary": "quick",
+    "Chinese": "快速的"
+  },
+  {
+    "Vocabulary": "quiet",
+    "Chinese": "安靜的"
+  },
+  {
+    "Vocabulary": "quit",
+    "Chinese": "離開"
+  },
+  {
+    "Vocabulary": "quite",
+    "Chinese": "相當"
+  },
+  {
+    "Vocabulary": "quiz",
+    "Chinese": "小考"
+  },
+  {
+    "Vocabulary": "rabbit",
+    "Chinese": "兔子"
+  },
+  {
+    "Vocabulary": "race",
+    "Chinese": "賽跑、參加比賽；競爭"
+  },
+  {
+    "Vocabulary": "race",
+    "Chinese": "種族"
+  },
+  {
+    "Vocabulary": "radio",
+    "Chinese": "收音機、廣播節目"
+  },
+  {
+    "Vocabulary": "rain",
+    "Chinese": "(下)雨"
+  },
+  {
+    "Vocabulary": "rainbow",
+    "Chinese": "彩虹"
+  },
+  {
+    "Vocabulary": "rainy",
+    "Chinese": "下雨的"
+  },
+  {
+    "Vocabulary": "raise",
+    "Chinese": "舉高、提升、養育；提高"
+  },
+  {
+    "Vocabulary": "raise",
+    "Chinese": "加薪、加薪額"
+  },
+  {
+    "Vocabulary": "range",
+    "Chinese": "排、行、範圍；山脈"
+  },
+  {
+    "Vocabulary": "range",
+    "Chinese": "範圍、排列"
+  },
+  {
+    "Vocabulary": "rapid",
+    "Chinese": "快速的"
+  },
+  {
+    "Vocabulary": "rare",
+    "Chinese": "半熟的、罕見"
+  },
+  {
+    "Vocabulary": "rat",
+    "Chinese": "老鼠"
+  },
+  {
+    "Vocabulary": "rather",
+    "Chinese": "相當、頗"
+  },
+  {
+    "Vocabulary": "reach",
+    "Chinese": "伸出(手)、抵達、 取得聯繫"
+  },
+  {
+    "Vocabulary": "reach",
+    "Chinese": "（手、能力、影響等）可及範圍"
+  },
+  {
+    "Vocabulary": "read",
+    "Chinese": "讀、朗讀"
+  },
+  {
+    "Vocabulary": "ready",
+    "Chinese": "準備好的"
+  },
+  {
+    "Vocabulary": "real",
+    "Chinese": "真實的"
+  },
+  {
+    "Vocabulary": "really",
+    "Chinese": "真的、非常、實際上"
+  },
+  {
+    "Vocabulary": "reason",
+    "Chinese": "原因、理由、理性"
+  },
+  {
+    "Vocabulary": "receive",
+    "Chinese": "收到、歡迎"
+  },
+  {
+    "Vocabulary": "recent",
+    "Chinese": "最近的"
+  },
+  {
+    "Vocabulary": "record",
+    "Chinese": "紀錄、唱片；記錄、錄音"
+  },
+  {
+    "Vocabulary": "recover",
+    "Chinese": "恢復"
+  },
+  {
+    "Vocabulary": "rectangle",
+    "Chinese": "矩形"
+  },
+  {
+    "Vocabulary": "recycle",
+    "Chinese": "回收"
+  },
+  {
+    "Vocabulary": "red",
+    "Chinese": "紅色(的)"
+  },
+  {
+    "Vocabulary": "refuse",
+    "Chinese": "拒絕"
+  },
+  {
+    "Vocabulary": "regard",
+    "Chinese": "認為；尊敬、關心"
+  },
+  {
+    "Vocabulary": "region",
+    "Chinese": "地區"
+  },
+  {
+    "Vocabulary": "regret",
+    "Chinese": "遺憾、後悔"
+  },
+  {
+    "Vocabulary": "regular",
+    "Chinese": "規律的、經常的"
+  },
+  {
+    "Vocabulary": "reject",
+    "Chinese": "拒絕、拒收"
+  },
+  {
+    "Vocabulary": "relative",
+    "Chinese": "相關的"
+  },
+  {
+    "Vocabulary": "relative",
+    "Chinese": "親戚"
+  },
+  {
+    "Vocabulary": "remember",
+    "Chinese": "記住"
+  },
+  {
+    "Vocabulary": "remind",
+    "Chinese": "提醒"
+  },
+  {
+    "Vocabulary": "rent",
+    "Chinese": "租金；租"
+  },
+  {
+    "Vocabulary": "repair",
+    "Chinese": "修理"
+  },
+  {
+    "Vocabulary": "repeat",
+    "Chinese": "重複"
+  },
+  {
+    "Vocabulary": "reply",
+    "Chinese": "回答、回覆"
+  },
+  {
+    "Vocabulary": "report",
+    "Chinese": "報告、報導"
+  },
+  {
+    "Vocabulary": "reporter",
+    "Chinese": "記者"
+  },
+  {
+    "Vocabulary": "require",
+    "Chinese": "要求"
+  },
+  {
+    "Vocabulary": "respect",
+    "Chinese": "尊重"
+  },
+  {
+    "Vocabulary": "responsible",
+    "Chinese": "負責的、掌管…"
+  },
+  {
+    "Vocabulary": "rest",
+    "Chinese": "剩下；剩餘部分、其餘"
+  },
+  {
+    "Vocabulary": "rest",
+    "Chinese": "休息"
+  },
+  {
+    "Vocabulary": "restaurant",
+    "Chinese": "餐館"
+  },
+  {
+    "Vocabulary": "result",
+    "Chinese": "結果"
+  },
+  {
+    "Vocabulary": "return",
+    "Chinese": "返回"
+  },
+  {
+    "Vocabulary": "review",
+    "Chinese": "複習"
+  },
+  {
+    "Vocabulary": "revise",
+    "Chinese": "修訂"
+  },
+  {
+    "Vocabulary": "rice",
+    "Chinese": "米飯"
+  },
+  {
+    "Vocabulary": "rich",
+    "Chinese": "富有的；富人"
+  },
+  {
+    "Vocabulary": "ride",
+    "Chinese": "騎乘、搭乘；搭車"
+  },
+  {
+    "Vocabulary": "right",
+    "Chinese": "右邊的、正確的；向右、正確地、立刻"
+  },
+  {
+    "Vocabulary": "right",
+    "Chinese": "右方；權利"
+  },
+  {
+    "Vocabulary": "right-hand",
+    "Chinese": "右手的、右側的、供右手用的"
+  },
+  {
+    "Vocabulary": "ring",
+    "Chinese": "打電話、按門鈴、(鈴聲)響起"
+  },
+  {
+    "Vocabulary": "ring",
+    "Chinese": "戒指、環；鈴聲"
+  },
+  {
+    "Vocabulary": "rise",
+    "Chinese": "上升"
+  },
+  {
+    "Vocabulary": "river",
+    "Chinese": "河"
+  },
+  {
+    "Vocabulary": "road",
+    "Chinese": "道路"
+  },
+  {
+    "Vocabulary": "rob",
+    "Chinese": "搶劫"
+  },
+  {
+    "Vocabulary": "robot",
+    "Chinese": "機器人"
+  },
+  {
+    "Vocabulary": "rock",
+    "Chinese": "石頭、岩石、搖滾樂"
+  },
+  {
+    "Vocabulary": "rock",
+    "Chinese": "搖晃、震動、跳舞(搖滾樂)"
+  },
+  {
+    "Vocabulary": "role",
+    "Chinese": "角色"
+  },
+  {
+    "Vocabulary": "roll",
+    "Chinese": "捲；(一)捲"
+  },
+  {
+    "Vocabulary": "roof",
+    "Chinese": "屋頂"
+  },
+  {
+    "Vocabulary": "room",
+    "Chinese": "房間"
+  },
+  {
+    "Vocabulary": "root",
+    "Chinese": "根、根源；生根、紥根"
+  },
+  {
+    "Vocabulary": "rope",
+    "Chinese": "繩子"
+  },
+  {
+    "Vocabulary": "rose",
+    "Chinese": "玫瑰"
+  },
+  {
+    "Vocabulary": "round",
+    "Chinese": "環繞地、周而復始地；圍繞、環繞"
+  },
+  {
+    "Vocabulary": "round",
+    "Chinese": "一輪、一回合"
+  },
+  {
+    "Vocabulary": "round",
+    "Chinese": "圓形的"
+  },
+  {
+    "Vocabulary": "row",
+    "Chinese": "排、行、列"
+  },
+  {
+    "Vocabulary": "row",
+    "Chinese": "划(船)"
+  },
+  {
+    "Vocabulary": "royal",
+    "Chinese": "皇家的"
+  },
+  {
+    "Vocabulary": "rub",
+    "Chinese": "摩擦、揉"
+  },
+  {
+    "Vocabulary": "rubber",
+    "Chinese": "橡膠的；橡膠"
+  },
+  {
+    "Vocabulary": "rude",
+    "Chinese": "無禮的"
+  },
+  {
+    "Vocabulary": "ruin",
+    "Chinese": "廢墟；毀壞"
+  },
+  {
+    "Vocabulary": "rule",
+    "Chinese": "規則；統治"
+  },
+  {
+    "Vocabulary": "ruler",
+    "Chinese": "尺、統治者"
+  },
+  {
+    "Vocabulary": "run",
+    "Chinese": "跑、行駛、運轉"
+  },
+  {
+    "Vocabulary": "rush",
+    "Chinese": "趕緊；匆忙"
+  },
+  {
+    "Vocabulary": "Russia",
+    "Chinese": "俄國"
+  },
+  {
+    "Vocabulary": "sad",
+    "Chinese": "悲傷的"
+  },
+  {
+    "Vocabulary": "safe",
+    "Chinese": "安全的"
+  },
+  {
+    "Vocabulary": "safe",
+    "Chinese": "保險箱、保險櫃"
+  },
+  {
+    "Vocabulary": "safety",
+    "Chinese": "安全"
+  },
+  {
+    "Vocabulary": "sail",
+    "Chinese": "航行"
+  },
+  {
+    "Vocabulary": "sailor",
+    "Chinese": "船員、水手"
+  },
+  {
+    "Vocabulary": "salad",
+    "Chinese": "沙拉"
+  },
+  {
+    "Vocabulary": "sale",
+    "Chinese": "賣、出售、銷售"
+  },
+  {
+    "Vocabulary": "salt",
+    "Chinese": "鹽"
+  },
+  {
+    "Vocabulary": "same",
+    "Chinese": "同樣的人/事物；同樣的"
+  },
+  {
+    "Vocabulary": "sample",
+    "Chinese": "樣本；試用、試吃"
+  },
+  {
+    "Vocabulary": "sand",
+    "Chinese": "沙子"
+  },
+  {
+    "Vocabulary": "sandwich",
+    "Chinese": "三明治"
+  },
+  {
+    "Vocabulary": "satisfy",
+    "Chinese": "使滿意"
+  },
+  {
+    "Vocabulary": "saucer",
+    "Chinese": "茶碟"
+  },
+  {
+    "Vocabulary": "save",
+    "Chinese": "節省"
+  },
+  {
+    "Vocabulary": "say",
+    "Chinese": "說"
+  },
+  {
+    "Vocabulary": "scale",
+    "Chinese": "規模、刻度、等級"
+  },
+  {
+    "Vocabulary": "scarf",
+    "Chinese": "圍巾"
+  },
+  {
+    "Vocabulary": "scene",
+    "Chinese": "現場、景色"
+  },
+  {
+    "Vocabulary": "school",
+    "Chinese": "學校"
+  },
+  {
+    "Vocabulary": "science",
+    "Chinese": "科學"
+  },
+  {
+    "Vocabulary": "scientist",
+    "Chinese": "科學家"
+  },
+  {
+    "Vocabulary": "scooter",
+    "Chinese": "機車、滑板車"
+  },
+  {
+    "Vocabulary": "score",
+    "Chinese": "得分；(比賽中的)得分、成績"
+  },
+  {
+    "Vocabulary": "screen",
+    "Chinese": "螢幕"
+  },
+  {
+    "Vocabulary": "screen",
+    "Chinese": "遮擋、檢查、放映"
+  },
+  {
+    "Vocabulary": "sea",
+    "Chinese": "海洋"
+  },
+  {
+    "Vocabulary": "search",
+    "Chinese": "搜尋"
+  },
+  {
+    "Vocabulary": "season",
+    "Chinese": "季節"
+  },
+  {
+    "Vocabulary": "seat",
+    "Chinese": "座位；使就座"
+  },
+  {
+    "Vocabulary": "second",
+    "Chinese": "第二位；秒"
+  },
+  {
+    "Vocabulary": "second",
+    "Chinese": "第二的；居第二位"
+  },
+  {
+    "Vocabulary": "secret",
+    "Chinese": "秘密的；秘密"
+  },
+  {
+    "Vocabulary": "secretary",
+    "Chinese": "秘書"
+  },
+  {
+    "Vocabulary": "section",
+    "Chinese": "區、段"
+  },
+  {
+    "Vocabulary": "see",
+    "Chinese": "看、拜訪、明白"
+  },
+  {
+    "Vocabulary": "seed",
+    "Chinese": "種子"
+  },
+  {
+    "Vocabulary": "seek",
+    "Chinese": "尋找"
+  },
+  {
+    "Vocabulary": "seem",
+    "Chinese": "看起來、似乎"
+  },
+  {
+    "Vocabulary": "seesaw",
+    "Chinese": "蹺蹺板"
+  },
+  {
+    "Vocabulary": "seldom",
+    "Chinese": "不常、很少"
+  },
+  {
+    "Vocabulary": "select",
+    "Chinese": "挑選"
+  },
+  {
+    "Vocabulary": "selfish",
+    "Chinese": "自私的"
+  },
+  {
+    "Vocabulary": "sell",
+    "Chinese": "售出"
+  },
+  {
+    "Vocabulary": "semester",
+    "Chinese": "學期"
+  },
+  {
+    "Vocabulary": "send",
+    "Chinese": "寄"
+  },
+  {
+    "Vocabulary": "senior high school",
+    "Chinese": "高中、高級中學"
+  },
+  {
+    "Vocabulary": "sense",
+    "Chinese": "感官、觀念、意義；意識到、感覺到"
+  },
+  {
+    "Vocabulary": "separate",
+    "Chinese": "分開的；分開"
+  },
+  {
+    "Vocabulary": "serious",
+    "Chinese": "嚴重的"
+  },
+  {
+    "Vocabulary": "servant",
+    "Chinese": "僕人"
+  },
+  {
+    "Vocabulary": "serve",
+    "Chinese": "服務"
+  },
+  {
+    "Vocabulary": "service",
+    "Chinese": "服務"
+  },
+  {
+    "Vocabulary": "set",
+    "Chinese": "放、裝設"
+  },
+  {
+    "Vocabulary": "set",
+    "Chinese": "準備好的"
+  },
+  {
+    "Vocabulary": "set",
+    "Chinese": "一套(組、副)"
+  },
+  {
+    "Vocabulary": "seven",
+    "Chinese": "七"
+  },
+  {
+    "Vocabulary": "seventeen",
+    "Chinese": "十七"
+  },
+  {
+    "Vocabulary": "seventy",
+    "Chinese": "七十"
+  },
+  {
+    "Vocabulary": "several",
+    "Chinese": "一些的；幾個"
+  },
+  {
+    "Vocabulary": "shake",
+    "Chinese": "搖動、握手；搖動"
+  },
+  {
+    "Vocabulary": "shall",
+    "Chinese": "將"
+  },
+  {
+    "Vocabulary": "shape",
+    "Chinese": "形狀"
+  },
+  {
+    "Vocabulary": "share",
+    "Chinese": "股票、部分"
+  },
+  {
+    "Vocabulary": "share",
+    "Chinese": "分享、分擔"
+  },
+  {
+    "Vocabulary": "shark",
+    "Chinese": "鯊魚"
+  },
+  {
+    "Vocabulary": "sharp",
+    "Chinese": "銳利的"
+  },
+  {
+    "Vocabulary": "she",
+    "Chinese": "她"
+  },
+  {
+    "Vocabulary": "sheep",
+    "Chinese": "綿羊"
+  },
+  {
+    "Vocabulary": "sheet",
+    "Chinese": "床單、一張"
+  },
+  {
+    "Vocabulary": "shelf",
+    "Chinese": "架子"
+  },
+  {
+    "Vocabulary": "shine",
+    "Chinese": "照亮"
+  },
+  {
+    "Vocabulary": "ship",
+    "Chinese": "(航海的)大船、艦"
+  },
+  {
+    "Vocabulary": "ship",
+    "Chinese": "用船運、運送"
+  },
+  {
+    "Vocabulary": "shirt",
+    "Chinese": "襯衫"
+  },
+  {
+    "Vocabulary": "shock",
+    "Chinese": "震驚；使驚訝"
+  },
+  {
+    "Vocabulary": "shoe",
+    "Chinese": "鞋"
+  },
+  {
+    "Vocabulary": "shoot",
+    "Chinese": "發射、投籃；發射、射擊"
+  },
+  {
+    "Vocabulary": "shop",
+    "Chinese": "買、購物"
+  },
+  {
+    "Vocabulary": "shore",
+    "Chinese": "岸"
+  },
+  {
+    "Vocabulary": "short",
+    "Chinese": "矮的、短的、缺乏的"
+  },
+  {
+    "Vocabulary": "shot",
+    "Chinese": "射擊、(藥品)一次注射量"
+  },
+  {
+    "Vocabulary": "should",
+    "Chinese": "應該"
+  },
+  {
+    "Vocabulary": "shoulder",
+    "Chinese": "肩膀"
+  },
+  {
+    "Vocabulary": "shout",
+    "Chinese": "大聲說、吼叫；喊叫聲"
+  },
+  {
+    "Vocabulary": "show",
+    "Chinese": "給…看；展覽"
+  },
+  {
+    "Vocabulary": "shower",
+    "Chinese": "淋浴；(下)陣雨"
+  },
+  {
+    "Vocabulary": "shrimp",
+    "Chinese": "蝦子"
+  },
+  {
+    "Vocabulary": "shut",
+    "Chinese": "關上、打烊"
+  },
+  {
+    "Vocabulary": "shy",
+    "Chinese": "害羞的"
+  },
+  {
+    "Vocabulary": "sick",
+    "Chinese": "生病的、噁心的"
+  },
+  {
+    "Vocabulary": "side",
+    "Chinese": "邊、側"
+  },
+  {
+    "Vocabulary": "sight",
+    "Chinese": "視力、視線"
+  },
+  {
+    "Vocabulary": "sign",
+    "Chinese": "簽名、簽約"
+  },
+  {
+    "Vocabulary": "sign",
+    "Chinese": "徵兆、標示"
+  },
+  {
+    "Vocabulary": "silence",
+    "Chinese": "沉默、安靜"
+  },
+  {
+    "Vocabulary": "silent",
+    "Chinese": "安靜的"
+  },
+  {
+    "Vocabulary": "silly",
+    "Chinese": "愚蠢的"
+  },
+  {
+    "Vocabulary": "silver",
+    "Chinese": "銀；銀質的、銀色的"
+  },
+  {
+    "Vocabulary": "similar",
+    "Chinese": "類似的"
+  },
+  {
+    "Vocabulary": "simple",
+    "Chinese": "簡單的"
+  },
+  {
+    "Vocabulary": "simply",
+    "Chinese": "只是、簡單地"
+  },
+  {
+    "Vocabulary": "since",
+    "Chinese": "從...以來；自從；從此、此後"
+  },
+  {
+    "Vocabulary": "sincere",
+    "Chinese": "真誠的"
+  },
+  {
+    "Vocabulary": "sing",
+    "Chinese": "唱(歌)"
+  },
+  {
+    "Vocabulary": "Singapore",
+    "Chinese": "新加坡"
+  },
+  {
+    "Vocabulary": "singer",
+    "Chinese": "歌手"
+  },
+  {
+    "Vocabulary": "single",
+    "Chinese": "單一的、單身的；未婚者、單曲(唱片)"
+  },
+  {
+    "Vocabulary": "sink",
+    "Chinese": "水槽"
+  },
+  {
+    "Vocabulary": "sink",
+    "Chinese": "下沉"
+  },
+  {
+    "Vocabulary": "sir",
+    "Chinese": "先生"
+  },
+  {
+    "Vocabulary": "sister",
+    "Chinese": "姐妹"
+  },
+  {
+    "Vocabulary": "sit",
+    "Chinese": "坐"
+  },
+  {
+    "Vocabulary": "six",
+    "Chinese": "六"
+  },
+  {
+    "Vocabulary": "sixteen",
+    "Chinese": "十六"
+  },
+  {
+    "Vocabulary": "sixty",
+    "Chinese": "六十"
+  },
+  {
+    "Vocabulary": "size",
+    "Chinese": "尺寸"
+  },
+  {
+    "Vocabulary": "skate",
+    "Chinese": "冰鞋；溜冰"
+  },
+  {
+    "Vocabulary": "ski",
+    "Chinese": "滑雪板；滑雪"
+  },
+  {
+    "Vocabulary": "skill",
+    "Chinese": "技術"
+  },
+  {
+    "Vocabulary": "skin",
+    "Chinese": "皮膚"
+  },
+  {
+    "Vocabulary": "skinny",
+    "Chinese": "很瘦的"
+  },
+  {
+    "Vocabulary": "skirt",
+    "Chinese": "裙子"
+  },
+  {
+    "Vocabulary": "sky",
+    "Chinese": "天空"
+  },
+  {
+    "Vocabulary": "sleep",
+    "Chinese": "睡覺；睡覺、睡眠"
+  },
+  {
+    "Vocabulary": "sleepy",
+    "Chinese": "想睡的"
+  },
+  {
+    "Vocabulary": "slender",
+    "Chinese": "苗條的"
+  },
+  {
+    "Vocabulary": "slide",
+    "Chinese": "滑動；滑梯"
+  },
+  {
+    "Vocabulary": "slim",
+    "Chinese": "苗條的"
+  },
+  {
+    "Vocabulary": "slip",
+    "Chinese": "滑動、滑跤"
+  },
+  {
+    "Vocabulary": "slipper",
+    "Chinese": "拖鞋"
+  },
+  {
+    "Vocabulary": "slow",
+    "Chinese": "慢的；減慢；緩慢地"
+  },
+  {
+    "Vocabulary": "small",
+    "Chinese": "小的"
+  },
+  {
+    "Vocabulary": "smart",
+    "Chinese": "聰明的"
+  },
+  {
+    "Vocabulary": "smell",
+    "Chinese": "氣味；聞"
+  },
+  {
+    "Vocabulary": "smile",
+    "Chinese": "微笑；笑容"
+  },
+  {
+    "Vocabulary": "smoke",
+    "Chinese": "煙；抽菸、冒煙"
+  },
+  {
+    "Vocabulary": "snack",
+    "Chinese": "點心；吃點心"
+  },
+  {
+    "Vocabulary": "snail",
+    "Chinese": "蝸牛"
+  },
+  {
+    "Vocabulary": "snake",
+    "Chinese": "蛇"
+  },
+  {
+    "Vocabulary": "sneaker",
+    "Chinese": "球鞋"
+  },
+  {
+    "Vocabulary": "sneaky",
+    "Chinese": "偷偷摸摸的"
+  },
+  {
+    "Vocabulary": "snow",
+    "Chinese": "雪；下雪"
+  },
+  {
+    "Vocabulary": "snowy",
+    "Chinese": "多雪的"
+  },
+  {
+    "Vocabulary": "so",
+    "Chinese": "如此"
+  },
+  {
+    "Vocabulary": "so",
+    "Chinese": "所以"
+  },
+  {
+    "Vocabulary": "soap",
+    "Chinese": "肥皂；抹肥皂"
+  },
+  {
+    "Vocabulary": "soccer",
+    "Chinese": "足球"
+  },
+  {
+    "Vocabulary": "social",
+    "Chinese": "社會的"
+  },
+  {
+    "Vocabulary": "society",
+    "Chinese": "社會"
+  },
+  {
+    "Vocabulary": "sock",
+    "Chinese": "襪子"
+  },
+  {
+    "Vocabulary": "soda",
+    "Chinese": "蘇打、汽水"
+  },
+  {
+    "Vocabulary": "sofa",
+    "Chinese": "沙發"
+  },
+  {
+    "Vocabulary": "soft",
+    "Chinese": "軟的"
+  },
+  {
+    "Vocabulary": "soft drink",
+    "Chinese": "(不含酒精的)軟性飲料"
+  },
+  {
+    "Vocabulary": "soldier",
+    "Chinese": "軍人"
+  },
+  {
+    "Vocabulary": "solution",
+    "Chinese": "解答"
+  },
+  {
+    "Vocabulary": "solve",
+    "Chinese": "解決"
+  },
+  {
+    "Vocabulary": "some",
+    "Chinese": "有些；一些"
+  },
+  {
+    "Vocabulary": "something",
+    "Chinese": "某個東西"
+  },
+  {
+    "Vocabulary": "sometimes",
+    "Chinese": "有時候"
+  },
+  {
+    "Vocabulary": "somewhere",
+    "Chinese": "在某處"
+  },
+  {
+    "Vocabulary": "son",
+    "Chinese": "兒子"
+  },
+  {
+    "Vocabulary": "song",
+    "Chinese": "歌曲"
+  },
+  {
+    "Vocabulary": "soon",
+    "Chinese": "不久、很快地、快、早"
+  },
+  {
+    "Vocabulary": "sore",
+    "Chinese": "痛的；痛處、瘡"
+  },
+  {
+    "Vocabulary": "sorry",
+    "Chinese": "對不起"
+  },
+  {
+    "Vocabulary": "sort",
+    "Chinese": "種類"
+  },
+  {
+    "Vocabulary": "sort",
+    "Chinese": "分類"
+  },
+  {
+    "Vocabulary": "soul",
+    "Chinese": "靈魂"
+  },
+  {
+    "Vocabulary": "sound",
+    "Chinese": "聲音；聽起來"
+  },
+  {
+    "Vocabulary": "soup",
+    "Chinese": "湯"
+  },
+  {
+    "Vocabulary": "sour",
+    "Chinese": "酸的"
+  },
+  {
+    "Vocabulary": "source",
+    "Chinese": "來源"
+  },
+  {
+    "Vocabulary": "south",
+    "Chinese": "南方；在南方；南方的"
+  },
+  {
+    "Vocabulary": "southern",
+    "Chinese": "南方(人)的"
+  },
+  {
+    "Vocabulary": "soy sauce",
+    "Chinese": "醬油"
+  },
+  {
+    "Vocabulary": "space",
+    "Chinese": "空間"
+  },
+  {
+    "Vocabulary": "spaghetti",
+    "Chinese": "義大利麵"
+  },
+  {
+    "Vocabulary": "speak",
+    "Chinese": "講"
+  },
+  {
+    "Vocabulary": "speaker",
+    "Chinese": "發言人"
+  },
+  {
+    "Vocabulary": "special",
+    "Chinese": "特別的；特製菜餚、特別節目"
+  },
+  {
+    "Vocabulary": "speech",
+    "Chinese": "演說"
+  },
+  {
+    "Vocabulary": "speed",
+    "Chinese": "速度；加速"
+  },
+  {
+    "Vocabulary": "spell",
+    "Chinese": "拼字"
+  },
+  {
+    "Vocabulary": "spelling",
+    "Chinese": "拼寫"
+  },
+  {
+    "Vocabulary": "spend",
+    "Chinese": "度過"
+  },
+  {
+    "Vocabulary": "spider",
+    "Chinese": "蜘蛛"
+  },
+  {
+    "Vocabulary": "spirit",
+    "Chinese": "精神"
+  },
+  {
+    "Vocabulary": "spoon",
+    "Chinese": "湯匙"
+  },
+  {
+    "Vocabulary": "sport",
+    "Chinese": "運動"
+  },
+  {
+    "Vocabulary": "spread",
+    "Chinese": "延伸；散布"
+  },
+  {
+    "Vocabulary": "spring",
+    "Chinese": "春天、泉水"
+  },
+  {
+    "Vocabulary": "square",
+    "Chinese": "正方形、廣場；正方形的"
+  },
+  {
+    "Vocabulary": "stage",
+    "Chinese": "舞台"
+  },
+  {
+    "Vocabulary": "stair",
+    "Chinese": "樓梯"
+  },
+  {
+    "Vocabulary": "stamp",
+    "Chinese": "郵票、戳章；貼郵票、踩"
+  },
+  {
+    "Vocabulary": "stand",
+    "Chinese": "站立、忍受；站立"
+  },
+  {
+    "Vocabulary": "standard",
+    "Chinese": "標準；標準的"
+  },
+  {
+    "Vocabulary": "star",
+    "Chinese": "星星、明星；主演、擔任主角"
+  },
+  {
+    "Vocabulary": "start",
+    "Chinese": "開始；開始、開端"
+  },
+  {
+    "Vocabulary": "station",
+    "Chinese": "車站、(提供服務或進行某工作的)站、電視台"
+  },
+  {
+    "Vocabulary": "stationery",
+    "Chinese": "文具"
+  },
+  {
+    "Vocabulary": "stay",
+    "Chinese": "停留；停留時間"
+  },
+  {
+    "Vocabulary": "steak",
+    "Chinese": "牛排"
+  },
+  {
+    "Vocabulary": "steal",
+    "Chinese": "偷"
+  },
+  {
+    "Vocabulary": "steam",
+    "Chinese": "蒸汽；蒸(食物)"
+  },
+  {
+    "Vocabulary": "step",
+    "Chinese": "步伐；踏"
+  },
+  {
+    "Vocabulary": "stick",
+    "Chinese": "插入、黏貼"
+  },
+  {
+    "Vocabulary": "stick",
+    "Chinese": "枝條、木棍、拐杖"
+  },
+  {
+    "Vocabulary": "still",
+    "Chinese": "仍然、更加"
+  },
+  {
+    "Vocabulary": "stingy",
+    "Chinese": "吝嗇的"
+  },
+  {
+    "Vocabulary": "stomachache",
+    "Chinese": "腹痛"
+  },
+  {
+    "Vocabulary": "stone",
+    "Chinese": "石頭"
+  },
+  {
+    "Vocabulary": "stop",
+    "Chinese": "停止、阻止；短暫停留、(尤指公車)站"
+  },
+  {
+    "Vocabulary": "store",
+    "Chinese": "商店"
+  },
+  {
+    "Vocabulary": "store",
+    "Chinese": "貯藏"
+  },
+  {
+    "Vocabulary": "storm",
+    "Chinese": "暴風雨"
+  },
+  {
+    "Vocabulary": "stormy",
+    "Chinese": "暴風雨的"
+  },
+  {
+    "Vocabulary": "stove",
+    "Chinese": "爐子"
+  },
+  {
+    "Vocabulary": "straight",
+    "Chinese": "直地、筆直地；直的、筆直的"
+  },
+  {
+    "Vocabulary": "strange",
+    "Chinese": "奇妙的、陌生的"
+  },
+  {
+    "Vocabulary": "stranger",
+    "Chinese": "陌生人"
+  },
+  {
+    "Vocabulary": "straw",
+    "Chinese": "稻草；吸管"
+  },
+  {
+    "Vocabulary": "strawberry",
+    "Chinese": "草莓"
+  },
+  {
+    "Vocabulary": "stream",
+    "Chinese": "溪"
+  },
+  {
+    "Vocabulary": "street",
+    "Chinese": "街"
+  },
+  {
+    "Vocabulary": "stress",
+    "Chinese": "強調、著重"
+  },
+  {
+    "Vocabulary": "stress",
+    "Chinese": "壓力"
+  },
+  {
+    "Vocabulary": "strike",
+    "Chinese": "打、擊、罷工；打擊、罷工"
+  },
+  {
+    "Vocabulary": "strong",
+    "Chinese": "強勁的"
+  },
+  {
+    "Vocabulary": "struggle",
+    "Chinese": "努力；努力、掙扎"
+  },
+  {
+    "Vocabulary": "student",
+    "Chinese": "學生"
+  },
+  {
+    "Vocabulary": "study",
+    "Chinese": "研究、調查；學習、研讀"
+  },
+  {
+    "Vocabulary": "stupid",
+    "Chinese": "愚笨的"
+  },
+  {
+    "Vocabulary": "style",
+    "Chinese": "風格"
+  },
+  {
+    "Vocabulary": "subject",
+    "Chinese": "主題、科目、主詞"
+  },
+  {
+    "Vocabulary": "succeed",
+    "Chinese": "成功"
+  },
+  {
+    "Vocabulary": "success",
+    "Chinese": "成功"
+  },
+  {
+    "Vocabulary": "successful",
+    "Chinese": "成功的"
+  },
+  {
+    "Vocabulary": "such",
+    "Chinese": "如此的；這樣的人(或事物)"
+  },
+  {
+    "Vocabulary": "sudden",
+    "Chinese": "突然的；突然發生的事"
+  },
+  {
+    "Vocabulary": "sugar",
+    "Chinese": "糖"
+  },
+  {
+    "Vocabulary": "suggest",
+    "Chinese": "建議"
+  },
+  {
+    "Vocabulary": "suit",
+    "Chinese": "西裝"
+  },
+  {
+    "Vocabulary": "suit",
+    "Chinese": "適合、相配"
+  },
+  {
+    "Vocabulary": "summer",
+    "Chinese": "夏天"
+  },
+  {
+    "Vocabulary": "sun",
+    "Chinese": "太陽"
+  },
+  {
+    "Vocabulary": "sunny",
+    "Chinese": "陽光普照的"
+  },
+  {
+    "Vocabulary": "super",
+    "Chinese": "極好的；非常地、尤其地"
+  },
+  {
+    "Vocabulary": "supermarket",
+    "Chinese": "超級市場"
+  },
+  {
+    "Vocabulary": "supply",
+    "Chinese": "供應品；供應、供給"
+  },
+  {
+    "Vocabulary": "support",
+    "Chinese": "支持；支持、支援"
+  },
+  {
+    "Vocabulary": "sure",
+    "Chinese": "確定的"
+  },
+  {
+    "Vocabulary": "sure",
+    "Chinese": "當然"
+  },
+  {
+    "Vocabulary": "surf",
+    "Chinese": "浪花；衝浪"
+  },
+  {
+    "Vocabulary": "surface",
+    "Chinese": "表面"
+  },
+  {
+    "Vocabulary": "surprise",
+    "Chinese": "驚喜；使驚訝"
+  },
+  {
+    "Vocabulary": "survive",
+    "Chinese": "存活"
+  },
+  {
+    "Vocabulary": "swallow",
+    "Chinese": "燕子"
+  },
+  {
+    "Vocabulary": "swan",
+    "Chinese": "天鵝"
+  },
+  {
+    "Vocabulary": "sweater",
+    "Chinese": "毛衣"
+  },
+  {
+    "Vocabulary": "sweep",
+    "Chinese": "掃"
+  },
+  {
+    "Vocabulary": "swim",
+    "Chinese": "游泳"
+  },
+  {
+    "Vocabulary": "swimsuit",
+    "Chinese": "泳衣"
+  },
+  {
+    "Vocabulary": "swing",
+    "Chinese": "擺動、搖晃；鞦韆"
+  },
+  {
+    "Vocabulary": "symbol",
+    "Chinese": "標誌、符號"
+  },
+  {
+    "Vocabulary": "system",
+    "Chinese": "系統"
+  },
+  {
+    "Vocabulary": "table",
+    "Chinese": "桌子"
+  },
+  {
+    "Vocabulary": "Taichung",
+    "Chinese": "台中"
+  },
+  {
+    "Vocabulary": "tail",
+    "Chinese": "尾巴"
+  },
+  {
+    "Vocabulary": "Tainan",
+    "Chinese": "台南"
+  },
+  {
+    "Vocabulary": "Taiwan",
+    "Chinese": "臺灣"
+  },
+  {
+    "Vocabulary": "Taiwanese",
+    "Chinese": "臺灣(人)的；臺灣人"
+  },
+  {
+    "Vocabulary": "take",
+    "Chinese": "搭、帶、做"
+  },
+  {
+    "Vocabulary": "talent",
+    "Chinese": "才能、天份"
+  },
+  {
+    "Vocabulary": "talk",
+    "Chinese": "談話；交談"
+  },
+  {
+    "Vocabulary": "talkative",
+    "Chinese": "健談的"
+  },
+  {
+    "Vocabulary": "tall",
+    "Chinese": "高的"
+  },
+  {
+    "Vocabulary": "tangerine",
+    "Chinese": "橘子"
+  },
+  {
+    "Vocabulary": "tank",
+    "Chinese": "箱、槽、櫃、(盛放液體或氣體的)容器"
+  },
+  {
+    "Vocabulary": "tape",
+    "Chinese": "膠帶、磁帶、錄音帶；用膠帶固定、錄音"
+  },
+  {
+    "Vocabulary": "target",
+    "Chinese": "目標；當作目標"
+  },
+  {
+    "Vocabulary": "task",
+    "Chinese": "任務"
+  },
+  {
+    "Vocabulary": "taste",
+    "Chinese": "味道、品味；嚐"
+  },
+  {
+    "Vocabulary": "tea",
+    "Chinese": "茶"
+  },
+  {
+    "Vocabulary": "teach",
+    "Chinese": "教導"
+  },
+  {
+    "Vocabulary": "teacher",
+    "Chinese": "老師"
+  },
+  {
+    "Vocabulary": "Teacher's Day",
+    "Chinese": "教師節"
+  },
+  {
+    "Vocabulary": "team",
+    "Chinese": "小組"
+  },
+  {
+    "Vocabulary": "teapot",
+    "Chinese": "茶壺"
+  },
+  {
+    "Vocabulary": "tear",
+    "Chinese": "眼淚"
+  },
+  {
+    "Vocabulary": "tear",
+    "Chinese": "撕破"
+  },
+  {
+    "Vocabulary": "teenager",
+    "Chinese": "青少年"
+  },
+  {
+    "Vocabulary": "tell",
+    "Chinese": "告訴"
+  },
+  {
+    "Vocabulary": "temperature",
+    "Chinese": "氣溫"
+  },
+  {
+    "Vocabulary": "temple",
+    "Chinese": "廟"
+  },
+  {
+    "Vocabulary": "ten",
+    "Chinese": "十"
+  },
+  {
+    "Vocabulary": "tennis",
+    "Chinese": "網球"
+  },
+  {
+    "Vocabulary": "tent",
+    "Chinese": "帳篷"
+  },
+  {
+    "Vocabulary": "term",
+    "Chinese": "詞語、期間"
+  },
+  {
+    "Vocabulary": "term",
+    "Chinese": "稱為"
+  },
+  {
+    "Vocabulary": "terrible",
+    "Chinese": "糟糕的"
+  },
+  {
+    "Vocabulary": "terrific",
+    "Chinese": "非常好的、可怕的"
+  },
+  {
+    "Vocabulary": "test",
+    "Chinese": "測驗；測試"
+  },
+  {
+    "Vocabulary": "textbook",
+    "Chinese": "教科書"
+  },
+  {
+    "Vocabulary": "than",
+    "Chinese": "比"
+  },
+  {
+    "Vocabulary": "thank",
+    "Chinese": "感謝；謝謝"
+  },
+  {
+    "Vocabulary": "that",
+    "Chinese": "引導子句"
+  },
+  {
+    "Vocabulary": "that",
+    "Chinese": "那個；那"
+  },
+  {
+    "Vocabulary": "that",
+    "Chinese": "那麼、那樣"
+  },
+  {
+    "Vocabulary": "the",
+    "Chinese": "這、那"
+  },
+  {
+    "Vocabulary": "their",
+    "Chinese": "他們的"
+  },
+  {
+    "Vocabulary": "them",
+    "Chinese": "他們"
+  },
+  {
+    "Vocabulary": "themselves",
+    "Chinese": "他們自己"
+  },
+  {
+    "Vocabulary": "then",
+    "Chinese": "然後、那時候；在那時的"
+  },
+  {
+    "Vocabulary": "there",
+    "Chinese": "在那裡；那裡"
+  },
+  {
+    "Vocabulary": "therefore",
+    "Chinese": "因此"
+  },
+  {
+    "Vocabulary": "these",
+    "Chinese": "這些；這些的"
+  },
+  {
+    "Vocabulary": "they",
+    "Chinese": "他們"
+  },
+  {
+    "Vocabulary": "thick",
+    "Chinese": "厚的"
+  },
+  {
+    "Vocabulary": "thief",
+    "Chinese": "竊賊"
+  },
+  {
+    "Vocabulary": "thin",
+    "Chinese": "瘦的"
+  },
+  {
+    "Vocabulary": "thing",
+    "Chinese": "東西、物品"
+  },
+  {
+    "Vocabulary": "think",
+    "Chinese": "想"
+  },
+  {
+    "Vocabulary": "third",
+    "Chinese": "第三的；居第三位；第三位"
+  },
+  {
+    "Vocabulary": "thirsty",
+    "Chinese": "口渴的"
+  },
+  {
+    "Vocabulary": "thirteen",
+    "Chinese": "十三"
+  },
+  {
+    "Vocabulary": "thirty",
+    "Chinese": "三十"
+  },
+  {
+    "Vocabulary": "this",
+    "Chinese": "這個；這"
+  },
+  {
+    "Vocabulary": "this",
+    "Chinese": "這麼、這樣"
+  },
+  {
+    "Vocabulary": "those",
+    "Chinese": "那些；那些的"
+  },
+  {
+    "Vocabulary": "though",
+    "Chinese": "雖然；還是"
+  },
+  {
+    "Vocabulary": "thought",
+    "Chinese": "想法"
+  },
+  {
+    "Vocabulary": "thousand",
+    "Chinese": "千"
+  },
+  {
+    "Vocabulary": "three",
+    "Chinese": "三"
+  },
+  {
+    "Vocabulary": "throat",
+    "Chinese": "咽喉"
+  },
+  {
+    "Vocabulary": "through",
+    "Chinese": "通過、穿越"
+  },
+  {
+    "Vocabulary": "throughout",
+    "Chinese": "到處"
+  },
+  {
+    "Vocabulary": "throw",
+    "Chinese": "丟"
+  },
+  {
+    "Vocabulary": "thumb",
+    "Chinese": "拇指"
+  },
+  {
+    "Vocabulary": "thunder",
+    "Chinese": "雷(聲)；打雷"
+  },
+  {
+    "Vocabulary": "thus",
+    "Chinese": "因此"
+  },
+  {
+    "Vocabulary": "ticket",
+    "Chinese": "票、罰單"
+  },
+  {
+    "Vocabulary": "tidy",
+    "Chinese": "整齊的；整理"
+  },
+  {
+    "Vocabulary": "tie",
+    "Chinese": "領帶、平手"
+  },
+  {
+    "Vocabulary": "tie",
+    "Chinese": "捆、繫"
+  },
+  {
+    "Vocabulary": "tiger",
+    "Chinese": "老虎"
+  },
+  {
+    "Vocabulary": "time",
+    "Chinese": "時間；計時"
+  },
+  {
+    "Vocabulary": "tiny",
+    "Chinese": "極小的、微小的"
+  },
+  {
+    "Vocabulary": "tip",
+    "Chinese": "小費；提示；頂端"
+  },
+  {
+    "Vocabulary": "tip",
+    "Chinese": "給小費"
+  },
+  {
+    "Vocabulary": "title",
+    "Chinese": "標題"
+  },
+  {
+    "Vocabulary": "to",
+    "Chinese": "到"
+  },
+  {
+    "Vocabulary": "toast",
+    "Chinese": "吐司；敬酒"
+  },
+  {
+    "Vocabulary": "toast",
+    "Chinese": "烤吐司、烤；乾杯"
+  },
+  {
+    "Vocabulary": "today",
+    "Chinese": "今天"
+  },
+  {
+    "Vocabulary": "toe",
+    "Chinese": "腳趾"
+  },
+  {
+    "Vocabulary": "together",
+    "Chinese": "一起"
+  },
+  {
+    "Vocabulary": "toilet",
+    "Chinese": "馬桶、衛生間"
+  },
+  {
+    "Vocabulary": "tomato",
+    "Chinese": "番茄"
+  },
+  {
+    "Vocabulary": "tomorrow",
+    "Chinese": "明天"
+  },
+  {
+    "Vocabulary": "tongue",
+    "Chinese": "舌頭"
+  },
+  {
+    "Vocabulary": "tonight",
+    "Chinese": "今晚"
+  },
+  {
+    "Vocabulary": "too",
+    "Chinese": "也"
+  },
+  {
+    "Vocabulary": "tool",
+    "Chinese": "工具"
+  },
+  {
+    "Vocabulary": "tooth",
+    "Chinese": "牙齒"
+  },
+  {
+    "Vocabulary": "toothache",
+    "Chinese": "牙痛"
+  },
+  {
+    "Vocabulary": "toothbrush",
+    "Chinese": "牙刷"
+  },
+  {
+    "Vocabulary": "top",
+    "Chinese": "頂部；頂部的；到頂部"
+  },
+  {
+    "Vocabulary": "topic",
+    "Chinese": "主題"
+  },
+  {
+    "Vocabulary": "total",
+    "Chinese": "總數的；總數；合計"
+  },
+  {
+    "Vocabulary": "touch",
+    "Chinese": "接觸、觸摸；觸覺、觸摸"
+  },
+  {
+    "Vocabulary": "tour",
+    "Chinese": "旅遊、遊覽"
+  },
+  {
+    "Vocabulary": "towel",
+    "Chinese": "毛巾、紙巾"
+  },
+  {
+    "Vocabulary": "tower",
+    "Chinese": "塔"
+  },
+  {
+    "Vocabulary": "town",
+    "Chinese": "城鎮"
+  },
+  {
+    "Vocabulary": "toy",
+    "Chinese": "玩具"
+  },
+  {
+    "Vocabulary": "trace",
+    "Chinese": "追蹤；痕跡"
+  },
+  {
+    "Vocabulary": "track",
+    "Chinese": "軌道、足跡；跟蹤、追蹤"
+  },
+  {
+    "Vocabulary": "trade",
+    "Chinese": "貿易；交易"
+  },
+  {
+    "Vocabulary": "tradition",
+    "Chinese": "傳統"
+  },
+  {
+    "Vocabulary": "traditional",
+    "Chinese": "傳統的"
+  },
+  {
+    "Vocabulary": "traffic",
+    "Chinese": "交通"
+  },
+  {
+    "Vocabulary": "train",
+    "Chinese": "火車"
+  },
+  {
+    "Vocabulary": "train",
+    "Chinese": "訓練"
+  },
+  {
+    "Vocabulary": "trap",
+    "Chinese": "設陷阱；陷阱"
+  },
+  {
+    "Vocabulary": "trash",
+    "Chinese": "垃圾；丟棄、損壞"
+  },
+  {
+    "Vocabulary": "travel",
+    "Chinese": "旅行"
+  },
+  {
+    "Vocabulary": "treasure",
+    "Chinese": "寶藏；珍惜"
+  },
+  {
+    "Vocabulary": "treat",
+    "Chinese": "治療、請客"
+  },
+  {
+    "Vocabulary": "treatment",
+    "Chinese": "治療"
+  },
+  {
+    "Vocabulary": "tree",
+    "Chinese": "樹"
+  },
+  {
+    "Vocabulary": "trial",
+    "Chinese": "嘗試"
+  },
+  {
+    "Vocabulary": "triangle",
+    "Chinese": "三角形"
+  },
+  {
+    "Vocabulary": "trick",
+    "Chinese": "把戲；騙"
+  },
+  {
+    "Vocabulary": "trip",
+    "Chinese": "旅行"
+  },
+  {
+    "Vocabulary": "trouble",
+    "Chinese": "麻煩；使煩惱"
+  },
+  {
+    "Vocabulary": "truck",
+    "Chinese": "卡車"
+  },
+  {
+    "Vocabulary": "true",
+    "Chinese": "真實的"
+  },
+  {
+    "Vocabulary": "trumpet",
+    "Chinese": "小號"
+  },
+  {
+    "Vocabulary": "trust",
+    "Chinese": "相信、信任"
+  },
+  {
+    "Vocabulary": "truth",
+    "Chinese": "真理、真相"
+  },
+  {
+    "Vocabulary": "try",
+    "Chinese": "嘗試"
+  },
+  {
+    "Vocabulary": "tub",
+    "Chinese": "盆、桶、浴缸"
+  },
+  {
+    "Vocabulary": "tunnel",
+    "Chinese": "隧道"
+  },
+  {
+    "Vocabulary": "turkey",
+    "Chinese": "火雞"
+  },
+  {
+    "Vocabulary": "turn",
+    "Chinese": "轉(彎)"
+  },
+  {
+    "Vocabulary": "turn",
+    "Chinese": "一次機會"
+  },
+  {
+    "Vocabulary": "turtle",
+    "Chinese": "龜"
+  },
+  {
+    "Vocabulary": "twelve",
+    "Chinese": "十二"
+  },
+  {
+    "Vocabulary": "twenty",
+    "Chinese": "二十"
+  },
+  {
+    "Vocabulary": "twice",
+    "Chinese": "兩次"
+  },
+  {
+    "Vocabulary": "two",
+    "Chinese": "二"
+  },
+  {
+    "Vocabulary": "type",
+    "Chinese": "打字"
+  },
+  {
+    "Vocabulary": "type",
+    "Chinese": "類型"
+  },
+  {
+    "Vocabulary": "typhoon",
+    "Chinese": "颱風"
+  },
+  {
+    "Vocabulary": "ugly",
+    "Chinese": "醜陋的"
+  },
+  {
+    "Vocabulary": "umbrella",
+    "Chinese": "雨傘"
+  },
+  {
+    "Vocabulary": "uncle",
+    "Chinese": "叔叔"
+  },
+  {
+    "Vocabulary": "under",
+    "Chinese": "在…下、低於；在下面"
+  },
+  {
+    "Vocabulary": "underline",
+    "Chinese": "在…下面畫線、強調"
+  },
+  {
+    "Vocabulary": "underpass",
+    "Chinese": "地下道"
+  },
+  {
+    "Vocabulary": "understand",
+    "Chinese": "懂、 了解"
+  },
+  {
+    "Vocabulary": "underwear",
+    "Chinese": "內衣"
+  },
+  {
+    "Vocabulary": "uniform",
+    "Chinese": "制服；一致的"
+  },
+  {
+    "Vocabulary": "unique",
+    "Chinese": "獨特的"
+  },
+  {
+    "Vocabulary": "unit",
+    "Chinese": "單位"
+  },
+  {
+    "Vocabulary": "universe",
+    "Chinese": "宇宙"
+  },
+  {
+    "Vocabulary": "university",
+    "Chinese": "大學"
+  },
+  {
+    "Vocabulary": "up",
+    "Chinese": "向上；在…上面；向上的"
+  },
+  {
+    "Vocabulary": "upload",
+    "Chinese": "上傳、上載"
+  },
+  {
+    "Vocabulary": "upon",
+    "Chinese": "在…之上、在…後立即"
+  },
+  {
+    "Vocabulary": "upper",
+    "Chinese": "上面的、上部的"
+  },
+  {
+    "Vocabulary": "upstairs",
+    "Chinese": "在樓上；樓上的；樓上"
+  },
+  {
+    "Vocabulary": "us",
+    "Chinese": "我們"
+  },
+  {
+    "Vocabulary": "United",
+    "Chinese": "(of America)"
+  },
+  {
+    "Vocabulary": "use",
+    "Chinese": "使用"
+  },
+  {
+    "Vocabulary": "used",
+    "Chinese": "二手的、習慣的"
+  },
+  {
+    "Vocabulary": "used",
+    "Chinese": "過去慣常"
+  },
+  {
+    "Vocabulary": "useful",
+    "Chinese": "有用的"
+  },
+  {
+    "Vocabulary": "user",
+    "Chinese": "使用者"
+  },
+  {
+    "Vocabulary": "usual",
+    "Chinese": "通常的"
+  },
+  {
+    "Vocabulary": "usually",
+    "Chinese": "通常"
+  },
+  {
+    "Vocabulary": "vacation",
+    "Chinese": "假期；度假"
+  },
+  {
+    "Vocabulary": "Valentine's Day",
+    "Chinese": "情人節"
+  },
+  {
+    "Vocabulary": "valley",
+    "Chinese": "峽谷"
+  },
+  {
+    "Vocabulary": "value",
+    "Chinese": "價值；重視"
+  },
+  {
+    "Vocabulary": "vegetable",
+    "Chinese": "蔬菜；蔬菜的"
+  },
+  {
+    "Vocabulary": "vendor",
+    "Chinese": "小販"
+  },
+  {
+    "Vocabulary": "very",
+    "Chinese": "非常、很"
+  },
+  {
+    "Vocabulary": "very",
+    "Chinese": "(加強語氣)正是、完全的"
+  },
+  {
+    "Vocabulary": "vest",
+    "Chinese": "背心"
+  },
+  {
+    "Vocabulary": "victory",
+    "Chinese": "勝利"
+  },
+  {
+    "Vocabulary": "video",
+    "Chinese": "錄影帶、錄影；錄影"
+  },
+  {
+    "Vocabulary": "view",
+    "Chinese": "視野；觀看"
+  },
+  {
+    "Vocabulary": "village",
+    "Chinese": "村莊"
+  },
+  {
+    "Vocabulary": "vinegar",
+    "Chinese": "醋"
+  },
+  {
+    "Vocabulary": "violin",
+    "Chinese": "小提琴"
+  },
+  {
+    "Vocabulary": "visit",
+    "Chinese": "拜訪"
+  },
+  {
+    "Vocabulary": "visitor",
+    "Chinese": "參觀者、 遊客"
+  },
+  {
+    "Vocabulary": "vocabulary",
+    "Chinese": "詞彙"
+  },
+  {
+    "Vocabulary": "voice",
+    "Chinese": "聲音"
+  },
+  {
+    "Vocabulary": "volleyball",
+    "Chinese": "排球"
+  },
+  {
+    "Vocabulary": "vote",
+    "Chinese": "(選)票；投票、選舉"
+  },
+  {
+    "Vocabulary": "voter",
+    "Chinese": "選民"
+  },
+  {
+    "Vocabulary": "waist",
+    "Chinese": "腰"
+  },
+  {
+    "Vocabulary": "wait",
+    "Chinese": "等待"
+  },
+  {
+    "Vocabulary": "waiter",
+    "Chinese": "服務生"
+  },
+  {
+    "Vocabulary": "waitress",
+    "Chinese": "女服務生"
+  },
+  {
+    "Vocabulary": "wake",
+    "Chinese": "醒"
+  },
+  {
+    "Vocabulary": "walk",
+    "Chinese": "步行"
+  },
+  {
+    "Vocabulary": "wall",
+    "Chinese": "牆"
+  },
+  {
+    "Vocabulary": "wallet",
+    "Chinese": "錢包"
+  },
+  {
+    "Vocabulary": "want",
+    "Chinese": "想要"
+  },
+  {
+    "Vocabulary": "war",
+    "Chinese": "戰爭"
+  },
+  {
+    "Vocabulary": "warm",
+    "Chinese": "溫暖的；加熱"
+  },
+  {
+    "Vocabulary": "wash",
+    "Chinese": "洗"
+  },
+  {
+    "Vocabulary": "waste",
+    "Chinese": "浪費"
+  },
+  {
+    "Vocabulary": "watch",
+    "Chinese": "錶"
+  },
+  {
+    "Vocabulary": "watch",
+    "Chinese": "看、注意"
+  },
+  {
+    "Vocabulary": "water",
+    "Chinese": "水；澆水"
+  },
+  {
+    "Vocabulary": "waterfall",
+    "Chinese": "瀑布"
+  },
+  {
+    "Vocabulary": "watermelon",
+    "Chinese": "西瓜"
+  },
+  {
+    "Vocabulary": "wave",
+    "Chinese": "(海)浪"
+  },
+  {
+    "Vocabulary": "wave",
+    "Chinese": "揮、招(手)"
+  },
+  {
+    "Vocabulary": "way",
+    "Chinese": "道路、路程；方法"
+  },
+  {
+    "Vocabulary": "we",
+    "Chinese": "我們"
+  },
+  {
+    "Vocabulary": "weak",
+    "Chinese": "虛弱的"
+  },
+  {
+    "Vocabulary": "weapon",
+    "Chinese": "武器"
+  },
+  {
+    "Vocabulary": "wear",
+    "Chinese": "穿戴"
+  },
+  {
+    "Vocabulary": "weather",
+    "Chinese": "天氣"
+  },
+  {
+    "Vocabulary": "wedding",
+    "Chinese": "婚禮"
+  },
+  {
+    "Vocabulary": "week",
+    "Chinese": "星期"
+  },
+  {
+    "Vocabulary": "weekday",
+    "Chinese": "平日"
+  },
+  {
+    "Vocabulary": "weekend",
+    "Chinese": "週末"
+  },
+  {
+    "Vocabulary": "weekly",
+    "Chinese": "每週的；每週地；週刊"
+  },
+  {
+    "Vocabulary": "weight",
+    "Chinese": "體重"
+  },
+  {
+    "Vocabulary": "welcome",
+    "Chinese": "歡迎、迎接、接待"
+  },
+  {
+    "Vocabulary": "welcome",
+    "Chinese": "受歡迎的"
+  },
+  {
+    "Vocabulary": "well",
+    "Chinese": "很好地；健康的"
+  },
+  {
+    "Vocabulary": "west",
+    "Chinese": "西方；向西方；西方的、向西方的"
+  },
+  {
+    "Vocabulary": "western",
+    "Chinese": "西方的；西方人、西部片"
+  },
+  {
+    "Vocabulary": "wet",
+    "Chinese": "濕的；弄濕"
+  },
+  {
+    "Vocabulary": "whale",
+    "Chinese": "鯨魚"
+  },
+  {
+    "Vocabulary": "what",
+    "Chinese": "什麼"
+  },
+  {
+    "Vocabulary": "whatever",
+    "Chinese": "無論如何"
+  },
+  {
+    "Vocabulary": "wheel",
+    "Chinese": "輪子"
+  },
+  {
+    "Vocabulary": "when",
+    "Chinese": "當；何時；當時"
+  },
+  {
+    "Vocabulary": "where",
+    "Chinese": "在哪裡；在…的地方"
+  },
+  {
+    "Vocabulary": "whether",
+    "Chinese": "是否"
+  },
+  {
+    "Vocabulary": "which",
+    "Chinese": "哪一個"
+  },
+  {
+    "Vocabulary": "while",
+    "Chinese": "當...時候、然而"
+  },
+  {
+    "Vocabulary": "while",
+    "Chinese": "一會兒、一段時間"
+  },
+  {
+    "Vocabulary": "white",
+    "Chinese": "白色的；白色"
+  },
+  {
+    "Vocabulary": "who",
+    "Chinese": "誰、什麼人"
+  },
+  {
+    "Vocabulary": "whole",
+    "Chinese": "整體的；整體"
+  },
+  {
+    "Vocabulary": "whom",
+    "Chinese": "誰、什麼人"
+  },
+  {
+    "Vocabulary": "whose",
+    "Chinese": "誰的"
+  },
+  {
+    "Vocabulary": "why",
+    "Chinese": "為什麼"
+  },
+  {
+    "Vocabulary": "wide",
+    "Chinese": "寬的"
+  },
+  {
+    "Vocabulary": "widen",
+    "Chinese": "加寬、擴大"
+  },
+  {
+    "Vocabulary": "width",
+    "Chinese": "寬度"
+  },
+  {
+    "Vocabulary": "wife",
+    "Chinese": "妻子"
+  },
+  {
+    "Vocabulary": "wild",
+    "Chinese": "野生的、荒野的；野外"
+  },
+  {
+    "Vocabulary": "will",
+    "Chinese": "將(要)、能、願意"
+  },
+  {
+    "Vocabulary": "willing",
+    "Chinese": "願意的"
+  },
+  {
+    "Vocabulary": "win",
+    "Chinese": "贏；勝利"
+  },
+  {
+    "Vocabulary": "wind",
+    "Chinese": "風"
+  },
+  {
+    "Vocabulary": "window",
+    "Chinese": "窗戶"
+  },
+  {
+    "Vocabulary": "windy",
+    "Chinese": "多風的"
+  },
+  {
+    "Vocabulary": "wine",
+    "Chinese": "酒"
+  },
+  {
+    "Vocabulary": "wing",
+    "Chinese": "翅膀"
+  },
+  {
+    "Vocabulary": "winner",
+    "Chinese": "獲勝的人"
+  },
+  {
+    "Vocabulary": "winter",
+    "Chinese": "冬天"
+  },
+  {
+    "Vocabulary": "wise",
+    "Chinese": "有智慧的"
+  },
+  {
+    "Vocabulary": "wish",
+    "Chinese": "希望；希望、願望"
+  },
+  {
+    "Vocabulary": "with",
+    "Chinese": "跟…一起、用、有"
+  },
+  {
+    "Vocabulary": "within",
+    "Chinese": "以內；在裡面"
+  },
+  {
+    "Vocabulary": "without",
+    "Chinese": "沒有"
+  },
+  {
+    "Vocabulary": "wok",
+    "Chinese": "鍋"
+  },
+  {
+    "Vocabulary": "wolf",
+    "Chinese": "狼"
+  },
+  {
+    "Vocabulary": "woman",
+    "Chinese": "女人"
+  },
+  {
+    "Vocabulary": "wonder",
+    "Chinese": "想知道、感到驚訝(奇)；驚奇、奇景"
+  },
+  {
+    "Vocabulary": "wonderful",
+    "Chinese": "精采的、極好的"
+  },
+  {
+    "Vocabulary": "wood",
+    "Chinese": "木頭"
+  },
+  {
+    "Vocabulary": "wooden",
+    "Chinese": "木製的"
+  },
+  {
+    "Vocabulary": "word",
+    "Chinese": "字彙"
+  },
+  {
+    "Vocabulary": "work",
+    "Chinese": "工作"
+  },
+  {
+    "Vocabulary": "workbook",
+    "Chinese": "練習簿、作業本"
+  },
+  {
+    "Vocabulary": "worker",
+    "Chinese": "工人"
+  },
+  {
+    "Vocabulary": "world",
+    "Chinese": "世界"
+  },
+  {
+    "Vocabulary": "worry",
+    "Chinese": "擔心、煩惱"
+  },
+  {
+    "Vocabulary": "worse",
+    "Chinese": "更差的；更差地"
+  },
+  {
+    "Vocabulary": "worst",
+    "Chinese": "最差的；最差地"
+  },
+  {
+    "Vocabulary": "worth",
+    "Chinese": "值…；價值"
+  },
+  {
+    "Vocabulary": "would",
+    "Chinese": "(表示婉轉的請求)請、將會、就會"
+  },
+  {
+    "Vocabulary": "wound",
+    "Chinese": "傷口；受傷"
+  },
+  {
+    "Vocabulary": "wrist",
+    "Chinese": "手腕"
+  },
+  {
+    "Vocabulary": "write",
+    "Chinese": "寫"
+  },
+  {
+    "Vocabulary": "writer",
+    "Chinese": "作家"
+  },
+  {
+    "Vocabulary": "wrong",
+    "Chinese": "錯誤的；錯誤地；錯誤"
+  },
+  {
+    "Vocabulary": "yard",
+    "Chinese": "院子"
+  },
+  {
+    "Vocabulary": "year",
+    "Chinese": "年"
+  },
+  {
+    "Vocabulary": "yearly",
+    "Chinese": "每年的；每年"
+  },
+  {
+    "Vocabulary": "yellow",
+    "Chinese": "黃色的；黃色"
+  },
+  {
+    "Vocabulary": "yesterday",
+    "Chinese": "昨天"
+  },
+  {
+    "Vocabulary": "yet",
+    "Chinese": "還；然而"
+  },
+  {
+    "Vocabulary": "you",
+    "Chinese": "你"
+  },
+  {
+    "Vocabulary": "young",
+    "Chinese": "年輕的；年輕人"
+  },
+  {
+    "Vocabulary": "your",
+    "Chinese": "你的"
+  },
+  {
+    "Vocabulary": "yours",
+    "Chinese": "你的"
+  },
+  {
+    "Vocabulary": "yourself",
+    "Chinese": "你自己"
+  },
+  {
+    "Vocabulary": "youth",
+    "Chinese": "青年"
+  },
+  {
+    "Vocabulary": "yummy",
+    "Chinese": "美味的"
+  },
+  {
+    "Vocabulary": "zebra",
+    "Chinese": "斑馬"
+  },
+  {
+    "Vocabulary": "zero",
+    "Chinese": "零"
+  },
+  {
+    "Vocabulary": "zoo",
+    "Chinese": "動物園"
+  },
+  {
+    "Vocabulary": "Double Tenth Day",
+    "Chinese": "雙十節"
+  },
+  {
+    "Vocabulary": "Dragon Boat Festival",
+    "Chinese": "端午節"
+  },
+  {
+    "Vocabulary": "junior high school",
+    "Chinese": "國中、國民中學"
+  },
+  {
+    "Vocabulary": "Republic of China",
+    "Chinese": "中華民國"
+  },
+  {
+    "Vocabulary": "senior high school",
+    "Chinese": "高中、高級中學"
+  }
+]
