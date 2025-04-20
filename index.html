@@ -129,7 +129,7 @@
   <div style="text-align: center; margin-top: 20px;">
     <label for="username">請輸入你的名字：</label>
     <input id="username" type="text" placeholder="例如：Emmett" style="padding: 8px 12px; font-size: 1em; border-radius: 8px; border: 1px solid #ccc; margin-top: 8px;" />
-    <button onclick="startQuiz()" style="margin-left: 10px; padding: 8px 16px; font-size: 1em; border-radius: 8px; background-color: #007bff; color: white; border: none; cursor: pointer;">開始挑戰</button>
+    <button id="start-btn" onclick="startQuiz()" style="margin-left: 10px; padding: 8px 16px; font-size: 1em; border-radius: 8px; background-color: #007bff; color: white; border: none; cursor: pointer;">開始挑戰</button>
   </div>
 
   <div class="progress-container" style="display:none;" id="progress-section">
@@ -150,7 +150,7 @@
   </div>
 
   <script>
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfyc.../exec";
+const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"; // 請替換為你的 Google Apps Script Web App URL
 
 let selectedVoice = null;
 let badgesEarned = JSON.parse(localStorage.getItem("badges")) || [];
@@ -213,7 +213,7 @@ let currentIndex = 0;
 let attempts = 0;
 let wrongCount = 0;
 let score = 0;
-let gameSession = Date.now(); // Unique session ID to prevent duplicate submissions
+let gameSession = Date.now();
 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -248,34 +248,42 @@ function displayBadges() {
 }
 
 async function submitScore() {
-  try {
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: window.username,
-        score: score,
-        session: gameSession
-      })
-    });
-    console.log("Score submitted to Google Sheets");
-  } catch (err) {
-    console.error("Failed to submit score:", err);
+  if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: window.username,
+          score: score,
+          session: gameSession
+        })
+      });
+      console.log("分數已提交至 Google Sheets");
+    } catch (err) {
+      console.error("提交分數失敗:", err);
+    }
+  } else {
+    console.warn("未設置 GOOGLE_SCRIPT_URL，分數未提交");
   }
 }
 
 async function fetchLeaderboard() {
-  try {
-    const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
-    const leaderboard = await response.json();
-    const leaderboardList = document.getElementById("leaderboard-list");
-    leaderboardList.innerHTML = leaderboard.slice(0, 5).map((entry, index) => 
-      `<li><span>${index + 1}. ${entry.username}</span><span>${entry.score}</span></li>`
-    ).join("");
-  } catch (err) {
-    console.error("Failed to fetch leaderboard:", err);
-    document.getElementById("leaderboard-list").innerHTML = "<li>無法載入排行榜</li>";
+  if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
+    try {
+      const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
+      const leaderboard = await response.json();
+      const leaderboardList = document.getElementById("leaderboard-list");
+      leaderboardList.innerHTML = leaderboard.slice(0, 5).map((entry, index) => 
+        `<li><span>${index + 1}. ${entry.username}</span><span>${entry.score}</span></li>`
+      ).join("");
+    } catch (err) {
+      console.error("載入排行榜失敗:", err);
+      document.getElementById("leaderboard-list").innerHTML = "<li>無法載入排行榜</li>";
+    }
+  } else {
+    document.getElementById("leaderboard-list").innerHTML = "<li>請設置 Google Sheets 連結</li>";
   }
 }
 
@@ -306,6 +314,11 @@ function endGame() {
 }
 
 function renderQuestion() {
+  if (!questionSet.length) {
+    console.error("題庫為空，無法渲染題目");
+    alert("題庫載入失敗，請重新整理頁面！");
+    return;
+  }
   attempts = 0;
   updateProgressBar();
   updateScoreDisplay();
@@ -377,13 +390,14 @@ function handleChoice(button, choice) {
 }
 
 function startQuiz() {
+  console.log("startQuiz 函數已觸發");
   const name = document.getElementById("username").value.trim();
-  if (!name || name  name.length > 20) {
-    alert("請輸入有效名字（最多20字）！");
+  if (!name) {
+    alert("請輸入名字！");
     return;
   }
   
-  const startButton = document.querySelector("button[onclick='startQuiz()']");
+  const startButton = document.getElementById("start-btn");
   startButton.innerHTML = "🔊 重聽發音";
   startButton.onclick = function() {
     speakCurrentWord();
@@ -395,7 +409,18 @@ function startQuiz() {
   document.getElementById("progress-section").style.display = "block";
   document.querySelector(".quiz").style.display = "block";
   window.username = name;
-  fetchLeaderboard();
+  
+  if (!questionSet.length) {
+    console.error("題庫未初始化，嘗試使用預設題庫");
+    questionSet = shuffle([...defaultData]);
+  }
+  
+  try {
+    fetchLeaderboard();
+  } catch (err) {
+    console.warn("排行榜載入失敗，繼續執行遊戲");
+  }
+  
   renderQuestion();
 }
 
@@ -439,7 +464,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
       renderQuestion();
     }
   } catch (err) {
-    alert("載入題庫失敗，將使用預設題庫。");
+    console.warn("載入題庫失敗，使用預設題庫");
     data = [...defaultData];
     questionSet = shuffle([...data]);
     currentIndex = 0;
@@ -456,6 +481,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
 });
 
 (async () => {
+  console.log("頁面初始化開始");
   const file = document.getElementById("dataset").value;
   try {
     const res = await fetch(file);
@@ -464,6 +490,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
     }
     data = await res.json();
   } catch (err) {
+    console.warn("初始題庫載入失敗，使用預設題庫");
     data = [...defaultData];
   }
   questionSet = shuffle([...data]);
@@ -472,8 +499,13 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   score = 0;
   updateProgressBar();
   updateScoreDisplay();
-  fetchLeaderboard();
+  try {
+    fetchLeaderboard();
+  } catch (err) {
+    console.warn("初始排行榜載入失敗");
+  }
   displayBadges();
+  console.log("頁面初始化完成");
 })();
   </script>
 
