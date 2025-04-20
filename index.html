@@ -33,7 +33,7 @@
     }
     .question {
       font-size: 1.5em;
-      margin: 1.2em 0;
+      margin: 1.eab2em 0;
       text-align: center;
     }
     .options {
@@ -77,6 +77,12 @@
       font-size: 1.2em;
       margin: 10px 0;
       color: #2c3e50;
+    }
+    .lives-display {
+      text-align: center;
+      font-size: 1.5em;
+      margin: 10px 0;
+      color: #e63946;
     }
     .leaderboard {
       margin-top: 30px;
@@ -137,6 +143,7 @@
   </div>
   <div class="quiz" style="display:none;">
     <div class="score-display" id="score-display">目前得分：0</div>
+    <div class="lives-display" id="lives-display">剩餘生命：❤️❤️❤️</div>
     <div class="question" id="question"></div>
     <div class="options" id="options"></div>
     <h3 id="result-title" style="margin-top:30px;"></h3>
@@ -150,7 +157,7 @@
   </div>
 
   <script>
-const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"; // 請替換為你的 Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyg8OvuiCZbrtUTBy6a1pKyWeGUZJJbCJsxeodvwgbs9I2o6Fe7dS_irIntu44SNmJrig/exec"; // 已替換為 Google Apps Script Web App URL
 
 let selectedVoice = null;
 let badgesEarned = JSON.parse(localStorage.getItem("badges")) || [];
@@ -213,6 +220,7 @@ let currentIndex = 0;
 let attempts = 0;
 let wrongCount = 0;
 let score = 0;
+let lives = 3;
 let gameSession = Date.now();
 
 function shuffle(array) {
@@ -226,6 +234,11 @@ function updateProgressBar() {
 
 function updateScoreDisplay() {
   document.getElementById("score-display").innerText = `目前得分：${score}`;
+}
+
+function updateLivesDisplay() {
+  const hearts = '❤️'.repeat(lives);
+  document.getElementById("lives-display").innerText = `剩餘生命：${hearts}`;
 }
 
 function awardBadges() {
@@ -322,6 +335,7 @@ function renderQuestion() {
   attempts = 0;
   updateProgressBar();
   updateScoreDisplay();
+  updateLivesDisplay();
   const q = questionSet[currentIndex];
   document.getElementById("question").innerText = `"${q.Vocabulary}" 是什麼意思？`;
   speechSynthesis.cancel();
@@ -371,7 +385,7 @@ function handleChoice(button, choice) {
 
     setTimeout(() => {
       currentIndex++;
-      if (currentIndex < questionSet.length && wrongCount < 3) {
+      if (currentIndex < questionSet.length && lives > 0) {
         renderQuestion();
       } else {
         endGame();
@@ -381,7 +395,9 @@ function handleChoice(button, choice) {
     button.classList.add("incorrect");
     button.disabled = true;
     wrongCount++;
-    if (wrongCount >= 3) {
+    lives = 3 - wrongCount;
+    updateLivesDisplay();
+    if (lives <= 0) {
       setTimeout(() => {
         endGame();
       }, 800);
@@ -409,6 +425,7 @@ function startQuiz() {
   document.getElementById("progress-section").style.display = "block";
   document.querySelector(".quiz").style.display = "block";
   window.username = name;
+  lives = 3;
   
   if (!questionSet.length) {
     console.error("題庫未初始化，嘗試使用預設題庫");
@@ -456,8 +473,10 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
     currentIndex = 0;
     wrongCount = 0;
     score = 0;
+    lives = 3;
     updateProgressBar();
     updateScoreDisplay();
+    updateLivesDisplay();
     if (document.querySelector(".quiz").style.display === "block") {
       document.getElementById("results").innerHTML = "";
       document.getElementById("result-title").innerText = "";
@@ -470,8 +489,10 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
     currentIndex = 0;
     wrongCount = 0;
     score = 0;
+    lives = 3;
     updateProgressBar();
     updateScoreDisplay();
+    updateLivesDisplay();
     if (document.querySelector(".quiz").style.display === "block") {
       document.getElementById("results").innerHTML = "";
       document.getElementById("result-title").innerText = "";
@@ -497,8 +518,10 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   currentIndex = 0;
   wrongCount = 0;
   score = 0;
+  lives = 3;
   updateProgressBar();
   updateScoreDisplay();
+  updateLivesDisplay();
   try {
     fetchLeaderboard();
   } catch (err) {
