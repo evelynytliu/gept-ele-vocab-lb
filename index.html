@@ -33,7 +33,7 @@
     }
     .question {
       font-size: 1.5em;
-      margin: 1.2em 0;
+      margin: 1.eab2em 0;
       text-align: center;
     }
     .options {
@@ -78,6 +78,48 @@
       margin: 10px 0;
       color: #2c3e50;
     }
+    .lives-display {
+      text-align: center;
+      font-size: 1.5em;
+      margin: 10px 0;
+      color: #e63946;
+    }
+    .leaderboard {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 10px;
+    }
+    .leaderboard h2 {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 1.5em;
+    }
+    .leaderboard ul {
+      list-style: none;
+      padding: 0;
+    }
+    .leaderboard li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      font-size: 1em;
+    }
+    .badges {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .badges span {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 5px;
+      background: #ffd700;
+      color: #333;
+      border-radius: 20px;
+      font-size: 0.9em;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -93,7 +135,7 @@
   <div style="text-align: center; margin-top: 20px;">
     <label for="username">請輸入你的名字：</label>
     <input id="username" type="text" placeholder="例如：Emmett" style="padding: 8px 12px; font-size: 1em; border-radius: 8px; border: 1px solid #ccc; margin-top: 8px;" />
-    <button onclick="startQuiz()" style="margin-left: 10px; padding: 8px 16px; font-size: 1em; border-radius: 8px; background-color: #007bff; color: white; border: none; cursor: pointer;">開始挑戰</button>
+    <button id="start-btn" onclick="startQuiz()" style="margin-left: 10px; padding: 8px 16px; font-size: 1em; border-radius: 8px; background-color: #007bff; color: white; border: none; cursor: pointer;">開始挑戰</button>
   </div>
 
   <div class="progress-container" style="display:none;" id="progress-section">
@@ -101,14 +143,24 @@
   </div>
   <div class="quiz" style="display:none;">
     <div class="score-display" id="score-display">目前得分：0</div>
+    <div class="lives-display" id="lives-display">剩餘生命：❤️❤️❤️</div>
     <div class="question" id="question"></div>
     <div class="options" id="options"></div>
     <h3 id="result-title" style="margin-top:30px;"></h3>
     <ul class="result-log" id="results"></ul>
+    <div class="badges" id="badges"></div>
+  </div>
+
+  <div class="leaderboard" id="leaderboard">
+    <h2>🏆 積分排行榜</h2>
+    <ul id="leaderboard-list"></ul>
   </div>
 
   <script>
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyg8OvuiCZbrtUTBy6a1pKyWeGUZJJbCJsxeodvwgbs9I2o6Fe7dS_irIntu44SNmJrig/exec"; // 已替換為 Google Apps Script Web App URL
+
 let selectedVoice = null;
+let badgesEarned = JSON.parse(localStorage.getItem("badges")) || [];
 
 function findEnglishVoice() {
   const voices = speechSynthesis.getVoices();
@@ -123,258 +175,368 @@ function findEnglishVoice() {
 speechSynthesis.onvoiceschanged = () => {
   selectedVoice = findEnglishVoice();
 };
-    
-    let data = [
-      { Vocabulary: "breathe fire", Chinese: "噴火" },
-      { Vocabulary: "trainer", Chinese: "訓練師" },
-      { Vocabulary: "journey", Chinese: "旅程 / 一段路" },
-      { Vocabulary: "rare", Chinese: "稀有的" },
-      { Vocabulary: "care", Chinese: "照顧" },
-      { Vocabulary: "decide", Chinese: "決定" },
-      { Vocabulary: "pick", Chinese: "挑選" },
-      { Vocabulary: "lab", Chinese: "實驗室" },
-      { Vocabulary: "each", Chinese: "每個人" },
-      { Vocabulary: "fluffy", Chinese: "毛絨絨的" },
-      { Vocabulary: "energetic", Chinese: "有活力的" },
-      { Vocabulary: "nod", Chinese: "點頭" },
-      { Vocabulary: "electric", Chinese: "電的" },
-      { Vocabulary: "icy", Chinese: "結凍的" },
-      { Vocabulary: "punch", Chinese: "揍" },
-      { Vocabulary: "wings", Chinese: "翅膀" },
-      { Vocabulary: "horns", Chinese: "角" },
-      { Vocabulary: "tail", Chinese: "尾巴" },
-      { Vocabulary: "furry", Chinese: "有毛的" },
-      { Vocabulary: "striped", Chinese: "有條紋的" },
-      { Vocabulary: "claw", Chinese: "爪子" },
-      { Vocabulary: "library", Chinese: "圖書館" },
-      { Vocabulary: "museum", Chinese: "博物館" },
-      { Vocabulary: "backpack", Chinese: "背包" },
-      { Vocabulary: "breakfast", Chinese: "早餐" },
-      { Vocabulary: "hungry", Chinese: "肚子餓的" },
-      { Vocabulary: "dentist", Chinese: "牙醫" },
-      { Vocabulary: "stationary", Chinese: "文具" },
-      { Vocabulary: "friendly", Chinese: "友善的" },
-      { Vocabulary: "exercise", Chinese: "運動" },
-      { Vocabulary: "science", Chinese: "科學" },
-      { Vocabulary: "noisy", Chinese: "吵的" },
-      { Vocabulary: "brave", Chinese: "勇敢的" },
-      { Vocabulary: "careful", Chinese: "小心的" },
-      { Vocabulary: "weekend", Chinese: "週末" }
-    ];
 
-    let defaultData = [...data];
-    let questionSet = [];
-    let currentIndex = 0;
-    let attempts = 0;
-    let wrongCount = 0;
-    let score = 0;
+let data = [
+  { Vocabulary: "breathe fire", Chinese: "噴火" },
+  { Vocabulary: "trainer", Chinese: "訓練師" },
+  { Vocabulary: "journey", Chinese: "旅程 / 一段路" },
+  { Vocabulary: "rare", Chinese: "稀有的" },
+  { Vocabulary: "care", Chinese: "照顧" },
+  { Vocabulary: "decide", Chinese: "決定" },
+  { Vocabulary: "pick", Chinese: "挑選" },
+  { Vocabulary: "lab", Chinese: "實驗室" },
+  { Vocabulary: "each", Chinese: "每個人" },
+  { Vocabulary: "fluffy", Chinese: "毛絨絨的" },
+  { Vocabulary: "energetic", Chinese: "有活力的" },
+  { Vocabulary: "nod", Chinese: "點頭" },
+  { Vocabulary: "electric", Chinese: "電的" },
+  { Vocabulary: "icy", Chinese: "結凍的" },
+  { Vocabulary: "punch", Chinese: "揍" },
+  { Vocabulary: "wings", Chinese: "翅膀" },
+  { Vocabulary: "horns", Chinese: "角" },
+  { Vocabulary: "tail", Chinese: "尾巴" },
+  { Vocabulary: "furry", Chinese: "有毛的" },
+  { Vocabulary: "striped", Chinese: "有條紋的" },
+  { Vocabulary: "claw", Chinese: "爪子" },
+  { Vocabulary: "library", Chinese: "圖書館" },
+  { Vocabulary: "museum", Chinese: "博物館" },
+  { Vocabulary: "backpack", Chinese: "背包" },
+  { Vocabulary: "breakfast", Chinese: "早餐" },
+  { Vocabulary: "hungry", Chinese: "肚子餓的" },
+  { Vocabulary: "dentist", Chinese: "牙醫" },
+  { Vocabulary: "stationary", Chinese: "文具" },
+  { Vocabulary: "friendly", Chinese: "友善的" },
+  { Vocabulary: "exercise", Chinese: "運動" },
+  { Vocabulary: "science", Chinese: "科學" },
+  { Vocabulary: "noisy", Chinese: "吵的" },
+  { Vocabulary: "brave", Chinese: "勇敢的" },
+  { Vocabulary: "careful", Chinese: "小心的" },
+  { Vocabulary: "weekend", Chinese: "週末" }
+];
 
-    function shuffle(array) {
-      return array.sort(() => Math.random() - 0.5);
-    }
+let defaultData = [...data];
+let questionSet = [];
+let currentIndex = 0;
+let attempts = 0;
+let wrongCount = 0;
+let score = 0;
+let lives = 3;
+let gameSession = Date.now();
 
-    function updateProgressBar() {
-      const percent = (currentIndex / questionSet.length) * 100;
-      document.getElementById("progress-bar").style.width = `${percent}%`;
-    }
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
 
-    function updateScoreDisplay() {
-      document.getElementById("score-display").innerText = `目前得分：${score}`;
-    }
+function updateProgressBar() {
+  const percent = (currentIndex / questionSet.length) * 100;
+  document.getElementById("progress-bar").style.width = `${percent}%`;
+}
 
-    function endGame() {
-      updateProgressBar();
-      document.querySelector(".quiz").innerHTML = `
-        <h2>🎉 ${window.username}，本次挑戰結束！</h2>
-        <h3>總得分：${score}</h3>
-        <h3 id="result-title" style="margin-top:30px;"></h3>
-        <ul class="result-log" id="results">${document.getElementById("results").innerHTML}</ul>
-        <div style="text-align: center; margin-top: 20px;">
-          <button onclick="location.reload()" style="
-            padding: 12px 24px;
-            font-size: 1em;
-            border: none;
-            border-radius: 30px;
-            background: linear-gradient(to right, #ff9f1a, #ffc107);
-            color: #333;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
-          ">🔁 再玩一次</button>
-        </div>`;
-    }
+function updateScoreDisplay() {
+  document.getElementById("score-display").innerText = `目前得分：${score}`;
+}
 
-    function renderQuestion() {
-      attempts = 0;
-      updateProgressBar();
-      updateScoreDisplay();
-      const q = questionSet[currentIndex];
-      document.getElementById("question").innerText = `"${q.Vocabulary}" 是什麼意思？`;
-      speechSynthesis.cancel();
-      if (!selectedVoice) selectedVoice = findEnglishVoice();
-      const utterance = new SpeechSynthesisUtterance(q.Vocabulary);
-      utterance.voice = selectedVoice;
-      utterance.lang = "en-US";
-      utterance.rate = 0.9;
-      speechSynthesis.speak(utterance);
+function updateLivesDisplay() {
+  const hearts = '❤️'.repeat(lives);
+  document.getElementById("lives-display").innerText = `剩餘生命：${hearts}`;
+}
 
-      const distractors = shuffle(
-        data.filter(item => item !== q).slice(0, 3)
-      );
+function awardBadges() {
+  const newBadges = [];
+  if (score >= 25) newBadges.push("🎖️ 高分達人");
+  if (wrongCount === 0 && currentIndex === questionSet.length) newBadges.push("⭐ 完美挑戰");
+  if (!badgesEarned.includes("🎉 首次挑戰")) newBadges.push("🎉 首次挑戰");
 
-      const choices = shuffle([...distractors, q]);
+  newBadges.forEach(badge => {
+    if (!badgesEarned.includes(badge)) badgesEarned.push(badge);
+  });
 
-      const container = document.getElementById("options");
-      container.innerHTML = "";
+  localStorage.setItem("badges", JSON.stringify(badgesEarned));
+  displayBadges();
+}
 
-      choices.forEach((choice) => {
-        const btn = document.createElement("button");
-        btn.innerText = choice.Chinese;
-        btn.onclick = () => handleChoice(btn, choice);
-        container.appendChild(btn);
+function displayBadges() {
+  const badgesContainer = document.getElementById("badges");
+  badgesContainer.innerHTML = badgesEarned.length ? badgesEarned.map(badge => `<span>${badge}</span>`).join("") : "尚未獲得徽章";
+}
+
+async function submitScore() {
+  if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: window.username,
+          score: score,
+          session: gameSession
+        })
       });
+      console.log("分數已提交至 Google Sheets");
+    } catch (err) {
+      console.error("提交分數失敗:", err);
     }
+  } else {
+    console.warn("未設置 GOOGLE_SCRIPT_URL，分數未提交");
+  }
+}
 
-    function handleChoice(button, choice) {
-      const correctAnswer = questionSet[currentIndex].Chinese;
-      attempts++;
+async function fetchLeaderboard() {
+  if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
+    try {
+      const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
+      const leaderboard = await response.json();
+      const leaderboardList = document.getElementById("leaderboard-list");
+      leaderboardList.innerHTML = leaderboard.slice(0, 5).map((entry, index) => 
+        `<li><span>${index + 1}. ${entry.username}</span><span>${entry.score}</span></li>`
+      ).join("");
+    } catch (err) {
+      console.error("載入排行榜失敗:", err);
+      document.getElementById("leaderboard-list").innerHTML = "<li>無法載入排行榜</li>";
+    }
+  } else {
+    document.getElementById("leaderboard-list").innerHTML = "<li>請設置 Google Sheets 連結</li>";
+  }
+}
 
-      if (choice.Chinese === correctAnswer) {
-        button.classList.add("correct");
-        document.querySelectorAll(".options button").forEach(btn => btn.disabled = true);
-        if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
-          document.getElementById("result-title").innerText = `${window.username} 的挑戰結果：`;
-        }
-        document.getElementById("results").innerHTML += 
-          (attempts === 1
-            ? `<li>✅ ${questionSet[currentIndex].Vocabulary} — ${questionSet[currentIndex].Chinese} — ${attempts} 次 — +5分</li>`
-            : `<li style="color: #d39e00;">🟡 ${questionSet[currentIndex].Vocabulary} — ${questionSet[currentIndex].Chinese} — ${attempts} 次 — 0分</li>`);
-        
-        if (attempts === 1) {
-          score += 5;
-        }
-        updateScoreDisplay();
+function endGame() {
+  updateProgressBar();
+  awardBadges();
+  submitScore();
+  fetchLeaderboard();
+  document.querySelector(".quiz").innerHTML = `
+    <h2>🎉 ${window.username}，本次挑戰結束！</h2>
+    <h3>總得分：${score}</h3>
+    <h3 id="result-title" style="margin-top:30px;"></h3>
+    <ul class="result-log" id="results">${document.getElementById("results").innerHTML}</ul>
+    <div class="badges" id="badges">${document.getElementById("badges").innerHTML}</div>
+    <div style="text-align: center; margin-top: 20px;">
+      <button onclick="location.reload()" style="
+        padding: 12px 24px;
+        font-size: 1em;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(to right, #ff9f1a, #ffc107);
+        color: #333;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+      ">🔁 再玩一次</button>
+    </div>`;
+}
 
-        setTimeout(() => {
-          currentIndex++;
-          if (currentIndex < questionSet.length && wrongCount < 3) {
-            renderQuestion();
-          } else {
-            endGame();
-          }
-        }, 800);
+function renderQuestion() {
+  attempts = 0;
+  updateProgressBar();
+  updateScoreDisplay();
+  const q = questionSet[currentIndex];
+  document.getElementById("question").innerText = `"${q.Vocabulary}" 是什麼意思？`;
+  speechSynthesis.cancel();
+  if (!selectedVoice) selectedVoice = findEnglishVoice();
+  const utterance = new SpeechSynthesisUtterance(q.Vocabulary);
+  utterance.voice = selectedVoice;
+  utterance.lang = "en-US";
+  utterance.rate = 0.9;
+  speechSynthesis.speak(utterance);
+
+  // 从完整数据中随机选择干扰项，而不仅仅是当前数据集
+  const allChineseAnswers = data.map(item => item.Chinese);
+  const correctAnswer = q.Chinese;
+  
+  // 过滤掉当前的正确答案
+  const possibleDistractors = allChineseAnswers.filter(chinese => chinese !== correctAnswer);
+  
+  // 随机选择3个干扰项
+  const distractors = shuffle(possibleDistractors).slice(0, 3);
+
+  // 组合选项并随机排序
+  const choices = shuffle([correctAnswer, ...distractors]).map(chinese => {
+    // 为每个选项创建一个模拟对象，与原始数据结构兼容
+    return { Chinese: chinese };
+  });
+
+  const container = document.getElementById("options");
+  container.innerHTML = "";
+
+  choices.forEach((choice) => {
+    const btn = document.createElement("button");
+    btn.innerText = choice.Chinese;
+    btn.onclick = () => handleChoice(btn, choice);
+    container.appendChild(btn);
+  });
+}
+function handleChoice(button, choice) {
+  const correctAnswer = questionSet[currentIndex].Chinese;
+  attempts++;
+
+  if (choice.Chinese === correctAnswer) {
+    button.classList.add("correct");
+    document.querySelectorAll(".options button").forEach(btn => btn.disabled = true);
+    if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
+      document.getElementById("result-title").innerText = `${window.username} 的挑戰結果：`;
+    }
+    document.getElementById("results").innerHTML += 
+      (attempts === 1
+        ? `<li>✅ ${questionSet[currentIndex].Vocabulary} — ${questionSet[currentIndex].Chinese} — ${attempts} 次 — +5分</li>`
+        : `<li style="color: #d39e00;">🟡 ${questionSet[currentIndex].Vocabulary} — ${questionSet[currentIndex].Chinese} — ${attempts} 次 — 0分</li>`);
+    
+    if (attempts === 1) {
+      score += 5;
+    }
+    updateScoreDisplay();
+
+    setTimeout(() => {
+      currentIndex++;
+      if (currentIndex < questionSet.length && lives > 0) {
+        renderQuestion();
       } else {
-        button.classList.add("incorrect");
-        button.disabled = true;
-        wrongCount++;
-        if (wrongCount >= 3) {
-          setTimeout(() => {
-            endGame();
-          }, 800);
-        }
+        endGame();
       }
+    }, 800);
+  } else {
+    button.classList.add("incorrect");
+    button.disabled = true;
+    wrongCount++;
+    lives = 3 - wrongCount;
+    updateLivesDisplay();
+    if (lives <= 0) {
+      setTimeout(() => {
+        endGame();
+      }, 800);
     }
+  }
+}
 
-    function startQuiz() {
-      const name = document.getElementById("username").value.trim();
-      if (!name) {
-        alert("請輸入名字再開始挑戰！");
-        return;
-      }
-      
-      const startButton = document.querySelector("button[onclick='startQuiz()']");
-      startButton.innerHTML = "🔊 重聽發音";
-      startButton.onclick = function() {
-        speakCurrentWord();
-      };
-      
-      document.getElementById("username").style.display = "none";
-      document.querySelector("label[for='username']").style.display = "none";
-      
-      document.getElementById("progress-section").style.display = "block";
-      document.querySelector(".quiz").style.display = "block";
-      window.username = name;
+function startQuiz() {
+  console.log("startQuiz 函數已觸發");
+  const name = document.getElementById("username").value.trim();
+  if (!name) {
+    alert("請輸入名字！");
+    return;
+  }
+  
+  const startButton = document.getElementById("start-btn");
+  startButton.innerHTML = "🔊 重聽發音";
+  startButton.onclick = function() {
+    speakCurrentWord();
+  };
+  
+  document.getElementById("username").style.display = "none";
+  document.querySelector("label[for='username']").style.display = "none";
+  
+  document.getElementById("progress-section").style.display = "block";
+  document.querySelector(".quiz").style.display = "block";
+  window.username = name;
+  lives = 3;
+  
+  if (!questionSet.length) {
+    console.error("題庫未初始化，嘗試使用預設題庫");
+    questionSet = shuffle([...defaultData]);
+  }
+  
+  try {
+    fetchLeaderboard();
+  } catch (err) {
+    console.warn("排行榜載入失敗，繼續執行遊戲");
+  }
+  
+  renderQuestion();
+}
+
+function speakCurrentWord() {
+  const currentWord = questionSet[currentIndex].Vocabulary;
+  speechSynthesis.cancel();
+  if (!selectedVoice) selectedVoice = findEnglishVoice();
+  const utterance = new SpeechSynthesisUtterance(currentWord);
+  utterance.voice = selectedVoice;
+  utterance.lang = "en-US";
+  utterance.rate = 0.9;
+  speechSynthesis.speak(utterance);
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    const input = document.getElementById("username");
+    if (input && input.style.display !== "none") {
+      startQuiz();
+    }
+  }
+});
+
+document.getElementById("dataset").addEventListener("change", async function(e) {
+  const file = e.target.value;
+  try {
+    const res = await fetch(file);
+    if (!res.ok) {
+      throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
+    }
+    data = await res.json();
+    questionSet = shuffle([...data]);
+    currentIndex = 0;
+    wrongCount = 0;
+    score = 0;
+    lives = 3;
+    updateProgressBar();
+    updateScoreDisplay();
+    updateLivesDisplay();
+    if (document.querySelector(".quiz").style.display === "block") {
+      document.getElementById("results").innerHTML = "";
+      document.getElementById("result-title").innerText = "";
       renderQuestion();
     }
-
-    function speakCurrentWord() {
-      const currentWord = questionSet[currentIndex].Vocabulary;
-      speechSynthesis.cancel();
-      if (!selectedVoice) selectedVoice = findEnglishVoice();
-      const utterance = new SpeechSynthesisUtterance(currentWord);
-      utterance.voice = selectedVoice;
-      utterance.lang = "en-US";
-      utterance.rate = 0.9;
-      speechSynthesis.speak(utterance);
+  } catch (err) {
+    console.warn("載入題庫失敗，使用預設題庫");
+    data = [...defaultData];
+    questionSet = shuffle([...data]);
+    currentIndex = 0;
+    wrongCount = 0;
+    score = 0;
+    lives = 3;
+    updateProgressBar();
+    updateScoreDisplay();
+    updateLivesDisplay();
+    if (document.querySelector(".quiz").style.display === "block") {
+      document.getElementById("results").innerHTML = "";
+      document.getElementById("result-title").innerText = "";
+      renderQuestion();
     }
+  }
+});
 
-    document.addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {
-        const input = document.getElementById("username");
-        if (input && input.style.display !== "none") {
-          startQuiz();
-        }
-      }
-    });
-
-    document.getElementById("dataset").addEventListener("change", async function(e) {
-      const file = e.target.value;
-      try {
-        const res = await fetch(file);
-        if (!res.ok) {
-          throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
-        }
-        data = await res.json();
-        questionSet = shuffle([...data]);
-        currentIndex = 0;
-        wrongCount = 0;
-        score = 0;
-        updateProgressBar();
-        updateScoreDisplay();
-        if (document.querySelector(".quiz").style.display === "block") {
-          document.getElementById("results").innerHTML = "";
-          document.getElementById("result-title").innerText = "";
-          renderQuestion();
-        }
-      } catch (err) {
-        alert("載入題庫失敗，將使用預設題庫。");
-        data = [...defaultData];
-        questionSet = shuffle([...data]);
-        currentIndex = 0;
-        wrongCount = 0;
-        score = 0;
-        updateProgressBar();
-        updateScoreDisplay();
-        if (document.querySelector(".quiz").style.display === "block") {
-          document.getElementById("results").innerHTML = "";
-          document.getElementById("result-title").innerText = "";
-          renderQuestion();
-        }
-      }
-    });
-
-    (async () => {
-      const file = document.getElementById("dataset").value;
-      try {
-        const res = await fetch(file);
-        if (!res.ok) {
-          throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
-        }
-        data = await res.json();
-      } catch (err) {
-        data = [...defaultData];
-      }
-      questionSet = shuffle([...data]);
-      currentIndex = 0;
-      wrongCount = 0;
-      score = 0;
-      updateProgressBar();
-      updateScoreDisplay();
-    })();
+(async () => {
+  console.log("頁面初始化開始");
+  const file = document.getElementById("dataset").value;
+  try {
+    const res = await fetch(file);
+    if (!res.ok) {
+      throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
+    }
+    data = await res.json();
+  } catch (err) {
+    console.warn("初始題庫載入失敗，使用預設題庫");
+    data = [...defaultData];
+  }
+  questionSet = shuffle([...data]);
+  currentIndex = 0;
+  wrongCount = 0;
+  score = 0;
+  lives = 3;
+  updateProgressBar();
+  updateScoreDisplay();
+  updateLivesDisplay();
+  try {
+    fetchLeaderboard();
+  } catch (err) {
+    console.warn("初始排行榜載入失敗");
+  }
+  displayBadges();
+  console.log("頁面初始化完成");
+})();
   </script>
 
   <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
-    Made by Evelyn YT ｜© 2025 | 2025/4/27 11:28
+    Made by Evelyn YT ｜© 2025 | 2025/4/27 11:39
   </div>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'932df55bc8346763',t:'MTc0NTA4MjAyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
