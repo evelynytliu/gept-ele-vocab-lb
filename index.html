@@ -274,9 +274,11 @@ async function submitScore() {
         body: JSON.stringify({
           username: window.username,
           score: score,
-          session: gameSession
+          session: gameSession,
+          dataset: document.getElementById("dataset").value   // ✅ 新增這行
         })
       });
+
       console.log("分數已提交至 Google Sheets");
     } catch (err) {
       console.error("提交分數失敗:", err);
