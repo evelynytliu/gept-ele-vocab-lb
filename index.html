@@ -31,11 +31,12 @@
       background: linear-gradient(to right, #00c6ff, #0072ff);
       transition: width 0.3s ease-in-out;
     }
-    .question {
-      font-size: 1.5em;
-      margin: 1.eab2em 0;
-      text-align: center;
+     .question {
+       font-size: 1.5em;
+       margin: 1em 0 1.5em 0; /* 上、右、下、左 */
+       text-align: center;
     }
+
     .options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -559,7 +560,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   </script>
 
   <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
-    Made by Evelyn YT ｜© 2025 | 2025/4/27 12:14
+    Made by Evelyn YT ｜© 2025 | 2025/4/27 12:41
   </div>
 </body>
 </html>
