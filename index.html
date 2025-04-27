@@ -121,20 +121,6 @@
       font-size: 0.9em;
       box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
-   table, th, td {
-    border: 1px solid #ccc;
-  }
-  th {
-    background-color: #f8f8f8;
-    font-weight: bold;
-    padding: 8px;
-  }
-  td {
-    padding: 8px;
-  }
-  tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
   </style>
 </head>
 <body>
@@ -304,36 +290,23 @@ async function submitScore() {
   }
 }
 
-function formatDate(rawTimestamp) {
-  if (!rawTimestamp) return "";
-  const date = new Date(rawTimestamp);
-  return date.toLocaleString("zh-TW");  // 顯示完整台灣時間
-}
-
 async function fetchLeaderboard() {
   if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
     try {
       const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
       const leaderboard = await response.json();
-      const leaderboardBody = document.getElementById("leaderboard-body");
-      leaderboardBody.innerHTML = leaderboard.slice(0, 10).map((entry, index) => 
-        `<tr>
-          <td style="text-align: center;">${index + 1}</td>
-          <td style="text-align: center;">${entry.username}</td>
-          <td style="text-align: center;">${entry.score}分</td>
-          <td style="text-align: center;">${entry.dataset || "未知題庫"}</td>
-          <td style="text-align: center;">${formatDate(entry.timestamp) || "未知時間"}</td>
-        </tr>`
+      const leaderboardList = document.getElementById("leaderboard-list");
+      leaderboardList.innerHTML = leaderboard.slice(0, 5).map((entry, index) => 
+         `<li><span>${index + 1}. ${entry.username}</span><span>${entry.score}分｜${entry.dataset || "未知題庫"}</span></li>`
       ).join("");
     } catch (err) {
       console.error("載入排行榜失敗:", err);
-      document.getElementById("leaderboard-body").innerHTML = "<tr><td colspan='5' style='text-align:center;'>無法載入排行榜</td></tr>";
+      document.getElementById("leaderboard-list").innerHTML = "<li>無法載入排行榜</li>";
     }
   } else {
-    document.getElementById("leaderboard-body").innerHTML = "<tr><td colspan='5' style='text-align:center;'>請設置 Google Sheets 連結</td></tr>";
+    document.getElementById("leaderboard-list").innerHTML = "<li>請設置 Google Sheets 連結</li>";
   }
 }
-
 
 function endGame() {
   updateProgressBar();
@@ -585,27 +558,10 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   displayBadges();
   console.log("頁面初始化完成");
 })();
-
-<table id="leaderboard-table" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-  <thead>
-    <tr>
-      <th>名次</th>
-      <th>名字</th>
-      <th>分數</th>
-      <th>題庫</th>
-      <th>挑戰時間</th>
-    </tr>
-  </thead>
-  <tbody id="leaderboard-body">
-    <!-- 排行榜資料會插入這裡 -->
-  </tbody>
-</table>
-
-    
   </script>
 
   <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
-    Made by Evelyn YT ｜© 2025 | 2025/4/27 13:29
+    Made by Evelyn YT ｜© 2025 | 2025/4/27 14:12
   </div>
 </body>
 </html>
