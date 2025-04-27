@@ -129,8 +129,7 @@
     <label for="dataset">題庫選擇：</label>
   <select id="dataset" style="padding: 6px 10px; font-size: 1em;">
     <option value="week1.json" data-limit="all">🟡 Week 1 (全部題目)</option>
-    <option value="gept-full.json" data-limit="25">🔵 全 GEPT (25題)</option>
-    <option value="gept-full.json" data-limit="all">🔵 全 GEPT (魔鬼挑戰2000題)</option>
+    <option value="gept-full.json" data-limit="20">🔵 全 GEPT (20題)</option>
   </select>  </div>
   <div style="text-align: center; margin-top: 20px;">
     <label for="username">請輸入你的名字：</label>
@@ -275,8 +274,6 @@ async function submitScore() {
           username: window.username,
           score: score,
           session: gameSession
-          dataset: document.getElementById("dataset").value   // ✅ 新增這行
-
         })
       });
       console.log("分數已提交至 Google Sheets");
@@ -559,7 +556,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   </script>
 
   <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
-    Made by Evelyn YT ｜© 2025｜2025/4/27 12:04
+    Made by Evelyn YT ｜© 2025 | 2025/4/27 12:06
   </div>
 </body>
 </html>
