@@ -269,16 +269,25 @@ function displayBadges() {
 async function submitScore() {
   if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
     try {
+      // 获取用户友好的题库名称而不是文件名
+      const datasetSelect = document.getElementById("dataset");
+      const selectedOption = datasetSelect.options[datasetSelect.selectedIndex];
+      const datasetName = selectedOption.text; // 例如："🟡 Week 1 (全部题目)"
+      
+      const dataToSubmit = {
+        username: window.username,
+        score: score,
+        dataset: datasetName,
+        session: gameSession
+      };
+      
+      console.log("正在提交資料:", dataToSubmit);
+      
       const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: window.username,
-          score: score,
-          session: gameSession,
-          dataset: document.getElementById("dataset").value   // ✅ 新增這行
-        })
+        body: JSON.stringify(dataToSubmit)
       });
 
       console.log("分數已提交至 Google Sheets");
@@ -296,11 +305,22 @@ async function fetchLeaderboard() {
       const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
       const leaderboard = await response.json();
       const leaderboardList = document.getElementById("leaderboard-list");
-      leaderboardList.innerHTML = leaderboard.slice(0, 5).map((entry, index) => 
-         `<li><span>${index + 1}. ${entry.username}</span><span>${entry.score}分｜${entry.dataset || "未知題庫"}</span></li>`
-      ).join("");
+      
+      leaderboardList.innerHTML = leaderboard.slice(0, 5).map((entry, index) => {
+        // 處理日期格式化 (如果timestamp存在)
+        let timeDisplay = "";
+        if (entry.timestamp) {
+          const date = new Date(entry.timestamp);
+          timeDisplay = `｜${date.getMonth()+1}/${date.getDate()} ${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
+        }
+        
+        return `<li>
+          <span>${index + 1}. ${entry.username}</span>
+          <span>${entry.score}分｜${entry.dataset || "未知題庫"}${timeDisplay}</span>
+        </li>`;
+      }).join("");
     } catch (err) {
-      console.error("載入排行榜失敗:", err);
+      console.error("載入排行榜失數:", err);
       document.getElementById("leaderboard-list").innerHTML = "<li>無法載入排行榜</li>";
     }
   } else {
