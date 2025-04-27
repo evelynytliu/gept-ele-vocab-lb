@@ -127,11 +127,10 @@
   
   <div style="text-align: center; margin-top: 10px;">
     <label for="dataset">題庫選擇：</label>
-    <select id="dataset" style="padding: 6px 10px; font-size: 1em;">
-      <option value="week1.json">🟡 Week 1</option>
-      <option value="gept-full.json">🔵 全 GEPT</option>
-    </select>
-  </div>
+  <select id="dataset" style="padding: 6px 10px; font-size: 1em;">
+    <option value="week1.json" data-limit="all">🟡 Week 1 (全部題目)</option>
+    <option value="gept-full.json" data-limit="20">🔵 全 GEPT (20題)</option>
+  </select>  </div>
   <div style="text-align: center; margin-top: 20px;">
     <label for="username">請輸入你的名字：</label>
     <input id="username" type="text" placeholder="例如：Emmett" style="padding: 8px 12px; font-size: 1em; border-radius: 8px; border: 1px solid #ccc; margin-top: 8px;" />
@@ -219,6 +218,7 @@ let questionSet = [];
 let currentIndex = 0;
 let attempts = 0;
 let wrongCount = 0;
+let totalQuestionsToComplete = "all"; // 預設為全部問題
 let score = 0;
 let lives = 3;
 let gameSession = Date.now();
@@ -228,7 +228,10 @@ function shuffle(array) {
 }
 
 function updateProgressBar() {
-  const percent = (currentIndex / questionSet.length) * 100;
+  // 如果是數字限制，則以該限制為準；否則以全部問題數量為準
+  const totalQuestions = typeof totalQuestionsToComplete === 'number' ? 
+                       totalQuestionsToComplete : questionSet.length;
+  const percent = (currentIndex / totalQuestions) * 100;
   document.getElementById("progress-bar").style.width = `${percent}%`;
 }
 
@@ -388,11 +391,16 @@ function handleChoice(button, choice) {
 
     setTimeout(() => {
       currentIndex++;
-      if (currentIndex < questionSet.length && lives > 0) {
-        renderQuestion();
-      } else {
-        endGame();
-      }
+// 檢查是否達到完成條件
+const quizCompleted = typeof totalQuestionsToComplete === 'number' 
+                    ? currentIndex >= totalQuestionsToComplete 
+                    : currentIndex >= questionSet.length;
+
+if (!quizCompleted && wrongCount < 3) {
+  renderQuestion();
+} else {
+  endGame();
+}
     }, 800);
   } else {
     button.classList.add("incorrect");
@@ -466,7 +474,14 @@ document.addEventListener("keydown", function(event) {
 
 document.getElementById("dataset").addEventListener("change", async function(e) {
   const file = e.target.value;
+  const selected = e.target.options[e.target.selectedIndex];
+  const limit = selected.getAttribute("data-limit");
+  
+  // 設定當前選擇的題庫的題目限制
+  totalQuestionsToComplete = limit === "all" ? "all" : parseInt(limit);
+  
   try {
+    // 讀取檔案...
     const res = await fetch(file);
     if (!res.ok) {
       throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
@@ -507,6 +522,11 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
 (async () => {
   console.log("頁面初始化開始");
   const file = document.getElementById("dataset").value;
+  const selected = document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex];
+  const limit = selected.getAttribute("data-limit");
+  
+  // 設定初始題庫的題目限制
+  totalQuestionsToComplete = limit === "all" ? "all" : parseInt(limit);
   try {
     const res = await fetch(file);
     if (!res.ok) {
@@ -536,7 +556,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   </script>
 
   <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
-    Made by Evelyn YT ｜© 2025 | 2025/4/27 11:39
+    Made by Evelyn YT ｜© 2025 | 2025/4/27 11:52
   </div>
 </body>
 </html>
