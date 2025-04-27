@@ -86,8 +86,8 @@
   <div style="text-align: center; margin-top: 10px;">
     <label for="dataset">題庫選擇：</label>
     <select id="dataset" style="padding: 6px 10px; font-size: 1em;">
-      <option value="week1.json" data-limit="all">🟡 Week 1 (全部題目)</option>
-      <option value="gept-full.json" data-limit="20">🔵 全 GEPT (20題)</option>
+      <option value="week1.json">🟡 Week 1</option>
+      <option value="gept-full.json">🔵 全 GEPT</option>
     </select>
   </div>
   <div style="text-align: center; margin-top: 20px;">
@@ -109,7 +109,6 @@
 
   <script>
 let selectedVoice = null;
-let questionLimit = "all"; // 默認值，表示全部問題
 
 function findEnglishVoice() {
   const voices = speechSynthesis.getVoices();
@@ -169,17 +168,13 @@ speechSynthesis.onvoiceschanged = () => {
     let attempts = 0;
     let wrongCount = 0;
     let score = 0;
-    let totalQuestionsToComplete = "all"; // 預設為全部問題
 
     function shuffle(array) {
       return array.sort(() => Math.random() - 0.5);
     }
 
     function updateProgressBar() {
-      // 如果是數字限制，則以該限制為準；否則以全部問題數量為準
-      const totalQuestions = typeof totalQuestionsToComplete === 'number' ? 
-                             totalQuestionsToComplete : questionSet.length;
-      const percent = (currentIndex / totalQuestions) * 100;
+      const percent = (currentIndex / questionSet.length) * 100;
       document.getElementById("progress-bar").style.width = `${percent}%`;
     }
 
@@ -262,13 +257,7 @@ speechSynthesis.onvoiceschanged = () => {
 
         setTimeout(() => {
           currentIndex++;
-          
-          // 檢查是否達到完成條件
-          const quizCompleted = typeof totalQuestionsToComplete === 'number' 
-                                ? currentIndex >= totalQuestionsToComplete 
-                                : currentIndex >= questionSet.length;
-          
-          if (!quizCompleted && wrongCount < 3) {
+          if (currentIndex < questionSet.length && wrongCount < 3) {
             renderQuestion();
           } else {
             endGame();
@@ -330,12 +319,6 @@ speechSynthesis.onvoiceschanged = () => {
 
     document.getElementById("dataset").addEventListener("change", async function(e) {
       const file = e.target.value;
-      const selected = e.target.options[e.target.selectedIndex];
-      const limit = selected.getAttribute("data-limit");
-      
-      // 設定當前選擇的題庫的題目限制
-      totalQuestionsToComplete = limit === "all" ? "all" : parseInt(limit);
-      
       try {
         const res = await fetch(file);
         if (!res.ok) {
@@ -372,12 +355,6 @@ speechSynthesis.onvoiceschanged = () => {
 
     (async () => {
       const file = document.getElementById("dataset").value;
-      const selected = document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex];
-      const limit = selected.getAttribute("data-limit");
-      
-      // 設定初始題庫的題目限制
-      totalQuestionsToComplete = limit === "all" ? "all" : parseInt(limit);
-      
       try {
         const res = await fetch(file);
         if (!res.ok) {
@@ -397,7 +374,7 @@ speechSynthesis.onvoiceschanged = () => {
   </script>
 
   <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
-    Made by Evelyn YT ｜© 2025 ｜2025/4/24 11:22
+    Made by Evelyn YT ｜© 2025 | 2025/4/27 11:28
   </div>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'932df55bc8346763',t:'MTc0NTA4MjAyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
