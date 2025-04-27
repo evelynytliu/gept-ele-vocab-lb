@@ -327,15 +327,9 @@ function endGame() {
 }
 
 function renderQuestion() {
-  if (!questionSet.length) {
-    console.error("題庫為空，無法渲染題目");
-    alert("題庫載入失敗，請重新整理頁面！");
-    return;
-  }
   attempts = 0;
   updateProgressBar();
   updateScoreDisplay();
-  updateLivesDisplay();
   const q = questionSet[currentIndex];
   document.getElementById("question").innerText = `"${q.Vocabulary}" 是什麼意思？`;
   speechSynthesis.cancel();
@@ -346,11 +340,21 @@ function renderQuestion() {
   utterance.rate = 0.9;
   speechSynthesis.speak(utterance);
 
-  const distractors = shuffle(
-    data.filter(item => item !== q).slice(0, 3)
-  );
+  // 从完整数据中随机选择干扰项，而不仅仅是当前数据集
+  const allChineseAnswers = data.map(item => item.Chinese);
+  const correctAnswer = q.Chinese;
+  
+  // 过滤掉当前的正确答案
+  const possibleDistractors = allChineseAnswers.filter(chinese => chinese !== correctAnswer);
+  
+  // 随机选择3个干扰项
+  const distractors = shuffle(possibleDistractors).slice(0, 3);
 
-  const choices = shuffle([...distractors, q]);
+  // 组合选项并随机排序
+  const choices = shuffle([correctAnswer, ...distractors]).map(chinese => {
+    // 为每个选项创建一个模拟对象，与原始数据结构兼容
+    return { Chinese: chinese };
+  });
 
   const container = document.getElementById("options");
   container.innerHTML = "";
@@ -362,7 +366,6 @@ function renderQuestion() {
     container.appendChild(btn);
   });
 }
-
 function handleChoice(button, choice) {
   const correctAnswer = questionSet[currentIndex].Chinese;
   attempts++;
