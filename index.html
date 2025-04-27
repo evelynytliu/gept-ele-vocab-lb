@@ -129,10 +129,11 @@
   <div style="text-align: center; margin-top: 10px;">
     <label for="dataset">題庫選擇：</label>
   <select id="dataset" style="padding: 6px 10px; font-size: 1em;">
-    <option value="week1.json" data-limit="all">🟡 Week 1 (全部題目)</option>
-    <option value="week2.json" data-limit="all">🟡 Week 2 (全部題目)</option>
-    <option value="gept-full.json" data-limit="25">🔵 全 GEPT (25題)</option>
-    <option value="gept-full.json" data-limit="all">🔵 全 GEPT (魔鬼挑戰)</option>
+    <option value="week1.json" data-limit="all">🟡 Week 1 (主題課文25題)</option>
+    <option value="week2.json" data-limit="all">🟡 Week 2 (主題課文30題)</option>
+    <option value="week2-bonus.json" data-limit="25">🟡 Week 2 (額外挑戰25/50)</option>
+    <option value="gept-full.json" data-limit="25">🔵 全 GEPT (隨機挑戰25/2256)</option>
+    <option value="gept-full.json" data-limit="all">🔵 全 GEPT (魔鬼挑戰2256題)</option>
   </select>  </div>
   <div style="text-align: center; margin-top: 20px;">
     <label for="username">請輸入你的名字：</label>
@@ -561,7 +562,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   </script>
 
   <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
-    Made by Evelyn YT ｜© 2025 | 2025/4/27 15:01
+    Made by Evelyn YT ｜© 2025 | 2025/4/27 16:05
   
   </div>
 </body>
