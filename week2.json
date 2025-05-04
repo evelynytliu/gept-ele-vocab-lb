@@ -12,16 +12,12 @@
     "Chinese": "好奇的"
   },
   {
-    "Vocabulary": "desert",
-    "Chinese": "沙漠；遺棄"
-  },
-  {
     "Vocabulary": "direction",
     "Chinese": "方向"
   },
   {
     "Vocabulary": "guide",
-    "Chinese": "嚮導；引導"
+    "Chinese": "嚮導"
   },
   {
     "Vocabulary": "map",
@@ -29,7 +25,7 @@
   },
   {
     "Vocabulary": "mistake",
-    "Chinese": "錯誤；出差錯"
+    "Chinese": "錯誤"
   },
   {
     "Vocabulary": "mountain",
@@ -49,7 +45,7 @@
   },
   {
     "Vocabulary": "slip",
-    "Chinese": "滑倒；滑動"
+    "Chinese": "滑倒"
   },
   {
     "Vocabulary": "strange",
@@ -61,62 +57,74 @@
   },
   {
     "Vocabulary": "trip",
-    "Chinese": "旅行；絆倒"
+    "Chinese": "絆倒；旅行"
   },
   {
     "Vocabulary": "tunnel",
     "Chinese": "隧道"
   },
   {
-    "Vocabulary": "adventure",
-    "Chinese": "冒險"
+    "Vocabulary": "explore",
+    "Chinese": "探索"
   },
   {
-    "Vocabulary": "climb",
-    "Chinese": "爬；攀登"
+    "Vocabulary": "confidently",
+    "Chinese": "有自信地"
   },
   {
-    "Vocabulary": "crazy",
-    "Chinese": "瘋狂的"
+    "Vocabulary": "slippery",
+    "Chinese": "滑的"
   },
   {
-    "Vocabulary": "fall",
-    "Chinese": "跌倒"
+    "Vocabulary": "accidentally",
+    "Chinese": "意外地"
   },
   {
-    "Vocabulary": "hill",
-    "Chinese": "丘陵"
+    "Vocabulary": "valley",
+    "Chinese": "山谷"
   },
   {
-    "Vocabulary": "laugh",
-    "Chinese": "笑"
+    "Vocabulary": "dozens of",
+    "Chinese": "數十個"
   },
   {
-    "Vocabulary": "lazy",
-    "Chinese": "懶惰的"
+    "Vocabulary": "dozen",
+    "Chinese": "一打"
   },
   {
-    "Vocabulary": "path",
-    "Chinese": "小徑"
+    "Vocabulary": "so...that...",
+    "Chinese": "如此…以致於…"
   },
   {
-    "Vocabulary": "return",
-    "Chinese": "返回"
+    "Vocabulary": "belly",
+    "Chinese": "肚子"
   },
   {
-    "Vocabulary": "safe",
-    "Chinese": "安全的；保險箱"
+    "Vocabulary": "squash",
+    "Chinese": "壓扁"
   },
   {
-    "Vocabulary": "shock",
-    "Chinese": "震驚；使驚訝"
+    "Vocabulary": "steady",
+    "Chinese": "穩定地"
   },
   {
-    "Vocabulary": "step",
-    "Chinese": "步伐；踏"
+    "Vocabulary": "reach",
+    "Chinese": "抵達"
   },
   {
-    "Vocabulary": "stone",
-    "Chinese": "石頭"
+    "Vocabulary": "too...to...",
+    "Chinese": "太…以致於無法…"
+  },
+  {
+    "Vocabulary": "suddenly",
+    "Chinese": "突然地"
+  },
+  {
+    "Vocabulary": "lead",
+    "Chinese": "帶領"
+  },
+  {
+    "Vocabulary": "even though",
+    "Chinese": "即使、雖然"
   }
 ]
