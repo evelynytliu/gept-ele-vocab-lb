@@ -299,10 +299,39 @@ async function fetchLeaderboard() {
     try {
       const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
       const leaderboard = await response.json();
+
+      // 依 dataset（題庫名稱）分組
+      const grouped = {};
+      leaderboard.forEach(entry => {
+        const key = entry.dataset || "未知題庫";
+        if (!grouped[key]) grouped[key] = [];
+        grouped[key].push(entry);
+      });
+
+      // 每個題庫內依分數排序，取前10名
+      for (const key in grouped) {
+        grouped[key].sort((a, b) => b.score - a.score);
+        grouped[key] = grouped[key].slice(0, 10);
+      }
+
+      // 將分組結果顯示在排行榜區塊
       const leaderboardList = document.getElementById("leaderboard-list");
-      leaderboardList.innerHTML = leaderboard.slice(0, 20).map((entry, index) => 
-         `<li><span>${index + 1}. ${entry.username}</span><span>${entry.score}分｜${entry.dataset || "未知題庫"}｜${new Date(entry.timestamp).toLocaleString()}</span></li>`
-      ).join("");
+      leaderboardList.innerHTML = Object.entries(grouped)
+        .map(([dataset, entries]) => {
+          return `
+            <li style="list-style:none; margin-top:10px;">
+              <strong style="color:#0072ff;">📘 ${dataset}</strong>
+            </li>
+            ${entries.map((entry, index) => `
+              <li style="padding-left:1em;">
+                <span>${index + 1}. ${entry.username}</span>
+                <span>${entry.score}分｜${new Date(entry.timestamp).toLocaleString()}</span>
+              </li>
+            `).join("")}
+          `;
+        })
+        .join("");
+
     } catch (err) {
       console.error("載入排行榜失敗:", err);
       document.getElementById("leaderboard-list").innerHTML = "<li>無法載入排行榜</li>";
@@ -311,6 +340,7 @@ async function fetchLeaderboard() {
     document.getElementById("leaderboard-list").innerHTML = "<li>請設置 Google Sheets 連結</li>";
   }
 }
+
 
 function endGame() {
   updateProgressBar();
@@ -565,7 +595,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   </script>
 
   <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
-    Made by Evelyn YT ｜© 2025 | 2025/11/9 22:04
+    Made by Evelyn YT ｜© 2025 | 2025/11/9 22:16
   
   </div>
 </body>
