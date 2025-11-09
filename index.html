@@ -1,129 +1,324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GEPT Vocabulary Quiz</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
-      background: linear-gradient(135deg, #ecf0f3, #ffffff);
-      color: #333;
+    :root {
+      --main-bg: #f7f9fc;
+      --card-bg: #ffffff;
+      --accent: #0072ff;
+      --accent-light: #a0c8ff;
+      --text-dark: #1e1e1e;
+      --text-light: #555;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      --radius: 14px;
+      --transition: all 0.25s ease;
     }
+
+    body {
+      font-family: 'Segoe UI', 'Noto Sans TC', system-ui, sans-serif;
+      background: var(--main-bg);
+      color: var(--text-dark);
+      margin: 0 auto;
+      padding: 30px;
+      max-width: 780px;
+      line-height: 1.6;
+      transition: background 0.4s, color 0.4s;
+    }
+
     h1 {
       text-align: center;
-      color: #2c3e50;
-      font-size: 2em;
+      font-size: 2.2em;
+      color: var(--accent);
+      letter-spacing: 1px;
+      margin-bottom: 10px;
     }
+
+    select, input, button {
+      font-family: inherit;
+      transition: var(--transition);
+    }
+
+    select, input {
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+    }
+
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 10px 18px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0, 114, 255, 0.2);
+      transition: var(--transition);
+    }
+
+    button:hover {
+      background: #0056d6;
+    }
+
     .progress-container {
-      height: 16px;
-      background: #ddd;
-      border-radius: 10px;
-      margin: 20px 0;
+      height: 10px;
+      background: #e1e6ef;
+      border-radius: 9999px;
+      margin: 25px 0;
       overflow: hidden;
     }
+
     .progress-bar {
       height: 100%;
       width: 0%;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
       transition: width 0.3s ease-in-out;
     }
-     .question {
-       font-size: 1.5em;
-       margin: 1em 0 1.5em 0; /* 上、右、下、左 */
-       text-align: center;
+
+    .quiz {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      margin-top: 30px;
+    }
+
+    .question {
+      font-size: 1.6em;
+      text-align: center;
+      color: var(--text-dark);
+      margin-bottom: 1.5em;
     }
 
     .options {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
     }
+
     .options button {
-      padding: 16px;
-      font-size: 1.1em;
       font-weight: 600;
+      font-size: 1.1em;
+      background: #f0f3f8;
+      border-radius: var(--radius);
       border: none;
-      border-radius: 30px;
-      background: #e0e5ec;
-      box-shadow: 6px 6px 12px #c5c8cb, -6px -6px 12px #ffffff;
-      transition: all 0.2s ease-in-out;
-      cursor: pointer;
+      padding: 16px;
+      box-shadow: inset 0 0 0 2px transparent;
     }
+
     .options button:hover {
-      background: #d0d7de;
+      background: #e6ecf5;
+      transform: translateY(-1px);
     }
+
     .options button.correct {
-      background: #d4edda;
+      background: #e8fbee;
       color: #155724;
-      box-shadow: inset 4px 4px 8px #b1cbbb;
+      box-shadow: inset 0 0 0 2px #2ecc71;
     }
+
     .options button.incorrect {
-      background: #f8d7da;
+      background: #fbeaea;
       color: #721c24;
-      box-shadow: inset 4px 4px 8px #e5b7b9;
+      box-shadow: inset 0 0 0 2px #e57373;
     }
-    .result-log {
-      margin-top: 30px;
-    }
-    .result-log li {
-      margin: 5px 0;
-      font-size: 0.95em;
-    }
+
     .score-display {
+      font-weight: 600;
       text-align: center;
-      font-size: 1.2em;
-      margin: 10px 0;
-      color: #2c3e50;
+      color: var(--text-dark);
+      margin-bottom: 8px;
     }
+
     .lives-display {
       text-align: center;
-      font-size: 1.5em;
-      margin: 10px 0;
       color: #e63946;
+      font-weight: 500;
+      margin-bottom: 20px;
+      font-size: 1.3em;
     }
+
     .leaderboard {
-      margin-top: 30px;
-      padding: 20px;
-      background: #f8f9fa;
-      border-radius: 10px;
+      margin-top: 40px;
+      background: var(--card-bg);
+      padding: 22px 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
+
     .leaderboard h2 {
       text-align: center;
-      color: #2c3e50;
-      font-size: 1.5em;
+      color: var(--accent);
+      margin-bottom: 10px;
     }
-    .leaderboard ul {
-      list-style: none;
-      padding: 0;
+
+    .leaderboard button {
+      padding: 8px 14px;
+      margin: 4px;
+      border-radius: 8px;
+      font-size: 0.95em;
+      border: none;
+      color: #fff;
+      cursor: pointer;
     }
-    .leaderboard li {
+
+    #expand-all { background: #007bff; }
+    #collapse-all { background: #6c757d; }
+
+    details {
+      margin-top: 14px;
+      background: #fafbff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 10px 16px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1.05em;
       display: flex;
       justify-content: space-between;
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-      font-size: 1em;
+      align-items: center;
     }
-    .badges {
+
+    summary:hover {
+      color: #0056d6;
+    }
+
+    .result-log {
       margin-top: 20px;
-      text-align: center;
+      padding-left: 0;
+      list-style: none;
     }
+
+    .result-log li {
+      padding: 6px 0;
+      font-size: 0.95em;
+      color: var(--text-light);
+      border-bottom: 1px solid #eee;
+    }
+
+    .badges {
+      text-align: center;
+      margin-top: 20px;
+    }
+
     .badges span {
       display: inline-block;
-      padding: 8px 16px;
-      margin: 5px;
-      background: #ffd700;
+      padding: 8px 14px;
+      margin: 4px;
+      background: linear-gradient(90deg, #ffe680, #ffd24d);
       color: #333;
       border-radius: 20px;
       font-size: 0.9em;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      text-align: center;
+      color: #aaa;
+      margin-top: 50px;
+      font-size: 0.85em;
+    }
+
+    /* === 夜間模式 === */
+    body.dark {
+      --main-bg: #0e1217;
+      --card-bg: #1a1f25;
+      --accent: #66b2ff;
+      --accent-light: #99ccff;
+      --text-dark: #e5e9f0;
+      --text-light: #b0b8c1;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark button {
+      box-shadow: 0 3px 10px rgba(102,178,255,0.2);
+    }
+
+    body.dark .options button {
+      background: #232a33;
+      color: var(--text-dark);
+    }
+
+    body.dark .options button:hover {
+      background: #2a323c;
+    }
+
+    body.dark .leaderboard {
+      background: #1d232b;
+    }
+
+    body.dark details {
+      background: #232a33;
+    }
+
+    body.dark #theme-toggle {
+      background: #232a33;
+      color: #fff;
+    }
+
+    /* Loading Spinner */
+    #loading-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2em;
+      color: var(--accent);
+    }
+    body.dark #loading-overlay {
+      background: rgba(0,0,0,0.6);
+      color: #99ccff;
+    }
+    .spinner {
+      border: 4px solid #e1e6ef;
+      border-top: 4px solid var(--accent);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin-right: 12px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
+  <!-- 夜間模式切換 -->
+  <button id="theme-toggle" style="
+    position: fixed;
+    top: 18px;
+    right: 22px;
+    z-index: 100;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background: var(--card-bg);
+    color: var(--text-dark);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  ">🌙</button>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div class="spinner"></div> 載入中，請稍候…
+  </div>
+
   <h1>GEPT初級 單字挑戰</h1>
   
   <div style="text-align: center; margin-top: 10px;">
@@ -657,6 +852,44 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   displayBadges();
   console.log("頁面初始化完成");
 })();
+
+  // 🌙 夜間模式切換與記憶
+    (function() {
+      const toggleBtn = document.getElementById("theme-toggle");
+      const savedTheme = localStorage.getItem("theme") || "light";
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        toggleBtn.textContent = "☀️";
+      }
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        const isDark = document.body.classList.contains("dark");
+        toggleBtn.textContent = isDark ? "☀️" : "🌙";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+    })();
+
+    // 🌀 智慧 Loading Overlay 控制
+    const overlay = document.getElementById("loading-overlay");
+    function showLoading() { overlay.style.display = "flex"; }
+    function hideLoading() { overlay.style.display = "none"; }
+
+    // 攔截 fetch，只針對題庫或排行榜顯示 Loading
+    const originalFetch = window.fetch;
+    window.fetch = async (...args) => {
+      const url = args[0];
+      const show =
+        typeof url === "string" &&
+        (url.includes(".json") || url.includes("getLeaderboard"));
+      try {
+        if (show) showLoading();
+        const res = await originalFetch(...args);
+        return res;
+      } finally {
+        if (show) setTimeout(hideLoading, 400);
+      }
+    };
+    
   </script>
 
   <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
