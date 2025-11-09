@@ -300,7 +300,7 @@ async function fetchLeaderboard() {
       const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
       const leaderboard = await response.json();
 
-      // 依 dataset（題庫名稱）分組
+      // 依題庫名稱分組
       const grouped = {};
       leaderboard.forEach(entry => {
         const key = entry.dataset || "未知題庫";
@@ -308,29 +308,93 @@ async function fetchLeaderboard() {
         grouped[key].push(entry);
       });
 
-      // 每個題庫內依分數排序，取前10名
+      // 每組內依分數排序（高→低），同分以時間（新→舊）
       for (const key in grouped) {
-        grouped[key].sort((a, b) => b.score - a.score);
+        grouped[key].sort((a, b) => {
+          if (b.score === a.score) {
+            return new Date(b.timestamp) - new Date(a.timestamp);
+          }
+          return b.score - a.score;
+        });
         grouped[key] = grouped[key].slice(0, 10);
       }
 
-      // 將分組結果顯示在排行榜區塊
+      // 依各題庫最新紀錄時間排序（新→舊）
+      const sortedDatasets = Object.keys(grouped).sort((a, b) => {
+        const latestA = Math.max(...grouped[a].map(e => new Date(e.timestamp)));
+        const latestB = Math.max(...grouped[b].map(e => new Date(e.timestamp)));
+        return latestB - latestA;
+      });
+
+      // 取最新兩個題庫預設展開
+      const expandedDatasets = sortedDatasets.slice(0, 2);
+
+      // 生成排行榜 HTML
       const leaderboardList = document.getElementById("leaderboard-list");
-      leaderboardList.innerHTML = Object.entries(grouped)
-        .map(([dataset, entries]) => {
-          return `
-            <li style="list-style:none; margin-top:10px;">
-              <strong style="color:#0072ff;">📘 ${dataset}</strong>
-            </li>
-            ${entries.map((entry, index) => `
-              <li style="padding-left:1em;">
-                <span>${index + 1}. ${entry.username}</span>
-                <span>${entry.score}分｜${new Date(entry.timestamp).toLocaleString()}</span>
-              </li>
-            `).join("")}
-          `;
-        })
-        .join("");
+
+      // 先插入控制按鈕
+      leaderboardList.innerHTML = `
+        <div style="text-align:center; margin:10px 0;">
+          <button id="expand-all" style="
+            padding:6px 12px; 
+            margin-right:8px;
+            background:#007bff;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+          ">展開全部</button>
+          <button id="collapse-all" style="
+            padding:6px 12px; 
+            background:#6c757d;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+          ">全部收起</button>
+        </div>
+      `;
+
+      // 加入每個題庫
+      leaderboardList.innerHTML += sortedDatasets.map(dataset => {
+        const entries = grouped[dataset];
+        const latestTime = new Date(Math.max(...entries.map(e => new Date(e.timestamp))));
+        const isOpen = expandedDatasets.includes(dataset) ? "open" : "";
+        return `
+          <li style="list-style:none; margin-top:10px;">
+            <details ${isOpen} class="dataset-block" style="
+              background:#fff; 
+              border-radius:8px; 
+              box-shadow:0 2px 5px rgba(0,0,0,0.05); 
+              padding:10px;">
+              <summary style="
+                cursor:pointer; 
+                font-weight:bold; 
+                color:#0072ff; 
+                font-size:1.1em;">
+                📘 ${dataset}
+                <small style="color:#888; font-weight:normal;">（最新更新：${latestTime.toLocaleString()}）</small>
+              </summary>
+              <ul style="list-style:none; padding:6px 0 0 16px; margin:0;">
+                ${entries.map((entry, index) => `
+                  <li style="padding:6px 0; display:flex; justify-content:space-between; border-bottom:1px solid #eee;">
+                    <span>${index + 1}. ${entry.username}</span>
+                    <span>${entry.score}分｜${new Date(entry.timestamp).toLocaleString()}</span>
+                  </li>
+                `).join("")}
+              </ul>
+            </details>
+          </li>
+        `;
+      }).join("");
+
+      // 綁定展開／收起按鈕事件
+      document.getElementById("expand-all").addEventListener("click", () => {
+        document.querySelectorAll(".dataset-block").forEach(el => (el.open = true));
+      });
+      document.getElementById("collapse-all").addEventListener("click", () => {
+        document.querySelectorAll(".dataset-block").forEach(el => (el.open = false));
+      });
 
     } catch (err) {
       console.error("載入排行榜失敗:", err);
@@ -340,6 +404,7 @@ async function fetchLeaderboard() {
     document.getElementById("leaderboard-list").innerHTML = "<li>請設置 Google Sheets 連結</li>";
   }
 }
+
 
 
 function endGame() {
