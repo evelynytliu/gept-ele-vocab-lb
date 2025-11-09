@@ -294,7 +294,7 @@ async function submitScore() {
   }
 }
 
-async functionboard() {
+async function fetchLeaderboard() {
   if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
     try {
       const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
@@ -327,7 +327,7 @@ async functionboard() {
       });
 
       // 取最新兩個題庫預設展開
-      const expandedDatasets = sortedDatasets.slice(0, 1);
+      const expandedDatasets = sortedDatasets.slice(0, 2);
 
       // 生成排行榜 HTML
       const leaderboardList = document.getElementById("leaderboard-list");
@@ -660,7 +660,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   </script>
 
   <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
-    Made by Evelyn YT ｜© 2025 | 2025/11/9 22:42
+    Made by Evelyn YT ｜© 2025 | 2025/11/9 22:44
   
   </div>
 </body>
