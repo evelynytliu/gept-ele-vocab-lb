@@ -294,7 +294,7 @@ async function submitScore() {
   }
 }
 
-async function fetchLeaderboard() {
+async functionboard() {
   if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
     try {
       const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
@@ -327,7 +327,7 @@ async function fetchLeaderboard() {
       });
 
       // 取最新兩個題庫預設展開
-      const expandedDatasets = sortedDatasets.slice(0, 2);
+      const expandedDatasets = sortedDatasets.slice(0, 1);
 
       // 生成排行榜 HTML
       const leaderboardList = document.getElementById("leaderboard-list");
