@@ -1151,6 +1151,16 @@ function endGame() {
 }
 
 function renderQuestion() {
+  // ✅ 顯示新題目前，清除舊的選項樣式
+const optionButtons = document.querySelectorAll(".options button");
+optionButtons.forEach(btn => {
+  btn.classList.remove("correct", "incorrect"); // 移除標記
+  btn.disabled = false; // 恢復可點擊
+  btn.style.background = ""; // 清除顏色
+  btn.style.color = "";
+  btn.style.boxShadow = "";
+});
+  
   attempts = 0;
   updateProgressBar();
   updateScoreDisplay();
