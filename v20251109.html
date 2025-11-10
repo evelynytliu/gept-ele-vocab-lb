@@ -3,11 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<section class="intro">
-  <h1>英文單字卡｜GEPT 題本 第三回、第四回</h1>
-  <p>2025 年 11 月 9 日 — 本頁收錄第三、第四回的關鍵單字與例句，可用於複習或口說練習。</p>
-</section>
-  <style>
+<title>英文單字卡｜題本第三、四回</title>
+<style>
   body {
     font-family: "Noto Sans TC", sans-serif;
     background: linear-gradient(180deg, #f0f9ff, #ffffff);
@@ -81,8 +78,10 @@
 </head>
 
 <body>
-<h1>🌟 英文單字卡：複習版</h1>
-
+  <section class="intro">
+    <h1>英文單字卡｜GEPT 題本 第三回、第四回</h1>
+    <p>2025 年 11 月 9 日 — 本頁收錄第三、第四回的關鍵單字與例句，可用於複習或口說練習。</p>
+  </section>
 <div class="card-container" id="cards"></div>
 
 <script>
@@ -109,7 +108,8 @@ function playSentence(sentence) {
   const preferredVoice = voices.find(v =>
    v.name.includes('Google US English') ||
    v.name.includes('Samantha') ||
-   v.name.includes('Alex') // 增加可用的名字  );
+   v.name.includes('Alex') // 增加可用的名字
+  );
   if (preferredVoice) utter.voice = preferredVoice;
   speechSynthesis.speak(utter);
 }
