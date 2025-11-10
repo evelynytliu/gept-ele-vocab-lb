@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>英文單字卡｜題本第三、四回</title>
+<title>英文單字卡｜GEPT 題本 第三回、第四回</title>
 <style>
   body {
     font-family: "Noto Sans TC", sans-serif;
@@ -12,10 +12,17 @@
     padding: 30px;
     color: #333;
   }
-  h1 {
+  .intro {
     text-align: center;
+    margin-bottom: 30px;
+  }
+  h1 {
     color: #0078b7;
     margin-bottom: 10px;
+  }
+  .intro p {
+    font-size: 1.1em;
+    color: #555;
   }
   .card-container {
     display: grid;
@@ -53,6 +60,12 @@
     color: #333;
     line-height: 1.4;
   }
+  .translation {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 4px;
+    font-style: italic;
+  }
   .controls {
     margin-top: 8px;
     display: flex;
@@ -82,7 +95,8 @@
     <h1>英文單字卡｜GEPT 題本 第三回、第四回</h1>
     <p>2025 年 11 月 9 日 — 本頁收錄第三、第四回的關鍵單字與例句，可用於複習或口說練習。</p>
   </section>
-<div class="card-container" id="cards"></div>
+
+  <div class="card-container" id="cards"></div>
 
 <script>
 function normalizeTextForSpeech(text) {
@@ -106,65 +120,63 @@ function playSentence(sentence) {
   utter.rate = 0.8;
   const voices = speechSynthesis.getVoices();
   const preferredVoice = voices.find(v =>
-   v.name.includes('Google US English') ||
-   v.name.includes('Samantha') ||
-   v.name.includes('Alex') // 增加可用的名字
+    v.name.includes('Google US English') || v.name.includes('Samantha')
   );
   if (preferredVoice) utter.voice = preferredVoice;
   speechSynthesis.speak(utter);
 }
 
 const data = [
-  {v:"discuss",c:"討論",e:"We discussed our weekend plans."},
-  {v:"used to",c:"過去常常（做某事）",e:"I used to play basketball every day."},
-  {v:"employee",c:"員工",e:"My father is an employee in a big company."},
-  {v:"formal",c:"正式的",e:"You should wear formal clothes to the meeting."},
-  {v:"take place",c:"發生；舉行",e:"The party will take place on Saturday."},
-  {v:"attend",c:"出席；參加",e:"I will attend my friend’s wedding."},
-  {v:"dessert",c:"甜點",e:"Ice cream is my favorite dessert."},
-  {v:"come up with",c:"想出；提出（主意）",e:"She came up with a great idea."},
-  {v:"in person",c:"親自",e:"You must sign the paper in person."},
-  {v:"actor",c:"男演員",e:"He is a famous actor."},
-  {v:"effect",c:"效果；影響",e:"The new medicine has a good effect."},
-  {v:"regular",c:"規律的；固定的",e:"She takes regular exercise every day."},
-  {v:"suggest",c:"建議",e:"I suggest we go by bus."},
-  {v:"deal with",c:"處理；應付",e:"He can deal with stress very well."},
-  {v:"damage",c:"損害；破壞",e:"The typhoon damaged many houses."},
-  {v:"be known for",c:"以…聞名",e:"Taiwan is known for its delicious food."},
-  {v:"particular",c:"特別的；特定的",e:"I like this particular song."},
-  {v:"diary",c:"日記",e:"She writes in her diary every night."},
-  {v:"advertisement",c:"廣告",e:"I saw an advertisement for a new phone."},
-  {v:"purpose",c:"目的",e:"The purpose of the meeting is to plan the trip."},
-  {v:"serious",c:"認真的；嚴重的",e:"He made a serious mistake."},
-  {v:"introduce",c:"介紹",e:"Let me introduce my best friend."},
-  {v:"fit",c:"合身；適合；身材好",e:"These shoes fit me well."},
-  {v:"work out",c:"運動；解決問題",e:"My parents work out at the gym."},
-  {v:"prefer",c:"比較喜歡",e:"I prefer tea to coffee."},
-  {v:"relative",c:"親戚",e:"We visited our relatives last weekend."},
-  {v:"usual",c:"平常的；慣常的",e:"He came home at his usual time."},
-  {v:"habit",c:"習慣",e:"Reading before bed is a good habit."},
-  {v:"above all",c:"最重要的是",e:"Above all, be kind to others."},
-  {v:"look forward to",c:"期待",e:"I look forward to seeing you soon."},
-  {v:"locate",c:"找到；位於",e:"The hotel is located near the beach."},
-  {v:"entire",c:"整個的；全部的",e:"The entire family went on vacation."},
-  {v:"product",c:"產品",e:"This is our best-selling product."},
-  {v:"mention",c:"提到",e:"He didn’t mention your name."},
-  {v:"activity",c:"活動",e:"The school has many fun activities."},
-  {v:"club",c:"俱樂部；社團",e:"I joined the English club."},
-  {v:"available",c:"可用的；可取得的；（人）有空的",e:"The teacher is available after class."},
-  {v:"borrow",c:"借（進）",e:"Can I borrow your pencil?"},
-  {v:"single-story",c:"單層的（建築）",e:"We live in a single-story house."},
-  {v:"boarding gate",c:"登機門",e:"Our flight leaves from boarding gate 10."},
-  {v:"boil",c:"煮沸；燒開",e:"Please boil some water for tea."},
-  {v:"stress out",c:"壓力太大；感到焦慮",e:"Don’t stress out about the test."},
-  {v:"line up",c:"排隊",e:"The students lined up for lunch."},
-  {v:"behave",c:"守規矩、乖一點（表現、舉止）",e:"Please behave in class."},
-  {v:"disappear",c:"消失",e:"The sun disappeared behind the clouds."},
-  {v:"hostel",c:"旅舍；青年旅館",e:"We stayed in a cheap hostel."},
-  {v:"price",c:"價格",e:"The price of this book is 200 dollars."},
-  {v:"less",c:"較少的",e:"I eat less sugar now."},
-  {v:"teenager",c:"青少年",e:"That teenager is my cousin."},
-  {v:"search",c:"搜尋；尋找",e:"I searched the Internet for the answer."}
+{v:"discuss",c:"討論",e:"We discussed our weekend plans.",t:"我們討論了週末的計劃。"},
+{v:"used to",c:"過去常常（做某事）",e:"I used to play basketball every day.",t:"我以前每天都打籃球。"},
+{v:"employee",c:"員工",e:"My father is an employee in a big company.",t:"我爸爸是一家大公司的員工。"},
+{v:"formal",c:"正式的",e:"You should wear formal clothes to the meeting.",t:"你應該穿正式的服裝參加會議。"},
+{v:"take place",c:"發生；舉行",e:"The party will take place on Saturday.",t:"派對將在星期六舉行。"},
+{v:"attend",c:"出席；參加",e:"I will attend my friend＇s wedding.",t:"我要參加我朋友的婚禮。"},
+{v:"dessert",c:"甜點",e:"Ice cream is my favorite dessert.",t:"冰淇淋是我最喜歡的甜點。"},
+{v:"come up with",c:"想出；提出（主意）",e:"She came up with a great idea.",t:"她想出了一個好主意。"},
+{v:"in person",c:"親自",e:"You must sign the paper in person.",t:"你必須親自簽那份文件。"},
+{v:"actor",c:"男演員",e:"He is a famous actor.",t:"他是一位著名的男演員。"},
+{v:"effect",c:"效果；影響",e:"The new medicine has a good effect.",t:"這種新藥效果很好。"},
+{v:"regular",c:"規律的；固定的",e:"She takes regular exercise every day.",t:"她每天都有規律地運動。"},
+{v:"suggest",c:"建議",e:"I suggest we go by bus.",t:"我建議我們搭公車去。"},
+{v:"deal with",c:"處理；應付",e:"He can deal with stress very well.",t:"他很會處理壓力。"},
+{v:"damage",c:"損害；破壞",e:"The typhoon damaged many houses.",t:"颱風破壞了許多房屋。"},
+{v:"be known for",c:"以…聞名",e:"Taiwan is known for its delicious food.",t:"台灣以美食聞名。"},
+{v:"particular",c:"特別的；特定的",e:"I like this particular song.",t:"我特別喜歡這首歌。"},
+{v:"diary",c:"日記",e:"She writes in her diary every night.",t:"她每天晚上都寫日記。"},
+{v:"advertisement",c:"廣告",e:"I saw an advertisement for a new phone.",t:"我看到一則新手機的廣告。"},
+{v:"purpose",c:"目的",e:"The purpose of the meeting is to plan the trip.",t:"這次會議的目的是規劃旅行。"},
+{v:"serious",c:"認真的；嚴重的",e:"He made a serious mistake.",t:"他犯了一個嚴重的錯誤。"},
+{v:"introduce",c:"介紹",e:"Let me introduce my best friend.",t:"讓我介紹一下我最好的朋友。"},
+{v:"fit",c:"合身；適合；身材好",e:"These shoes fit me well.",t:"這雙鞋很合我的腳。"},
+{v:"work out",c:"運動；解決問題",e:"My parents work out at the gym.",t:"我父母在健身房運動。"},
+{v:"prefer",c:"比較喜歡",e:"I prefer tea to coffee.",t:"我比較喜歡茶而不是咖啡。"},
+{v:"relative",c:"親戚",e:"We visited our relatives last weekend.",t:"我們上週末拜訪了親戚。"},
+{v:"usual",c:"平常的；慣常的",e:"He came home at his usual time.",t:"他在平常的時間回家。"},
+{v:"habit",c:"習慣",e:"Reading before bed is a good habit.",t:"睡前閱讀是一個好習慣。"},
+{v:"above all",c:"最重要的是",e:"Above all, be kind to others.",t:"最重要的是，要善待他人。"},
+{v:"look forward to",c:"期待",e:"I look forward to seeing you soon.",t:"我期待很快能見到你。"},
+{v:"locate",c:"找到；位於",e:"The hotel is located near the beach.",t:"這家飯店位於海灘附近。"},
+{v:"entire",c:"整個的；全部的",e:"The entire family went on vacation.",t:"全家人一起去度假。"},
+{v:"product",c:"產品",e:"This is our best-selling product.",t:"這是我們最暢銷的產品。"},
+{v:"mention",c:"提到",e:"He didn’t mention your name.",t:"他沒有提到你的名字。"},
+{v:"activity",c:"活動",e:"The school has many fun activities.",t:"學校有許多有趣的活動。"},
+{v:"club",c:"俱樂部；社團",e:"I joined the English club.",t:"我加入了英語社團。"},
+{v:"available",c:"可用的；可取得的；（人）有空的",e:"The teacher is available after class.",t:"老師下課後有空。"},
+{v:"borrow",c:"借（進）",e:"Can I borrow your pencil?",t:"我可以借你的鉛筆嗎？"},
+{v:"single-story",c:"單層的（建築）",e:"We live in a single-story house.",t:"我們住在單層的房子裡。"},
+{v:"boarding gate",c:"登機門",e:"Our flight leaves from boarding gate 10.",t:"我們的航班從10號登機門出發。"},
+{v:"boil",c:"煮沸；燒開",e:"Please boil some water for tea.",t:"請煮些水泡茶。"},
+{v:"stress out",c:"壓力太大；感到焦慮",e:"Don’t stress out about the test.",t:"不要為考試太緊張。"},
+{v:"line up",c:"排隊",e:"The students lined up for lunch.",t:"學生們排隊吃午餐。"},
+{v:"behave",c:"守規矩、乖一點（表現、舉止）",e:"Please behave in class.",t:"上課請守規矩。"},
+{v:"disappear",c:"消失",e:"The sun disappeared behind the clouds.",t:"太陽消失在雲後。"},
+{v:"hostel",c:"旅舍；青年旅館",e:"We stayed in a cheap hostel.",t:"我們住在便宜的旅舍。"},
+{v:"price",c:"價格",e:"The price of this book is 200 dollars.",t:"這本書的價格是200元。"},
+{v:"less",c:"較少的",e:"I eat less sugar now.",t:"我現在吃較少的糖。"},
+{v:"teenager",c:"青少年",e:"That teenager is my cousin.",t:"那位青少年是我表哥。"},
+{v:"search",c:"搜尋；尋找",e:"I searched the Internet for the answer.",t:"我在網路上搜尋答案。"}
 ];
 
 const container = document.getElementById("cards");
@@ -178,6 +190,7 @@ data.forEach((item) => {
     </div>
     <div class="meaning">${item.c}</div>
     <div class="example">${item.e}</div>
+    <div class="translation">${item.t}</div>
     <div class="controls">
       <button class="play" onclick="playSentence('${item.e}')">🔊 例句</button>
     </div>
@@ -185,5 +198,8 @@ data.forEach((item) => {
   container.appendChild(card);
 });
 </script>
+    <div style="margin-top: 60px; font-size: 0.9em; color: #aaa; text-align: center;">
+    Made by Evelyn YT ｜© 2025 | 2025/11/9 22:46
+  </div>
 </body>
 </html>
