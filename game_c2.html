@@ -672,17 +672,19 @@ body.light-mode #collapse-all {
         right: 10px;
       }
     }
-/* === 亮色模式下選項按鈕修正 === */
+/* === 亮色模式下選項按鈕修正版：提高文字對比 === */
 body.light-mode .options button.correct {
-  background: linear-gradient(135deg, #22c55e, #bbf7d0);
-  color: #064e3b;
-  box-shadow: 0 0 16px rgba(34, 197, 94, 0.6);
+  background: linear-gradient(135deg, #4ade80, #22c55e); /* 更飽和的綠 */
+  color: #ffffff; /* 改為白字 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* 增加立體度 */
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
 }
 
 body.light-mode .options button.incorrect {
-  background: linear-gradient(135deg, #ef4444, #fecaca);
-  color: #fff;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
 }
     
 
@@ -767,7 +769,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 12:43
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 12:44
   </div>
 
   <script>
