@@ -693,7 +693,18 @@ body.light-mode #start-btn:active {
   transform: translateY(1px) scale(0.98) !important;
   box-shadow: 0 3px 8px rgba(59, 130, 246, 0.4) !important;
 }
+/* === 亮色模式下選項按鈕修正 === */
+body.light-mode .options button.correct {
+  background: linear-gradient(135deg, #22c55e, #bbf7d0);
+  color: #064e3b;
+  box-shadow: 0 0 16px rgba(34, 197, 94, 0.6);
+}
 
+body.light-mode .options button.incorrect {
+  background: linear-gradient(135deg, #ef4444, #fecaca);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
+}
     
   </style>
 </head>
@@ -756,7 +767,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 12:41
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 12:42
   </div>
 
   <script>
