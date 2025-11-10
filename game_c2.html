@@ -778,7 +778,7 @@
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/9 22:46
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 00:17
   </div>
 
   <script>
@@ -961,6 +961,7 @@ if (sortedDatasets.length > 0 && todayBestEl) {
   const entriesLatest = grouped[latestDatasetKey];
   const todayStr = new Date().toISOString().slice(0, 10);
 
+  // 篩出今天的紀錄
   const todayEntries = entriesLatest.filter(e =>
     e.timestamp && e.timestamp.startsWith(todayStr)
   );
@@ -973,24 +974,28 @@ if (sortedDatasets.length > 0 && todayBestEl) {
   }
 
   if (todayEntries.length > 0) {
-    // 比分數（高→低），若分數相同比 timestamp（早→晚）
+    // 🔹 排序規則：先比分數（高→低），若分數相同則比 timestamp（早→晚）
     todayEntries.sort((a, b) => {
       if (b.score === a.score) {
         return new Date(a.timestamp) - new Date(b.timestamp); // 時間早的在前
       }
       return b.score - a.score;
     });
+
     const bestToday = todayEntries[0];
     textSpan.textContent = `今日最高分（${latestDatasetKey}）：${bestToday.username} ${bestToday.score} 分`;
   } else {
-    const bestAll = entriesLatest.reduce(
-      (best, e) => (e.score > best.score ? e : best),
-      entriesLatest[0]
-    );
+    // 沒有今日紀錄時，顯示歷史最高
+    entriesLatest.sort((a, b) => {
+      if (b.score === a.score) {
+        return new Date(a.timestamp) - new Date(b.timestamp); // 同分比早
+      }
+      return b.score - a.score;
+    });
+    const bestAll = entriesLatest[0];
     textSpan.textContent = `今日最高分（${latestDatasetKey}）：今日尚無紀錄（最高：${bestAll.username} ${bestAll.score} 分）`;
   }
 }
-
       // 取最新題庫預設展開（1 個）
       const expandedDatasets = sortedDatasets.slice(0, 1);
 
