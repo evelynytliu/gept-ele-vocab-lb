@@ -710,7 +710,7 @@
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 00:42
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 00:53
   </div>
 
   <script>
@@ -875,6 +875,8 @@ for (const key in grouped) {
     }
     return b.score - a.score;
   });
+    // 只保留前10名
+  grouped[key] = grouped[key].slice(0, 10);
 }
 
       // 題庫依「最新紀錄時間新→舊」排序
@@ -921,7 +923,25 @@ for (const key in grouped) {
           console.warn("無法載入題庫題數:", dataset, err);
         }
 
-        const fullScore = questionCount > 0 ? questionCount * 5 : "？";
+// 計算滿分邏輯
+let fullScore = "？";
+try {
+  const option = Array.from(datasetSelect.options).find(opt => opt.text.trim() === dataset.trim());
+  if (option) {
+    const limitAttr = option.getAttribute("data-limit");
+    if (limitAttr && limitAttr !== "all") {
+      // 若有 data-limit 屬性（例：25 題）
+      fullScore = parseInt(limitAttr) * 5;
+    } else if (questionCount > 0) {
+      // 否則用題庫實際題數
+      fullScore = questionCount * 5;
+    }
+  } else if (questionCount > 0) {
+    fullScore = questionCount * 5;
+  }
+} catch (e) {
+  console.warn("計算滿分時發生錯誤:", e);
+}
 
         html += `
           <li style="list-style:none; margin-top:10px;">
