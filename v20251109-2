@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚀 英文單字任務｜GEPT 題本 第三回、第四回</title>
+<style>
+  /* 引入 Google 網路字體 */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Poppins:wght@600;700&display=swap');
+
+  body {
+    font-family: "Noto Sans TC", sans-serif;
+    /* 更有活力的漸層背景 */
+    background: linear-gradient(170deg, #0a192f, #003b6e);
+    margin: 0;
+    padding: 30px;
+    color: #f0f9ff;
+  }
+  .intro {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  h1 {
+    /* 使用 Poppins 字體讓標題更活潑 */
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5em;
+    color: #ffa600;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .intro p {
+    font-size: 1.1em;
+    color: #cce7ff;
+    opacity: 0.9;
+  }
+
+  /* 卡片容器 */
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    /* 讓 3D 翻轉效果更自然 */
+    perspective: 1000px;
+  }
+
+  /* 單一卡片 (外層，用於 3D 視角) */
+  .card {
+    background-color: transparent;
+    width: 100%;
+    height: 220px; /* 固定高度讓翻轉更穩定 */
+    border: none;
+  }
+
+  /* 卡片內層 (翻轉的主體) */
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 16px;
+  }
+
+  /* 當卡片被點擊時，翻轉內層 */
+  .card.is-flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* 卡片正面和背面 */
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    
+    border-radius: 16px;
+    box-sizing: border-box; /* 確保 padding 不會撐爆大小 */
+    padding: 20px;
+    overflow: hidden; /* 避免內容溢出 */
+  }
+
+  /* 卡片正面樣式 */
+  .card-front {
+    background: linear-gradient(145deg, #ffffff, #f0f8ff);
+    color: #005c8c;
+    border: 2px solid #ffffff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .card-front .emoji {
+    font-size: 4.5em;
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+
+  .card-front .word {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #004a70;
+  }
+  
+  .card-front .play {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .card-front .flip-hint {
+    position: absolute;
+    bottom: 15px;
+    font-size: 0.9em;
+    color: #0078b7;
+    opacity: 0.7;
+  }
+
+  /* 卡片背面樣式 */
+  .card-back {
+    background: #0d2a4c;
+    color: #f0f9ff;
+    border: 2px solid #0078b7;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-back .word {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #ffa600;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-back .meaning {
+    font-size: 1.1em;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .card-back .example {
+    font-size: 1em;
+    color: #cce7ff;
+    line-height: 1.5;
+    flex-grow: 1; /* 讓例句填滿剩餘空間 */
+  }
+
+  .card-back .translation {
+    font-size: 0.95em;
+    color: #99cfff;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .controls {
+    margin-top: 10px;
+  }
+
+  /* 播放按鈕 */
+  button.play {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.1em; /* Emoji 放大 */
+    font-weight: bold;
+    transition: background 0.2s, transform 0.2s;
+    background: #ffe1d2;
+    color: #ff5c39;
+    line-height: 1;
+  }
+  
+  .card-back .play {
+    background: #0078b7;
+    color: #ffffff;
+    font-size: 0.9em;
+  }
+
+  button.play:hover {
+    transform: scale(1.1);
+  }
+  
+  .card-back .play:hover {
+     background: #0098e6;
+  }
+
+  /* 頁尾 */
+  .footer {
+    margin-top: 60px;
+    font-size: 0.9em;
+    color: #77a8d4;
+    text-align: center;
+  }
+</style>
+</head>
+
+<body>
+  <section class="intro">
+    <h1>🚀 英文單字任務</h1>
+    <p>2025 年 11 月 9 日 — 點擊卡片來翻轉並查看解答！</p>
+  </section>
+
+  <div class="card-container" id="cards"></div>
+
+<script>
+// 修正的語音函數
+function normalizeTextForSpeech(text) {
+  // 移除所有 ' 和 ’ 避免語音中斷
+  return text.replace(/['’]/g, ""); 
+}
+
+function playWord(word) {
+  // 阻止事件冒泡，避免點擊按鈕時觸發卡片翻轉
+  event.stopPropagation(); 
+  
+  const url = `https://ssl.gstatic.com/dictionary/static/sounds/20200429/${encodeURIComponent(word)}--_us_1.mp3`;
+  const audio = new Audio(url);
+  audio.play().catch(() => {
+    const utter = new SpeechSynthesisUtterance(word);
+    utter.lang = 'en-US';
+    utter.rate = 0.9;
+    speechSynthesis.speak(utter);
+  });
+}
+
+function playSentence(sentence) {
+  event.stopPropagation(); // 同樣阻止冒泡
+  
+  const utter = new SpeechSynthesisUtterance(normalizeTextForSpeech(sentence));
+  utter.lang = 'en-US';
+  utter.rate = 0.9;
+  const voices = speechSynthesis.getVoices();
+  const preferredVoice = voices.find(v =>
+    v.name.includes('Google US English') || v.name.includes('Samantha')
+  );
+  if (preferredVoice) utter.voice = preferredVoice;
+  speechSynthesis.speak(utter);
+}
+
+// 包含了 Emoji (em) 的新資料
+const data = [
+  {v:"discuss",c:"討論",e:"We discussed our weekend plans.",t:"我們討論了週末的計劃。", em:"💬"},
+  {v:"used to",c:"過去常常（做某事）",e:"I used to play basketball every day.",t:"我以前每天都打籃球。", em:"🔄"},
+  {v:"employee",c:"員工",e:"My father is an employee in a big company.",t:"我爸爸是一家大公司的員工。", em:"👨‍💼"},
+  {v:"formal",c:"正式的",e:"You should wear formal clothes to the meeting.",t:"你應該穿正式的服裝參加會議。", em:"🤵"},
+  {v:"take place",c:"發生；舉行",e:"The party will take place on Saturday.",t:"派對將在星期六舉行。", em:"🗓️"},
+  {v:"attend",c:"出席；參加",e:"I will attend my friend’s wedding.",t:"我要參加我朋友的婚禮。", em:"🙋‍♀️"},
+  {v:"dessert",c:"甜點",e:"Ice cream is my favorite dessert.",t:"冰淇淋是我最喜歡的甜點。", em:"🍰"},
+  {v:"come up with",c:"想出；提出（主意）",e:"She came up with a great idea.",t:"她想出了一個好主意。", em:"💡"},
+  {v:"in person",c:"親自",e:"You must sign the paper in person.",t:"你必須親自簽那份文件。", em:"👥"},
+  {v:"actor",c:"男演員",e:"He is a famous actor.",t:"他是一位著名的男演員。", em:"🎭"},
+  {v:"effect",c:"效果；影響",e:"The new medicine has a good effect.",t:"這種新藥效果很好。", em:"💥"},
+  {v:"regular",c:"規律的；固定的",e:"She takes regular exercise every day.",t:"她每天都有規律地運動。", em:"⏰"},
+  {v:"suggest",c:"建議",e:"I suggest we go by bus.",t:"我建議我們搭公車去。", em:"🗣️"},
+  {v:"deal with",c:"處理；應付",e:"He can deal with stress very well.",t:"他很會處理壓力。", em:"⚙️"},
+  {v:"damage",c:"損害；破壞",e:"The typhoon damaged many houses.",t:"颱風破壞了許多房屋。", em:"💔"},
+  {v:"be known for",c:"以…聞名",e:"Taiwan is known for its delicious food.",t:"台灣以美食聞名。", em:"🏆"},
+  {v:"particular",c:"特別的；特定的",e:"I’m not interested in any particular topic.",t:"我對沒有特定的主題感興趣。", em:"🎯"},
+  {v:"diary",c:"日記",e:"She writes in her diary every night.",t:"她每天晚上都寫日記。", em:"📔"},
+  {v:"advertisement",c:"廣告",e:"I saw an advertisement for a new phone.",t:"我看到一則新手機的廣告。", em:"📢"},
+  {v:"purpose",c:"目的",e:"The purpose of the meeting is to plan the trip.",t:"這次會議的目的是規劃旅行。", em:"🏁"},
+  {v:"serious",c:"認真的；嚴重的",e:"He made a serious mistake.",t:"他犯了一個嚴重的錯誤。", em:"🧐"},
+  {v:"introduce",c:"介紹",e:"Let me introduce my best friend.",t:"讓我介紹一下我最好的朋友。", em:"👋"},
+  {v:"fit",c:"合身；適合；身材好",e:"These shoes fit me well.",t:"這雙鞋很合我的腳。", em:"👕"},
+  {v:"work out",c:"運動；解決問題",e:"My parents work out at the gym.",t:"我父母在健身房運動。", em:"🏋️‍♂️"},
+  {v:"prefer",c:"比較喜歡",e:"I prefer tea to coffee.",t:"我比較喜歡茶而不是咖啡。", em:"👍"},
+  {v:"relative",c:"親戚",e:"We visited our relatives last weekend.",t:"我們上週末拜訪了親戚。", em:"👨‍👩‍👧‍👦"},
+  {v:"usual",c:"平常的；慣常的",e:"He came home at his usual time.",t:"他在平常的時間回家。", em:"🔁"},
+  {v:"habit",c:"習慣",e:"Reading before bed is a good habit.",t:"睡前閱讀是一個好習慣。", em:"🔄"},
+  {v:"above all",c:"最重要的是",e:"Above all, be kind to others.",t:"最重要的是，要善待他人。", em:"⭐"},
+  {v:"look forward to",c:"期待",e:"I look forward to seeing you soon.",t:"我期待很快能見到你。", em:"🤩"},
+  {v:"locate",c:"找到；位於",e:"The hotel is located near the beach.",t:"這家飯店位於海灘附近。", em:"📍"},
+  {v:"entire",c:"整個的；全部的",e:"The entire family went on vacation.",t:"全家人一起去度假。", em:"💯"},
+  {v:"product",c:"產品",e:"This is our best-selling product.",t:"這是我們最暢銷的產品。", em:"📦"},
+  {v:"mention",c:"提到",e:"He didn’t mention your name.",t:"他沒有提到你的名字。", em:"📣"},
+  {v:"activity",c:"活動",e:"The school has many fun activities.",t:"學校有許多有趣的活動。", em:"🏃‍♂️"},
+  {v:"club",c:"俱樂部；社團",e:"I joined the English club.",t:"我加入了英語社團。", em:"🏠"},
+  {v:"available",c:"可用的；可取得的；（人）有空的",e:"The teacher is available after class.",t:"老師下課後有空。", em:"✅"},
+  {v:"borrow",c:"借（進）",e:"Can I borrow your pencil?",t:"我可以借你的鉛筆嗎？", em:"🤝"},
+  {v:"single-story",c:"單層的（建築）",e:"We live in a single-story house.",t:"我們住在單層的房子裡。", em:"🏠"},
+  {v:"boarding gate",c:"登機門",e:"Our flight leaves from boarding gate 10.",t:"我們的航班從10號登機門出發。", em:"✈️"},
+  {v:"boil",c:"煮沸；燒開",e:"Please boil some water for tea.",t:"請煮些水泡茶。", em:"🔥"},
+  // *** 以下是更正的地方 ***
+  {v:"stress out",c:"壓力太大；感到焦慮",e:"Don’t stress out about the test.",t:"不要為考試太緊張。", em:"🤯"},
+  {v:"line up",c:"排隊",e:"The students lined up for lunch.",t:"學生們排隊吃午餐。", em:"🚶‍♂️🚶‍♀️"},
+  {v:"behave",c:"守規矩、乖一點（表現、舉止）",e:"Please behave in class.",t:"上課請守規矩。", em:"😇"},
+  {v:"disappear",c:"消失",e:"The sun disappeared behind the clouds.",t:"太陽消失在雲後。", em:"💨"},
+  {v:"hostel",c:"旅舍；青年旅館",e:"We stayed in a cheap hostel.",t:"我們住在便宜的旅舍。", em:"🛏️"},
+  {v:"price",c:"價格",e:"The price of this book is 200 dollars.",t:"這本書的價格是200元。", em:"💲"},
+  {v:"less",c:"較少的",e:"I eat less sugar now.",t:"我現在吃較少的糖。", em:"📉"},
+  {v:"teenager",c:"青少年",e:"That teenager is my cousin.",t:"那位青少年是我表哥。", em:"🧑‍🎤"},
+  {v:"search",c:"搜尋；尋找",e:"I searched the Internet for the answer.",t:"我在網路上搜尋答案。", em:"🔍"}
+];
+
+const container = document.getElementById("cards");
+data.forEach((item) => {
+  // 建立卡片外層
+  const card = document.createElement("div");
+  card.className = "card";
+
+  // 建立卡片內層 (用於翻轉)
+  const cardInner = document.createElement("div");
+  cardInner.className = "card-inner";
+
+  // 建立卡片正面
+  const cardFront = document.createElement("div");
+  cardFront.className = "card-front";
+  cardFront.innerHTML = `
+    <button class="play" onclick="playWord('${item.v}')" title="播放單字">🔊</button>
+    <div class="emoji">${item.em}</div>
+    <div class="word">${item.v}</div>
+    <div class="flip-hint">點擊翻轉</div>
+  `;
+
+  // 建立卡片背面
+  const cardBack = document.createElement("div");
+  cardBack.className = "card-back";
+  cardBack.innerHTML = `
+    <div class="word">
+      ${item.v}
+      <button class="play" onclick="playWord('${item.v}')" title="播放單字">🔊</button>
+    </div>
+    <div class="meaning">${item.c}</div>
+    <div class="example">${item.e}</div>
+    <div class="translation">${item.t}</div>
+    <div class="controls">
+      <button class="play" onclick="playSentence('${item.e}')">🔊 播放例句</button>
+    </div>
+  `;
+
+  // 組合卡片
+  cardInner.appendChild(cardFront);
+  cardInner.appendChild(cardBack);
+  card.appendChild(cardInner);
+  container.appendChild(card);
+
+  // *** 加入點擊翻轉的事件 ***
+  card.addEventListener("click", (event) => { // 傳入 event
+    // 檢查是否點擊在按鈕上，如果不是，才翻轉
+    if (!event.target.classList.contains('play')) {
+      card.classList.toggle("is-flipped");
+    }
+  });
+});
+</script>
+  
+  <div class="footer">
+    Made by Evelyn YT ｜© 2025 | 2025/11/9 22:46
+  </div>
+</body>
+</html>
