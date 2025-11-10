@@ -672,7 +672,7 @@ body.light-mode #collapse-all {
     }
 
 
-    /* 🔧 修正亮色模式下按鈕顏色不變問題 */
+/* === ✅ 亮色模式按鈕覆蓋修正版 === */
 body.light-mode #start-btn {
   background: linear-gradient(120deg, #38bdf8, #22c55e) !important;
   color: #ffffff !important;
@@ -680,15 +680,18 @@ body.light-mode #start-btn {
 }
 
 body.light-mode #start-btn:hover {
+  background: linear-gradient(120deg, #60a5fa, #4ade80) !important;
   transform: translateY(-1px) scale(1.05) !important;
   filter: brightness(1.1) !important;
   box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6) !important;
 }
 
 body.light-mode #start-btn:active {
+  background: linear-gradient(120deg, #3b82f6, #22c55e) !important;
   transform: translateY(1px) scale(0.98) !important;
   box-shadow: 0 3px 8px rgba(59, 130, 246, 0.4) !important;
 }
+
     
   </style>
 </head>
@@ -751,7 +754,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 12:39
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 12:40
   </div>
 
   <script>
