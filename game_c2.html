@@ -743,7 +743,7 @@ body.light-mode #collapse-all {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 01:06
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 01:12
   </div>
 
   <script>
@@ -834,18 +834,54 @@ function updateLivesDisplay() {
   document.getElementById("lives-display").innerText = `剩餘生命：${hearts}`;
 }
 
+let sessionBadges = []; // 用來記錄本次挑戰新增的徽章
+
 function awardBadges() {
   const newBadges = [];
+  
+  // 徽章條件
   if (score >= 25) newBadges.push("🎖️ 高分達人");
   if (wrongCount === 0 && currentIndex === questionSet.length) newBadges.push("⭐ 完美挑戰");
   if (!badgesEarned.includes("🎉 首次挑戰")) newBadges.push("🎉 首次挑戰");
 
-  newBadges.forEach(badge => {
-    if (!badgesEarned.includes(badge)) badgesEarned.push(badge);
-  });
+  // 判斷哪些徽章是本次新獲得的
+  sessionBadges = newBadges.filter(badge => !badgesEarned.includes(badge));
 
+  // 更新永久徽章
+  sessionBadges.forEach(badge => badgesEarned.push(badge));
   localStorage.setItem("badges", JSON.stringify(badgesEarned));
+
+  // 更新畫面
   displayBadges();
+  displaySessionBadges();
+}
+
+// 顯示永久徽章
+function displayBadges() {
+  const badgesContainer = document.getElementById("badges");
+  badgesContainer.innerHTML = badgesEarned.length
+    ? badgesEarned.map(badge => `<span>${badge}</span>`).join("")
+    : "尚未獲得徽章";
+}
+
+// 顯示本次挑戰徽章
+function displaySessionBadges() {
+  const resultSection = document.querySelector(".quiz");
+  if (!resultSection) return;
+
+  const existing = document.getElementById("session-badges");
+  if (existing) existing.remove();
+
+  const sessionDiv = document.createElement("div");
+  sessionDiv.id = "session-badges";
+  sessionDiv.style.textAlign = "center";
+  sessionDiv.style.marginTop = "20px";
+  sessionDiv.innerHTML =
+    sessionBadges.length > 0
+      ? `<h3 style="color:#ffd700;">🎯 本次獲得徽章</h3>${sessionBadges.map(b => `<span style="display:inline-block; margin:5px; padding:8px 14px; border-radius:20px; background:#ffb703; color:#222; font-weight:600; box-shadow:2px 2px 6px rgba(0,0,0,0.2);">${b}</span>`).join("")}`
+      : `<h3 style="color:#aaa;">本次未獲得新徽章</h3>`;
+
+  resultSection.appendChild(sessionDiv);
 }
 
 function displayBadges() {
