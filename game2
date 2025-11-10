@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEPT Vocabulary Challenge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #1a1a2e, #2a2a3e);
+      color: #f0f0f0;
+    }
+
+    /* 遊戲風格字體 */
+    h1, .leaderboard h2, .score-display, .lives-display, #result-title {
+      font-family: 'Russo One', sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffa500; /* 火焰橘 */
+      font-size: 2.2em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    /* 輸入/選擇區域 */
+    .setup-controls {
+      text-align: center;
+      margin: 20px 0;
+      padding: 20px;
+      background: #2a2a3e;
+      border-radius: 10px;
+      border: 1px solid #4a4a5e;
+    }
+    .setup-controls label {
+      margin-right: 10px;
+      font-weight: bold;
+      color: #f0f0f0;
+    }
+    .setup-controls input[type="text"], 
+    .setup-controls select {
+      padding: 10px 14px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #5a5a6e;
+      background: #3a3a4e;
+      color: #f0f0f0;
+    }
+    #start-btn {
+      margin-left: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      font-weight: bold;
+      font-family: 'Russo One', sans-serif;
+      border-radius: 8px;
+      background: linear-gradient(to right, #ff8c00, #ffa500);
+      color: #1a1a2e;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    #start-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ffa500;
+    }
+
+    .progress-container {
+      height: 20px;
+      background: #3a3a4e;
+      border-radius: 10px;
+      margin: 20px 0;
+      overflow: hidden;
+      border: 2px solid #5a5a6e;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, #f9d423, #ffa500); /* 黃色到橘色 */
+      transition: width 0.3s ease-in-out;
+    }
+
+    .question {
+      font-size: 1.7em; /* 放大問題 */
+      margin: 1em 0 1.5em 0;
+      text-align: center;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .options button {
+      padding: 20px; /* 增大按鈕 */
+      font-size: 1.2em;
+      font-weight: 600;
+      border: 2px solid #5a5a6e;
+      border-radius: 10px; /* 更有稜角 */
+      background: #3a3a4e;
+      color: #f0f0f0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+    .options button:hover:not(:disabled) {
+      background: #ffa500;
+      color: #1a1a2e;
+      border-color: #ffa500;
+      transform: scale(1.03);
+    }
+    .options button.correct {
+      background: #7CFC00; /* 亮綠色 */
+      color: #1a1a2e;
+      border-color: #7CFC00;
+      animation: pulse-green 0.5s;
+    }
+    .options button.incorrect {
+      background: #ff4136; /* 亮紅色 */
+      color: #ffffff;
+      border-color: #ff4136;
+      animation: shake 0.5s;
+    }
+    
+    /* 答題動畫 */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+      20%, 40%, 60%, 80% { transform: translateX(8px); }
+    }
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(124, 252, 0, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(124, 252, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(124, 252, 0, 0); }
+    }
+
+    .result-log {
+      margin-top: 30px;
+      padding-left: 20px;
+    }
+    .result-log li {
+      margin: 8px 0;
+      font-size: 1em;
+    }
+    .score-display {
+      text-align: center;
+      font-size: 1.5em;
+      margin: 10px 0;
+      color: #7CFC00; /* 分數用亮綠色 */
+    }
+    .lives-display {
+      text-align: center;
+      font-size: 1.8em;
+      margin: 10px 0;
+      color: #e63946;
+    }
+    .leaderboard {
+      margin-top: 30px;
+      padding: 20px;
+      background: #2a2a3e;
+      border-radius: 10px;
+      border: 1px solid #4a4a5e;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .leaderboard h2 {
+      text-align: center;
+      color: #ffa500;
+      font-size: 1.8em;
+    }
+    .leaderboard ul {
+      list-style: none;
+      padding: 0;
+    }
+    .leaderboard li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #4a4a5e;
+      font-size: 1em;
+      color: #f0f0f0;
+    }
+    .leaderboard li:last-child {
+      border-bottom: none;
+    }
+    
+    /* 排行榜細節 (details) */
+    details {
+      background: #3a3a4e;
+      border-radius: 8px;
+      margin-top: 10px;
+      border: 1px solid #5a5a6e;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #00c6ff; /* 電力藍 */
+      font-size: 1.1em;
+      padding: 12px;
+    }
+    details[open] summary {
+      color: #f9d423; /* 展開時變黃色 */
+    }
+    details ul {
+      padding: 6px 12px 12px 28px;
+    }
+    details li {
+      font-size: 0.95em;
+    }
+
+    /* 載入動畫 */
+    .loader-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      min-height: 100px;
+    }
+    .loader {
+      border: 6px solid #4a4a5e; /* 軌道 */
+      border-top: 6px solid #ffa500; /* 主題色 */
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1.2s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* 徽章 */
+    .badges {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .badges span {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 5px;
+      background: #ffd700;
+      color: #333;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: bold;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    
+    /* 結尾按鈕 */
+    .restart-btn {
+      padding: 14px 28px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #ff8c00, #ffa500);
+      color: #1a1a2e;
+      font-weight: bold;
+      font-family: 'Russo One', sans-serif;
+      cursor: pointer;
+      box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+    .restart-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ffa500;
+    }
+    
+    .footer {
+      margin-top: 60px; 
+      font-size: 0.9em; 
+      color: #888; 
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>GEPT 初級單字挑戰</h1>
+  
+  <div class="setup-controls">
+    <div>
+      <label for="dataset">題庫選擇：</label>
+      <select id="dataset">
+        <option value="GEPT_20251109.json" data-limit="all">🌎 GEPT 第三回+第四回</option>
+        <option value="week1.json" data-limit="all">🟡 Week 1 (主題課文25題)</option>
+        <option value="week2.json" data-limit="all">🟡 Week 2 (主題課文30題)</option>
+        <option value="week2-bonus.json" data-limit="25">✨ Week 2 (擴充挑戰25/50)</option>
+        <option value="GEPT_Stage3.json" data-limit="50">🤩 擴充挑戰Lv.3 (50/50)</option>
+        <option value="GEPT_Week3_Vocab.json" data-limit="all">🤩 擴充挑戰Lv.3</option>
+        <option value="gept-full.json" data-limit="25">🔵 全 GEPT (隨機挑戰25/2256)</option>
+        <option value="gept-full.json" data-limit="all">🔵 全 GEPT (魔鬼挑戰2256題)</option>
+      </select>
+    </div>
+    <div style="margin-top: 15px;">
+      <label for="username">請輸入你的名字：</label>
+      <input id="username" type="text" placeholder="例如：Emmett" />
+      <button id="start-btn" onclick="startQuiz()">開始挑戰</button>
+    </div>
+  </div>
+
+  <div class="progress-container" style="display:none;" id="progress-section">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+  <div class="quiz" style="display:none;">
+    <div class="score-display" id="score-display">目前得分：0</div>
+    <div class="lives-display" id="lives-display">剩餘生命：❤️❤️❤️</div>
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <h3 id="result-title" style="margin-top:30px;"></h3>
+    <ul class="result-log" id="results"></ul>
+    <div class="badges" id="badges"></div>
+  </div>
+
+  <div class="leaderboard" id="leaderboard">
+    <h2>🏆 積分排行榜</h2>
+    <ul id="leaderboard-list">
+          </ul>
+  </div>
+
+  <script>
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyg8OvuiCZbrtUTBy6a1pKyWeGUZJJbCJsxeodvwgbs9I2o6Fe7dS_irIntu44SNmJrig/exec"; // 已替換為 Google Apps Script Web App URL
+
+let selectedVoice = null;
+let badgesEarned = JSON.parse(localStorage.getItem("badges")) || [];
+
+function findEnglishVoice() {
+  const voices = speechSynthesis.getVoices();
+  const priority = ['Google US English', 'Samantha', 'Microsoft Aria Online (Natural) - English (United States)', 'Microsoft Zira', 'Microsoft David', 'Karen', 'Alex'];
+  for (const name of priority) {
+    const match = voices.find(v => v.name.includes(name));
+    if (match) return match;
+  }
+  return voices.find(v => v.lang === 'en-US') || voices[0];
+}
+
+speechSynthesis.onvoiceschanged = () => {
+  selectedVoice = findEnglishVoice();
+};
+
+let data = [
+  { Vocabulary: "breathe fire", Chinese: "噴火" },
+  { Vocabulary: "trainer", Chinese: "訓練師" },
+  { Vocabulary: "journey", Chinese: "旅程 / 一段路" },
+  { Vocabulary: "rare", Chinese: "稀有的" },
+  { Vocabulary: "care", Chinese: "照顧" },
+  { Vocabulary: "decide", Chinese: "決定" },
+  { Vocabulary: "pick", Chinese: "挑選" },
+  { Vocabulary: "lab", Chinese: "實驗室" },
+  { Vocabulary: "each", Chinese: "每個人" },
+  { Vocabulary: "fluffy", Chinese: "毛絨絨的" },
+  { Vocabulary: "energetic", Chinese: "有活力的" },
+  { Vocabulary: "nod", Chinese: "點頭" },
+  { Vocabulary: "electric", Chinese: "電的" },
+  { Vocabulary: "icy", Chinese: "結凍的" },
+  { Vocabulary: "punch", Chinese: "揍" },
+  { Vocabulary: "wings", Chinese: "翅膀" },
+  { Vocabulary: "horns", Chinese: "角" },
+  { Vocabulary: "tail", Chinese: "尾巴" },
+  { Vocabulary: "furry", Chinese: "有毛的" },
+  { Vocabulary: "striped", Chinese: "有條紋的" },
+  { Vocabulary: "claw", Chinese: "爪子" },
+  { Vocabulary: "library", Chinese: "圖書館" },
+  { Vocabulary: "museum", Chinese: "博物館" },
+  { Vocabulary: "backpack", Chinese: "背包" },
+  { Vocabulary: "breakfast", Chinese: "早餐" },
+  { Vocabulary: "hungry", Chinese: "肚子餓的" },
+  { Vocabulary: "dentist", Chinese: "牙醫" },
+  { Vocabulary: "stationary", Chinese: "文具" },
+  { Vocabulary: "friendly", Chinese: "友善的" },
+  { Vocabulary: "exercise", Chinese: "運動" },
+  { Vocabulary: "science", Chinese: "科學" },
+  { Vocabulary: "noisy", Chinese: "吵的" },
+  { Vocabulary: "brave", Chinese: "勇敢的" },
+  { Vocabulary: "careful", Chinese: "小心的" },
+  { Vocabulary: "weekend", Chinese: "週末" }
+];
+
+let defaultData = [...data];
+let questionSet = [];
+let currentIndex = 0;
+let attempts = 0;
+let wrongCount = 0;
+let totalQuestionsToComplete = "all"; // 預設為全部問題
+let score = 0;
+let lives = 3;
+let gameSession = Date.now();
+
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+function updateProgressBar() {
+  // 如果是數字限制，則以該限制為準；否則以全部問題數量為準
+  const totalQuestions = typeof totalQuestionsToComplete === 'number' ? 
+                       totalQuestionsToComplete : questionSet.length;
+  const percent = (currentIndex / totalQuestions) * 100;
+  document.getElementById("progress-bar").style.width = `${percent}%`;
+}
+
+function updateScoreDisplay() {
+  document.getElementById("score-display").innerText = `目前得分：${score}`;
+}
+
+function updateLivesDisplay() {
+  const hearts = '❤️'.repeat(lives);
+  document.getElementById("lives-display").innerText = `剩餘生命：${hearts}`;
+}
+
+function awardBadges() {
+  const newBadges = [];
+  if (score >= 25) newBadges.push("🎖️ 高分達人");
+  if (wrongCount === 0 && currentIndex === questionSet.length) newBadges.push("⭐ 完美挑戰");
+  if (!badgesEarned.includes("🎉 首次挑戰")) newBadges.push("🎉 首次挑戰");
+
+  newBadges.forEach(badge => {
+    if (!badgesEarned.includes(badge)) badgesEarned.push(badge);
+  });
+
+  localStorage.setItem("badges", JSON.stringify(badgesEarned));
+  displayBadges();
+}
+
+function displayBadges() {
+  const badgesContainer = document.getElementById("badges");
+  badgesContainer.innerHTML = badgesEarned.length ? badgesEarned.map(badge => `<span>${badge}</span>`).join("") : "尚未獲得徽章";
+}
+
+async function submitScore() {
+  if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: window.username,
+          score: score,
+          session: gameSession,
+          dataset: document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex].text
+        })
+      });
+
+      console.log("分數已提交至 Google Sheets");
+    } catch (err) {
+      console.error("提交分數失敗:", err);
+    }
+  } else {
+    console.warn("未設置 GOOGLE_SCRIPT_URL，分數未提交");
+  }
+}
+
+async function fetchLeaderboard() {
+  const leaderboardList = document.getElementById("leaderboard-list");
+  // *** 新增：顯示載入動畫 ***
+  leaderboardList.innerHTML = '<div class="loader-container"><div class="loader"></div></div>';
+
+  if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
+    try {
+      const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
+      const leaderboard = await response.json();
+
+      // 依題庫名稱分組
+      const grouped = {};
+      leaderboard.forEach(entry => {
+        const key = entry.dataset || "未知題庫";
+        if (!grouped[key]) grouped[key] = [];
+        grouped[key].push(entry);
+      });
+
+      // 每組內依分數排序（高→低），同分以時間（新→舊）
+      for (const key in grouped) {
+        grouped[key].sort((a, b) => {
+          if (b.score === a.score) {
+            return new Date(b.timestamp) - new Date(a.timestamp);
+          }
+          return b.score - a.score;
+        });
+        grouped[key] = grouped[key].slice(0, 10);
+      }
+
+      // 依各題庫最新紀錄時間排序（新→舊）
+      const sortedDatasets = Object.keys(grouped).sort((a, b) => {
+        const latestA = Math.max(...grouped[a].map(e => new Date(e.timestamp)));
+        const latestB = Math.max(...grouped[b].map(e => new Date(e.timestamp)));
+        return latestB - latestA;
+      });
+
+      // 取最新兩個題庫預設展開
+      const expandedDatasets = sortedDatasets.slice(0, 1);
+
+      // *** 修改：清空載入動畫，插入控制按鈕 ***
+      leaderboardList.innerHTML = `
+        <div style="text-align:center; margin:10px 0;">
+          <button id="expand-all" style="
+            padding:6px 12px; 
+            margin-right:8px;
+            background:#007bff;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+          ">展開全部</button>
+          <button id="collapse-all" style="
+            padding:6px 12px; 
+            background:#6c757d;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+          ">全部收起</button>
+        </div>
+      `;
+
+      // 加入每個題庫
+      leaderboardList.innerHTML += sortedDatasets.map(dataset => {
+        const entries = grouped[dataset];
+        const latestTime = new Date(Math.max(...entries.map(e => new Date(e.timestamp))));
+        const isOpen = expandedDatasets.includes(dataset) ? "open" : "";
+        return `
+          <li style="list-style:none; padding:0; border:none; display:block;">
+            <details ${isOpen} class="dataset-block">
+              <summary>
+                📘 ${dataset}
+                <small style="color:#aaa; font-weight:normal;">（最新更新：${latestTime.toLocaleString()}）</small>
+              </summary>
+              <ul style="list-style:none; margin:0;">
+                ${entries.map((entry, index) => `
+                  <li style="padding:8px 0;">
+                    <span>${index + 1}. ${entry.username}</span>
+                    <span>${entry.score}分｜${new Date(entry.timestamp).toLocaleString()}</span>
+                  </li>
+                `).join("")}
+              </ul>
+            </details>
+          </li>
+        `;
+      }).join("");
+
+      // 綁定展開／收起按鈕事件
+      document.getElementById("expand-all").addEventListener("click", () => {
+        document.querySelectorAll(".dataset-block").forEach(el => (el.open = true));
+      });
+      document.getElementById("collapse-all").addEventListener("click", () => {
+        document.querySelectorAll(".dataset-block").forEach(el => (el.open = false));
+      });
+
+    } catch (err) {
+      console.error("載入排行榜失敗:", err);
+      // *** 修改：載入失敗時顯示錯誤 ***
+      leaderboardList.innerHTML = "<li style='color: #ff4136; text-align: center; padding: 20px;'>無法載入排行榜</li>";
+    }
+  } else {
+    // *** 修改：未設置 URL 時顯示提示 ***
+    leaderboardList.innerHTML = "<li style='text-align: center; padding: 20px;'>請設置 Google Sheets 連結</li>";
+  }
+}
+
+
+
+function endGame() {
+  updateProgressBar();
+  awardBadges();
+  submitScore();
+  fetchLeaderboard();
+  document.querySelector(".quiz").innerHTML = `
+    <h2 style="text-align:center; color:#ffa500; font-family: 'Russo One', sans-serif;">🎉 ${window.username}，本次挑戰結束！</h2>
+    <h3 style="text-align:center; font-family: 'Russo One', sans-serif;">總得分：${score}</h3>
+    <h3 id="result-title" style="margin-top:30px;"></h3>
+    <ul class="result-log" id="results">${document.getElementById("results").innerHTML}</ul>
+    <div class="badges" id="badges">${document.getElementById("badges").innerHTML}</div>
+    <div style="text-align: center; margin-top: 30px;">
+      <button onclick="location.reload()" class="restart-btn">
+        🔁 再玩一次
+      </button>
+    </div>`;
+}
+
+function renderQuestion() {
+  attempts = 0;
+  updateProgressBar();
+  updateScoreDisplay();
+  const q = questionSet[currentIndex];
+  document.getElementById("question").innerText = `"${q.Vocabulary}" 是什麼意思？`;
+  speechSynthesis.cancel();
+  if (!selectedVoice) selectedVoice = findEnglishVoice();
+  const utterance = new SpeechSynthesisUtterance(q.Vocabulary);
+  utterance.voice = selectedVoice;
+  utterance.lang = "en-US";
+  utterance.rate = 0.9;
+  speechSynthesis.speak(utterance);
+
+  // 从完整数据中随机选择干扰项，而不仅仅是当前数据集
+  const allChineseAnswers = data.map(item => item.Chinese);
+  const correctAnswer = q.Chinese;
+  
+  // 过滤掉当前的正确答案
+  const possibleDistractors = allChineseAnswers.filter(chinese => chinese !== correctAnswer);
+  
+  // 随机选择3个干扰项
+  const distractors = shuffle(possibleDistractors).slice(0, 3);
+
+  // 组合选项并随机排序
+  const choices = shuffle([correctAnswer, ...distractors]).map(chinese => {
+    // 为每个选项创建一个模拟对象，与原始数据结构兼容
+    return { Chinese: chinese };
+  });
+
+  const container = document.getElementById("options");
+  container.innerHTML = "";
+
+  choices.forEach((choice) => {
+    const btn = document.createElement("button");
+    btn.innerText = choice.Chinese;
+    btn.onclick = () => handleChoice(btn, choice);
+    container.appendChild(btn);
+  });
+}
+function handleChoice(button, choice) {
+  const correctAnswer = questionSet[currentIndex].Chinese;
+  attempts++;
+
+  if (choice.Chinese === correctAnswer) {
+    button.classList.add("correct");
+    document.querySelectorAll(".options button").forEach(btn => btn.disabled = true);
+    if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
+      document.getElementById("result-title").innerText = `${window.username} 的挑戰結果：`;
+    }
+    document.getElementById("results").innerHTML += 
+      (attempts === 1
+        ? `<li>✅ ${questionSet[currentIndex].Vocabulary} — ${questionSet[currentIndex].Chinese} — ${attempts} 次 — +5分</li>`
+        : `<li style="color: #f9d423;">🟡 ${questionSet[currentIndex].Vocabulary} — ${questionSet[currentIndex].Chinese} — ${attempts} 次 — 0分</li>`);
+    
+    if (attempts === 1) {
+      score += 5;
+    }
+    updateScoreDisplay();
+
+    setTimeout(() => {
+      currentIndex++;
+// 檢查是否達到完成條件
+const quizCompleted = typeof totalQuestionsToComplete === 'number' 
+                    ? currentIndex >= totalQuestionsToComplete 
+                    : currentIndex >= questionSet.length;
+
+if (!quizCompleted && wrongCount < 3) {
+  renderQuestion();
+} else {
+  endGame();
+}
+    }, 800);
+  } else {
+    button.classList.add("incorrect");
+    button.disabled = true;
+    wrongCount++;
+    lives = 3 - wrongCount;
+    updateLivesDisplay();
+    if (lives <= 0) {
+      setTimeout(() => {
+        endGame();
+      }, 800);
+    }
+  }
+}
+
+function startQuiz() {
+  console.log("startQuiz 函數已觸發");
+  const name = document.getElementById("username").value.trim();
+  if (!name) {
+    alert("請輸入名字！");
+    return;
+  }
+  
+  const startButton = document.getElementById("start-btn");
+  startButton.innerHTML = "🔊 重聽發音";
+  startButton.onclick = function() {
+    speakCurrentWord();
+  };
+  // *** 修改：重聽按鈕樣式 ***
+  startButton.style.background = "#007bff";
+  startButton.style.color = "white";
+  startButton.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+  
+  document.getElementById("username").style.display = "none";
+  document.querySelector("label[for='username']").style.display = "none";
+  
+  document.getElementById("progress-section").style.display = "block";
+  document.querySelector(".quiz").style.display = "block";
+  window.username = name;
+  lives = 3;
+  
+  if (!questionSet.length) {
+    console.error("題庫未初始化，嘗試使用預設題庫");
+    questionSet = shuffle([...defaultData]);
+  }
+  
+  try {
+    fetchLeaderboard();
+  } catch (err) {
+    console.warn("排行榜載入失敗，繼續執行遊戲");
+  }
+  
+  renderQuestion();
+}
+
+function speakCurrentWord() {
+  const currentWord = questionSet[currentIndex].Vocabulary;
+  speechSynthesis.cancel();
+  if (!selectedVoice) selectedVoice = findEnglishVoice();
+  const utterance = new SpeechSynthesisUtterance(currentWord);
+  utterance.voice = selectedVoice;
+  utterance.lang = "en-US";
+  utterance.rate = 0.9;
+  speechSynthesis.speak(utterance);
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    const input = document.getElementById("username");
+    // 檢查 input 是否存在且可見 (display 不是 'none')
+    if (input && window.getComputedStyle(input).display !== "none") {
+      startQuiz();
+    }
+  }
+});
+
+document.getElementById("dataset").addEventListener("change", async function(e) {
+  const file = e.target.value;
+  const selected = e.target.options[e.target.selectedIndex];
+  const limit = selected.getAttribute("data-limit");
+  
+  // 設定當前選擇的題庫的題目限制
+  totalQuestionsToComplete = limit === "all" ? "all" : parseInt(limit);
+  
+  try {
+    // 讀取檔案...
+    const res = await fetch(file);
+    if (!res.ok) {
+      throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
+    }
+    data = await res.json();
+    questionSet = shuffle([...data]);
+    currentIndex = 0;
+    wrongCount = 0;
+    score = 0;
+    lives = 3;
+    updateProgressBar();
+    updateScoreDisplay();
+    updateLivesDisplay();
+    // *** 修改：檢查 quiz 區域是否可見 ***
+    if (window.getComputedStyle(document.querySelector(".quiz")).display === "block") {
+      document.getElementById("results").innerHTML = "";
+      document.getElementById("result-title").innerText = "";
+      renderQuestion();
+    }
+  } catch (err) {
+    console.warn("載入題庫失敗，使用預設題庫");
+    data = [...defaultData];
+    questionSet = shuffle([...data]);
+    currentIndex = 0;
+    wrongCount = 0;
+    score = 0;
+    lives = 3;
+    updateProgressBar();
+    updateScoreDisplay();
+    updateLivesDisplay();
+    // *** 修改：檢查 quiz 區域是否可見 ***
+    if (window.getComputedStyle(document.querySelector(".quiz")).display === "block") {
+      document.getElementById("results").innerHTML = "";
+      document.getElementById("result-title").innerText = "";
+      renderQuestion();
+    }
+  }
+});
+
+(async () => {
+  console.log("頁面初始化開始");
+  const file = document.getElementById("dataset").value;
+  const selected = document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex];
+  const limit = selected.getAttribute("data-limit");
+  
+  // 設定初始題庫的題目限制
+  totalQuestionsToComplete = limit === "all" ? "all" : parseInt(limit);
+  try {
+    const res = await fetch(file);
+    if (!res.ok) {
+      throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
+    }
+    data = await res.json();
+  } catch (err) {
+    console.warn("初始題庫載入失敗，使用預設題庫");
+    data = [...defaultData];
+  }
+  questionSet = shuffle([...data]);
+  currentIndex = 0;
+  wrongCount = 0;
+  score = 0;
+  lives = 3;
+  updateProgressBar();
+  updateScoreDisplay();
+  updateLivesDisplay();
+  try {
+    fetchLeaderboard(); // *** 這裡會觸發載入動畫 ***
+  } catch (err) {
+    console.warn("初始排行榜載入失敗");
+  }
+  displayBadges();
+  console.log("頁面初始化完成");
+})();
+  </script>
+
+  <div class="footer">
+    Made by Evelyn YT ｜© 2025 | 2025/11/10 (Game UI Update)
+  </div>
+</body>
+</html>
