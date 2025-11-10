@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>英文單字卡｜錄音上傳版</title>
+<title>英文單字卡｜複習版</title>
 <style>
   body {
     font-family: "Noto Sans TC", sans-serif;
@@ -16,17 +16,6 @@
     text-align: center;
     color: #0078b7;
     margin-bottom: 10px;
-  }
-  .name-box {
-    text-align: center;
-    margin-bottom: 25px;
-  }
-  .name-box input {
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    width: 220px;
-    font-size: 1em;
   }
   .card-container {
     display: grid;
@@ -78,29 +67,48 @@
     font-size: 0.9em;
     transition: background 0.2s;
   }
-  .play { background: #ffe1d2; color: #ff5c39; }
-  .record { background: #ffd9ec; color: #d6006f; }
-  .stop { background: #ffe1a0; color: #8a5b00; }
-  .upload { background: #cce5ff; color: #0056b3; }
-  .play:hover { background: #ffd4c0; }
-  .record:hover { background: #ffcce0; }
-  .stop:hover { background: #ffd98a; }
-  .upload:hover { background: #b8daff; }
-  audio { margin-top: 6px; width: 100%; }
+  .play {
+    background: #ffe1d2;
+    color: #ff5c39;
+  }
+  .play:hover {
+    background: #ffd4c0;
+  }
 </style>
 </head>
-<body>
-<h1>🌟 英文單字卡：錄音上傳版</h1>
 
-<div class="name-box">
-  <label for="studentName">請輸入你的英文名字：</label>
-  <input type="text" id="studentName" placeholder="例如：Miles" />
-</div>
+<body>
+<h1>🌟 英文單字卡：複習版</h1>
 
 <div class="card-container" id="cards"></div>
 
 <script>
-const UPLOAD_URL = "https://script.google.com/macros/s/AKfycbylkOwv2Dq7nQyzwzH6-YuLOdW1KJbLYUpbHZaPzFWpFrjgEcEDRrpp3aPxdUlUp-MTHA/exec";
+function normalizeTextForSpeech(text) {
+  return text.replace(/'/g, "＇").replace(/’/g, "＇").replace(/＇+/g, "＇");
+}
+
+function playWord(word) {
+  const url = `https://ssl.gstatic.com/dictionary/static/sounds/20200429/${encodeURIComponent(word)}--_us_1.mp3`;
+  const audio = new Audio(url);
+  audio.play().catch(() => {
+    const utter = new SpeechSynthesisUtterance(word);
+    utter.lang = 'en-US';
+    utter.rate = 0.8;
+    speechSynthesis.speak(utter);
+  });
+}
+
+function playSentence(sentence) {
+  const utter = new SpeechSynthesisUtterance(normalizeTextForSpeech(sentence));
+  utter.lang = 'en-US';
+  utter.rate = 0.8;
+  const voices = speechSynthesis.getVoices();
+  const preferredVoice = voices.find(v =>
+    v.name.includes('Google US English') || v.name.includes('Samantha')
+  );
+  if (preferredVoice) utter.voice = preferredVoice;
+  speechSynthesis.speak(utter);
+}
 
 const data = [
   {v:"discuss",c:"討論",e:"We discussed our weekend plans."},
@@ -108,7 +116,7 @@ const data = [
   {v:"employee",c:"員工",e:"My father is an employee in a big company."},
   {v:"formal",c:"正式的",e:"You should wear formal clothes to the meeting."},
   {v:"take place",c:"發生；舉行",e:"The party will take place on Saturday."},
-  {v:"attend",c:"出席；參加",e:"I will attend my friend's wedding."},
+  {v:"attend",c:"出席；參加",e:"I will attend my friend’s wedding."},
   {v:"dessert",c:"甜點",e:"Ice cream is my favorite dessert."},
   {v:"come up with",c:"想出；提出（主意）",e:"She came up with a great idea."},
   {v:"in person",c:"親自",e:"You must sign the paper in person."},
@@ -155,123 +163,23 @@ const data = [
   {v:"search",c:"搜尋；尋找",e:"I searched the Internet for the answer."}
 ];
 
-
 const container = document.getElementById("cards");
-
-data.forEach((item, index) => {
+data.forEach((item) => {
   const card = document.createElement("div");
   card.className = "card";
   card.innerHTML = `
-    <div class="word">${item.v}
+    <div class="word">
+      ${item.v}
       <button class="play" onclick="playWord('${item.v}')">🔊</button>
     </div>
     <div class="meaning">${item.c}</div>
     <div class="example">${item.e}</div>
     <div class="controls">
       <button class="play" onclick="playSentence('${item.e}')">🔊 例句</button>
-      <button class="record" onclick="startRecording(${index}, '${item.v}')">🎙️ 錄音</button>
-      <button class="stop" onclick="stopRecording(${index})" disabled>⏹️ 停止</button>
-      <button class="upload" onclick="uploadRecording(${index}, '${item.v}')" disabled>☁️ 上傳</button>
     </div>
-    <audio id="audio${index}" controls hidden></audio>
   `;
   container.appendChild(card);
 });
-
-let mediaRecorder;
-let audioChunks = [];
-let currentIndex = null;
-
-async function startRecording(index, word) {
-  const recordBtn = document.getElementsByClassName("record")[index];
-  const stopBtn = document.getElementsByClassName("stop")[index];
-  recordBtn.disabled = true;
-  stopBtn.disabled = false;
-
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    mediaRecorder = new MediaRecorder(stream);
-    audioChunks = [];
-    currentIndex = index;
-
-    mediaRecorder.ondataavailable = e => { audioChunks.push(e.data); };
-    mediaRecorder.onstop = () => {
-      const blob = new Blob(audioChunks, { type: "audio/webm" });
-      const audioURL = URL.createObjectURL(blob);
-      const audioEl = document.getElementById(`audio${index}`);
-      audioEl.src = audioURL;
-      audioEl.hidden = false;
-      document.getElementsByClassName("upload")[index].disabled = false;
-    };
-
-    mediaRecorder.start();
-  } catch (err) {
-    alert("錄音失敗，請確認已允許麥克風權限。");
-    console.error(err);
-  }
-}
-
-function stopRecording(index) {
-  const recordBtn = document.getElementsByClassName("record")[index];
-  const stopBtn = document.getElementsByClassName("stop")[index];
-  recordBtn.disabled = false;
-  stopBtn.disabled = true;
-
-  if (mediaRecorder && mediaRecorder.state !== "inactive") {
-    mediaRecorder.stop();
-  }
-}
-
-function playWord(word) {
-  const url = `https://ssl.gstatic.com/dictionary/static/sounds/20200429/${encodeURIComponent(word)}--_us_1.mp3`;
-  const audio = new Audio(url);
-  audio.play().catch(() => {
-    const utter = new SpeechSynthesisUtterance(word);
-    utter.lang = 'en-US';
-    speechSynthesis.speak(utter);
-  });
-}
-
-function playSentence(sentence) {
-const utter = new SpeechSynthesisUtterance(sentence);
-utter.lang = 'en-US';
-utter.rate = 0.8; // 0.5~1.0 都可以試，1 是正常速度
-speechSynthesis.speak(utter);
-}
-
-async function uploadRecording(index, word) {
-  const studentName = document.getElementById("studentName").value.trim();
-  if (!studentName) {
-    alert("請先輸入你的英文名字！");
-    return;
-  }
-  const audioEl = document.getElementById(`audio${index}`);
-  const response = await fetch(audioEl.src);
-  const blob = await response.blob();
-  const formData = new FormData();
-  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-  const filename = `${studentName}_${word}_${timestamp}.webm`;
-  formData.append("file", blob, filename);
-  formData.append("filename", filename);
-
-  const uploadBtn = document.getElementsByClassName("upload")[index];
-  uploadBtn.textContent = "⏳ 上傳中...";
-  uploadBtn.disabled = true;
-
-  try {
-    const res = await fetch(UPLOAD_URL, { method: "POST", body: formData });
-    const result = await res.json();
-    if (result.status === "success") {
-      uploadBtn.textContent = "✅ 已上傳";
-    } else {
-      uploadBtn.textContent = "⚠️ 失敗";
-      console.error(result.message);
-    }
-  } catch (err) {
-    uploadBtn.textContent = "⚠️ 錯誤";
-    console.error(err);
-  }
-}
 </script>
 </body>
 </html>
