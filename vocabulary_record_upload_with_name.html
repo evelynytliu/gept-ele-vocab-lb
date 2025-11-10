@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英文單字卡｜錄音上傳版</title>
+<style>
+  body {
+    font-family: "Noto Sans TC", sans-serif;
+    background: linear-gradient(180deg, #f0f9ff, #ffffff);
+    margin: 0;
+    padding: 30px;
+    color: #333;
+  }
+  h1 {
+    text-align: center;
+    color: #0078b7;
+    margin-bottom: 10px;
+  }
+  .name-box {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .name-box input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 220px;
+    font-size: 1em;
+  }
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background-color: #fff;
+    border: 2px solid #cce7ff;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    padding: 18px 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  }
+  .word {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #005c8c;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .meaning {
+    font-size: 1.05em;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  .example {
+    font-size: 0.95em;
+    color: #333;
+    line-height: 1.4;
+  }
+  .controls {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  button {
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.2s;
+  }
+  .play { background: #ffe1d2; color: #ff5c39; }
+  .record { background: #ffd9ec; color: #d6006f; }
+  .stop { background: #ffe1a0; color: #8a5b00; }
+  .upload { background: #cce5ff; color: #0056b3; }
+  .play:hover { background: #ffd4c0; }
+  .record:hover { background: #ffcce0; }
+  .stop:hover { background: #ffd98a; }
+  .upload:hover { background: #b8daff; }
+  audio { margin-top: 6px; width: 100%; }
+</style>
+</head>
+<body>
+<h1>🌟 英文單字卡：錄音上傳版</h1>
+
+<div class="name-box">
+  <label for="studentName">請輸入你的英文名字：</label>
+  <input type="text" id="studentName" placeholder="例如：Miles" />
+</div>
+
+<div class="card-container" id="cards"></div>
+
+<script>
+const UPLOAD_URL = "https://script.google.com/macros/s/AKfycbylkOwv2Dq7nQyzwzH6-YuLOdW1KJbLYUpbHZaPzFWpFrjgEcEDRrpp3aPxdUlUp-MTHA/exec";
+
+const data = [
+  {v:"discuss",c:"討論",e:"We discussed our weekend plans."},
+  {v:"used to",c:"過去常常（做某事）",e:"I used to play basketball every day."},
+  {v:"employee",c:"員工",e:"My father is an employee in a big company."},
+  {v:"formal",c:"正式的",e:"You should wear formal clothes to the meeting."},
+  {v:"take place",c:"發生；舉行",e:"The party will take place on Saturday."},
+  {v:"attend",c:"出席；參加",e:"I will attend my friend's wedding."},
+  {v:"dessert",c:"甜點",e:"Ice cream is my favorite dessert."},
+  {v:"come up with",c:"想出；提出（主意）",e:"She came up with a great idea."},
+  {v:"in person",c:"親自",e:"You must sign the paper in person."},
+  {v:"actor",c:"男演員",e:"He is a famous actor."},
+  {v:"effect",c:"效果；影響",e:"The new medicine has a good effect."},
+  {v:"regular",c:"規律的；固定的",e:"She takes regular exercise every day."},
+  {v:"suggest",c:"建議",e:"I suggest we go by bus."},
+  {v:"deal with",c:"處理；應付",e:"He can deal with stress very well."},
+  {v:"damage",c:"損害；破壞",e:"The typhoon damaged many houses."},
+  {v:"be known for",c:"以…聞名",e:"Taiwan is known for its delicious food."},
+  {v:"particular",c:"特別的；特定的",e:"I like this particular song."},
+  {v:"diary",c:"日記",e:"She writes in her diary every night."},
+  {v:"advertisement",c:"廣告",e:"I saw an advertisement for a new phone."},
+  {v:"purpose",c:"目的",e:"The purpose of the meeting is to plan the trip."},
+  {v:"serious",c:"認真的；嚴重的",e:"He made a serious mistake."},
+  {v:"introduce",c:"介紹",e:"Let me introduce my best friend."},
+  {v:"fit",c:"合身；適合；身材好",e:"These shoes fit me well."},
+  {v:"work out",c:"運動；解決問題",e:"My parents work out at the gym."},
+  {v:"prefer",c:"比較喜歡",e:"I prefer tea to coffee."},
+  {v:"relative",c:"親戚",e:"We visited our relatives last weekend."},
+  {v:"usual",c:"平常的；慣常的",e:"He came home at his usual time."},
+  {v:"habit",c:"習慣",e:"Reading before bed is a good habit."},
+  {v:"above all",c:"最重要的是",e:"Above all, be kind to others."},
+  {v:"look forward to",c:"期待",e:"I look forward to seeing you soon."},
+  {v:"locate",c:"找到；位於",e:"The hotel is located near the beach."},
+  {v:"entire",c:"整個的；全部的",e:"The entire family went on vacation."},
+  {v:"product",c:"產品",e:"This is our best-selling product."},
+  {v:"mention",c:"提到",e:"He didn’t mention your name."},
+  {v:"activity",c:"活動",e:"The school has many fun activities."},
+  {v:"club",c:"俱樂部；社團",e:"I joined the English club."},
+  {v:"available",c:"可用的；可取得的；（人）有空的",e:"The teacher is available after class."},
+  {v:"borrow",c:"借（進）",e:"Can I borrow your pencil?"},
+  {v:"single-story",c:"單層的（建築）",e:"We live in a single-story house."},
+  {v:"boarding gate",c:"登機門",e:"Our flight leaves from boarding gate 10."},
+  {v:"boil",c:"煮沸；燒開",e:"Please boil some water for tea."},
+  {v:"stress out",c:"壓力太大；感到焦慮",e:"Don’t stress out about the test."},
+  {v:"line up",c:"排隊",e:"The students lined up for lunch."},
+  {v:"behave",c:"表現；舉止",e:"Please behave in class."},
+  {v:"disappear",c:"消失",e:"The sun disappeared behind the clouds."},
+  {v:"hostel",c:"旅舍；青年旅館",e:"We stayed in a cheap hostel."},
+  {v:"price",c:"價格",e:"The price of this book is 200 dollars."},
+  {v:"less",c:"較少的",e:"I eat less sugar now."},
+  {v:"teenager",c:"青少年",e:"That teenager is my cousin."},
+  {v:"search",c:"搜尋；尋找",e:"I searched the Internet for the answer."}
+];
+
+
+const container = document.getElementById("cards");
+
+data.forEach((item, index) => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="word">${item.v}
+      <button class="play" onclick="playWord('${item.v}')">🔊</button>
+    </div>
+    <div class="meaning">${item.c}</div>
+    <div class="example">${item.e}</div>
+    <div class="controls">
+      <button class="play" onclick="playSentence('${item.e}')">🔊 例句</button>
+      <button class="record" onclick="startRecording(${index}, '${item.v}')">🎙️ 錄音</button>
+      <button class="stop" onclick="stopRecording(${index})" disabled>⏹️ 停止</button>
+      <button class="upload" onclick="uploadRecording(${index}, '${item.v}')" disabled>☁️ 上傳</button>
+    </div>
+    <audio id="audio${index}" controls hidden></audio>
+  `;
+  container.appendChild(card);
+});
+
+let mediaRecorder;
+let audioChunks = [];
+let currentIndex = null;
+
+async function startRecording(index, word) {
+  const recordBtn = document.getElementsByClassName("record")[index];
+  const stopBtn = document.getElementsByClassName("stop")[index];
+  recordBtn.disabled = true;
+  stopBtn.disabled = false;
+
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    mediaRecorder = new MediaRecorder(stream);
+    audioChunks = [];
+    currentIndex = index;
+
+    mediaRecorder.ondataavailable = e => { audioChunks.push(e.data); };
+    mediaRecorder.onstop = () => {
+      const blob = new Blob(audioChunks, { type: "audio/webm" });
+      const audioURL = URL.createObjectURL(blob);
+      const audioEl = document.getElementById(`audio${index}`);
+      audioEl.src = audioURL;
+      audioEl.hidden = false;
+      document.getElementsByClassName("upload")[index].disabled = false;
+    };
+
+    mediaRecorder.start();
+  } catch (err) {
+    alert("錄音失敗，請確認已允許麥克風權限。");
+    console.error(err);
+  }
+}
+
+function stopRecording(index) {
+  const recordBtn = document.getElementsByClassName("record")[index];
+  const stopBtn = document.getElementsByClassName("stop")[index];
+  recordBtn.disabled = false;
+  stopBtn.disabled = true;
+
+  if (mediaRecorder && mediaRecorder.state !== "inactive") {
+    mediaRecorder.stop();
+  }
+}
+
+function playWord(word) {
+  const url = `https://ssl.gstatic.com/dictionary/static/sounds/20200429/${encodeURIComponent(word)}--_us_1.mp3`;
+  const audio = new Audio(url);
+  audio.play().catch(() => {
+    const utter = new SpeechSynthesisUtterance(word);
+    utter.lang = 'en-US';
+    speechSynthesis.speak(utter);
+  });
+}
+
+function playSentence(sentence) {
+const utter = new SpeechSynthesisUtterance(sentence);
+utter.lang = 'en-US';
+utter.rate = 0.8; // 0.5~1.0 都可以試，1 是正常速度
+speechSynthesis.speak(utter);
+}
+
+async function uploadRecording(index, word) {
+  const studentName = document.getElementById("studentName").value.trim();
+  if (!studentName) {
+    alert("請先輸入你的英文名字！");
+    return;
+  }
+  const audioEl = document.getElementById(`audio${index}`);
+  const response = await fetch(audioEl.src);
+  const blob = await response.blob();
+  const formData = new FormData();
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const filename = `${studentName}_${word}_${timestamp}.webm`;
+  formData.append("file", blob, filename);
+  formData.append("filename", filename);
+
+  const uploadBtn = document.getElementsByClassName("upload")[index];
+  uploadBtn.textContent = "⏳ 上傳中...";
+  uploadBtn.disabled = true;
+
+  try {
+    const res = await fetch(UPLOAD_URL, { method: "POST", body: formData });
+    const result = await res.json();
+    if (result.status === "success") {
+      uploadBtn.textContent = "✅ 已上傳";
+    } else {
+      uploadBtn.textContent = "⚠️ 失敗";
+      console.error(result.message);
+    }
+  } catch (err) {
+    uploadBtn.textContent = "⚠️ 錯誤";
+    console.error(err);
+  }
+}
+</script>
+</body>
+</html>
