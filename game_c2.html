@@ -244,21 +244,7 @@
       margin-bottom: 12px;
     }
 
-  body.light-mode #start-btn {
-  background: linear-gradient(120deg, #38bdf8, #22c55e); /* 藍綠漸層 */
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-}
-    body.light-mode #start-btn:hover {
-  transform: translateY(-1px) scale(1.05);
-  filter: brightness(1.1);
-  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6);
-}
 
-body.light-mode #start-btn:active {
-  transform: translateY(1px) scale(0.98);
-  box-shadow: 0 3px 8px rgba(59, 130, 246, 0.4);
-}
 
     body.light-mode .leaderboard-controls button {
   color: #ffffff;
@@ -274,6 +260,8 @@ body.light-mode #collapse-all {
   background: linear-gradient(120deg, #9ca3af, #6b7280);
   box-shadow: 0 4px 10px rgba(156, 163, 175, 0.5);
 }
+
+    
 
     /* 暗 / 亮模式切換按鈕 */
     .theme-toggle {
@@ -682,6 +670,26 @@ body.light-mode #collapse-all {
         right: 10px;
       }
     }
+
+
+    /* 🔧 修正亮色模式下按鈕顏色不變問題 */
+body.light-mode #start-btn {
+  background: linear-gradient(120deg, #38bdf8, #22c55e) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+}
+
+body.light-mode #start-btn:hover {
+  transform: translateY(-1px) scale(1.05) !important;
+  filter: brightness(1.1) !important;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6) !important;
+}
+
+body.light-mode #start-btn:active {
+  transform: translateY(1px) scale(0.98) !important;
+  box-shadow: 0 3px 8px rgba(59, 130, 246, 0.4) !important;
+}
+    
   </style>
 </head>
 <body>
@@ -743,7 +751,7 @@ body.light-mode #collapse-all {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 12:38
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 12:39
   </div>
 
   <script>
