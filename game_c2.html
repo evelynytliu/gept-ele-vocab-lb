@@ -955,37 +955,41 @@ async function fetchLeaderboard() {
         return latestB - latestA;
       });
 
-      // 今日最高分顯示：以「最新更新的題庫」為主
-      if (sortedDatasets.length > 0 && todayBestEl) {
-        const latestDatasetKey = sortedDatasets[0];
-        const entriesLatest = grouped[latestDatasetKey];
-        const todayStr = new Date().toISOString().slice(0, 10);
+// 今日最高分顯示：以「最新更新的題庫」為主
+if (sortedDatasets.length > 0 && todayBestEl) {
+  const latestDatasetKey = sortedDatasets[0];
+  const entriesLatest = grouped[latestDatasetKey];
+  const todayStr = new Date().toISOString().slice(0, 10);
 
-        const todayEntries = entriesLatest.filter(e =>
-          e.timestamp && e.timestamp.startsWith(todayStr)
-        );
+  const todayEntries = entriesLatest.filter(e =>
+    e.timestamp && e.timestamp.startsWith(todayStr)
+  );
 
-        let textSpan = todayBestEl.querySelector(".text");
-        if (!textSpan) {
-          textSpan = document.createElement("span");
-          textSpan.className = "text";
-          todayBestEl.appendChild(textSpan);
-        }
+  let textSpan = todayBestEl.querySelector(".text");
+  if (!textSpan) {
+    textSpan = document.createElement("span");
+    textSpan.className = "text";
+    todayBestEl.appendChild(textSpan);
+  }
 
-        if (todayEntries.length > 0) {
-          const bestToday = todayEntries.reduce(
-            (best, e) => (e.score > best.score ? e : best),
-            todayEntries[0]
-          );
-          textSpan.textContent = `今日最高分（${latestDatasetKey}）：${bestToday.username} ${bestToday.score} 分`;
-        } else {
-          const bestAll = entriesLatest.reduce(
-            (best, e) => (e.score > best.score ? e : best),
-            entriesLatest[0]
-          );
-          textSpan.textContent = `今日最高分（${latestDatasetKey}）：今日尚無紀錄（最高：${bestAll.username} ${bestAll.score} 分）`;
-        }
+  if (todayEntries.length > 0) {
+    // 比分數（高→低），若分數相同比 timestamp（早→晚）
+    todayEntries.sort((a, b) => {
+      if (b.score === a.score) {
+        return new Date(a.timestamp) - new Date(b.timestamp); // 時間早的在前
       }
+      return b.score - a.score;
+    });
+    const bestToday = todayEntries[0];
+    textSpan.textContent = `今日最高分（${latestDatasetKey}）：${bestToday.username} ${bestToday.score} 分`;
+  } else {
+    const bestAll = entriesLatest.reduce(
+      (best, e) => (e.score > best.score ? e : best),
+      entriesLatest[0]
+    );
+    textSpan.textContent = `今日最高分（${latestDatasetKey}）：今日尚無紀錄（最高：${bestAll.username} ${bestAll.score} 分）`;
+  }
+}
 
       // 取最新題庫預設展開（1 個）
       const expandedDatasets = sortedDatasets.slice(0, 1);
