@@ -150,11 +150,14 @@
     margin-bottom: 10px;
   }
 
+  /* *** 以下為修改處 *** */
   .card-back .example {
     font-size: 1em;
     color: #cce7ff;
     line-height: 1.5;
-    flex-grow: 1; /* 讓例句填滿剩餘空間 */
+    flex-grow: 1; /* 讓文字優先 */
+    margin-bottom: 0; /* 移除舊間距 */
+    padding-right: 10px; /* 避免文字貼著按鈕 */
   }
 
   .card-back .translation {
@@ -164,11 +167,7 @@
     font-style: italic;
   }
 
-  .controls {
-    margin-top: 10px;
-  }
-
-  /* 播放按鈕 */
+  /* 播放按鈕 (通用) */
   button.play {
     border: none;
     padding: 8px 12px;
@@ -182,19 +181,46 @@
     line-height: 1;
   }
   
-  .card-back .play {
-    background: #0078b7;
-    color: #ffffff;
-    font-size: 0.9em;
+  /* 背面的單字播放按鈕 (繼承 .play) */
+  .card-back .word .play {
+    background: #ffe1d2; 
+    color: #ff5c39;
   }
 
   button.play:hover {
     transform: scale(1.1);
   }
   
-  .card-back .play:hover {
-     background: #0098e6;
+  /* --- 改善例句按鈕 (新增的CSS) --- */
+  .example-wrapper {
+    display: flex;
+    align-items: center; /* 垂直置中 */
+    justify-content: space-between; /* 區隔文字和按鈕 */
+    margin-bottom: 6px; /* 和翻譯的間距 */
+    flex-grow: 1; /* 讓這個區塊填滿空間 */
+    min-height: 50px; /* 確保有足夠高度 */
   }
+
+  /* 新的例句按鈕樣式 */
+  .play-sentence {
+    flex-shrink: 0; /* 按鈕不壓縮 */
+    background: #0078b7 !important; /* 蓋過 .play 的橘色 */
+    color: #ffffff !important;
+    font-size: 1.1em !important; /* 放大按鈕 */
+    padding: 10px !important; /* 加大點擊範圍 */
+    border-radius: 50% !important; /* 圓形 */
+    line-height: 1;
+    height: 42px; /* 固定高度 */
+    width: 42px; /* 固定寬度 */
+    display: flex; /* 讓 emoji 在圓圈中置中 */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .play-sentence:hover {
+    background: #0098e6 !important;
+  }
+  /* --- CSS 結束 --- */
 
   /* 頁尾 */
   .footer {
@@ -292,7 +318,6 @@ const data = [
   {v:"single-story",c:"單層的（建築）",e:"We live in a single-story house.",t:"我們住在單層的房子裡。", em:"🏠"},
   {v:"boarding gate",c:"登機門",e:"Our flight leaves from boarding gate 10.",t:"我們的航班從10號登機門出發。", em:"✈️"},
   {v:"boil",c:"煮沸；燒開",e:"Please boil some water for tea.",t:"請煮些水泡茶。", em:"🔥"},
-  // *** 以下是更正的地方 ***
   {v:"stress out",c:"壓力太大；感到焦慮",e:"Don’t stress out about the test.",t:"不要為考試太緊張。", em:"🤯"},
   {v:"line up",c:"排隊",e:"The students lined up for lunch.",t:"學生們排隊吃午餐。", em:"🚶‍♂️🚶‍♀️"},
   {v:"behave",c:"守規矩、乖一點（表現、舉止）",e:"Please behave in class.",t:"上課請守規矩。", em:"😇"},
@@ -327,29 +352,33 @@ data.forEach((item) => {
   // 建立卡片背面
   const cardBack = document.createElement("div");
   cardBack.className = "card-back";
+  // *** 以下為修改處 ***
   cardBack.innerHTML = `
     <div class="word">
       ${item.v}
       <button class="play" onclick="playWord('${item.v}')" title="播放單字">🔊</button>
     </div>
     <div class="meaning">${item.c}</div>
-    <div class="example">${item.e}</div>
-    <div class="translation">${item.t}</div>
-    <div class="controls">
-      <button class="play" onclick="playSentence('${item.e}')">🔊 播放例句</button>
+    
+    <div class="example-wrapper">
+      <div class="example">${item.e}</div>
+      <button class="play play-sentence" onclick="playSentence('${item.e}')" title="播放例句">🔊</button>
     </div>
-  `;
+    <div class="translation">${item.t}</div>
+    `;
 
   // 組合卡片
   cardInner.appendChild(cardFront);
   cardInner.appendChild(cardBack);
   card.appendChild(cardInner);
-  container.appendChild(card);
 
-  // *** 加入點擊翻轉的事件 ***
-  card.addEventListener("click", (event) => { // 傳入 event
-    // 檢查是否點擊在按鈕上，如果不是，才翻轉
-    if (!event.target.classList.contains('play')) {
+  // *** 加入點擊翻轉的事件 (已更新) ***
+  card.addEventListener("click", (event) => { 
+    // 檢查點擊的是否為按鈕 (或按鈕內部)
+    const isButton = event.target.closest('.play');
+    
+    // 如果點擊的不是按鈕，才翻轉卡片
+    if (!isButton) {
       card.classList.toggle("is-flipped");
     }
   });
