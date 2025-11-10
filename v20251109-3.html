@@ -314,8 +314,7 @@ const data = [
   {v:"activity",c:"活動",e:"The school has many fun activities.",t:"學校有許多有趣的活動。", em:"🏃‍♂️"},
   {v:"club",c:"俱樂部；社團",e:"I joined the English club.",t:"我加入了英語社團。", em:"🏠"},
   {v:"available",c:"可用的；可取得的；（人）有空的",e:"The teacher is available after class.",t:"老師下課後有空。", em:"✅"},
-  {v:"borrow",c:"借（進）",e:"Can I borrow your pencil?",t:"我可以借你的鉛筆嗎？", em:"🤝"},
-  {v:"single-story",c:"單層的（建築）",e:"We live in a single-story house.",t:"我們住在單層的房子裡。", em:"🏠"},
+  {v..."single-story",c:"單層的（建築）",e:"We live in a single-story house.",t:"我們住在單層的房子裡。", em:"🏠"},
   {v:"boarding gate",c:"登機門",e:"Our flight leaves from boarding gate 10.",t:"我們的航班從10號登機門出發。", em:"✈️"},
   {v:"boil",c:"煮沸；燒開",e:"Please boil some water for tea.",t:"請煮些水泡茶。", em:"🔥"},
   {v:"stress out",c:"壓力太大；感到焦慮",e:"Don’t stress out about the test.",t:"不要為考試太緊張。", em:"🤯"},
@@ -349,10 +348,8 @@ data.forEach((item) => {
     <div class="flip-hint">點擊翻轉</div>
   `;
 
-  // 建立卡片背面
-  const cardBack = document.createElement("div");
+  // 建立卡P... 
   cardBack.className = "card-back";
-  // *** 以下為修改處 ***
   cardBack.innerHTML = `
     <div class="word">
       ${item.v}
@@ -365,19 +362,20 @@ data.forEach((item) => {
       <button class="play play-sentence" onclick="playSentence('${item.e}')" title="播放例句">🔊</button>
     </div>
     <div class="translation">${item.t}</div>
-    `;
+  `;
 
   // 組合卡片
   cardInner.appendChild(cardFront);
   cardInner.appendChild(cardBack);
   card.appendChild(cardInner);
+  
+  // *** ！！！就是這一行！！！ ***
+  // *** 我上次漏掉了這一行，現在加回來了 ***
+  container.appendChild(card); 
 
-  // *** 加入點擊翻轉的事件 (已更新) ***
+  // 加入點擊翻轉的事件
   card.addEventListener("click", (event) => { 
-    // 檢查點擊的是否為按鈕 (或按鈕內部)
     const isButton = event.target.closest('.play');
-    
-    // 如果點擊的不是按鈕，才翻轉卡片
     if (!isButton) {
       card.classList.toggle("is-flipped");
     }
