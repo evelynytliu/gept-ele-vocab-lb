@@ -867,10 +867,15 @@ async function fetchLeaderboard() {
         grouped[key].push(entry);
       });
 
-      // 每個題庫內依「時間新→舊」排序
-      for (const key in grouped) {
-        grouped[key].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-      }
+// 每個題庫內依「分數高→低」排序，若同分則以時間新→舊排序
+for (const key in grouped) {
+  grouped[key].sort((a, b) => {
+    if (b.score === a.score) {
+      return new Date(b.timestamp) - new Date(a.timestamp);
+    }
+    return b.score - a.score;
+  });
+}
 
       // 題庫依「最新紀錄時間新→舊」排序
       const sortedDatasets = Object.keys(grouped).sort((a, b) => {
