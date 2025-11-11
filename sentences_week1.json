@@ -1,0 +1,77 @@
+[
+  {
+    "sentence": "The big dragon can ____.",
+    "answer": "breathe fire",
+    "distractors": ["trainer", "journey", "rare"]
+  },
+  {
+    "sentence": "A Pokémon ____ helps their Pokémon get strong.",
+    "answer": "trainer",
+    "distractors": ["lab", "claw", "wings"]
+  },
+  {
+    "sentence": "They went on a long ____ to the mountains.",
+    "answer": "journey",
+    "distractors": ["tail", "horns", "punch"]
+  },
+  {
+    "sentence": "It is very ____ to see a shooting star.",
+    "answer": "rare",
+    "distractors": ["fluffy", "energetic", "furry"]
+  },
+  {
+    "sentence": "You must ____ for your pet cat and dog.",
+    "answer": "care",
+    "distractors": ["decide", "pick", "nod"]
+  },
+  {
+    "sentence": "I need to ____ which toy I want to buy.",
+    "answer": "decide",
+    "distractors": ["care", "punch", "breathe fire"]
+  },
+  {
+    "sentence": "Please ____ your favorite color.",
+    "answer": "pick",
+    "distractors": ["nod", "care", "journey"]
+  },
+  {
+    "sentence": "The scientist works in a ____.",
+    "answer": "lab",
+    "distractors": ["trainer", "claw", "wings"]
+  },
+  {
+    "sentence": "The kitten is very ____ and loves to play.",
+    "answer": "energetic",
+    "distractors": ["icy", "striped", "rare"]
+  },
+  {
+    "sentence": "The rabbit is white and ____.",
+    "answer": "fluffy",
+    "distractors": ["rare", "electric", "brave"]
+  },
+  {
+    "sentence": "A cat has a long ____.",
+    "answer": "tail",
+    "distractors": ["horns", "wings", "lab"]
+  },
+  {
+    "sentence": "The tiger is ____; it has black and orange lines.",
+    "answer": "striped",
+    "distractors": ["furry", "fluffy", "energetic"]
+  },
+  {
+    "sentence": "The bear has sharp ____ on its paws.",
+    "answer": "claw",
+    "distractors": ["wings", "horns", "tail"]
+  },
+  {
+    "sentence": "A Pikachu is an ____ type Pokémon.",
+    "answer": "electric",
+    "distractors": ["icy", "fluffy", "striped"]
+  },
+  {
+    "sentence": "He gave his friend a light ____ on the arm.",
+    "answer": "punch",
+    "distractors": ["claw", "tail", "journey"]
+  }
+]
