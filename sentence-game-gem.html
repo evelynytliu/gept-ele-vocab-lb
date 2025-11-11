@@ -22,7 +22,7 @@
       --danger: #ff3860;
       --success: #00ff9d;
       --shadow-strong: 0 18px 40px rgba(0, 0, 0, 0.7);
-      /* ✅ 新增：排行榜顏色 (Request 4) */
+      /* ✅ 排行榜顏色 */
       --gold: #FFD700;
       --silver: #C0C0C0;
       --bronze: #CD7F32;
@@ -38,7 +38,7 @@
       --text-main: #1e293b;
       --text-muted: #64748b;
       --shadow-strong: 0 10px 20px rgba(148, 163, 184, 0.45);
-      /* ✅ 新增：排行榜顏色 (Request 4) */
+      /* ✅ 排行榜顏色 */
       --gold: #D4AF37;
       --silver: #8E8E8E;
       --bronze: #B87333;
@@ -333,14 +333,14 @@
       margin-top: 4px;
     }
     
-    /* ✅ 新增：遊戲 HUD 樣式 (Request 3) */
+    /* ✅ 遊戲 HUD 樣式 (Request 1) */
     .game-hud {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: rgba(15, 23, 42, 0.9); /* From .progress-container */
       border-radius: 999px;
-      margin: 16px 0 10px 0;
+      margin: 0 0 1.5em 0; /* 移到題目下方, 調整 margin */
       padding: 8px 20px;
       border: 1px solid rgba(148, 163, 184, 0.5);
     }
@@ -375,23 +375,27 @@
       background: #e5e7eb;
       box-shadow: inset 0 0 4px rgba(148, 163, 184, 0.5);
     }
-    /* 移除舊樣式 (Request 3) */
+    /* 移除舊樣式 */
     .score-display, .lives-display {
        display: none; /* 已被 .game-hud 取代 */
     }
 
-
+    
+    /* ✅ 題目美化 (Request 1) */
     .question {
-      font-size: 1.4em;
-      margin: 0.8em 0 1.2em 0;
+      font-size: 1.6em; /* 放大 */
+      font-weight: 700;  /* 加粗 */
+      margin: 0.8em 0 0.5em 0; /* 調整 margin */
       text-align: center;
-      color: #e5e7ff;
+      color: #ffffff; /* 改為純白 */
       padding: 8px 10px;
       line-height: 1.6;
+      text-shadow: 0 0 8px rgba(0, 224, 255, 0.5); /* 增加一點光暈 */
     }
 
     body.light-mode .question {
       color: #0f172a;
+      text-shadow: none; /* 亮色模式不需要光暈 */
     }
 
     .options {
@@ -716,10 +720,7 @@
     body.light-mode .rank-item {
       border-bottom-color: rgba(148, 163, 184, 0.7);
     }
-    /* (light mode 的顏色變數已在 :root 中定義) */
     
-    /* (移除舊的 .dataset-block ul li 樣式) */
-
     .footer {
       margin-top: 14px;
       font-size: 0.8em;
@@ -755,7 +756,7 @@
         right: 10px;
       }
       
-      /* ✅ RWD for HUD (Request 3) */
+      /* ✅ RWD for HUD (Request 1) */
       .game-hud {
         padding: 6px 16px;
       }
@@ -767,6 +768,24 @@
       }
       #lives-display {
         font-size: 1.1em;
+      }
+
+      /* ✅ RWD for Rank (Request 4) */
+      .rank-position {
+        width: 35px;
+        font-size: 1.1em;
+      }
+      .rank-details {
+        margin-left: 4px;
+      }
+      .rank-username {
+        font-size: 0.9em;
+      }
+      .rank-time {
+        font-size: 0.75em;
+      }
+      .rank-score {
+        font-size: 1.0em;
       }
     }
 /* === 亮色模式下選項按鈕修正版：提高文字對比 === */
@@ -847,6 +866,8 @@ body.light-mode #start-btn:active {
 
     <div class="quiz" style="display:none;">
       
+      <div class="question" id="question"></div>
+
       <div class="game-hud">
         <div class="hud-item" id="score-display-container">
           <span class="hud-label">目前得分</span>
@@ -861,7 +882,6 @@ body.light-mode #start-btn:active {
       <div class="score-display" id="score-display-old"></div>
       <div class="lives-display" id="lives-display-old"></div>
       
-      <div class="question" id="question"></div>
       <div class="options" id="options"></div>
       <h3 id="result-title" style="margin-top:30px;"></h3>
       <ul class="result-log" id="results"></ul>
@@ -882,7 +902,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 15:15
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 15:30
   <div>
 
   <script>
@@ -906,7 +926,7 @@ speechSynthesis.onvoiceschanged = () => {
   selectedVoice = findEnglishVoice();
 };
 
-// 預設題庫 (單字格式，對應 <select> 中的第一個選項)
+// 預設題庫 (根據 <select> 順序，改為 sentence)
 let data = [
   { "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"] }
 ];
@@ -921,7 +941,7 @@ let score = 0;
 let lives = 3;
 let gameSession = Date.now();
 let currentQuizType = "sentence"; // 根據新的 <select> 順序，預設改為 sentence
-let currentDatasetFile = ""; // ✅ 追蹤目前選擇的檔案 (Request 3)
+let currentDatasetFile = ""; // 追蹤目前選擇的檔案
 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -934,12 +954,12 @@ function updateProgressBar() {
   document.getElementById("progress-bar").style.width = `${percent}%`;
 }
 
-// ✅ 修正：更新 HUD (Request 3)
+// ✅ 修正：更新 HUD
 function updateScoreDisplay() {
   document.getElementById("score-display").innerText = score;
 }
 
-// ✅ 修正：更新 HUD (Request 3)
+// ✅ 修正：更新 HUD
 function updateLivesDisplay() {
   const hearts = '❤️'.repeat(lives);
   document.getElementById("lives-display").innerText = hearts;
@@ -947,7 +967,7 @@ function updateLivesDisplay() {
 
 let sessionBadges = []; // 用來記錄本次挑戰新增的徽章
 
-// ✅ 整合後的徽章系統
+// 整合後的徽章系統
 function awardBadges() {
   const newBadges = [];
   
@@ -1006,7 +1026,7 @@ async function submitScore() {
 }
 
 // ===============================================
-// 語音 speak 函數 (已修正)
+// ✅ Bug 修正：speak 函數 (Request 2)
 // ===============================================
 
 /**
@@ -1017,7 +1037,10 @@ async function submitScore() {
 function speak(text, callback) {
   speechSynthesis.cancel();
   if (!selectedVoice) selectedVoice = findEnglishVoice();
-  const utterance = new SpeechSynthesisUtterFance(text);
+  
+  // ✅ Bug 修正：拼寫錯誤 (Fance -> Utterance)
+  const utterance = new SpeechSynthesisUtterance(text);
+  
   utterance.voice = selectedVoice;
   utterance.lang = "en-US";
   utterance.rate = 0.9;
@@ -1100,7 +1123,7 @@ async function fetchLeaderboard() {
 
         let questionCount = 0;
         try {
-          // ✅ 修正：使用 .includes() (Request 2)
+          // ✅ 修正：使用 .includes() 
           const option = Array.from(datasetSelect.options).find(
             opt => opt.text.trim().includes(dataset.trim())
           );
@@ -1122,10 +1145,10 @@ async function fetchLeaderboard() {
           console.warn("無法載入題庫題數:", dataset, err);
         }
 
-        // 滿分邏輯 (Request 1)
+        // 滿分邏輯
         let fullScore = "？";
         try {
-          // ✅ 修正：使用 .includes() (Request 2)
+          // ✅ 修正：使用 .includes() 
           const option = Array.from(datasetSelect.options).find(
             opt => opt.text.trim().includes(dataset.trim())
           );
@@ -1462,7 +1485,7 @@ function updateUIForQuizType(quizType) {
     hint.innerHTML = "小提示：開始後按上面的按鈕可以重聽句子發音 🎧";
   }
   
-  // ✅ 修正：(Request 3) 
+  // ✅ 修正：
   // 此函數只在 "載入" 或 "切換題庫" 時呼叫
   // 我們要確保按鈕在遊戲未開始時，顯示正確的文字與功能
   const startButton = document.getElementById("start-btn");
@@ -1573,7 +1596,7 @@ document.addEventListener("keydown", function(event) {
 
 document.getElementById("dataset").addEventListener("change", async function(e) {
   
-  // ✅ 新增：防呆確認 (Request 3)
+  // ✅ 新增：防呆確認
   const quizInProgress = document.querySelector(".quiz").style.display === "block";
   if (quizInProgress) {
     const confirmed = confirm("挑戰尚未完成，確定要切換題庫嗎？\n（目前的進度將會遺失）");
