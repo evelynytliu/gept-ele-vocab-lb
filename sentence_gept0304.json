@@ -1,8 +1,8 @@
 [
   {
-    "sentence": "We ________ our weekend plans.",
-    "answer": "discuss",
-    "distractors": ["attend", "suggest", "mention"]
+    "sentence": "We ________ our weekend plans yesterday.",
+    "answer": "discussed",
+    "distractors": ["attended", "damaged", "borrowed"]
   },
   {
     "sentence": "I ________ play basketball every day.",
@@ -36,8 +36,8 @@
   },
   {
     "sentence": "She ________ a great idea.",
-    "answer": "come up with",
-    "distractors": ["deal with", "work out", "look forward to"]
+    "answer": "came up with",
+    "distractors": ["dealt with", "worked out", "looked forward to"]
   },
   {
     "sentence": "You must sign the paper ________.",
@@ -52,7 +52,7 @@
   {
     "sentence": "The new medicine has a good ________.",
     "answer": "effect",
-    "distractors": ["habit", "price", "purpose"]
+    "distractors": ["habit", "relative", "purpose"]
   },
   {
     "sentence": "She takes ________ exercise every day.",
@@ -71,13 +71,13 @@
   },
   {
     "sentence": "The typhoon ________ many houses.",
-    "answer": "damage",
-    "distractors": ["boil", "search", "fit"]
+    "answer": "damaged",
+    "distractors": ["boiled", "searched", "fit"]
   },
   {
     "sentence": "Taiwan ________ its delicious food.",
-    "answer": "be known for",
-    "distractors": ["deal with", "used to", "look forward to"]
+    "answer": "is known for",
+    "distractors": ["deals with", "used to", "looks forward to"]
   },
   {
     "sentence": "I’m not interested in any ________ topic.",
@@ -132,7 +132,7 @@
   {
     "sentence": "He came home at his ________ time.",
     "answer": "usual",
-    "distractors": ["particular", "serious", "entire"]
+    "distractors": ["formal", "serious", "entire"]
   },
   {
     "sentence": "Reading before bed is a good ________.",
@@ -151,8 +151,8 @@
   },
   {
     "sentence": "The hotel is ________ near the beach.",
-    "answer": "locate",
-    "distractors": ["attend", "introduce", "disappear"]
+    "answer": "located",
+    "distractors": ["attended", "introduced", "disappeared"]
   },
   {
     "sentence": "The ________ family went on vacation.",
@@ -180,7 +180,7 @@
     "distractors": ["hostel", "diary", "advertisement"]
   },
   {
-    "sentence": "The teacher is ________ after class.",
+    "sentence": "The teacher is ________ after class, so you can go ask questions.",
     "answer": "available",
     "distractors": ["serious", "regular", "particular"]
   },
@@ -221,8 +221,8 @@
   },
   {
     "sentence": "The sun ________ behind the clouds.",
-    "answer": "disappear",
-    "distractors": ["behave", "locate", "attend"]
+    "answer": "disappeared",
+    "distractors": ["behaved", "located", "attended"]
   },
   {
     "sentence": "We stayed in a cheap ________.",
@@ -240,7 +240,7 @@
     "distractors": ["fit", "in person", "above all"]
   },
   {
-    "sentence": "That ________ is my cousin.",
+    "sentence": "That ________ is my neighbor.",
     "answer": "teenager",
     "distractors": ["employee", "actor", "relative"]
   },
