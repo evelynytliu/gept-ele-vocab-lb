@@ -1,27 +1,313 @@
-[
-  {
-    "sentence": "I always do my homework after dinner.",
-    "answer": "do",
-    "distractors": ["make", "play", "go"]
-  },
-  {
-    "sentence": "He is very happy today because he passed the test.",
-    "answer": "happy",
-    "distractors": ["sad", "tired", "angry"]
-  },
-  {
-    "sentence": "My father works in a hospital.",
-    "answer": "hospital",
-    "distractors": ["teacher", "school", "office"]
-  },
-  {
-    "sentence": "She sings loudly in the shower every morning.",
-    "answer": "loudly",
-    "distractors": ["beautiful", "music", "happy"]
-  },
-  {
-    "sentence": "They decided to visit the museum on Sunday.",
-    "answer": "museum",
-    "distractors": ["library", "zoo", "station"]
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEPT Sentence Challenge ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent-cyan: #00e0ff;
+      --accent-lime: #00ff9d;
+      --accent-pink: #ff4b9f;
+      --bg-deep: #050816;
+      --card-bg: rgba(8, 16, 32, 0.9);
+      --border-glow: rgba(0, 224, 255, 0.4);
+      --text-main: #f5f7ff;
+      --text-muted: #9ca3c4;
+      --danger: #ff3860;
+      --success: #00ff9d;
+      --shadow-strong: 0 18px 40px rgba(0, 0, 0, 0.7);
+    }
+    body {
+      font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 960px;
+      margin: 24px auto;
+      padding: 16px;
+      color: var(--text-main);
+      background: radial-gradient(circle at top, #1b2845 0, #050816 55%, #000 100%);
+      background-size: 200% 200%;
+      animation: bgMove 26s ease-in-out infinite;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+    @keyframes bgMove {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 60%; }
+      100% { background-position: 0% 0%; }
+    }
+    .game-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 24px 20px 32px;
+      box-shadow: var(--shadow-strong);
+      border: 1px solid var(--border-glow);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+    h1 {
+      text-align: center;
+      color: var(--accent-cyan);
+      font-size: 2.2em;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 10px rgba(0, 224, 255, 0.9);
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 0.95em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .control-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    #dataset, #username {
+      padding: 8px 12px;
+      font-size: 0.95em;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+      color: var(--text-main);
+      outline: none;
+    }
+    #start-btn {
+      margin-left: 4px;
+      padding: 8px 18px;
+      font-size: 0.95em;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--accent-cyan), var(--accent-lime));
+      color: #111827;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    #start-btn:hover { transform: scale(1.05); }
+    .progress-container {
+      height: 18px;
+      background: rgba(15,23,42,0.9);
+      border-radius: 999px;
+      margin: 16px 0 10px 0;
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.5);
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-lime));
+      transition: width 0.3s ease-in-out;
+      box-shadow: 0 0 16px rgba(0,224,255,0.9);
+    }
+    .score-display, .lives-display {
+      text-align: center;
+      margin: 6px 0;
+      font-weight: 600;
+    }
+    .question {
+      font-size: 1.4em;
+      text-align: center;
+      margin: 20px 0;
+      color: var(--accent-cyan);
+    }
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .options button {
+      padding: 14px;
+      font-size: 1.02em;
+      font-weight: 600;
+      border: none;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, rgba(148,163,184,0.36), rgba(15,23,42,0.96));
+      color: var(--text-main);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .options button.correct {
+      background: linear-gradient(135deg, var(--success), #9bffcd);
+      color: #052e16;
+      box-shadow: 0 0 18px rgba(0,255,157,0.9);
+    }
+    .options button.incorrect {
+      background: linear-gradient(135deg, var(--danger), #ff9aa2);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(255,56,96,0.9);
+    }
+    .footer {
+      margin-top: 16px;
+      font-size: 0.8em;
+      color: #94a3b8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-card">
+    <h1>GEPT Sentence Challenge ✨</h1>
+    <div class="subtitle">選出正確單字完成句子，每題答完自動朗讀整句！</div>
+
+    <div class="control-row">
+      <label for="dataset">題庫選擇：</label>
+      <select id="dataset">
+        <option value="sentences_sample.json">🌟 範例題庫</option>
+        <option value="sentences_week1.json">🟡 Week 1</option>
+        <option value="sentences_gept.json">🔵 GEPT 擴充挑戰</option>
+      </select>
+    </div>
+
+    <div class="control-row">
+      <label for="username">玩家暱稱：</label>
+      <input id="username" type="text" placeholder="例如：Miles" />
+      <button id="start-btn" onclick="startGame()">開始挑戰</button>
+    </div>
+
+    <div id="progress-container" class="progress-container" style="display:none;">
+      <div id="progress-bar" class="progress-bar"></div>
+    </div>
+
+    <div id="game-section" style="display:none;">
+      <div id="score-display" class="score-display">得分：0</div>
+      <div id="lives-display" class="lives-display">❤️❤️❤️</div>
+      <div id="question" class="question"></div>
+      <div id="options" class="options"></div>
+    </div>
+  </div>
+
+  <div class="footer">Made by Evelyn YT ｜© 2025</div>
+
+<script>
+let data = [];
+let currentIndex = 0;
+let score = 0;
+let lives = 3;
+let selectedVoice = null;
+let gameSession = Date.now();
+
+function findEnglishVoice() {
+  const voices = speechSynthesis.getVoices();
+  const priority = ['Google US English', 'Samantha', 'Microsoft Aria Online (Natural) - English (United States)', 'Microsoft Zira'];
+  for (const name of priority) {
+    const match = voices.find(v => v.name.includes(name));
+    if (match) return match;
   }
-]
+  return voices.find(v => v.lang === 'en-US') || voices[0];
+}
+speechSynthesis.onvoiceschanged = () => { selectedVoice = findEnglishVoice(); };
+
+function shuffle(arr){ return arr.sort(() => Math.random() - 0.5); }
+
+function updateUI() {
+  document.getElementById("score-display").innerText = `得分：${score}`;
+  document.getElementById("lives-display").innerText = "❤️".repeat(lives);
+  document.getElementById("progress-bar").style.width = `${(currentIndex/data.length)*100}%`;
+}
+
+function speakSentence(sentence){
+  if (!selectedVoice) selectedVoice = findEnglishVoice();
+  const u = new SpeechSynthesisUtterance(sentence);
+  u.voice = selectedVoice;
+  u.lang = "en-US";
+  u.rate = 0.95;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function renderQuestion(){
+  const q = data[currentIndex];
+  const blanked = q.sentence.replace(q.answer, "_____");
+  document.getElementById("question").innerText = blanked;
+  const opts = shuffle([q.answer, ...shuffle(q.distractors).slice(0,3)]);
+  const container = document.getElementById("options");
+  container.innerHTML = "";
+  opts.forEach(opt=>{
+    const btn = document.createElement("button");
+    btn.innerText = opt;
+    btn.onclick = ()=>handleAnswer(btn, opt, q);
+    container.appendChild(btn);
+  });
+}
+
+function handleAnswer(btn, choice, q){
+  const buttons = document.querySelectorAll(".options button");
+  buttons.forEach(b=>b.disabled=true);
+  if(choice===q.answer){
+    btn.classList.add("correct");
+    score += 5;
+    updateUI();
+    setTimeout(()=>{
+      speakSentence(q.sentence);
+    }, 500);
+    setTimeout(()=>{
+      nextQuestion();
+    }, 2500);
+  }else{
+    btn.classList.add("incorrect");
+    lives--;
+    updateUI();
+    if(lives<=0){
+      setTimeout(endGame, 800);
+    }else{
+      setTimeout(nextQuestion, 1000);
+    }
+  }
+}
+
+function nextQuestion(){
+  currentIndex++;
+  if(currentIndex >= data.length || lives <= 0){
+    endGame();
+  }else{
+    renderQuestion();
+  }
+}
+
+function endGame(){
+  document.getElementById("game-section").innerHTML = `
+    <h2 style="text-align:center;">🎯 挑戰結束！</h2>
+    <p style="text-align:center;">總得分：${score}</p>
+    <div style="text-align:center;">
+      <button onclick="location.reload()" style="
+        padding:12px 24px; font-size:1em;
+        border:none; border-radius:30px;
+        background:linear-gradient(to right, #ff9f1a, #ffc107);
+        color:#222; font-weight:600;">🔁 再玩一次</button>
+    </div>`;
+}
+
+async function startGame(){
+  const name = document.getElementById("username").value.trim();
+  if(!name){ alert("請輸入名字！"); return; }
+  const file = document.getElementById("dataset").value;
+  try{
+    const res = await fetch(file);
+    data = await res.json();
+    shuffle(data);
+  }catch(e){
+    alert("題庫載入失敗，請確認 JSON 檔。");
+    return;
+  }
+  document.getElementById("game-section").style.display="block";
+  document.getElementById("progress-container").style.display="block";
+  document.querySelector(".control-row").style.display="none";
+  document.getElementById("username").style.display="none";
+  document.getElementById("start-btn").style.display="none";
+  currentIndex=0; score=0; lives=3;
+  updateUI();
+  renderQuestion();
+}
+</script>
+</body>
+</html>
