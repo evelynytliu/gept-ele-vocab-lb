@@ -218,8 +218,8 @@
 
     #start-btn {
       margin-left: 4px;
-      padding: 8px 18px;
-      font-size: 0.95em;
+      padding: 10px 22px; /* 稍微加寬 */
+      font-size: 1.05em; /* 稍微加大 */
       border-radius: 999px;
       background: linear-gradient(120deg, var(--accent-cyan), var(--accent-lime));
       color: #111827;
@@ -250,6 +250,7 @@
       color: var(--text-muted);
       margin-top: 2px;
       margin-bottom: 12px;
+      width: 100%; /* 確保它能置中 */
     }
 
 
@@ -480,10 +481,14 @@
     }
 
     .result-log li {
-      margin: 4px 0;
+      margin: 8px 0; /* 增加行距以容納翻譯 */
       font-size: 0.9em;
       color: var(--text-muted);
       line-height: 1.5;
+    }
+    
+    .result-log li small {
+      font-size: 0.95em;
     }
 
     #result-title {
@@ -833,10 +838,13 @@ body.light-mode #start-btn:active {
       <span class="label">暗色模式</span>
     </button>
 
+    <!-- ========= NEW LAYOUT START ========= -->
+
+    <!-- 1. 題庫選擇 -->
     <div class="control-row" style="margin-top: 10px; margin-bottom: 16px;">
       <label for="dataset">題庫選擇：</label>
-      
       <select id="dataset">
+        <!-- 注意：我把 sentence_gept0304.json 改成 v2，記得上傳新檔案 -->
         <option value="sentence_gept0304.json" data-limit="all" data-quiz-type="sentence">🟡 (造句) GEPT 第三回+第四回 </option>
         <option value="sentences_week1.json" data-limit="all" data-quiz-type="sentence">🟡 (造句) Week 1 </option>
         <option value="sentences_week2.json" data-limit="all" data-quiz-type="sentence">🟡 (造句) Week 2 </option>
@@ -850,14 +858,27 @@ body.light-mode #start-btn:active {
         <option value="gept-full.json" data-limit="all" data-quiz-type="vocab">🔵 全 GEPT (魔鬼挑戰2256題)</option>
       </select>
     </div>
-     <label for="username">玩家暱稱：</label>
+
+    <!-- 2. 玩家暱稱 -->
+    <div class="control-row" id="username-row" style="margin-bottom: 20px;">
+      <label for="username">玩家暱稱：</label>
       <input id="username" type="text" placeholder="例如：Emmett" />
-    <h1 id="main-title">GEPT Vocabulary Battle ⚡</h1>
+    </div>
+
+    <!-- 3. 大標題 -->
+    <h1 id="main-title" style="margin-top: 16px;">GEPT Vocabulary Battle ⚡</h1>
+    
+    <!-- 4. 小說明 -->
     <div class="subtitle" id="main-subtitle">聽發音、選中文，看看你能守住幾條命！</div>
-    <div class="control-row" style="margin-top: 4px;">
-      <div class="hint-text" id="main-hint">小提示：開始後按下面的按鈕可以重聽英文發音 🎧</div>
+    
+    <!-- 5. 開始挑戰按鈕 -->
+    <div class="control-row" style="margin-top: 16px; flex-direction: column;">
+      <div class="hint-text" id="main-hint" style="margin-top: 0; margin-bottom: 12px;">小提示：開始後按鈕可重聽發音 🎧</div>
       <button id="start-btn" onclick="startQuiz()">開始挑戰</button>
     </div>
+    
+    <!-- ========= NEW LAYOUT END ========= -->
+
 
     <div class="progress-container" style="display:none;" id="progress-section">
       <div class="progress-bar" id="progress-bar"></div>
@@ -902,7 +923,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025/11/10 23:35
+    Made by Evelyn YT ｜© 2025/11/11 (Layout & Translation Update)
   <div>
 
   <script>
@@ -928,7 +949,7 @@ speechSynthesis.onvoiceschanged = () => {
 
 // 預設題庫 (根據 <select> 順序，改為 sentence)
 let data = [
-  { "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"] }
+  { "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"], "chinese": "預設問題。" }
 ];
 
 let defaultData = [...data];
@@ -1415,26 +1436,30 @@ function renderSentenceQuestion() {
 }
 
 function handleSentenceChoice(button, choice) {
-  const correctAnswer = questionSet[currentIndex].answer;
-  const sentence = questionSet[currentIndex].sentence;
+  const q = questionSet[currentIndex]; // ✅ 取得完整題目物件
+  const correctAnswer = q.answer;
+  const sentence = q.sentence;
+  const translation = q.chinese || ""; // ✅ 取得中文翻譯
   attempts++;
 
   if (choice === correctAnswer) {
     button.classList.add("correct");
     document.querySelectorAll(".options button").forEach(btn => btn.disabled = true);
     
-    // 組合完整句子
-    const fullSentence = sentence.replace("________", correctAnswer);
+    // ✅ 組合完整句子，並將答案加粗
+    const fullSentence = sentence.replace("________", `<strong>${correctAnswer}</strong>`);
 
     if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
       document.getElementById("result-title").innerText = `${window.username} 的挑戰結果：`;
     }
     
-    // 更新結果紀錄
-    document.getElementById("results").innerHTML += 
-      (attempts === 1
-        ? `<li>✅ ${fullSentence} — ${attempts} 次 — +5分</li>`
-        : `<li style="color: #facc15;">🟡 ${fullSentence} — ${attempts} 次 — 0分</li>`);
+    // ✅ 更新結果紀錄 (Log)
+    const logEntry = (attempts === 1
+        ? `<li>✅ ${fullSentence} — ${attempts} 次 — +5分`
+        : `<li style="color: #facc15;">🟡 ${fullSentence} — ${attempts} 次 — 0分`);
+    
+    // ✅ 將翻譯加在下一行
+    document.getElementById("results").innerHTML += `${logEntry}<br><small style="color: var(--text-muted); padding-left: 20px;">${translation}</small></li>`;
 
     if (attempts === 1) {
       score += 5;
@@ -1442,6 +1467,8 @@ function handleSentenceChoice(button, choice) {
     updateScoreDisplay();
 
     // ✅ 語音修正：使用 callback
+    const sentenceToSpeak = sentence.replace("________", correctAnswer); // 念出完整的句子
+
     const nextStep = () => {
       currentIndex++;
       const quizCompleted = typeof totalQuestionsToComplete === 'number' 
@@ -1455,7 +1482,7 @@ function handleSentenceChoice(button, choice) {
       }
     };
     
-    speak(fullSentence, nextStep); // 播放完句子後，才執行 nextStep
+    speak(sentenceToSpeak, nextStep); // 播放完句子後，才執行 nextStep
 
   } else {
     button.classList.add("incorrect");
@@ -1466,8 +1493,15 @@ function handleSentenceChoice(button, choice) {
     
     if (lives <= 0) {
       // ✅ 語音修正：答錯最後一條命
-      const fullSentence = sentence.replace("________", correctAnswer);
-      speak(`Correct answer: ${fullSentence}`, endGame); // 念完正確答案後，才結束遊戲
+      const fullSentence = sentence.replace("________", `<strong>${correctAnswer}</strong>`);
+      const sentenceToSpeak = sentence.replace("________", correctAnswer);
+      const translation = q.chinese || ""; // ✅ 確保結束時也能抓到翻譯
+
+      // ✅ 在結束前，補上最後一題的正確答案Log
+      document.getElementById("results").innerHTML += 
+        `<li style="color: var(--danger);">❌ ${fullSentence} (正確答案)<br><small style="color: var(--text-muted); padding-left: 20px;">${translation}</small></li>`;
+      
+      speak(`Correct answer: ${sentenceToSpeak}`, endGame); // 念完正確答案後，才結束遊戲
     }
   }
 }
@@ -1485,11 +1519,11 @@ function updateUIForQuizType(quizType) {
   if (quizType === "vocab") {
     title.innerHTML = "GEPT Vocabulary Battle ⚡";
     subtitle.innerHTML = "聽發音、選中文，看看你能守住幾條命！";
-    hint.innerHTML = " ";
+    hint.innerHTML = "小提示：開始後按鈕可重聽發音 🎧";
   } else if (quizType === "sentence") {
     title.innerHTML = "GEPT Sentence Challenge ✍️";
     subtitle.innerHTML = "閱讀句子、選出正確單字，完成填空！";
-    hint.innerHTML = " ";
+    hint.innerHTML = "小提示：開始後按鈕可重聽「題目」發音 🎧";
   }
   
   // ✅ 修正：
@@ -1565,9 +1599,11 @@ function startQuiz() {
   }
   startButton.onclick = speakCurrent; // 綁定整合後的重聽函數
 
-  document.getElementById("username").style.display = "none";
-  const usernameLabel = document.querySelector("label[for='username']");
-  if (usernameLabel) usernameLabel.style.display = "none";
+  // ✅ 修正：隱藏新的 username-row
+  const usernameRow = document.getElementById("username-row");
+  if (usernameRow) {
+    usernameRow.style.display = "none";
+  }
 
   document.getElementById("progress-section").style.display = "block";
   document.querySelector(".quiz").style.display = "block";
@@ -1595,7 +1631,9 @@ function startQuiz() {
 document.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
     const input = document.getElementById("username");
-    if (input && input.style.display !== "none") {
+    // ✅ 修正：檢查 input 的父層 row 是否可見
+    const usernameRow = document.getElementById("username-row");
+    if (usernameRow && window.getComputedStyle(usernameRow).display !== "none") {
       startQuiz();
     }
   }
@@ -1648,7 +1686,13 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
     }
   } catch (err) {
     console.warn("載入題庫失敗，使用預設題庫");
-    data = [...defaultData];
+    // ✅ 修正：確保預設題庫與 currentQuizType 一致
+    if (currentQuizType === 'sentence') {
+        data = [{ "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"], "chinese": "預設問題。" }];
+    } else {
+        data = [{ Vocabulary: "error", Chinese: "錯誤" }];
+    }
+    
     currentDatasetFile = document.getElementById("dataset").options[0].value; // ✅ 載入失敗，重設為預設檔案
     questionSet = shuffle([...data]);
     currentIndex = 0;
@@ -1720,7 +1764,7 @@ if (themeToggleBtn) {
     console.warn("初始題庫載入失敗，使用預設題庫");
     // ✅ 修正：確保預設題庫與 currentQuizType 一致
     if (currentQuizType === 'sentence') {
-        data = [{ "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"] }];
+        data = [{ "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"], "chinese": "預設問題。" }];
     } else {
         data = [{ Vocabulary: "error", Chinese: "錯誤" }];
     }
@@ -1730,7 +1774,7 @@ if (themeToggleBtn) {
   if (!Array.isArray(data) || data.length === 0) {
       console.warn("題庫為空，使用預設題庫");
       if (currentQuizType === 'sentence') {
-          data = [{ "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"] }];
+          data = [{ "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"], "chinese": "預設問題。" }];
       } else {
           data = [{ Vocabulary: "error", Chinese: "錯誤" }];
       }
