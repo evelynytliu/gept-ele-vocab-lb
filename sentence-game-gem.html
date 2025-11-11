@@ -720,10 +720,7 @@ body.light-mode #start-btn:active {
       <span class="label">暗色模式</span>
     </button>
 
-    <h1 id="main-title">GEPT Vocabulary Battle ⚡</h1>
-    <div class="subtitle" id="main-subtitle">聽發音、選中文，看看你能守住幾條命！</div>
-
-    <div class="control-row" style="margin-top: 10px;">
+    <div class="control-row" style="margin-top: 10px; margin-bottom: 16px;">
       <label for="dataset">題庫選擇：</label>
       <select id="dataset">
         <option value="GEPT_20251109.json" data-limit="all" data-quiz-type="vocab">🌎 GEPT 第三回+第四回 (單字)</option>
@@ -739,6 +736,9 @@ body.light-mode #start-btn:active {
         <option value="sentences_week2.json" data-limit="all" data-quiz-type="sentence">🟡 Week 2 (造句挑戰 20題)</option>
       </select>
     </div>
+
+    <h1 id="main-title">GEPT Vocabulary Battle ⚡</h1>
+    <div class="subtitle" id="main-subtitle">聽發音、選中文，看看你能守住幾條命！</div>
 
     <div class="control-row" style="margin-top: 4px;">
       <label for="username">玩家暱稱：</label>
@@ -775,7 +775,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/10 23:01
+    Made by Evelyn YT ｜© 2025 | 2025/11/10 23:02
   <div>
 
   <script>
@@ -816,7 +816,7 @@ let totalQuestionsToComplete = "all";
 let score = 0;
 let lives = 3;
 let gameSession = Date.now();
-let currentQuizType = "vocab"; // 新增：追蹤目前的遊戲模式
+let currentQuizType = "vocab"; // 追蹤目前的遊戲模式
 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -863,9 +863,6 @@ function awardBadges() {
   // 更新永久徽章
   sessionBadges.forEach(badge => badgesEarned.push(badge));
   localStorage.setItem("badges", JSON.stringify(badgesEarned));
-
-  // 更新畫面
-  displayBadges(); // (這個函數在 endGame 中被呼叫，但在這裡呼叫也無妨)
 }
 
 // 顯示永久徽章
@@ -901,14 +898,38 @@ async function submitScore() {
   }
 }
 
-// speakSentence 輔助函數
-function speak(text) {
+// ===============================================
+// ✅ 語音修正：speak 函數
+// ===============================================
+
+/**
+ * 朗讀指定的文字
+ * @param {string} text - 要朗讀的內容
+ * @param {function} [callback] - (可選) 朗讀完畢後要執行的函數
+ */
+function speak(text, callback) {
   speechSynthesis.cancel();
   if (!selectedVoice) selectedVoice = findEnglishVoice();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.voice = selectedVoice;
   utterance.lang = "en-US";
   utterance.rate = 0.9;
+
+  // 朗讀結束時，執行 callback
+  utterance.onend = function() {
+    if (callback) {
+      callback();
+    }
+  };
+
+  // 發生錯誤時，也執行 callback (避免遊戲卡住)
+  utterance.onerror = function(event) {
+    console.error('Speech synthesis error:', event);
+    if (callback) {
+      callback();
+    }
+  };
+
   speechSynthesis.speak(utterance);
 }
 
@@ -1140,7 +1161,7 @@ function renderVocabQuestion() {
   const q = questionSet[currentIndex];
   document.getElementById("question").innerText = `"${q.Vocabulary}" 是什麼意思？`;
   
-  speak(q.Vocabulary); // 念出單字
+  speak(q.Vocabulary); // 念出單字 (不需 callback)
 
   const allChineseAnswers = data.map(item => item.Chinese);
   const correctAnswer = q.Chinese;
@@ -1177,6 +1198,7 @@ function handleVocabChoice(button, choice) {
     }
     updateScoreDisplay();
 
+    // 單字挑戰使用固定延遲，感覺較明快
     setTimeout(() => {
       currentIndex++;
       const quizCompleted = typeof totalQuestionsToComplete === 'number' 
@@ -1245,9 +1267,6 @@ function handleSentenceChoice(button, choice) {
     // 組合完整句子
     const fullSentence = sentence.replace("____", correctAnswer);
 
-    // ✅ 播放完整句子
-    speak(fullSentence);
-
     if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
       document.getElementById("result-title").innerText = `${window.username} 的挑戰結果：`;
     }
@@ -1263,7 +1282,8 @@ function handleSentenceChoice(button, choice) {
     }
     updateScoreDisplay();
 
-    setTimeout(() => {
+    // ✅ 語音修正：使用 callback
+    const nextStep = () => {
       currentIndex++;
       const quizCompleted = typeof totalQuestionsToComplete === 'number' 
                           ? currentIndex >= totalQuestionsToComplete 
@@ -1274,21 +1294,21 @@ function handleSentenceChoice(button, choice) {
       } else {
         endGame();
       }
-    }, 1200); // 延長一點時間聽語音
+    };
+    
+    speak(fullSentence, nextStep); // 播放完句子後，才執行 nextStep
+
   } else {
     button.classList.add("incorrect");
     button.disabled = true;
     wrongCount++;
     lives = 3 - wrongCount;
     updateLivesDisplay();
+    
     if (lives <= 0) {
-      // 答錯最後一條命，也念出正確答案
+      // ✅ 語音修正：答錯最後一條命
       const fullSentence = sentence.replace("____", correctAnswer);
-      speak(`Correct answer: ${fullSentence}`);
-      
-      setTimeout(() => {
-        endGame();
-      }, 1500);
+      speak(`Correct answer: ${fullSentence}`, endGame); // 念完正確答案後，才結束遊戲
     }
   }
 }
@@ -1352,10 +1372,10 @@ function renderQuestion() {
 function speakCurrent() {
   if (currentQuizType === "vocab") {
     const currentWord = questionSet[currentIndex].Vocabulary;
-    speak(currentWord);
+    speak(currentWord); // (不需 callback)
   } else {
     const currentSentence = questionSet[currentIndex].sentence;
-    speak(currentSentence);
+    speak(currentSentence); // (不需 callback)
   }
 }
 
@@ -1440,14 +1460,15 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
     if (document.querySelector(".quiz").style.display === "block") {
       document.getElementById("results").innerHTML = "";
       document.getElementById("result-title").innerText = "";
-      renderQuestion(); // 呼叫主路由器
+      renderQuestion(); // Hūjiào zhǔ lùyóu qì
     }
   } catch (err) {
     console.warn("載入題庫失敗，使用預設題庫");
-    // 確保預設題庫格式正確 (雖然不太可能觸發，因為初始載入已處理)
+    // 確保預設題庫格式正確
     if (currentQuizType === "vocab") {
         data = [...defaultData]; // defaultData 是 vocab 格式
     } else {
+        // 如果連造句的 defaultData 都沒有，給一個最小可執行檔
         data = [{ "sentence": "Default ____.", "answer": "question", "distractors": ["a", "b", "c"] }];
     }
     questionSet = shuffle([...data]);
