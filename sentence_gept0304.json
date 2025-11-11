@@ -171,8 +171,8 @@
   },
   {
     "sentence": "The school has many fun ________.",
-    "answer": "activity",
-    "distractors": ["diary", "product", "purpose"]
+    "answer": "activities",
+    "distractors": ["diaries", "products", "purposes"]
   },
   {
     "sentence": "I joined the English ________.",
