@@ -237,7 +237,7 @@
   {
     "sentence": "I eat ________ sugar now.",
     "answer": "less",
-    "distractors": ["more", "in person", "above all"]
+    "distractors": ["fit", "in person", "above all"]
   },
   {
     "sentence": "That ________ is my cousin.",
