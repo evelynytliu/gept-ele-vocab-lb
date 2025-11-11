@@ -1,76 +1,76 @@
 [
   {
-    "sentence": "The big dragon can ____.",
+    "sentence": "The big dragon can ________.",
     "answer": "breathe fire",
     "distractors": ["trainer", "journey", "rare"]
   },
   {
-    "sentence": "A Pokémon ____ helps their Pokémon get strong.",
+    "sentence": "A Pokémon ________ helps their Pokémon get strong.",
     "answer": "trainer",
     "distractors": ["lab", "claw", "wings"]
   },
   {
-    "sentence": "They went on a long ____ to the mountains.",
+    "sentence": "They went on a long ________ to the mountains.",
     "answer": "journey",
     "distractors": ["tail", "horns", "punch"]
   },
   {
-    "sentence": "It is very ____ to see a shooting star.",
+    "sentence": "It is very ________ to see a shooting star.",
     "answer": "rare",
     "distractors": ["fluffy", "energetic", "furry"]
   },
   {
-    "sentence": "You must ____ for your pet cat and dog.",
+    "sentence": "You must ________ for your pet cat and dog.",
     "answer": "care",
     "distractors": ["decide", "pick", "nod"]
   },
   {
-    "sentence": "I need to ____ which toy I want to buy.",
+    "sentence": "I need to ________ which toy I want to buy.",
     "answer": "decide",
     "distractors": ["care", "punch", "breathe fire"]
   },
   {
-    "sentence": "Please ____ your favorite color.",
+    "sentence": "Please ________ your favorite color.",
     "answer": "pick",
     "distractors": ["nod", "care", "journey"]
   },
   {
-    "sentence": "The scientist works in a ____.",
+    "sentence": "The scientist works in a ________.",
     "answer": "lab",
     "distractors": ["trainer", "claw", "wings"]
   },
   {
-    "sentence": "The kitten is very ____ and loves to play.",
+    "sentence": "The kitten is very ________ and loves to play.",
     "answer": "energetic",
     "distractors": ["icy", "striped", "rare"]
   },
   {
-    "sentence": "The rabbit is white and ____.",
+    "sentence": "The rabbit is white and ________.",
     "answer": "fluffy",
     "distractors": ["rare", "electric", "brave"]
   },
   {
-    "sentence": "A cat has a long ____.",
+    "sentence": "A cat has a long ________.",
     "answer": "tail",
     "distractors": ["horns", "wings", "lab"]
   },
   {
-    "sentence": "The tiger is ____; it has black and orange lines.",
+    "sentence": "The tiger is ________; it has black and orange lines.",
     "answer": "striped",
     "distractors": ["furry", "fluffy", "energetic"]
   },
   {
-    "sentence": "The bear has sharp ____ on its paws.",
+    "sentence": "The bear has sharp ________ on its paws.",
     "answer": "claw",
     "distractors": ["wings", "horns", "tail"]
   },
   {
-    "sentence": "A Pikachu is an ____ type Pokémon.",
+    "sentence": "A Pikachu is an ________ type Pokémon.",
     "answer": "electric",
     "distractors": ["icy", "fluffy", "striped"]
   },
   {
-    "sentence": "He gave his friend a light ____ on the arm.",
+    "sentence": "He gave his friend a light ________ on the arm.",
     "answer": "punch",
     "distractors": ["claw", "tail", "journey"]
   }
