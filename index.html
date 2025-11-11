@@ -771,7 +771,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 07:50
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 07:51
   <div>
 
   <script>
@@ -1165,16 +1165,16 @@ function renderQuestion() {
       btn.style.boxShadow = "";
     });
 
-    // 🩵 強制觸發重繪，讓瀏覽器確實清掉快取的樣式
+    // 🩵 強制觸發重繪（防止手機版殘留樣式）
     container.style.display = "none";
     container.offsetHeight; // 觸發重繪
     container.style.display = "";
 
-    // 🧹 再清空舊按鈕
+    // 🧹 清空舊按鈕
     container.innerHTML = "";
   }
-  
-    // 🟢 以下維持原本的題目顯示邏輯
+
+  // 🟢 以下維持原本的題目顯示邏輯
   attempts = 0;
   updateProgressBar();
   updateScoreDisplay();
@@ -1190,15 +1190,12 @@ function renderQuestion() {
 
   const allChineseAnswers = data.map(item => item.Chinese);
   const correctAnswer = q.Chinese;
-
   const possibleDistractors = allChineseAnswers.filter(chinese => chinese !== correctAnswer);
   const distractors = shuffle(possibleDistractors).slice(0, 3);
   const choices = shuffle([correctAnswer, ...distractors]).map(chinese => ({ Chinese: chinese }));
 
-  const container = document.getElementById("options");
-  container.innerHTML = "";
-
-  choices.forEach((choice) => {
+  // ⚠️ 這裡不需要再重新宣告 container，只要使用上面的那個
+  choices.forEach(choice => {
     const btn = document.createElement("button");
     btn.innerText = choice.Chinese;
     btn.onclick = () => handleChoice(btn, choice);
