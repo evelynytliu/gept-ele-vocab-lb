@@ -1,0 +1,252 @@
+[
+  {
+    "sentence": "We ________ our weekend plans.",
+    "answer": "discuss",
+    "distractors": ["attend", "suggest", "mention"]
+  },
+  {
+    "sentence": "I ________ play basketball every day.",
+    "answer": "used to",
+    "distractors": ["look forward to", "deal with", "work out"]
+  },
+  {
+    "sentence": "My father is an ________ in a big company.",
+    "answer": "employee",
+    "distractors": ["actor", "relative", "teenager"]
+  },
+  {
+    "sentence": "You should wear ________ clothes to the meeting.",
+    "answer": "formal",
+    "distractors": ["regular", "serious", "available"]
+  },
+  {
+    "sentence": "The party will ________ on Saturday.",
+    "answer": "take place",
+    "distractors": ["line up", "stress out", "come up with"]
+  },
+  {
+    "sentence": "I will ________ my friend’s wedding.",
+    "answer": "attend",
+    "distractors": ["discuss", "introduce", "borrow"]
+  },
+  {
+    "sentence": "Ice cream is my favorite ________.",
+    "answer": "dessert",
+    "distractors": ["diary", "product", "purpose"]
+  },
+  {
+    "sentence": "She ________ a great idea.",
+    "answer": "come up with",
+    "distractors": ["deal with", "work out", "look forward to"]
+  },
+  {
+    "sentence": "You must sign the paper ________.",
+    "answer": "in person",
+    "distractors": ["above all", "less", "at last"]
+  },
+  {
+    "sentence": "He is a famous ________.",
+    "answer": "actor",
+    "distractors": ["employee", "relative", "hostel"]
+  },
+  {
+    "sentence": "The new medicine has a good ________.",
+    "answer": "effect",
+    "distractors": ["habit", "price", "purpose"]
+  },
+  {
+    "sentence": "She takes ________ exercise every day.",
+    "answer": "regular",
+    "distractors": ["formal", "serious", "entire"]
+  },
+  {
+    "sentence": "I ________ we go by bus.",
+    "answer": "suggest",
+    "distractors": ["mention", "prefer", "locate"]
+  },
+  {
+    "sentence": "He can ________ stress very well.",
+    "answer": "deal with",
+    "distractors": ["stress out", "line up", "be known for"]
+  },
+  {
+    "sentence": "The typhoon ________ many houses.",
+    "answer": "damage",
+    "distractors": ["boil", "search", "fit"]
+  },
+  {
+    "sentence": "Taiwan ________ its delicious food.",
+    "answer": "be known for",
+    "distractors": ["deal with", "used to", "look forward to"]
+  },
+  {
+    "sentence": "I’m not interested in any ________ topic.",
+    "answer": "particular",
+    "distractors": ["usual", "formal", "single-story"]
+  },
+  {
+    "sentence": "She writes in her ________ every night.",
+    "answer": "diary",
+    "distractors": ["advertisement", "hostel", "club"]
+  },
+  {
+    "sentence": "I saw an ________ for a new phone.",
+    "answer": "advertisement",
+    "distractors": ["diary", "product", "activity"]
+  },
+  {
+    "sentence": "The ________ of the meeting is to plan the trip.",
+    "answer": "purpose",
+    "distractors": ["effect", "habit", "price"]
+  },
+  {
+    "sentence": "He made a ________ mistake.",
+    "answer": "serious",
+    "distractors": ["regular", "available", "formal"]
+  },
+  {
+    "sentence": "Let me ________ my best friend.",
+    "answer": "introduce",
+    "distractors": ["attend", "suggest", "mention"]
+  },
+  {
+    "sentence": "These shoes ________ me well.",
+    "answer": "fit",
+    "distractors": ["boil", "damage", "locate"]
+  },
+  {
+    "sentence": "My parents ________ at the gym.",
+    "answer": "work out",
+    "distractors": ["line up", "deal with", "stress out"]
+  },
+  {
+    "sentence": "I ________ tea to coffee.",
+    "answer": "prefer",
+    "distractors": ["suggest", "borrow", "behave"]
+  },
+  {
+    "sentence": "We visited our ________ last weekend.",
+    "answer": "relative",
+    "distractors": ["employee", "teenager", "actor"]
+  },
+  {
+    "sentence": "He came home at his ________ time.",
+    "answer": "usual",
+    "distractors": ["particular", "serious", "entire"]
+  },
+  {
+    "sentence": "Reading before bed is a good ________.",
+    "answer": "habit",
+    "distractors": ["purpose", "effect", "dessert"]
+  },
+  {
+    "sentence": "________, be kind to others.",
+    "answer": "above all",
+    "distractors": ["in person", "less", "so far"]
+  },
+  {
+    "sentence": "I ________ seeing you soon.",
+    "answer": "look forward to",
+    "distractors": ["used to", "come up with", "be known for"]
+  },
+  {
+    "sentence": "The hotel is ________ near the beach.",
+    "answer": "locate",
+    "distractors": ["attend", "introduce", "disappear"]
+  },
+  {
+    "sentence": "The ________ family went on vacation.",
+    "answer": "entire",
+    "distractors": ["regular", "formal", "usual"]
+  },
+  {
+    "sentence": "This is our best-selling ________.",
+    "answer": "product",
+    "distractors": ["advertisement", "club", "hostel"]
+  },
+  {
+    "sentence": "He didn’t ________ your name.",
+    "answer": "mention",
+    "distractors": ["suggest", "discuss", "prefer"]
+  },
+  {
+    "sentence": "The school has many fun ________.",
+    "answer": "activity",
+    "distractors": ["diary", "product", "purpose"]
+  },
+  {
+    "sentence": "I joined the English ________.",
+    "answer": "club",
+    "distractors": ["hostel", "diary", "advertisement"]
+  },
+  {
+    "sentence": "The teacher is ________ after class.",
+    "answer": "available",
+    "distractors": ["serious", "regular", "particular"]
+  },
+  {
+    "sentence": "Can I ________ your pencil?",
+    "answer": "borrow",
+    "distractors": ["fit", "boil", "search"]
+  },
+  {
+    "sentence": "We live in a ________ house.",
+    "answer": "single-story",
+    "distractors": ["formal", "usual", "entire"]
+  },
+  {
+    "sentence": "Our flight leaves from ________ 10.",
+    "answer": "boarding gate",
+    "distractors": ["hostel", "club", "activity"]
+  },
+  {
+    "sentence": "Please ________ some water for tea.",
+    "answer": "boil",
+    "distractors": ["damage", "fit", "search"]
+  },
+  {
+    "sentence": "Don’t ________ about the test.",
+    "answer": "stress out",
+    "distractors": ["work out", "line up", "deal with"]
+  },
+  {
+    "sentence": "The students ________ for lunch.",
+    "answer": "line up",
+    "distractors": ["come up with", "take place", "look forward to"]
+  },
+  {
+    "sentence": "Please ________ in class.",
+    "answer": "behave",
+    "distractors": ["disappear", "suggest", "prefer"]
+  },
+  {
+    "sentence": "The sun ________ behind the clouds.",
+    "answer": "disappear",
+    "distractors": ["behave", "locate", "attend"]
+  },
+  {
+    "sentence": "We stayed in a cheap ________.",
+    "answer": "hostel",
+    "distractors": ["club", "diary", "product"]
+  },
+  {
+    "sentence": "The ________ of this book is 200 dollars.",
+    "answer": "price",
+    "distractors": ["effect", "purpose", "habit"]
+  },
+  {
+    "sentence": "I eat ________ sugar now.",
+    "answer": "less",
+    "distractors": ["more", "in person", "above all"]
+  },
+  {
+    "sentence": "That ________ is my cousin.",
+    "answer": "teenager",
+    "distractors": ["employee", "actor", "relative"]
+  },
+  {
+    "sentence": "I ________ the Internet for the answer.",
+    "answer": "search",
+    "distractors": ["boil", "fit", "damage"]
+  }
+]
