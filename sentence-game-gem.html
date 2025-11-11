@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GEPT Sentence Challenge ✍️</title>
+  <title>GEPT Challenge ⚡ (整合版)</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -248,19 +248,19 @@
 
 
     body.light-mode .leaderboard-controls button {
-  color: #ffffff;
-  font-weight: 600;
-}
+      color: #ffffff;
+      font-weight: 600;
+    }
 
-body.light-mode #expand-all {
-  background: linear-gradient(120deg, #38bdf8, #22c55e);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-}
+    body.light-mode #expand-all {
+      background: linear-gradient(120deg, #38bdf8, #22c55e);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
 
-body.light-mode #collapse-all {
-  background: linear-gradient(120deg, #9ca3af, #6b7280);
-  box-shadow: 0 4px 10px rgba(156, 163, 175, 0.5);
-}
+    body.light-mode #collapse-all {
+      background: linear-gradient(120deg, #9ca3af, #6b7280);
+      box-shadow: 0 4px 10px rgba(156, 163, 175, 0.5);
+    }
 
     
 
@@ -720,15 +720,24 @@ body.light-mode #start-btn:active {
       <span class="label">暗色模式</span>
     </button>
 
-    <h1>GEPT Sentence Challenge ✍️</h1>
-    <div class="subtitle">閱讀句子、選出正確單字，完成填空！</div>
+    <h1 id="main-title">GEPT Vocabulary Battle ⚡</h1>
+    <div class="subtitle" id="main-subtitle">聽發音、選中文，看看你能守住幾條命！</div>
 
     <div class="control-row" style="margin-top: 10px;">
       <label for="dataset">題庫選擇：</label>
       <select id="dataset">
-        <option value="sentences_week1.json" data-limit="all">🟡 Week 1 (造句挑戰 15題)</option>
-        <option value="sentences_week2.json" data-limit="all">🟡 Week 2 (造句挑戰 20題)</option>
-        </select>
+        <option value="GEPT_20251109.json" data-limit="all" data-quiz-type="vocab">🌎 GEPT 第三回+第四回 (單字)</option>
+        <option value="week1.json" data-limit="all" data-quiz-type="vocab">🟡 Week 1 (單字課文25題)</option>
+        <option value="week2.json" data-limit="all" data-quiz-type="vocab">🟡 Week 2 (單字課文30題)</option>
+        <option value="week2-bonus.json" data-limit="25" data-quiz-type="vocab">✨ Week 2 (擴充挑戰25/50)</option>
+        <option value="GEPT_Stage3.json" data-limit="50" data-quiz-type="vocab">🤩 擴充挑戰Lv.3 (50/50)</option>
+        <option value="GEPT_Week3_Vocab.json" data-limit="all" data-quiz-type="vocab">🤩 擴充挑戰Lv.3 (單字)</option>
+        <option value="gept-full.json" data-limit="25" data-quiz-type="vocab">🔵 全 GEPT (隨機挑戰25/2256)</option>
+        <option value="gept-full.json" data-limit="all" data-quiz-type="vocab">🔵 全 GEPT (魔鬼挑戰2256題)</option>
+        
+        <option value="sentences_week1.json" data-limit="all" data-quiz-type="sentence">🟡 Week 1 (造句挑戰 15題)</option>
+        <option value="sentences_week2.json" data-limit="all" data-quiz-type="sentence">🟡 Week 2 (造句挑戰 20題)</option>
+      </select>
     </div>
 
     <div class="control-row" style="margin-top: 4px;">
@@ -736,7 +745,7 @@ body.light-mode #start-btn:active {
       <input id="username" type="text" placeholder="例如：Emmett" />
       <button id="start-btn" onclick="startQuiz()">開始挑戰</button>
     </div>
-    <div class="hint-text">小提示：開始後按上面的按鈕可以重聽句子發音 🎧</div>
+    <div class="hint-text" id="main-hint">小提示：開始後按上面的按鈕可以重聽英文發音 🎧</div>
 
     <div class="progress-container" style="display:none;" id="progress-section">
       <div class="progress-bar" id="progress-bar"></div>
@@ -766,7 +775,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 11:00
+    Made by Evelyn YT ｜© 2025 | 2025/11/10 23:01
   <div>
 
   <script>
@@ -790,34 +799,12 @@ speechSynthesis.onvoiceschanged = () => {
   selectedVoice = findEnglishVoice();
 };
 
-// 預設題庫 (如果 JSON 載入失敗會使用這個)
-// 格式變更為: { sentence: "...", answer: "...", distractors: [...] }
+// 預設題庫 (單字格式，對應 <select> 中的第一個選項)
 let data = [
-  {
-    "sentence": "A Pokémon ____ helps their Pokémon get strong.",
-    "answer": "trainer",
-    "distractors": ["journey", "lab", "claw"]
-  },
-  {
-    "sentence": "It is very ____ to see a shooting star.",
-    "answer": "rare",
-    "distractors": ["fluffy", "energetic", "furry"]
-  },
-  {
-    "sentence": "You must ____ for your pet cat and dog.",
-    "answer": "care",
-    "distractors": ["decide", "pick", "nod"]
-  },
-  {
-    "sentence": "I need to ____ which toy I want to buy.",
-    "answer": "decide",
-    "distractors": ["care", "punch", "breathe fire"]
-  },
-  {
-    "sentence": "The rabbit is white and ____.",
-    "answer": "fluffy",
-    "distractors": ["rare", "icy", "striped"]
-  }
+  { Vocabulary: "breathe fire", Chinese: "噴火" },
+  { Vocabulary: "trainer", Chinese: "訓練師" },
+  { Vocabulary: "journey", Chinese: "旅程 / 一段路" },
+  { Vocabulary: "rare", Chinese: "稀有的" }
 ];
 
 let defaultData = [...data];
@@ -829,6 +816,7 @@ let totalQuestionsToComplete = "all";
 let score = 0;
 let lives = 3;
 let gameSession = Date.now();
+let currentQuizType = "vocab"; // 新增：追蹤目前的遊戲模式
 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -852,13 +840,22 @@ function updateLivesDisplay() {
 
 let sessionBadges = []; // 用來記錄本次挑戰新增的徽章
 
+// ✅ 整合後的徽章系統
 function awardBadges() {
   const newBadges = [];
   
-  // 徽章條件
-  if (score >= 50) newBadges.push("🎖️ 造句高手"); // 徽章名稱更新
-  if (wrongCount === 0 && currentIndex === questionSet.length) newBadges.push("⭐ 完美挑戰");
+  // 共同徽章
   if (!badgesEarned.includes("🎉 首次挑戰")) newBadges.push("🎉 首次挑戰");
+  if (wrongCount === 0 && (currentIndex === questionSet.length || currentIndex === totalQuestionsToComplete)) {
+    newBadges.push("⭐ 完美挑戰");
+  }
+
+  // 根據不同模式給予特定徽章
+  if (currentQuizType === "vocab") {
+    if (score >= 100) newBadges.push("🎖️ 高分達人");
+  } else if (currentQuizType === "sentence") {
+    if (score >= 50) newBadges.push("🎖️ 造句高手"); // 造句挑戰的分數門檻
+  }
 
   // 判斷哪些徽章是本次新獲得的
   sessionBadges = newBadges.filter(badge => !badgesEarned.includes(badge));
@@ -868,40 +865,17 @@ function awardBadges() {
   localStorage.setItem("badges", JSON.stringify(badgesEarned));
 
   // 更新畫面
-  displayBadges();
-  displaySessionBadges();
+  displayBadges(); // (這個函數在 endGame 中被呼叫，但在這裡呼叫也無妨)
 }
 
 // 顯示永久徽章
 function displayBadges() {
   const badgesContainer = document.getElementById("badges");
+  if (!badgesContainer) return;
   badgesContainer.innerHTML = badgesEarned.length
     ? badgesEarned.map(badge => `<span>${badge}</span>`).join("")
     : "尚未獲得徽章";
 }
-
-// 顯示本次挑戰徽章
-function displaySessionBadges() {
-  const resultSection = document.querySelector(".quiz");
-  if (!resultSection) return;
-
-  const existing = document.getElementById("session-badges");
-  if (existing) existing.remove();
-
-  const sessionDiv = document.createElement("div");
-  sessionDiv.id = "session-badges";
-  sessionDiv.style.textAlign = "center";
-  sessionDiv.style.marginTop = "20px";
-  sessionDiv.innerHTML =
-    sessionBadges.length > 0
-      ? `<h3 style="color:#ffd700;">🎯 本次獲得徽章</h3>${sessionBadges.map(b => `<span style="display:inline-block; margin:5px; padding:8px 14px; border-radius:20px; background:#ffb703; color:#222; font-weight:600; box-shadow:2px 2px 6px rgba(0,0,0,0.2);">${b}</span>`).join("")}`
-      : `<h3 style="color:#aaa;">本次未獲得新徽章</h3>`;
-
-  resultSection.appendChild(sessionDiv);
-}
-
-// (此函數重複，移除一個)
-// function displayBadges() { ... }
 
 async function submitScore() {
   if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
@@ -928,7 +902,7 @@ async function submitScore() {
 }
 
 // speakSentence 輔助函數
-function speakSentence(text) {
+function speak(text) {
   speechSynthesis.cancel();
   if (!selectedVoice) selectedVoice = findEnglishVoice();
   const utterance = new SpeechSynthesisUtterance(text);
@@ -1099,7 +1073,7 @@ async function fetchLeaderboard() {
 
 function endGame() {
   updateProgressBar();
-  awardBadges();
+  awardBadges(); // 結算徽章
   submitScore();
   fetchLeaderboard();
 
@@ -1150,29 +1124,95 @@ function endGame() {
   }
 }
 
-function renderQuestion() {
-  // ✅ 修正手機（Safari / Chrome）按鈕樣式殘留問題
+// ===============================================
+// 遊戲模式 1: 單字挑戰 (Vocab)
+// ===============================================
+
+function renderVocabQuestion() {
   const container = document.getElementById("options");
   if (container) {
-    const oldButtons = container.querySelectorAll("button");
-    oldButtons.forEach(btn => {
-      btn.classList.remove("correct", "incorrect");
-      btn.disabled = false;
-      btn.style.background = "";
-      btn.style.color = "";
-      btn.style.boxShadow = "";
-    });
-
-    // 🩵 強制觸發重繪
-    container.style.display = "none";
-    container.offsetHeight; // 觸發重繪
-    container.style.display = ""; // 恢復 (grid)
-
-    // 🧹 再清空旧按钮
-    container.innerHTML = "";
+    container.innerHTML = ""; // 清空舊按鈕
   }
   
-  // 🟢 以下為新的造句挑戰邏輯
+  attempts = 0;
+  updateProgressBar();
+  updateScoreDisplay();
+  const q = questionSet[currentIndex];
+  document.getElementById("question").innerText = `"${q.Vocabulary}" 是什麼意思？`;
+  
+  speak(q.Vocabulary); // 念出單字
+
+  const allChineseAnswers = data.map(item => item.Chinese);
+  const correctAnswer = q.Chinese;
+
+  const possibleDistractors = allChineseAnswers.filter(chinese => chinese !== correctAnswer);
+  const distractors = shuffle(possibleDistractors).slice(0, 3);
+  const choices = shuffle([correctAnswer, ...distractors]).map(chinese => ({ Chinese: chinese }));
+
+  choices.forEach((choice) => {
+    const btn = document.createElement("button");
+    btn.innerText = choice.Chinese;
+    btn.onclick = () => handleVocabChoice(btn, choice);
+    container.appendChild(btn);
+  });
+}
+
+function handleVocabChoice(button, choice) {
+  const correctAnswer = questionSet[currentIndex].Chinese;
+  attempts++;
+
+  if (choice.Chinese === correctAnswer) {
+    button.classList.add("correct");
+    document.querySelectorAll(".options button").forEach(btn => btn.disabled = true);
+    if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
+      document.getElementById("result-title").innerText = `${window.username} 的挑戰結果：`;
+    }
+    document.getElementById("results").innerHTML += 
+      (attempts === 1
+        ? `<li>✅ ${questionSet[currentIndex].Vocabulary} — ${questionSet[currentIndex].Chinese} — ${attempts} 次 — +5分</li>`
+        : `<li style="color: #facc15;">🟡 ${questionSet[currentIndex].Vocabulary} — ${questionSet[currentIndex].Chinese} — ${attempts} 次 — 0分</li>`);
+
+    if (attempts === 1) {
+      score += 5;
+    }
+    updateScoreDisplay();
+
+    setTimeout(() => {
+      currentIndex++;
+      const quizCompleted = typeof totalQuestionsToComplete === 'number' 
+                          ? currentIndex >= totalQuestionsToComplete 
+                          : currentIndex >= questionSet.length;
+
+      if (!quizCompleted && wrongCount < 3) {
+        renderQuestion(); // 呼叫主路由器
+      } else {
+        endGame();
+      }
+    }, 800);
+  } else {
+    button.classList.add("incorrect");
+    button.disabled = true;
+    wrongCount++;
+    lives = 3 - wrongCount;
+    updateLivesDisplay();
+    if (lives <= 0) {
+      setTimeout(() => {
+        endGame();
+      }, 800);
+    }
+  }
+}
+
+// ===============================================
+// 遊戲模式 2: 造句挑戰 (Sentence)
+// ===============================================
+
+function renderSentenceQuestion() {
+  const container = document.getElementById("options");
+  if (container) {
+    container.innerHTML = ""; // 清空舊按鈕
+  }
+  
   attempts = 0;
   updateProgressBar();
   updateScoreDisplay();
@@ -1188,12 +1228,12 @@ function renderQuestion() {
   choices.forEach((choice) => {
     const btn = document.createElement("button");
     btn.innerText = choice; // 選項是英文單字
-    btn.onclick = () => handleChoice(btn, choice);
+    btn.onclick = () => handleSentenceChoice(btn, choice);
     container.appendChild(btn);
   });
 }
 
-function handleChoice(button, choice) {
+function handleSentenceChoice(button, choice) {
   const correctAnswer = questionSet[currentIndex].answer;
   const sentence = questionSet[currentIndex].sentence;
   attempts++;
@@ -1205,8 +1245,8 @@ function handleChoice(button, choice) {
     // 組合完整句子
     const fullSentence = sentence.replace("____", correctAnswer);
 
-    // ✅ 播放完整句子 (依您的要求)
-    speakSentence(fullSentence);
+    // ✅ 播放完整句子
+    speak(fullSentence);
 
     if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
       document.getElementById("result-title").innerText = `${window.username} 的挑戰結果：`;
@@ -1230,7 +1270,7 @@ function handleChoice(button, choice) {
                           : currentIndex >= questionSet.length;
 
       if (!quizCompleted && wrongCount < 3) {
-        renderQuestion();
+        renderQuestion(); // 呼叫主路由器
       } else {
         endGame();
       }
@@ -1244,12 +1284,78 @@ function handleChoice(button, choice) {
     if (lives <= 0) {
       // 答錯最後一條命，也念出正確答案
       const fullSentence = sentence.replace("____", correctAnswer);
-      speakSentence(`Correct answer: ${fullSentence}`);
+      speak(`Correct answer: ${fullSentence}`);
       
       setTimeout(() => {
         endGame();
       }, 1500);
     }
+  }
+}
+
+// ===============================================
+// 核心遊戲邏輯 (Router)
+// ===============================================
+
+// ✅ 新增：根據 quizType 更新 UI 顯示
+function updateUIForQuizType(quizType) {
+  const title = document.getElementById("main-title");
+  const subtitle = document.getElementById("main-subtitle");
+  const hint = document.getElementById("main-hint");
+  const startButton = document.getElementById("start-btn");
+
+  if (quizType === "vocab") {
+    title.innerHTML = "GEPT Vocabulary Battle ⚡";
+    subtitle.innerHTML = "聽發音、選中文，看看你能守住幾條命！";
+    hint.innerHTML = "小提示：開始後按上面的按鈕可以重聽英文發音 🎧";
+    if (startButton.innerText !== "開始挑戰") {
+      startButton.innerHTML = "🔊 重聽發音";
+    }
+  } else if (quizType === "sentence") {
+    title.innerHTML = "GEPT Sentence Challenge ✍️";
+    subtitle.innerHTML = "閱讀句子、選出正確單字，完成填空！";
+    hint.innerHTML = "小提示：開始後按上面的按鈕可以重聽句子發音 🎧";
+    if (startButton.innerText !== "開始挑戰") {
+      startButton.innerHTML = "🔊 重聽句子";
+    }
+  }
+}
+
+// ✅ 整合：主渲染函數 (Router)
+function renderQuestion() {
+  // 修正手機（Safari / Chrome）按鈕樣式殘留問題
+  const container = document.getElementById("options");
+  if (container) {
+    const oldButtons = container.querySelectorAll("button");
+    oldButtons.forEach(btn => {
+      btn.classList.remove("correct", "incorrect");
+      btn.disabled = false;
+      btn.style.background = "";
+      btn.style.color = "";
+      btn.style.boxShadow = "";
+    });
+    // 🩵 強制觸發重繪
+    container.style.display = "none";
+    container.offsetHeight; // 觸發重繪
+    container.style.display = "grid"; // 恢復 (grid)
+  }
+  
+  // 根據模式呼叫不同的渲染函數
+  if (currentQuizType === "vocab") {
+    renderVocabQuestion();
+  } else {
+    renderSentenceQuestion();
+  }
+}
+
+// ✅ 整合："重聽" 按鈕的函數 (Router)
+function speakCurrent() {
+  if (currentQuizType === "vocab") {
+    const currentWord = questionSet[currentIndex].Vocabulary;
+    speak(currentWord);
+  } else {
+    const currentSentence = questionSet[currentIndex].sentence;
+    speak(currentSentence);
   }
 }
 
@@ -1261,11 +1367,14 @@ function startQuiz() {
     return;
   }
 
+  // ✅ 整合：在開始時決定模式
+  const selected = document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex];
+  currentQuizType = selected.getAttribute("data-quiz-type") || "vocab";
+  
+  // ✅ 整合：更新 UI 並綁定正確的重聽功能
+  updateUIForQuizType(currentQuizType); 
   const startButton = document.getElementById("start-btn");
-  startButton.innerHTML = "🔊 重聽句子"; // 更新按鈕文字
-  startButton.onclick = function() {
-    speakCurrentQuestion(); // 更新綁定函數
-  };
+  startButton.onclick = speakCurrent; // 綁定整合後的重聽函數
 
   document.getElementById("username").style.display = "none";
   const usernameLabel = document.querySelector("label[for='username']");
@@ -1287,14 +1396,12 @@ function startQuiz() {
     console.warn("排行榜載入失敗，繼續執行遊戲");
   }
 
-  renderQuestion();
+  renderQuestion(); // 呼叫主路由器
 }
 
-// "重聽" 按鈕的函數
-function speakCurrentQuestion() {
-  const currentSentence = questionSet[currentIndex].sentence;
-  speakSentence(currentSentence); // 呼叫共用的朗讀函數
-}
+// ===============================================
+// 初始化與事件監聽
+// ===============================================
 
 document.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
@@ -1309,6 +1416,10 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   const file = e.target.value;
   const selected = e.target.options[e.target.selectedIndex];
   const limit = selected.getAttribute("data-limit");
+  
+  // ✅ 整合：更新模式
+  currentQuizType = selected.getAttribute("data-quiz-type") || "vocab";
+  updateUIForQuizType(currentQuizType); // 切換題庫時立刻更新 UI
 
   totalQuestionsToComplete = limit === "all" ? "all" : parseInt(limit);
 
@@ -1329,11 +1440,16 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
     if (document.querySelector(".quiz").style.display === "block") {
       document.getElementById("results").innerHTML = "";
       document.getElementById("result-title").innerText = "";
-      renderQuestion();
+      renderQuestion(); // 呼叫主路由器
     }
   } catch (err) {
     console.warn("載入題庫失敗，使用預設題庫");
-    data = [...defaultData];
+    // 確保預設題庫格式正確 (雖然不太可能觸發，因為初始載入已處理)
+    if (currentQuizType === "vocab") {
+        data = [...defaultData]; // defaultData 是 vocab 格式
+    } else {
+        data = [{ "sentence": "Default ____.", "answer": "question", "distractors": ["a", "b", "c"] }];
+    }
     questionSet = shuffle([...data]);
     currentIndex = 0;
     wrongCount = 0;
@@ -1345,7 +1461,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
     if (document.querySelector(".quiz").style.display === "block") {
       document.getElementById("results").innerHTML = "";
       document.getElementById("result-title").innerText = "";
-      renderQuestion();
+      renderQuestion(); // 呼叫主路由器
     }
   }
 });
@@ -1386,6 +1502,10 @@ if (themeToggleBtn) {
   const file = document.getElementById("dataset").value;
   const selected = document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex];
   const limit = selected.getAttribute("data-limit");
+
+  // ✅ 整合：初始化時設定模式
+  currentQuizType = selected.getAttribute("data-quiz-type") || "vocab";
+  updateUIForQuizType(currentQuizType); // 更新 UI
 
   totalQuestionsToComplete = limit === "all" ? "all" : parseInt(limit);
   try {
