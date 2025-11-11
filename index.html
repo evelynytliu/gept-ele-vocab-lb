@@ -850,13 +850,11 @@ body.light-mode #start-btn:active {
         <option value="gept-full.json" data-limit="all" data-quiz-type="vocab">🔵 全 GEPT (魔鬼挑戰2256題)</option>
       </select>
     </div>
-
+     <label for="username">玩家暱稱：</label>
+      <input id="username" type="text" placeholder="例如：Emmett" />
     <h1 id="main-title">GEPT Vocabulary Battle ⚡</h1>
     <div class="subtitle" id="main-subtitle">聽發音、選中文，看看你能守住幾條命！</div>
-
     <div class="control-row" style="margin-top: 4px;">
-      <label for="username">玩家暱稱：</label>
-      <input id="username" type="text" placeholder="例如：Emmett" />
       <div class="hint-text" id="main-hint">小提示：開始後按下面的按鈕可以重聽英文發音 🎧</div>
       <button id="start-btn" onclick="startQuiz()">開始挑戰</button>
     </div>
