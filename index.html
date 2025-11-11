@@ -373,6 +373,8 @@ body.light-mode #collapse-all {
       transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, filter 0.15s ease;
       cursor: pointer;
       text-align: center;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
 
     body.light-mode .options button {
@@ -1151,16 +1153,28 @@ function endGame() {
 }
 
 function renderQuestion() {
-  // ✅ 顯示新題目前，清除舊的選項樣式
-const optionButtons = document.querySelectorAll(".options button");
-optionButtons.forEach(btn => {
-  btn.classList.remove("correct", "incorrect"); // 移除標記
-  btn.disabled = false; // 恢復可點擊
-  btn.style.background = ""; // 清除顏色
-  btn.style.color = "";
-  btn.style.boxShadow = "";
-});
+  // ✅ 修正手機（Safari / Chrome）按鈕樣式殘留問題
+  const container = document.getElementById("options");
+  if (container) {
+    const oldButtons = container.querySelectorAll("button");
+    oldButtons.forEach(btn => {
+      btn.classList.remove("correct", "incorrect");
+      btn.disabled = false;
+      btn.style.background = "";
+      btn.style.color = "";
+      btn.style.boxShadow = "";
+    });
+
+    // 🩵 強制觸發重繪，讓瀏覽器確實清掉快取的樣式
+    container.style.display = "none";
+    container.offsetHeight; // 觸發重繪
+    container.style.display = "";
+
+    // 🧹 再清空舊按鈕
+    container.innerHTML = "";
+  }
   
+    // 🟢 以下維持原本的題目顯示邏輯
   attempts = 0;
   updateProgressBar();
   updateScoreDisplay();
