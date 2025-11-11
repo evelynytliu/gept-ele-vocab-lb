@@ -2,251 +2,301 @@
   {
     "sentence": "We ________ our weekend plans yesterday.",
     "answer": "discussed",
-    "distractors": ["attended", "damaged", "borrowed"]
+    "distractors": ["attended", "damaged", "borrowed"],
+    "chinese": "我們昨天討論了週末計畫。"
   },
   {
     "sentence": "I ________ play basketball every day.",
     "answer": "used to",
-    "distractors": ["look forward to", "deal with", "work out"]
+    "distractors": ["look forward to", "deal with", "work out"],
+    "chinese": "我以前每天都打籃球。"
   },
   {
     "sentence": "My father is an ________ in a big company.",
     "answer": "employee",
-    "distractors": ["actor", "relative", "teenager"]
+    "distractors": ["actor", "relative", "teenager"],
+    "chinese": "我父親是一家大公司的員工。"
   },
   {
     "sentence": "You should wear ________ clothes to the meeting.",
     "answer": "formal",
-    "distractors": ["regular", "serious", "available"]
+    "distractors": ["regular", "serious", "available"],
+    "chinese": "你應該穿正式服裝參加會議。"
   },
   {
     "sentence": "The party will ________ on Saturday.",
     "answer": "take place",
-    "distractors": ["line up", "stress out", "come up with"]
+    "distractors": ["line up", "stress out", "come up with"],
+    "chinese": "派對將在週六舉行。"
   },
   {
     "sentence": "I will ________ my friend’s wedding.",
     "answer": "attend",
-    "distractors": ["discuss", "introduce", "borrow"]
+    "distractors": ["discuss", "introduce", "borrow"],
+    "chinese": "我將會參加我朋友的婚禮。"
   },
   {
     "sentence": "Ice cream is my favorite ________.",
     "answer": "dessert",
-    "distractors": ["diary", "product", "purpose"]
+    "distractors": ["diary", "product", "purpose"],
+    "chinese": "冰淇淋是我最喜歡的甜點。"
   },
   {
     "sentence": "She ________ a great idea.",
     "answer": "came up with",
-    "distractors": ["dealt with", "worked out", "looked forward to"]
+    "distractors": ["dealt with", "worked out", "looked forward to"],
+    "chinese": "她想出了一個很棒的主意。"
   },
   {
     "sentence": "You must sign the paper ________.",
     "answer": "in person",
-    "distractors": ["above all", "less", "at last"]
+    "distactors": ["above all", "less", "at last"],
+    "chinese": "你必須親自簽署這份文件。"
   },
   {
     "sentence": "He is a famous ________.",
     "answer": "actor",
-    "distractors": ["employee", "relative", "hostel"]
+    "distractors": ["employee", "relative", "hostel"],
+    "chinese": "他是一位著名的演員。"
   },
   {
     "sentence": "The new medicine has a good ________.",
     "answer": "effect",
-    "distractors": ["habit", "relative", "purpose"]
+    "distractors": ["habit", "relative", "purpose"],
+    "chinese": "這個新藥有很好的效果。"
   },
   {
     "sentence": "She takes ________ exercise every day.",
     "answer": "regular",
-    "distractors": ["formal", "serious", "entire"]
+    "distractors": ["formal", "serious", "entire"],
+    "chinese": "她每天都做規律的運動。"
   },
   {
     "sentence": "I ________ we go by bus.",
     "answer": "suggest",
-    "distractors": ["mention", "prefer", "locate"]
+    "distractors": ["mention", "prefer", "locate"],
+    "chinese": "我建議我們搭公車去。"
   },
   {
     "sentence": "He can ________ stress very well.",
     "answer": "deal with",
-    "distractors": ["stress out", "line up", "be known for"]
+    "distractors": ["stress out", "line up", "be known for"],
+    "chinese": "他能很好地處理壓力。"
   },
   {
     "sentence": "The typhoon ________ many houses.",
     "answer": "damaged",
-    "distractors": ["boiled", "searched", "fit"]
+    "distractors": ["boiled", "searched", "fit"],
+    "chinese": "颱風損毀了許多房屋。"
   },
   {
     "sentence": "Taiwan ________ its delicious food.",
     "answer": "is known for",
-    "distractors": ["deals with", "used to", "looks forward to"]
+    "distractors": ["deals with", "used to", "looks forward to"],
+    "chinese": "台灣以其美味的食物而聞名。"
   },
   {
     "sentence": "I’m not interested in any ________ topic.",
     "answer": "particular",
-    "distractors": ["usual", "formal", "single-story"]
+    "distractors": ["usual", "formal", "single-story"],
+    "chinese": "我對任何特定的話題都不感興趣。"
   },
   {
     "sentence": "She writes in her ________ every night.",
     "answer": "diary",
-    "distractors": ["advertisement", "hostel", "club"]
+    "distractors": ["advertisement", "hostel", "club"],
+    "chinese": "她每天晚上都寫日記。"
   },
   {
     "sentence": "I saw an ________ for a new phone.",
     "answer": "advertisement",
-    "distractors": ["diary", "product", "activity"]
+    "distractors": ["diary", "product", "activity"],
+    "chinese": "我看到了一則新手機的廣告。"
   },
   {
     "sentence": "The ________ of the meeting is to plan the trip.",
     "answer": "purpose",
-    "distractors": ["effect", "habit", "price"]
+    "distractors": ["effect", "habit", "price"],
+    "chinese": "這次會議的目的是計畫這次旅行。"
   },
   {
     "sentence": "He made a ________ mistake.",
     "answer": "serious",
-    "distractors": ["regular", "available", "formal"]
+    "distractors": ["regular", "available", "formal"],
+    "chinese": "他犯了一個嚴重的錯誤。"
   },
   {
     "sentence": "Let me ________ my best friend.",
     "answer": "introduce",
-    "distractors": ["attend", "suggest", "mention"]
+    "distractors": ["attend", "suggest", "mention"],
+    "chinese": "讓我來介紹我最好的朋友。"
   },
   {
     "sentence": "These shoes ________ me well.",
     "answer": "fit",
-    "distractors": ["boil", "damage", "locate"]
+    "distractors": ["boil", "damage", "locate"],
+    "chinese": "這雙鞋很合我穿。"
   },
   {
     "sentence": "My parents ________ at the gym.",
     "answer": "work out",
-    "distractors": ["line up", "deal with", "stress out"]
+    "distractors": ["line up", "deal with", "stress out"],
+    "chinese": "我的父母在健身房健身。"
   },
   {
     "sentence": "I ________ tea to coffee.",
     "answer": "prefer",
-    "distractors": ["suggest", "borrow", "behave"]
+    "distractors": ["suggest", "borrow", "behave"],
+    "chinese": "比起咖啡，我更喜歡茶。"
   },
   {
     "sentence": "We visited our ________ last weekend.",
-    "answer": "relative",
-    "distractors": ["employee", "teenager", "actor"]
+    "answer": "relatives",
+    "distractors": ["employee", "teenager", "actor"],
+    "chinese": "我們上週末拜訪了我們的親戚。"
   },
   {
     "sentence": "He came home at his ________ time.",
     "answer": "usual",
-    "distractors": ["formal", "serious", "entire"]
+    "distractors": ["formal", "serious", "entire"],
+    "chinese": "他在他平常的時間回家了。"
   },
   {
     "sentence": "Reading before bed is a good ________.",
     "answer": "habit",
-    "distractors": ["purpose", "effect", "dessert"]
+    "distractors": ["purpose", "effect", "dessert"],
+    "chinese": "睡前閱讀是個好習慣。"
   },
   {
     "sentence": "________, be kind to others.",
     "answer": "above all",
-    "distractors": ["in person", "less", "so far"]
+    "distractors": ["in person", "less", "so far"],
+    "chinese": "最重要的是，要善待他人。"
   },
   {
     "sentence": "I ________ seeing you soon.",
     "answer": "look forward to",
-    "distractors": ["used to", "come up with", "be known for"]
+    "distactors": ["used to", "come up with", "be known for"],
+    "chinese": "我期待很快能見到你。"
   },
   {
     "sentence": "The hotel is ________ near the beach.",
     "answer": "located",
-    "distractors": ["attended", "introduced", "disappeared"]
+    "distractors": ["attended", "introduced", "disappeared"],
+    "chinese": "這間旅館位於海灘附近。"
   },
   {
     "sentence": "The ________ family went on vacation.",
     "answer": "entire",
-    "distractors": ["regular", "formal", "usual"]
+    "distractors": ["regular", "formal", "usual"],
+    "chinese": "全家人都去度假了。"
   },
   {
     "sentence": "This is our best-selling ________.",
     "answer": "product",
-    "distractors": ["advertisement", "club", "hostel"]
+    "distractors": ["advertisement", "club", "hostel"],
+    "chinese": "這是我們最暢銷的產品。"
   },
   {
     "sentence": "He didn’t ________ your name.",
     "answer": "mention",
-    "distractors": ["suggest", "discuss", "prefer"]
+    "distractors": ["suggest", "discuss", "prefer"],
+    "chinese": "他沒有提到你的名字。"
   },
   {
     "sentence": "The school has many fun ________.",
     "answer": "activities",
-    "distractors": ["diaries", "products", "purposes"]
+    "distractors": ["diaries", "products", "purposes"],
+    "chinese": "學校有很多有趣的活動。"
   },
   {
     "sentence": "I joined the English ________.",
     "answer": "club",
-    "distractors": ["hostel", "diary", "advertisement"]
+    "distractors": ["hostel", "diary", "advertisement"],
+    "chinese": "我參加了英語社團。"
   },
   {
     "sentence": "The teacher is ________ after class, so you can go ask questions.",
     "answer": "available",
-    "distractors": ["serious", "regular", "particular"]
+    "distractors": ["serious", "regular", "particular"],
+    "chinese": "老師下課後有空，所以你可以去問問題。"
   },
   {
     "sentence": "Can I ________ your pencil?",
     "answer": "borrow",
-    "distractors": ["fit", "boil", "search"]
+    "distractors": ["fit", "boil", "search"],
+    "chinese": "我可以跟你借鉛筆嗎？"
   },
   {
     "sentence": "We live in a ________ house.",
     "answer": "single-story",
-    "distractors": ["formal", "usual", "entire"]
+    "distractors": ["formal", "usual", "entire"],
+    "chinese": "我們住在一棟單層的房子裡。"
   },
   {
     "sentence": "Our flight leaves from ________ 10.",
     "answer": "boarding gate",
-    "distractors": ["hostel", "club", "activity"]
+    "distractors": ["hostel", "club", "activity"],
+    "chinese": "我們的航班從10號登機門出發。"
   },
   {
     "sentence": "Please ________ some water for tea.",
     "answer": "boil",
-    "distractors": ["damage", "fit", "search"]
+    "distractors": ["damage", "fit", "search"],
+    "chinese": "請燒一些水來泡茶。"
   },
   {
     "sentence": "Don’t ________ about the test.",
     "answer": "stress out",
-    "distractors": ["work out", "line up", "deal with"]
+    "distractors": ["work out", "line up", "deal with"],
+    "chinese": "不要為考試感到壓力。"
   },
   {
     "sentence": "The students ________ for lunch.",
     "answer": "line up",
-    "distractors": ["come up with", "take place", "look forward to"]
+    "distractors": ["come up with", "take place", "look forward to"],
+    "chinese": "學生們排隊等候午餐。"
   },
   {
     "sentence": "Please ________ in class.",
     "answer": "behave",
-    "distractors": ["disappear", "suggest", "prefer"]
+    "distractors": ["disappear", "suggest", "prefer"],
+    "chinese": "請在課堂上守規矩。"
   },
   {
     "sentence": "The sun ________ behind the clouds.",
     "answer": "disappeared",
-    "distractors": ["behaved", "located", "attended"]
+    "distractors": ["behaved", "located", "attended"],
+    "chinese": "太陽消失在雲層後面。"
   },
   {
     "sentence": "We stayed in a cheap ________.",
     "answer": "hostel",
-    "distractors": ["club", "diary", "product"]
+    "distractors": ["club", "diary", "product"],
+    "chinese": "我們住在一間便宜的青年旅館。"
   },
   {
     "sentence": "The ________ of this book is 200 dollars.",
     "answer": "price",
-    "distractors": ["effect", "purpose", "habit"]
+    "distractors": ["effect", "purpose", "habit"],
+    "chinese": "這本書的價格是200元。"
   },
   {
     "sentence": "I eat ________ sugar now.",
     "answer": "less",
-    "distractors": ["fit", "in person", "above all"]
+    "distractors": ["fit", "in person", "above all"],
+    "chinese": "我現在吃比較少的糖。"
   },
   {
-    "sentence": "That ________ is my neighbor.",
+    "sentence": "That ________ is a 13 years old boy.",
     "answer": "teenager",
-    "distractors": ["employee", "actor", "relative"]
+    "distractors": ["employee", "actress", "relative"],
+    "chinese": "那個青少年是個13歲的男孩。"
   },
   {
     "sentence": "I ________ the Internet for the answer.",
     "answer": "search",
-    "distractors": ["boil", "fit", "damage"]
+    "distractors": ["boil", "fit", "damage"],
+    "chinese": "我上網搜尋答案。"
   }
 ]
