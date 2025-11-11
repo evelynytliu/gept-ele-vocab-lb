@@ -1,0 +1,27 @@
+[
+  {
+    "sentence": "I always do my homework after dinner.",
+    "answer": "do",
+    "distractors": ["make", "play", "go"]
+  },
+  {
+    "sentence": "He is very happy today because he passed the test.",
+    "answer": "happy",
+    "distractors": ["sad", "tired", "angry"]
+  },
+  {
+    "sentence": "My father works in a hospital.",
+    "answer": "hospital",
+    "distractors": ["teacher", "school", "office"]
+  },
+  {
+    "sentence": "She sings loudly in the shower every morning.",
+    "answer": "loudly",
+    "distractors": ["beautiful", "music", "happy"]
+  },
+  {
+    "sentence": "They decided to visit the museum on Sunday.",
+    "answer": "museum",
+    "distractors": ["library", "zoo", "station"]
+  }
+]
