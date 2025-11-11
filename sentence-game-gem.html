@@ -340,7 +340,7 @@
       align-items: center;
       background: rgba(15, 23, 42, 0.9); /* From .progress-container */
       border-radius: 999px;
-      margin: 0 0 1.5em 0; /* 移到題目下方, 調整 margin */
+      margin: 1.5em 0 1.5em 0; /* ✅ 調整 margin (上下邊距) */
       padding: 8px 20px;
       border: 1px solid rgba(148, 163, 184, 0.5);
     }
@@ -756,7 +756,7 @@
         right: 10px;
       }
       
-      /* ✅ RWD for HUD (Request 1) */
+      /* ✅ RWD for HUD */
       .game-hud {
         padding: 6px 16px;
       }
@@ -770,7 +770,7 @@
         font-size: 1.1em;
       }
 
-      /* ✅ RWD for Rank (Request 4) */
+      /* ✅ RWD for Rank */
       .rank-position {
         width: 35px;
         font-size: 1.1em;
@@ -868,6 +868,11 @@ body.light-mode #start-btn:active {
       
       <div class="question" id="question"></div>
 
+      <div class="score-display" id="score-display-old"></div>
+      <div class="lives-display" id="lives-display-old"></div>
+      
+      <div class="options" id="options"></div>
+
       <div class="game-hud">
         <div class="hud-item" id="score-display-container">
           <span class="hud-label">目前得分</span>
@@ -879,10 +884,6 @@ body.light-mode #start-btn:active {
         </div>
       </div>
       
-      <div class="score-display" id="score-display-old"></div>
-      <div class="lives-display" id="lives-display-old"></div>
-      
-      <div class="options" id="options"></div>
       <h3 id="result-title" style="margin-top:30px;"></h3>
       <ul class="result-log" id="results"></ul>
       <div class="badges" id="badges"></div>
@@ -902,7 +903,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 15:30
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 15:35
   <div>
 
   <script>
@@ -1035,32 +1036,39 @@ async function submitScore() {
  * @param {function} [callback] - (可選) 朗讀完畢後要執行的函數
  */
 function speak(text, callback) {
-  speechSynthesis.cancel();
-  if (!selectedVoice) selectedVoice = findEnglishVoice();
-  
-  // ✅ Bug 修正：拼寫錯誤 (Fance -> Utterance)
-  const utterance = new SpeechSynthesisUtterance(text);
-  
-  utterance.voice = selectedVoice;
-  utterance.lang = "en-US";
-  utterance.rate = 0.9;
+  try {
+    speechSynthesis.cancel();
+    if (!selectedVoice) selectedVoice = findEnglishVoice();
+    
+    // ✅ Bug 修正：拼寫錯誤 (Fance -> Utterance)
+    const utterance = new SpeechSynthesisUtterance(text);
+    
+    utterance.voice = selectedVoice;
+    utterance.lang = "en-US";
+    utterance.rate = 0.9;
 
-  // 朗讀結束時，執行 callback
-  utterance.onend = function() {
+    // 朗讀結束時，執行 callback
+    utterance.onend = function() {
+      if (callback) {
+        callback();
+      }
+    };
+
+    // 發生錯誤時，也執行 callback (避免遊戲卡住)
+    utterance.onerror = function(event) {
+      console.error('Speech synthesis error:', event);
+      if (callback) {
+        callback(); // 確保錯誤時也能推進遊戲
+      }
+    };
+
+    speechSynthesis.speak(utterance);
+  } catch (err) {
+    console.error("Speak function error:", err);
     if (callback) {
-      callback();
+        callback(); // 捕捉同步錯誤 (例如 .speak() 失敗)
     }
-  };
-
-  // 發生錯誤時，也執行 callback (避免遊戲卡住)
-  utterance.onerror = function(event) {
-    console.error('Speech synthesis error:', event);
-    if (callback) {
-      callback();
-    }
-  };
-
-  speechSynthesis.speak(utterance);
+  }
 }
 
 
@@ -1388,7 +1396,7 @@ function renderSentenceQuestion() {
   updateScoreDisplay();
   const q = questionSet[currentIndex];
   
-  // ✅ 修正：使用 <span> 搭配 monospace (Request 1)
+  // ✅ 修正：使用 <span> 搭配 monospace
   const questionHTML = q.sentence.replace(
     "________", 
     '<span style="font-family: monospace; letter-spacing: -1px;">________</span>'
@@ -1711,8 +1719,24 @@ if (themeToggleBtn) {
     data = await res.json();
   } catch (err) {
     console.warn("初始題庫載入失敗，使用預設題庫");
-    data = [...defaultData];
+    // ✅ 修正：確保預設題庫與 currentQuizType 一致
+    if (currentQuizType === 'sentence') {
+        data = [{ "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"] }];
+    } else {
+        data = [{ Vocabulary: "error", Chinese: "錯誤" }];
+    }
   }
+  
+  // 如果載入的資料是空的 (例如 JSON 檔內容為 [])，也使用預設題庫
+  if (!Array.isArray(data) || data.length === 0) {
+      console.warn("題庫為空，使用預設題庫");
+      if (currentQuizType === 'sentence') {
+          data = [{ "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"] }];
+      } else {
+          data = [{ Vocabulary: "error", Chinese: "錯誤" }];
+      }
+  }
+  
   questionSet = shuffle([...data]);
   currentIndex = 0;
   wrongCount = 0;
