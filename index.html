@@ -857,9 +857,9 @@ body.light-mode #start-btn:active {
     <div class="control-row" style="margin-top: 4px;">
       <label for="username">玩家暱稱：</label>
       <input id="username" type="text" placeholder="例如：Emmett" />
+      <div class="hint-text" id="main-hint">小提示：開始後按下面的按鈕可以重聽英文發音 🎧</div>
       <button id="start-btn" onclick="startQuiz()">開始挑戰</button>
     </div>
-    <div class="hint-text" id="main-hint">小提示：開始後按上面的按鈕可以重聽英文發音 🎧</div>
 
     <div class="progress-container" style="display:none;" id="progress-section">
       <div class="progress-bar" id="progress-bar"></div>
@@ -1487,11 +1487,11 @@ function updateUIForQuizType(quizType) {
   if (quizType === "vocab") {
     title.innerHTML = "GEPT Vocabulary Battle ⚡";
     subtitle.innerHTML = "聽發音、選中文，看看你能守住幾條命！";
-    hint.innerHTML = "小提示：開始後按上面的按鈕可以重聽英文發音 🎧";
+    hint.innerHTML = " ";
   } else if (quizType === "sentence") {
     title.innerHTML = "GEPT Sentence Challenge ✍️";
     subtitle.innerHTML = "閱讀句子、選出正確單字，完成填空！";
-    hint.innerHTML = "小提示：開始後按上面的按鈕可以重聽句子發音 🎧";
+    hint.innerHTML = " ";
   }
   
   // ✅ 修正：
