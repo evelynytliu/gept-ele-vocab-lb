@@ -1,0 +1,102 @@
+[
+  {
+    "sentence": "I go to the ________ to read and borrow books.",
+    "answer": "library",
+    "distractors": ["museum", "backpack", "dentist"]
+  },
+  {
+    "sentence": "We saw old dinosaur bones at the ________.",
+    "answer": "museum",
+    "distractors": ["library", "stationary", "science"]
+  },
+  {
+    "sentence": "I put my books and pencils in my ________.",
+    "answer": "backpack",
+    "distractors": ["breakfast", "museum", "weekend"]
+  },
+  {
+    "sentence": "I am ________, I want to eat lunch.",
+    "answer": "hungry",
+    "distractors": ["friendly", "noisy", "brave"]
+  },
+  {
+    "sentence": "I eat eggs and toast for ________.",
+    "answer": "breakfast",
+    "distractors": ["backpack", "weekend", "exercise"]
+  },
+  {
+    "sentence": "My tooth hurts, I need to see a ________.",
+    "answer": "dentist",
+    "distractors": ["library", "science", "trainer"]
+  },
+  {
+    "sentence": "Pencils, pens, and paper are ________.",
+    "answer": "stationary",
+    "distractors": ["breakfast", "exercise", "museum"]
+  },
+  {
+    "sentence": "The dog is ________ and likes to meet new people.",
+    "answer": "friendly",
+    "distractors": ["hungry", "noisy", "careful"]
+  },
+  {
+    "sentence": "Running and swimming are good ________.",
+    "answer": "exercise",
+    "distractors": ["science", "stationary", "breakfast"]
+  },
+  {
+    "sentence": "We learn about plants and animals in ________ class.",
+    "answer": "science",
+    "distractors": ["dentist", "museum", "exercise"]
+  },
+  {
+    "sentence": "The party was too ________, my ears hurt.",
+    "answer": "noisy",
+    "distractors": ["brave", "friendly", "hungry"]
+  },
+  {
+    "sentence": "The firefighter was ________ to run into the fire.",
+    "answer": "brave",
+    "distractors": ["careful", "noisy", "friendly"]
+  },
+  {
+    "sentence": "Be ________ when you cross the street.",
+    "answer": "careful",
+    "distractors": ["brave", "hungry", "noisy"]
+  },
+  {
+    "sentence": "Saturday and Sunday are the ________.",
+    "answer": "weekend",
+    "distractors": ["breakfast", "backpack", "dentist"]
+  },
+  {
+    "sentence": "He will ________ if he agrees with you.",
+    "answer": "nod",
+    "distractors": ["pick", "care", "decide"]
+  },
+  {
+    "sentence": "A bird uses its ________ to fly.",
+    "answer": "wings",
+    "distractors": ["horns", "tail", "claw"]
+  },
+  {
+    "sentence": "A bull has two sharp ________ on its head.",
+    "answer": "horns",
+    "distractors": ["wings", "tail", "lab"]
+  },
+  {
+    "sentence": "The cat's fur is soft and ________.",
+    "answer": "furry",
+    "distractors": ["striped", "icy", "electric"]
+  },
+  {
+    "sentence": "The water in the lake is ________ in winter.",
+    "answer": "icy",
+    "distractors": ["energetic", "fluffy", "rare"]
+  },
+  {
+    "sentence": "________ student has a different book.",
+    "answer": "each",
+    "distractors": ["lab", "care", "punch"]
+  }
+]
