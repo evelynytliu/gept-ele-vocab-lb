@@ -769,7 +769,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 07:54
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 07:50
   <div>
 
   <script>
@@ -1151,21 +1151,15 @@ function endGame() {
 }
 
 function renderQuestion() {
-  // ✅ 先確保舊的選項容器完全清空並重置樣式
-  const container = document.getElementById("options");
-  if (container) {
-    const oldButtons = container.querySelectorAll("button");
-    oldButtons.forEach(btn => {
-      btn.classList.remove("correct", "incorrect");
-      btn.disabled = false;
-      btn.style.background = "";
-      btn.style.color = "";
-      btn.style.boxShadow = "";
-    });
-    container.innerHTML = ""; // 🧹 確實移除舊按鈕
-  }
-
-  // 🟢 以下是妳原本的邏輯
+  // ✅ 顯示新題目前，清除舊的選項樣式
+const optionButtons = document.querySelectorAll(".options button");
+optionButtons.forEach(btn => {
+  btn.classList.remove("correct", "incorrect"); // 移除標記
+  btn.disabled = false; // 恢復可點擊
+  btn.style.background = ""; // 清除顏色
+  btn.style.color = "";
+  btn.style.boxShadow = "";
+});
   
   attempts = 0;
   updateProgressBar();
