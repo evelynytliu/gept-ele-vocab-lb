@@ -22,6 +22,10 @@
       --danger: #ff3860;
       --success: #00ff9d;
       --shadow-strong: 0 18px 40px rgba(0, 0, 0, 0.7);
+      /* ✅ 新增：排行榜顏色 (Request 4) */
+      --gold: #FFD700;
+      --silver: #C0C0C0;
+      --bronze: #CD7F32;
     }
 
     /* 亮色主題切換 */
@@ -34,7 +38,10 @@
       --text-main: #1e293b;
       --text-muted: #64748b;
       --shadow-strong: 0 10px 20px rgba(148, 163, 184, 0.45);
-      background: radial-gradient(circle at top, #dbeafe 0, #eff6ff 40%, #e5e7eb 100%);
+      /* ✅ 新增：排行榜顏色 (Request 4) */
+      --gold: #D4AF37;
+      --silver: #8E8E8E;
+      --bronze: #B87333;
     }
 
     * {
@@ -325,22 +332,54 @@
     .quiz {
       margin-top: 4px;
     }
-
-    .score-display {
-      text-align: center;
-      font-size: 1.05em;
-      margin: 4px 0;
+    
+    /* ✅ 新增：遊戲 HUD 樣式 (Request 3) */
+    .game-hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.9); /* From .progress-container */
+      border-radius: 999px;
+      margin: 16px 0 10px 0;
+      padding: 8px 20px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+    .hud-item {
+       /* empty */
+    }
+    #score-display-container {
+      text-align: left;
+    }
+    #lives-display-container {
+      text-align: right;
+    }
+    .hud-label {
+      font-size: 0.85em;
+      color: var(--text-muted);
+      display: block; 
+    }
+    .hud-value {
+      font-weight: 700;
+      display: block; 
+    }
+    #score-display {
+      font-size: 1.3em;
       color: var(--accent-lime);
-      font-weight: 600;
-      letter-spacing: 0.02em;
+    }
+    #lives-display {
+      font-size: 1.2em; /* Hearts */
+      color: var(--danger);
+      letter-spacing: 2px;
+    }
+    body.light-mode .game-hud {
+      background: #e5e7eb;
+      box-shadow: inset 0 0 4px rgba(148, 163, 184, 0.5);
+    }
+    /* 移除舊樣式 (Request 3) */
+    .score-display, .lives-display {
+       display: none; /* 已被 .game-hud 取代 */
     }
 
-    .lives-display {
-      text-align: center;
-      font-size: 1.2em;
-      margin: 6px 0 12px 0;
-      color: var(--danger);
-    }
 
     .question {
       font-size: 1.4em;
@@ -616,29 +655,70 @@
       font-weight: 400;
       font-size: 0.78em;
     }
-
+    
+    /* ✅ 修正：排行榜樣式 (Request 4) */
     .dataset-block ul {
       list-style: none;
-      padding: 6px 0 4px 14px;
+      padding: 6px 0 4px 0px; /* 重設 padding-left */
       margin: 0;
     }
-
-    .dataset-block ul li {
-      padding: 4px 0;
+    
+    .rank-item {
       display: flex;
-      justify-content: space-between;
+      align-items: center;
+      padding: 10px 8px;
       border-bottom: 1px solid rgba(31, 41, 55, 0.9);
-      font-size: 0.9em;
-      color: var(--text-main);
     }
-
-    body.light-mode .dataset-block ul li {
-      border-bottom-color: rgba(148, 163, 184, 0.7);
-    }
-
-    .dataset-block ul li:last-child {
+    .rank-item:last-child {
       border-bottom: none;
     }
+    .rank-position {
+      font-size: 1.2em;
+      font-weight: 700;
+      width: 40px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .rank-details {
+      flex-grow: 1;
+      margin-left: 8px;
+    }
+    .rank-username {
+      display: block;
+      font-weight: 600;
+      font-size: 0.95em;
+      color: var(--text-main);
+    }
+    .rank-time {
+      display: block;
+      font-size: 0.8em;
+      color: var(--text-muted);
+    }
+    .rank-score {
+      font-size: 1.1em;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      padding-left: 10px;
+    }
+
+    /* Top 3 高亮 */
+    .rank-1 .rank-position { color: var(--gold); }
+    .rank-1 .rank-username { color: var(--gold); }
+    .rank-1 .rank-score { color: var(--gold); }
+    
+    .rank-2 .rank-position { color: var(--silver); }
+    .rank-2 .rank-username { color: var(--silver); }
+
+    .rank-3 .rank-position { color: var(--bronze); }
+    .rank-3 .rank-username { color: var(--bronze); }
+
+    /* Light mode */
+    body.light-mode .rank-item {
+      border-bottom-color: rgba(148, 163, 184, 0.7);
+    }
+    /* (light mode 的顏色變數已在 :root 中定義) */
+    
+    /* (移除舊的 .dataset-block ul li 樣式) */
 
     .footer {
       margin-top: 14px;
@@ -673,6 +753,20 @@
       .theme-toggle {
         top: 10px;
         right: 10px;
+      }
+      
+      /* ✅ RWD for HUD (Request 3) */
+      .game-hud {
+        padding: 6px 16px;
+      }
+      .hud-label {
+        font-size: 0.8em;
+      }
+      #score-display {
+        font-size: 1.2em;
+      }
+      #lives-display {
+        font-size: 1.1em;
       }
     }
 /* === 亮色模式下選項按鈕修正版：提高文字對比 === */
@@ -722,6 +816,7 @@ body.light-mode #start-btn:active {
 
     <div class="control-row" style="margin-top: 10px; margin-bottom: 16px;">
       <label for="dataset">題庫選擇：</label>
+      
       <select id="dataset">
         <option value="sentences_week1.json" data-limit="all" data-quiz-type="sentence">🟡 Week 1 (造句挑戰 15題)</option>
         <option value="sentences_week2.json" data-limit="all" data-quiz-type="sentence">🟡 Week 2 (造句挑戰 20題)</option>
@@ -733,7 +828,6 @@ body.light-mode #start-btn:active {
         <option value="GEPT_Week3_Vocab.json" data-limit="all" data-quiz-type="vocab">🤩 擴充挑戰Lv.3 (單字)</option>
         <option value="gept-full.json" data-limit="25" data-quiz-type="vocab">🔵 全 GEPT (隨機挑戰25/2256)</option>
         <option value="gept-full.json" data-limit="all" data-quiz-type="vocab">🔵 全 GEPT (魔鬼挑戰2256題)</option>
-      
       </select>
     </div>
 
@@ -752,8 +846,21 @@ body.light-mode #start-btn:active {
     </div>
 
     <div class="quiz" style="display:none;">
-      <div class="score-display" id="score-display">目前得分：0</div>
-      <div class="lives-display" id="lives-display">剩餘生命：❤️❤️❤️</div>
+      
+      <div class="game-hud">
+        <div class="hud-item" id="score-display-container">
+          <span class="hud-label">目前得分</span>
+          <span class="hud-value" id="score-display">0</span>
+        </div>
+        <div class="hud-item" id="lives-display-container">
+          <span class="hud-label">剩餘生命</span>
+          <span class="hud-value" id="lives-display">❤️❤️❤️</span>
+        </div>
+      </div>
+      
+      <div class="score-display" id="score-display-old"></div>
+      <div class="lives-display" id="lives-display-old"></div>
+      
       <div class="question" id="question"></div>
       <div class="options" id="options"></div>
       <h3 id="result-title" style="margin-top:30px;"></h3>
@@ -775,7 +882,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 14:50
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 15:15
   <div>
 
   <script>
@@ -801,10 +908,7 @@ speechSynthesis.onvoiceschanged = () => {
 
 // 預設題庫 (單字格式，對應 <select> 中的第一個選項)
 let data = [
-  { Vocabulary: "breathe fire", Chinese: "噴火" },
-  { Vocabulary: "trainer", Chinese: "訓練師" },
-  { Vocabulary: "journey", Chinese: "旅程 / 一段路" },
-  { Vocabulary: "rare", Chinese: "稀有的" }
+  { "sentence": "Default ________.", "answer": "question", "distractors": ["a", "b", "c"] }
 ];
 
 let defaultData = [...data];
@@ -816,8 +920,8 @@ let totalQuestionsToComplete = "all";
 let score = 0;
 let lives = 3;
 let gameSession = Date.now();
-let currentQuizType = "vocab"; // 追蹤目前的遊戲模式
-let currentDatasetFile = ""; // ✅ 追蹤目前選擇的檔案 (for Request 3)
+let currentQuizType = "sentence"; // 根據新的 <select> 順序，預設改為 sentence
+let currentDatasetFile = ""; // ✅ 追蹤目前選擇的檔案 (Request 3)
 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -830,13 +934,15 @@ function updateProgressBar() {
   document.getElementById("progress-bar").style.width = `${percent}%`;
 }
 
+// ✅ 修正：更新 HUD (Request 3)
 function updateScoreDisplay() {
-  document.getElementById("score-display").innerText = `目前得分：${score}`;
+  document.getElementById("score-display").innerText = score;
 }
 
+// ✅ 修正：更新 HUD (Request 3)
 function updateLivesDisplay() {
   const hearts = '❤️'.repeat(lives);
-  document.getElementById("lives-display").innerText = `剩餘生命：${hearts}`;
+  document.getElementById("lives-display").innerText = hearts;
 }
 
 let sessionBadges = []; // 用來記錄本次挑戰新增的徽章
@@ -911,7 +1017,7 @@ async function submitScore() {
 function speak(text, callback) {
   speechSynthesis.cancel();
   if (!selectedVoice) selectedVoice = findEnglishVoice();
-  const utterance = new SpeechSynthesisUtterance(text);
+  const utterance = new SpeechSynthesisUtterFance(text);
   utterance.voice = selectedVoice;
   utterance.lang = "en-US";
   utterance.rate = 0.9;
@@ -1048,12 +1154,24 @@ async function fetchLeaderboard() {
                 <small>（滿分 ${fullScore} 分）</small>
               </summary>
               <ul>
-                ${entries.map((entry, index) => `
-                  <li>
-                    <span>${index + 1}. ${entry.username}</span>
-                    <span>${entry.score}分｜${new Date(entry.timestamp).toLocaleString()}</span>
+                ${entries.map((entry, index) => {
+                  let rankClass = 'rank-normal';
+                  let rankIcon = `<span style="font-size: 0.9em; color: var(--text-muted);">${index + 1}.</span>`;
+                  if (index === 0) { rankClass = 'rank-1'; rankIcon = '🥇'; }
+                  if (index === 1) { rankClass = 'rank-2'; rankIcon = '🥈'; }
+                  if (index === 2) { rankClass = 'rank-3'; rankIcon = '🥉'; }
+
+                  return `
+                  <li class="rank-item ${rankClass}">
+                    <div class="rank-position">${rankIcon}</div>
+                    <div class="rank-details">
+                      <span class="rank-username">${entry.username}</span>
+                      <span class="rank-time">${new Date(entry.timestamp).toLocaleString()}</span>
+                    </div>
+                    <div class="rank-score">${entry.score}分</div>
                   </li>
-                `).join("")}
+                  `
+                }).join("")}
               </ul>
             </details>
           </li>
@@ -1390,7 +1508,7 @@ function speakCurrent() {
     speak(currentWord); // (不需 callback)
   } else {
     let currentSentence = questionSet[currentIndex].sentence;
-    // ✅ 修正：將底線換成"..."，語音會在這裡停頓 (Request 1 & 2)
+    // ✅ 修正：將底線換成"..."，語音會在這裡停頓
     const sentenceToSpeak = currentSentence.replace("________", "..."); 
     speak(sentenceToSpeak); // (不需 callback)
   }
@@ -1408,12 +1526,12 @@ function startQuiz() {
   const selected = document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex];
   currentQuizType = selected.getAttribute("data-quiz-type") || "vocab";
   
-  // ✅ 修正：(Request 3) 明確設定按鈕文字和功能
+  // ✅ 修正：(Request 2 & 3) 明確設定按鈕文字和功能
   const startButton = document.getElementById("start-btn");
   if (currentQuizType === "vocab") {
     startButton.innerHTML = "🔊 重聽發音";
   } else {
-    startButton.innerHTML = "🔊 重聽句子";
+    startButton.innerHTML = "🔊 句子發音"; // 修正文字
   }
   startButton.onclick = speakCurrent; // 綁定整合後的重聽函數
 
@@ -1483,7 +1601,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
       throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
     }
     data = await res.json();
-    currentDatasetFile = file; // ✅ 成功載入後，更新目前檔案 (Request 3)
+    currentDatasetFile = file; // ✅ 成功載入後，更新目前檔案
     questionSet = shuffle([...data]);
     currentIndex = 0;
     wrongCount = 0;
@@ -1501,7 +1619,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   } catch (err) {
     console.warn("載入題庫失敗，使用預設題庫");
     data = [...defaultData];
-    currentDatasetFile = document.getElementById("dataset").options[0].value; // ✅ 載入失敗，重設為預設檔案 (Request 3)
+    currentDatasetFile = document.getElementById("dataset").options[0].value; // ✅ 載入失敗，重設為預設檔案
     questionSet = shuffle([...data]);
     currentIndex = 0;
     wrongCount = 0;
@@ -1555,7 +1673,7 @@ if (themeToggleBtn) {
   const selected = document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex];
   const limit = selected.getAttribute("data-limit");
 
-  currentDatasetFile = file; // ✅ 儲存初始載入的檔案 (Request 3)
+  currentDatasetFile = file; // ✅ 儲存初始載入的檔案
 
   // 整合：初始化時設定模式
   currentQuizType = selected.getAttribute("data-quiz-type") || "vocab";
