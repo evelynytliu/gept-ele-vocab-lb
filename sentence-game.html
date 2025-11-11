@@ -157,7 +157,7 @@
 <body>
   <div class="game-card">
     <h1>GEPT Sentence Challenge ✨</h1>
-    <div class="subtitle">選出正確單字完成句子，每題答完自動朗讀整句！</div>
+    <div class="subtitle">選出正確單字完成句子。答對後朗讀例句再進下一題！</div>
 
     <div class="control-row">
       <label for="dataset">題庫選擇：</label>
@@ -186,7 +186,7 @@
     </div>
   </div>
 
-  <div class="footer">Made by Evelyn YT ｜© 2025</div>
+  <div class="footer">Made by Evelyn YT ｜© 2025/11/10 22:01</div>
 
 <script>
 let data = [];
@@ -194,7 +194,6 @@ let currentIndex = 0;
 let score = 0;
 let lives = 3;
 let selectedVoice = null;
-let gameSession = Date.now();
 
 function findEnglishVoice() {
   const voices = speechSynthesis.getVoices();
@@ -229,10 +228,12 @@ function renderQuestion(){
   const q = data[currentIndex];
   const blanked = q.sentence.replace(q.answer, "_____");
   document.getElementById("question").innerText = blanked;
-  const opts = shuffle([q.answer, ...shuffle(q.distractors).slice(0,3)]);
+
+  const allChoices = shuffle([q.answer, ...q.distractors]);
   const container = document.getElementById("options");
   container.innerHTML = "";
-  opts.forEach(opt=>{
+
+  allChoices.forEach(opt=>{
     const btn = document.createElement("button");
     btn.innerText = opt;
     btn.onclick = ()=>handleAnswer(btn, opt, q);
@@ -242,35 +243,32 @@ function renderQuestion(){
 
 function handleAnswer(btn, choice, q){
   const buttons = document.querySelectorAll(".options button");
-  buttons.forEach(b=>b.disabled=true);
-  if(choice===q.answer){
+  if(choice === q.answer){
     btn.classList.add("correct");
     score += 5;
     updateUI();
+
+    // 播放完整句子
+    setTimeout(()=>speakSentence(q.sentence), 400);
+
+    // 延遲後進下一題
     setTimeout(()=>{
-      speakSentence(q.sentence);
-    }, 500);
-    setTimeout(()=>{
-      nextQuestion();
+      currentIndex++;
+      if(currentIndex >= data.length){
+        endGame();
+      } else {
+        renderQuestion();
+      }
     }, 2500);
-  }else{
+
+  } else {
     btn.classList.add("incorrect");
+    btn.disabled = true;
     lives--;
     updateUI();
-    if(lives<=0){
+    if(lives <= 0){
       setTimeout(endGame, 800);
-    }else{
-      setTimeout(nextQuestion, 1000);
     }
-  }
-}
-
-function nextQuestion(){
-  currentIndex++;
-  if(currentIndex >= data.length || lives <= 0){
-    endGame();
-  }else{
-    renderQuestion();
   }
 }
 
@@ -290,6 +288,7 @@ function endGame(){
 async function startGame(){
   const name = document.getElementById("username").value.trim();
   if(!name){ alert("請輸入名字！"); return; }
+
   const file = document.getElementById("dataset").value;
   try{
     const res = await fetch(file);
@@ -299,11 +298,13 @@ async function startGame(){
     alert("題庫載入失敗，請確認 JSON 檔。");
     return;
   }
+
   document.getElementById("game-section").style.display="block";
   document.getElementById("progress-container").style.display="block";
   document.querySelector(".control-row").style.display="none";
   document.getElementById("username").style.display="none";
   document.getElementById("start-btn").style.display="none";
+
   currentIndex=0; score=0; lives=3;
   updateUI();
   renderQuestion();
