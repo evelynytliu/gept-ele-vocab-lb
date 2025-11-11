@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEPT Sentence Challenge ✍️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent-cyan: #00e0ff;
+      --accent-lime: #00ff9d;
+      --accent-pink: #ff4b9f;
+      --bg-deep: #050816;
+      --card-bg: rgba(8, 16, 32, 0.9);
+      --border-glow: rgba(0, 224, 255, 0.4);
+      --text-main: #f5f7ff;
+      --text-muted: #9ca3c4;
+      --danger: #ff3860;
+      --success: #00ff9d;
+      --shadow-strong: 0 18px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    /* 亮色主題切換 */
+    body.light-mode {
+      --accent-cyan: #38bdf8;
+      --accent-lime: #22c55e;
+      --bg-deep: #f8fafc;
+      --card-bg: #ffffff;
+      --border-glow: rgba(148, 163, 184, 0.4);
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --shadow-strong: 0 10px 20px rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at top, #dbeafe 0, #eff6ff 40%, #e5e7eb 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 960px;
+      margin: 24px auto;
+      padding: 16px;
+      color: var(--text-main);
+      background: radial-gradient(circle at top, #1b2845 0, #050816 55%, #000 100%);
+      background-size: 200% 200%;
+      animation: bgMove 26s ease-in-out infinite;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    /* 背景光球 */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(2px);
+      opacity: 0.7;
+    }
+
+    body::before {
+      top: -80px;
+      left: -60px;
+      background: radial-gradient(circle at center, rgba(0, 224, 255, 0.45), transparent 65%);
+      animation: floatOrb 18s ease-in-out infinite;
+    }
+
+    body::after {
+      bottom: -120px;
+      right: -40px;
+      background: radial-gradient(circle at center, rgba(255, 75, 159, 0.45), transparent 65%);
+      animation: floatOrbReverse 22s ease-in-out infinite;
+    }
+
+    body.light-mode::before,
+    body.light-mode::after {
+      opacity: 0.35;
+      filter: blur(1px);
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 60%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(40px, 30px, 0) scale(1.1); }
+      100% { transform: translate3d(-10px, -20px, 0) scale(1.02); }
+    }
+
+    @keyframes floatOrbReverse {
+      0% { transform: translate3d(0, 0, 0) scale(1.05); }
+      50% { transform: translate3d(-30px, -20px, 0) scale(1.15); }
+      100% { transform: translate3d(20px, 25px, 0) scale(1.05); }
+    }
+
+    .game-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 24px 20px 32px;
+      box-shadow: var(--shadow-strong);
+      border: 1px solid var(--border-glow);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent-cyan);
+      font-size: 2.4em;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 10px rgba(0, 224, 255, 0.9);
+    }
+
+    body.light-mode h1 {
+      text-shadow: none;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.95em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .control-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .control-row label {
+      font-size: 0.95em;
+      color: var(--text-muted);
+    }
+
+    #dataset {
+      padding: 8px 12px;
+      font-size: 0.95em;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      min-width: 230px;
+      outline: none;
+      box-shadow: 0 0 0 0 rgba(0, 224, 255, 0.0);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.12s ease, background 0.2s ease;
+    }
+
+    body.light-mode #dataset {
+      background: #ffffff;
+    }
+
+    #dataset:hover {
+      border-color: rgba(0, 224, 255, 0.8);
+      transform: translateY(-1px);
+    }
+
+    #dataset:focus {
+      box-shadow: 0 0 0 2px rgba(0, 224, 255, 0.5);
+      border-color: rgba(0, 224, 255, 0.9);
+    }
+
+    #username {
+      padding: 8px 12px;
+      font-size: 0.95em;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      min-width: 140px;
+      outline: none;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.12s ease, background 0.2s ease;
+    }
+
+    body.light-mode #username {
+      background: #ffffff;
+    }
+
+    #username::placeholder {
+      color: rgba(148, 163, 184, 0.9);
+      font-size: 0.9em;
+    }
+
+    #username:hover {
+      transform: translateY(-1px);
+    }
+
+    #username:focus {
+      box-shadow: 0 0 0 2px rgba(0, 224, 255, 0.45);
+      border-color: rgba(0, 224, 255, 0.85);
+    }
+
+    #start-btn {
+      margin-left: 4px;
+      padding: 8px 18px;
+      font-size: 0.95em;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--accent-cyan), var(--accent-lime));
+      color: #111827;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0, 224, 255, 0.4);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+      white-space: nowrap;
+    }
+
+
+    #start-btn:hover {
+      transform: translateY(-1px) scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 224, 255, 0.55);
+      filter: saturate(1.1);
+    }
+
+
+    #start-btn:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 4px 10px rgba(0, 224, 255, 0.3);
+    }
+
+    .hint-text {
+      text-align: center;
+      font-size: 0.85em;
+      color: var(--text-muted);
+      margin-top: 2px;
+      margin-bottom: 12px;
+    }
+
+
+
+    body.light-mode .leaderboard-controls button {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+body.light-mode #expand-all {
+  background: linear-gradient(120deg, #38bdf8, #22c55e);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+body.light-mode #collapse-all {
+  background: linear-gradient(120deg, #9ca3af, #6b7280);
+  box-shadow: 0 4px 10px rgba(156, 163, 175, 0.5);
+}
+
+    
+
+    /* 暗 / 亮模式切換按鈕 */
+    .theme-toggle {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.85em;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .theme-toggle span {
+      font-size: 1.05em;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+    }
+
+    body.light-mode .theme-toggle {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 6px 14px rgba(148, 163, 184, 0.7);
+    }
+
+    .progress-container {
+      height: 18px;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 999px;
+      margin: 16px 0 10px 0;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: inset 0 0 10px rgba(15, 23, 42, 0.9);
+    }
+
+    body.light-mode .progress-container {
+      background: #e5e7eb;
+      box-shadow: inset 0 0 4px rgba(148, 163, 184, 0.5);
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-lime));
+      transition: width 0.3s ease-in-out;
+      box-shadow: 0 0 16px rgba(0, 224, 255, 0.9);
+    }
+
+    .quiz {
+      margin-top: 4px;
+    }
+
+    .score-display {
+      text-align: center;
+      font-size: 1.05em;
+      margin: 4px 0;
+      color: var(--accent-lime);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .lives-display {
+      text-align: center;
+      font-size: 1.2em;
+      margin: 6px 0 12px 0;
+      color: var(--danger);
+    }
+
+    .question {
+      font-size: 1.4em;
+      margin: 0.8em 0 1.2em 0;
+      text-align: center;
+      color: #e5e7ff;
+      padding: 8px 10px;
+      line-height: 1.6;
+    }
+
+    body.light-mode .question {
+      color: #0f172a;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .options button {
+      padding: 14px 10px;
+      font-size: 1.02em;
+      font-weight: 600;
+      border: none;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.36), rgba(15, 23, 42, 0.96));
+      color: var(--text-main);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, filter 0.15s ease;
+      cursor: pointer;
+      text-align: center;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+
+    body.light-mode .options button {
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.3), #ffffff);
+      color: #0f172a;
+      box-shadow: 0 4px 10px rgba(148, 163, 184, 0.9);
+    }
+
+    .options button:hover:not(:disabled) {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);
+      filter: brightness(1.05);
+      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.2), rgba(17, 24, 39, 0.98));
+    }
+
+    body.light-mode .options button:hover:not(:disabled) {
+      box-shadow: 0 8px 16px rgba(148, 163, 184, 0.8);
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), #e5e7eb);
+    }
+
+    .options button:disabled {
+      cursor: default;
+      opacity: 0.9;
+    }
+
+    .options button.correct {
+      background: linear-gradient(135deg, var(--success), #9bffcd);
+      color: #052e16;
+      box-shadow: 0 0 18px rgba(0, 255, 157, 0.9);
+      animation: correctPop 0.28s ease-out;
+    }
+
+    .options button.incorrect {
+      background: linear-gradient(135deg, var(--danger), #ff9aa2);
+      color: #fff7f7;
+      box-shadow: 0 0 16px rgba(255, 56, 96, 0.9);
+      animation: wrongShake 0.26s ease-in-out;
+    }
+
+    @keyframes correctPop {
+      0% { transform: scale(0.9); }
+      60% { transform: scale(1.06); }
+      100% { transform: scale(1.0); }
+    }
+
+    @keyframes wrongShake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-4px); }
+      40% { transform: translateX(4px); }
+      60% { transform: translateX(-3px); }
+      80% { transform: translateX(3px); }
+      100% { transform: translateX(0); }
+    }
+
+    .result-log {
+      margin-top: 24px;
+      padding-left: 20px;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+
+    .result-log li {
+      margin: 4px 0;
+      font-size: 0.9em;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    #result-title {
+      margin-top: 24px;
+      font-size: 1.05em;
+      color: var(--accent-cyan);
+    }
+
+    .badges {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 0.9em;
+      color: var(--text-muted);
+    }
+
+    .badges span {
+      display: inline-block;
+      padding: 8px 14px;
+      margin: 4px;
+      background: radial-gradient(circle at top, #facc15, #f97316);
+      color: #1f2937;
+      border-radius: 999px;
+      font-size: 0.88em;
+      box-shadow: 0 6px 14px rgba(250, 204, 21, 0.35);
+      font-weight: 600;
+    }
+
+    .leaderboard {
+      margin-top: 24px;
+      padding: 18px 16px 10px;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 1), rgba(3, 7, 18, 0.98));
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.88);
+    }
+
+    body.light-mode .leaderboard {
+      background: linear-gradient(180deg, #ffffff, #e5e7eb);
+      box-shadow: 0 10px 22px rgba(148, 163, 184, 0.7);
+    }
+
+    .leaderboard h2 {
+      text-align: center;
+      color: var(--accent-cyan);
+      font-size: 1.5em;
+      margin-top: 0;
+      margin-bottom: 8px;
+      text-shadow: 0 0 8px rgba(0, 224, 255, 0.9);
+    }
+
+    body.light-mode .leaderboard h2 {
+      text-shadow: none;
+    }
+
+    .leaderboard-note {
+      text-align: center;
+      font-size: 0.8em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .leaderboard-controls {
+      text-align: center;
+      margin: 10px 0 6px 0;
+    }
+
+    .leaderboard-controls button {
+      padding: 6px 12px;
+      margin: 0 6px;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.85em;
+      cursor: pointer;
+      color: #0b1120;
+      font-weight: 500;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    #expand-all {
+      background: linear-gradient(120deg, var(--accent-cyan), var(--accent-lime));
+      box-shadow: 0 8px 16px rgba(0, 224, 255, 0.5);
+    }
+
+    #collapse-all {
+      background: linear-gradient(120deg, #9ca3af, #6b7280);
+      box-shadow: 0 6px 12px rgba(107, 114, 128, 0.6);
+    }
+
+    .leaderboard-controls button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .leaderboard-controls button:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: none;
+    }
+
+    .leaderboard-loading {
+      text-align: center;
+      margin: 8px 0 10px 0;
+      color: var(--text-muted);
+      font-size: 0.9em;
+    }
+
+    .leaderboard-loading .spinner {
+      margin: 6px auto 4px;
+      border: 4px solid rgba(148, 163, 184, 0.25);
+      border-top: 4px solid var(--accent-cyan);
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .leaderboard ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .leaderboard li {
+      font-size: 0.95em;
+      color: var(--text-main);
+    }
+
+    .dataset-block {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      margin-top: 10px;
+      padding: 6px 8px 4px;
+    }
+
+    body.light-mode .dataset-block {
+      background: #f9fafb;
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+
+    .dataset-block summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      font-size: 0.98em;
+      outline: none;
+      list-style: none;
+    }
+
+    .dataset-block summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .dataset-block summary::before {
+      content: "▶";
+      font-size: 0.8em;
+      margin-right: 6px;
+      color: var(--accent-lime);
+      transition: transform 0.16s ease;
+      display: inline-block;
+    }
+
+    .dataset-block[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .dataset-block small {
+      color: var(--text-muted);
+      font-weight: 400;
+      font-size: 0.78em;
+    }
+
+    .dataset-block ul {
+      list-style: none;
+      padding: 6px 0 4px 14px;
+      margin: 0;
+    }
+
+    .dataset-block ul li {
+      padding: 4px 0;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 0.9em;
+      color: var(--text-main);
+    }
+
+    body.light-mode .dataset-block ul li {
+      border-bottom-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .dataset-block ul li:last-child {
+      border-bottom: none;
+    }
+
+    .footer {
+      margin-top: 14px;
+      font-size: 0.8em;
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        margin: 12px auto;
+        padding: 10px;
+      }
+      .game-card {
+        padding: 16px 14px 22px;
+        border-radius: 18px;
+      }
+      h1 {
+        font-size: 1.7em;
+      }
+      .options {
+        grid-template-columns: 1fr;
+      }
+      .control-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      #start-btn {
+        margin-left: 0;
+        align-self: center;
+      }
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+      }
+    }
+/* === 亮色模式下選項按鈕修正版：提高文字對比 === */
+body.light-mode .options button.correct {
+  background: linear-gradient(135deg, #4ade80, #22c55e); /* 更飽和的綠 */
+  color: #ffffff; /* 改為白字 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* 增加立體度 */
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+}
+
+body.light-mode .options button.incorrect {
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+}
+    
+
+/* === ✅ 亮色模式按鈕覆蓋修正版 === */
+body.light-mode #start-btn {
+  background: linear-gradient(120deg, #38bdf8, #22c55e) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+}
+
+body.light-mode #start-btn:hover {
+  background: linear-gradient(120deg, #60a5fa, #4ade80) !important;
+  transform: translateY(-1px) scale(1.05) !important;
+  filter: brightness(1.1) !important;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6) !important;
+}
+
+body.light-mode #start-btn:active {
+  background: linear-gradient(120deg, #3b82f6, #22c55e) !important;
+  transform: translateY(1px) scale(0.98) !important;
+  box-shadow: 0 3px 8px rgba(59, 130, 246, 0.4) !important;
+}
+
+  </style>
+</head>
+<body>
+  <div class="game-card">
+    <button id="theme-toggle" class="theme-toggle" type="button">
+      <span class="icon">🌙</span>
+      <span class="label">暗色模式</span>
+    </button>
+
+    <h1>GEPT Sentence Challenge ✍️</h1>
+    <div class="subtitle">閱讀句子、選出正確單字，完成填空！</div>
+
+    <div class="control-row" style="margin-top: 10px;">
+      <label for="dataset">題庫選擇：</label>
+      <select id="dataset">
+        <option value="sentences_week1.json" data-limit="all">🟡 Week 1 (造句挑戰 15題)</option>
+        <option value="sentences_week2.json" data-limit="all">🟡 Week 2 (造句挑戰 20題)</option>
+        </select>
+    </div>
+
+    <div class="control-row" style="margin-top: 4px;">
+      <label for="username">玩家暱稱：</label>
+      <input id="username" type="text" placeholder="例如：Emmett" />
+      <button id="start-btn" onclick="startQuiz()">開始挑戰</button>
+    </div>
+    <div class="hint-text">小提示：開始後按上面的按鈕可以重聽句子發音 🎧</div>
+
+    <div class="progress-container" style="display:none;" id="progress-section">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <div class="quiz" style="display:none;">
+      <div class="score-display" id="score-display">目前得分：0</div>
+      <div class="lives-display" id="lives-display">剩餘生命：❤️❤️❤️</div>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+      <h3 id="result-title" style="margin-top:30px;"></h3>
+      <ul class="result-log" id="results"></ul>
+      <div class="badges" id="badges"></div>
+    </div>
+
+    <div class="leaderboard" id="leaderboard">
+      <h2>🏆 積分排行榜</h2>
+      <div class="leaderboard-note">依題庫分組，每組顯示前 10 名紀錄（依完成時間排序）</div>
+
+      <div id="leaderboard-loading" class="leaderboard-loading">
+        <div class="spinner"></div>
+        <div>排行榜載入中…</div>
+      </div>
+
+      <ul id="leaderboard-list"></ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 11:00
+  <div>
+
+  <script>
+// 您的 Google Apps Script 網址保持不變
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyg8OvuiCZbrtUTBy6a1pKyWeGUZJJbCJsxeodvwgbs9I2o6Fe7dS_irIntu44SNmJrig/exec";
+
+let selectedVoice = null;
+let badgesEarned = JSON.parse(localStorage.getItem("badges")) || [];
+
+function findEnglishVoice() {
+  const voices = speechSynthesis.getVoices();
+  const priority = ['Google US English', 'Samantha', 'Microsoft Aria Online (Natural) - English (United States)', 'Microsoft Zira', 'Microsoft David', 'Karen', 'Alex'];
+  for (const name of priority) {
+    const match = voices.find(v => v.name.includes(name));
+    if (match) return match;
+  }
+  return voices.find(v => v.lang === 'en-US') || voices[0];
+}
+
+speechSynthesis.onvoiceschanged = () => {
+  selectedVoice = findEnglishVoice();
+};
+
+// 預設題庫 (如果 JSON 載入失敗會使用這個)
+// 格式變更為: { sentence: "...", answer: "...", distractors: [...] }
+let data = [
+  {
+    "sentence": "A Pokémon ____ helps their Pokémon get strong.",
+    "answer": "trainer",
+    "distractors": ["journey", "lab", "claw"]
+  },
+  {
+    "sentence": "It is very ____ to see a shooting star.",
+    "answer": "rare",
+    "distractors": ["fluffy", "energetic", "furry"]
+  },
+  {
+    "sentence": "You must ____ for your pet cat and dog.",
+    "answer": "care",
+    "distractors": ["decide", "pick", "nod"]
+  },
+  {
+    "sentence": "I need to ____ which toy I want to buy.",
+    "answer": "decide",
+    "distractors": ["care", "punch", "breathe fire"]
+  },
+  {
+    "sentence": "The rabbit is white and ____.",
+    "answer": "fluffy",
+    "distractors": ["rare", "icy", "striped"]
+  }
+];
+
+let defaultData = [...data];
+let questionSet = [];
+let currentIndex = 0;
+let attempts = 0;
+let wrongCount = 0;
+let totalQuestionsToComplete = "all";
+let score = 0;
+let lives = 3;
+let gameSession = Date.now();
+
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+function updateProgressBar() {
+  const totalQuestions = typeof totalQuestionsToComplete === 'number' ?
+                       totalQuestionsToComplete : questionSet.length;
+  const percent = (currentIndex / totalQuestions) * 100;
+  document.getElementById("progress-bar").style.width = `${percent}%`;
+}
+
+function updateScoreDisplay() {
+  document.getElementById("score-display").innerText = `目前得分：${score}`;
+}
+
+function updateLivesDisplay() {
+  const hearts = '❤️'.repeat(lives);
+  document.getElementById("lives-display").innerText = `剩餘生命：${hearts}`;
+}
+
+let sessionBadges = []; // 用來記錄本次挑戰新增的徽章
+
+function awardBadges() {
+  const newBadges = [];
+  
+  // 徽章條件
+  if (score >= 50) newBadges.push("🎖️ 造句高手"); // 徽章名稱更新
+  if (wrongCount === 0 && currentIndex === questionSet.length) newBadges.push("⭐ 完美挑戰");
+  if (!badgesEarned.includes("🎉 首次挑戰")) newBadges.push("🎉 首次挑戰");
+
+  // 判斷哪些徽章是本次新獲得的
+  sessionBadges = newBadges.filter(badge => !badgesEarned.includes(badge));
+
+  // 更新永久徽章
+  sessionBadges.forEach(badge => badgesEarned.push(badge));
+  localStorage.setItem("badges", JSON.stringify(badgesEarned));
+
+  // 更新畫面
+  displayBadges();
+  displaySessionBadges();
+}
+
+// 顯示永久徽章
+function displayBadges() {
+  const badgesContainer = document.getElementById("badges");
+  badgesContainer.innerHTML = badgesEarned.length
+    ? badgesEarned.map(badge => `<span>${badge}</span>`).join("")
+    : "尚未獲得徽章";
+}
+
+// 顯示本次挑戰徽章
+function displaySessionBadges() {
+  const resultSection = document.querySelector(".quiz");
+  if (!resultSection) return;
+
+  const existing = document.getElementById("session-badges");
+  if (existing) existing.remove();
+
+  const sessionDiv = document.createElement("div");
+  sessionDiv.id = "session-badges";
+  sessionDiv.style.textAlign = "center";
+  sessionDiv.style.marginTop = "20px";
+  sessionDiv.innerHTML =
+    sessionBadges.length > 0
+      ? `<h3 style="color:#ffd700;">🎯 本次獲得徽章</h3>${sessionBadges.map(b => `<span style="display:inline-block; margin:5px; padding:8px 14px; border-radius:20px; background:#ffb703; color:#222; font-weight:600; box-shadow:2px 2px 6px rgba(0,0,0,0.2);">${b}</span>`).join("")}`
+      : `<h3 style="color:#aaa;">本次未獲得新徽章</h3>`;
+
+  resultSection.appendChild(sessionDiv);
+}
+
+// (此函數重複，移除一個)
+// function displayBadges() { ... }
+
+async function submitScore() {
+  if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: window.username,
+          score: score,
+          session: gameSession,
+          dataset: document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex].text
+        })
+      });
+
+      console.log("分數已提交至 Google Sheets");
+    } catch (err) {
+      console.error("提交分數失敗:", err);
+    }
+  } else {
+    console.warn("未設置 GOOGLE_SCRIPT_URL，分數未提交");
+  }
+}
+
+// speakSentence 輔助函數
+function speakSentence(text) {
+  speechSynthesis.cancel();
+  if (!selectedVoice) selectedVoice = findEnglishVoice();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.voice = selectedVoice;
+  utterance.lang = "en-US";
+  utterance.rate = 0.9;
+  speechSynthesis.speak(utterance);
+}
+
+
+async function fetchLeaderboard() {
+  const loadingEl = document.getElementById("leaderboard-loading");
+  const leaderboardList = document.getElementById("leaderboard-list");
+
+  if (loadingEl) {
+    loadingEl.style.display = "block";
+  }
+  if (leaderboardList) {
+    leaderboardList.innerHTML = "";
+  }
+
+  if (!GOOGLE_SCRIPT_URL.includes("YOUR")) {
+    try {
+      const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getLeaderboard`);
+      const leaderboard = await response.json();
+
+      const grouped = {};
+      leaderboard.forEach(entry => {
+        const key = entry.dataset || "未知題庫";
+        if (!grouped[key]) grouped[key] = [];
+        grouped[key].push(entry);
+      });
+
+      // 每個題庫內依「分數高→低」排序，若同分則以時間新→舊排序
+      for (const key in grouped) {
+        grouped[key].sort((a, b) => {
+          if (b.score === a.score) {
+            return new Date(b.timestamp) - new Date(a.timestamp);
+          }
+          return b.score - a.score;
+        });
+          // 只保留前10名
+        grouped[key] = grouped[key].slice(0, 10);
+      }
+
+      // 題庫依「最新紀錄時間新→舊」排序
+      const sortedDatasets = Object.keys(grouped).sort((a, b) => {
+        const latestA = Math.max(...grouped[a].map(e => new Date(e.timestamp)));
+        const latestB = Math.max(...grouped[b].map(e => new Date(e.timestamp)));
+        return latestB - latestA;
+      });
+
+      const expandedDatasets = sortedDatasets.slice(0, 1);
+      const datasetSelect = document.getElementById("dataset");
+      window.datasetCache = window.datasetCache || {};
+
+      let html = `
+        <div class="leaderboard-controls">
+          <button id="expand-all">展開全部</button>
+          <button id="collapse-all">全部收起</button>
+        </div>
+      `;
+
+      for (const dataset of sortedDatasets) {
+        const entries = grouped[dataset];
+        const isOpen = expandedDatasets.includes(dataset) ? "open" : "";
+
+        let questionCount = 0;
+        try {
+          const option = Array.from(datasetSelect.options).find(
+            opt => opt.text.trim() === dataset.trim()
+          );
+          if (option) {
+            const file = option.value;
+            if (window.datasetCache[file]) {
+              questionCount = window.datasetCache[file].length;
+            } else {
+              const res = await fetch(file);
+              if (res.ok) {
+                const q = await res.json();
+                window.datasetCache[file] = q;
+                questionCount = q.length;
+              }
+            }
+          }
+        } catch (err) {
+          console.warn("無法載入題庫題數:", dataset, err);
+        }
+
+        // 計算滿分邏輯
+        let fullScore = "？";
+        try {
+          const option = Array.from(datasetSelect.options).find(opt => opt.text.trim() === dataset.trim());
+          if (option) {
+            const limitAttr = option.getAttribute("data-limit");
+            if (limitAttr && limitAttr !== "all") {
+              // 若有 data-limit 屬性（例：25 題）
+              fullScore = parseInt(limitAttr) * 5;
+            } else if (questionCount > 0) {
+              // 否則用題庫實際題數
+              fullScore = questionCount * 5;
+            }
+          } else if (questionCount > 0) {
+            fullScore = questionCount * 5;
+          }
+        } catch (e) {
+          console.warn("計算滿分時發生錯誤:", e);
+        }
+
+        html += `
+          <li style="list-style:none; margin-top:10px;">
+            <details ${isOpen} class="dataset-block">
+              <summary>
+                📘 ${dataset}
+                <small>（滿分 ${fullScore} 分）</small>
+              </summary>
+              <ul>
+                ${entries.map((entry, index) => `
+                  <li>
+                    <span>${index + 1}. ${entry.username}</span>
+                    <span>${entry.score}分｜${new Date(entry.timestamp).toLocaleString()}</span>
+                  </li>
+                `).join("")}
+              </ul>
+            </details>
+          </li>
+        `;
+      }
+
+      leaderboardList.innerHTML = html;
+
+      const expandAllBtn = document.getElementById("expand-all");
+      const collapseAllBtn = document.getElementById("collapse-all");
+
+      if (expandAllBtn) {
+        expandAllBtn.addEventListener("click", () => {
+          document.querySelectorAll(".dataset-block").forEach(el => (el.open = true));
+        });
+      }
+
+      if (collapseAllBtn) {
+        collapseAllBtn.addEventListener("click", () => {
+          document.querySelectorAll(".dataset-block").forEach(el => (el.open = false));
+        });
+      }
+
+      if (loadingEl) {
+        loadingEl.style.display = "none";
+      }
+    } catch (err) {
+      console.error("載入排行榜失敗:", err);
+      if (leaderboardList) {
+        leaderboardList.innerHTML = "<li>無法載入排行榜</li>";
+      }
+      if (loadingEl) {
+        loadingEl.style.display = "none";
+      }
+    }
+  } else {
+    if (leaderboardList) {
+      leaderboardList.innerHTML = "<li>請設置 Google Sheets 連結</li>";
+    }
+    if (loadingEl) {
+      loadingEl.style.display = "none";
+    }
+  }
+}
+
+function endGame() {
+  updateProgressBar();
+  awardBadges();
+  submitScore();
+  fetchLeaderboard();
+
+  // 結束畫面：僅顯示「本次獲得徽章」
+  const quizEl = document.querySelector(".quiz");
+  quizEl.innerHTML = `
+    <h2>🎉 ${window.username}，本次挑戰結束！</h2>
+    <h3>總得分：${score}</h3>
+    <h3 id="result-title" style="margin-top:30px;">${window.username} 的挑戰結果：</h3>
+    <ul class="result-log" id="results">${document.getElementById("results").innerHTML}</ul>
+    <div id="session-badges" style="margin-top: 25px; text-align: center;"></div>
+    <div style="text-align: center; margin-top: 20px;">
+      <button onclick="location.reload()" style="
+        padding: 12px 24px;
+        font-size: 1em;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(to right, #ff9f1a, #ffc107);
+        color: #333;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+      ">🔁 再玩一次</button>
+    </div>`;
+
+  // ✅ 顯示「本次獲得徽章」
+  const sessionContainer = document.getElementById("session-badges");
+  if (sessionBadges.length > 0) {
+    sessionContainer.innerHTML = `
+      <h3 style="color:#ffd700;">🎯 本次獲得徽章</h3>
+      ${sessionBadges
+        .map(
+          (b) => `
+          <span style="
+            display:inline-block;
+            margin:6px;
+            padding:8px 14px;
+            border-radius:20px;
+            background:#ffb703;
+            color:#222;
+            font-weight:600;
+            box-shadow:2px 2px 6px rgba(0,0,0,0.2);
+          ">${b}</span>`
+        )
+        .join("")}`;
+  } else {
+    sessionContainer.innerHTML = `<h3 style="color:#aaa;">本次未獲得新徽章</h3>`;
+  }
+}
+
+function renderQuestion() {
+  // ✅ 修正手機（Safari / Chrome）按鈕樣式殘留問題
+  const container = document.getElementById("options");
+  if (container) {
+    const oldButtons = container.querySelectorAll("button");
+    oldButtons.forEach(btn => {
+      btn.classList.remove("correct", "incorrect");
+      btn.disabled = false;
+      btn.style.background = "";
+      btn.style.color = "";
+      btn.style.boxShadow = "";
+    });
+
+    // 🩵 強制觸發重繪
+    container.style.display = "none";
+    container.offsetHeight; // 觸發重繪
+    container.style.display = ""; // 恢復 (grid)
+
+    // 🧹 再清空旧按钮
+    container.innerHTML = "";
+  }
+  
+  // 🟢 以下為新的造句挑戰邏輯
+  attempts = 0;
+  updateProgressBar();
+  updateScoreDisplay();
+  const q = questionSet[currentIndex];
+  
+  // 顯示題目 (句子)
+  document.getElementById("question").innerText = q.sentence;
+  
+  // 建立選項 (單字)
+  const allChoices = [q.answer, ...q.distractors];
+  const choices = shuffle(allChoices);
+
+  choices.forEach((choice) => {
+    const btn = document.createElement("button");
+    btn.innerText = choice; // 選項是英文單字
+    btn.onclick = () => handleChoice(btn, choice);
+    container.appendChild(btn);
+  });
+}
+
+function handleChoice(button, choice) {
+  const correctAnswer = questionSet[currentIndex].answer;
+  const sentence = questionSet[currentIndex].sentence;
+  attempts++;
+
+  if (choice === correctAnswer) {
+    button.classList.add("correct");
+    document.querySelectorAll(".options button").forEach(btn => btn.disabled = true);
+    
+    // 組合完整句子
+    const fullSentence = sentence.replace("____", correctAnswer);
+
+    // ✅ 播放完整句子 (依您的要求)
+    speakSentence(fullSentence);
+
+    if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
+      document.getElementById("result-title").innerText = `${window.username} 的挑戰結果：`;
+    }
+    
+    // 更新結果紀錄
+    document.getElementById("results").innerHTML += 
+      (attempts === 1
+        ? `<li>✅ ${fullSentence} — ${attempts} 次 — +5分</li>`
+        : `<li style="color: #facc15;">🟡 ${fullSentence} — ${attempts} 次 — 0分</li>`);
+
+    if (attempts === 1) {
+      score += 5;
+    }
+    updateScoreDisplay();
+
+    setTimeout(() => {
+      currentIndex++;
+      const quizCompleted = typeof totalQuestionsToComplete === 'number' 
+                          ? currentIndex >= totalQuestionsToComplete 
+                          : currentIndex >= questionSet.length;
+
+      if (!quizCompleted && wrongCount < 3) {
+        renderQuestion();
+      } else {
+        endGame();
+      }
+    }, 1200); // 延長一點時間聽語音
+  } else {
+    button.classList.add("incorrect");
+    button.disabled = true;
+    wrongCount++;
+    lives = 3 - wrongCount;
+    updateLivesDisplay();
+    if (lives <= 0) {
+      // 答錯最後一條命，也念出正確答案
+      const fullSentence = sentence.replace("____", correctAnswer);
+      speakSentence(`Correct answer: ${fullSentence}`);
+      
+      setTimeout(() => {
+        endGame();
+      }, 1500);
+    }
+  }
+}
+
+function startQuiz() {
+  console.log("startQuiz 函數已觸發");
+  const name = document.getElementById("username").value.trim();
+  if (!name) {
+    alert("請輸入名字！");
+    return;
+  }
+
+  const startButton = document.getElementById("start-btn");
+  startButton.innerHTML = "🔊 重聽句子"; // 更新按鈕文字
+  startButton.onclick = function() {
+    speakCurrentQuestion(); // 更新綁定函數
+  };
+
+  document.getElementById("username").style.display = "none";
+  const usernameLabel = document.querySelector("label[for='username']");
+  if (usernameLabel) usernameLabel.style.display = "none";
+
+  document.getElementById("progress-section").style.display = "block";
+  document.querySelector(".quiz").style.display = "block";
+  window.username = name;
+  lives = 3;
+
+  if (!questionSet.length) {
+    console.error("題庫未初始化，嘗試使用預設題庫");
+    questionSet = shuffle([...defaultData]);
+  }
+
+  try {
+    fetchLeaderboard();
+  } catch (err) {
+    console.warn("排行榜載入失敗，繼續執行遊戲");
+  }
+
+  renderQuestion();
+}
+
+// "重聽" 按鈕的函數
+function speakCurrentQuestion() {
+  const currentSentence = questionSet[currentIndex].sentence;
+  speakSentence(currentSentence); // 呼叫共用的朗讀函數
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    const input = document.getElementById("username");
+    if (input && input.style.display !== "none") {
+      startQuiz();
+    }
+  }
+});
+
+document.getElementById("dataset").addEventListener("change", async function(e) {
+  const file = e.target.value;
+  const selected = e.target.options[e.target.selectedIndex];
+  const limit = selected.getAttribute("data-limit");
+
+  totalQuestionsToComplete = limit === "all" ? "all" : parseInt(limit);
+
+  try {
+    const res = await fetch(file);
+    if (!res.ok) {
+      throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
+    }
+    data = await res.json();
+    questionSet = shuffle([...data]);
+    currentIndex = 0;
+    wrongCount = 0;
+    score = 0;
+    lives = 3;
+    updateProgressBar();
+    updateScoreDisplay();
+    updateLivesDisplay();
+    if (document.querySelector(".quiz").style.display === "block") {
+      document.getElementById("results").innerHTML = "";
+      document.getElementById("result-title").innerText = "";
+      renderQuestion();
+    }
+  } catch (err) {
+    console.warn("載入題庫失敗，使用預設題庫");
+    data = [...defaultData];
+    questionSet = shuffle([...data]);
+    currentIndex = 0;
+    wrongCount = 0;
+    score = 0;
+    lives = 3;
+    updateProgressBar();
+    updateScoreDisplay();
+    updateLivesDisplay();
+    if (document.querySelector(".quiz").style.display === "block") {
+      document.getElementById("results").innerHTML = "";
+      document.getElementById("result-title").innerText = "";
+      renderQuestion();
+    }
+  }
+});
+
+/* 主題切換：暗色 / 亮色 + localStorage 記憶 */
+const THEME_STORAGE_KEY = "gept_theme";
+const themeToggleBtn = document.getElementById("theme-toggle");
+
+function applyTheme(theme) {
+  if (theme === "light") {
+    document.body.classList.add("light-mode");
+    if (themeToggleBtn) {
+      themeToggleBtn.querySelector(".icon").textContent = "☀️";
+      themeToggleBtn.querySelector(".label").textContent = "亮色模式";
+    }
+  } else {
+    document.body.classList.remove("light-mode");
+    if (themeToggleBtn) {
+      themeToggleBtn.querySelector(".icon").textContent = "🌙";
+      themeToggleBtn.querySelector(".label").textContent = "暗色模式";
+    }
+  }
+}
+
+const storedTheme = localStorage.getItem(THEME_STORAGE_KEY) || "dark";
+applyTheme(storedTheme);
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", () => {
+    const newTheme = document.body.classList.contains("light-mode") ? "dark" : "light";
+    localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+    applyTheme(newTheme);
+  });
+}
+
+(async () => {
+  console.log("頁面初始化開始");
+  const file = document.getElementById("dataset").value;
+  const selected = document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex];
+  const limit = selected.getAttribute("data-limit");
+
+  totalQuestionsToComplete = limit === "all" ? "all" : parseInt(limit);
+  try {
+    const res = await fetch(file);
+    if (!res.ok) {
+      throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
+    }
+    data = await res.json();
+  } catch (err) {
+    console.warn("初始題庫載入失敗，使用預設題庫");
+    data = [...defaultData];
+  }
+  questionSet = shuffle([...data]);
+  currentIndex = 0;
+  wrongCount = 0;
+  score = 0;
+  lives = 3;
+  updateProgressBar();
+  updateScoreDisplay();
+  updateLivesDisplay();
+  try {
+    fetchLeaderboard();
+  } catch (err) {
+    console.warn("初始排行榜載入失敗");
+  }
+  
+  console.log("頁面初始化完成");
+})();
+  </script>
+</body>
+</html>
