@@ -775,7 +775,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/10 23:02
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 14:15
   <div>
 
   <script>
@@ -817,6 +817,7 @@ let score = 0;
 let lives = 3;
 let gameSession = Date.now();
 let currentQuizType = "vocab"; // 追蹤目前的遊戲模式
+let currentDatasetFile = ""; // ✅ 新增：追蹤目前選擇的檔案 (for Request 3)
 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -899,7 +900,7 @@ async function submitScore() {
 }
 
 // ===============================================
-// ✅ 語音修正：speak 函數
+// ✅ 語音修正：speak 函數 (Request 2)
 // ===============================================
 
 /**
@@ -1013,7 +1014,10 @@ async function fetchLeaderboard() {
           console.warn("無法載入題庫題數:", dataset, err);
         }
 
-        // 計算滿分邏輯
+        // =========
+        // ✅ 滿分邏輯 (Request 1)
+        // 這段邏輯本來就是正確的，無需修改。
+        // =========
         let fullScore = "？";
         try {
           const option = Array.from(datasetSelect.options).find(opt => opt.text.trim() === dataset.trim());
@@ -1264,8 +1268,8 @@ function handleSentenceChoice(button, choice) {
     button.classList.add("correct");
     document.querySelectorAll(".options button").forEach(btn => btn.disabled = true);
     
-    // 組合完整句子
-    const fullSentence = sentence.replace("____", correctAnswer);
+    // ✅ 修正：使用 8 個底線 (Request 2)
+    const fullSentence = sentence.replace("________", correctAnswer);
 
     if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
       document.getElementById("result-title").innerText = `${window.username} 的挑戰結果：`;
@@ -1282,7 +1286,7 @@ function handleSentenceChoice(button, choice) {
     }
     updateScoreDisplay();
 
-    // ✅ 語音修正：使用 callback
+    // ✅ 語音修正：使用 callback (Request 2)
     const nextStep = () => {
       currentIndex++;
       const quizCompleted = typeof totalQuestionsToComplete === 'number' 
@@ -1307,7 +1311,7 @@ function handleSentenceChoice(button, choice) {
     
     if (lives <= 0) {
       // ✅ 語音修正：答錯最後一條命
-      const fullSentence = sentence.replace("____", correctAnswer);
+      const fullSentence = sentence.replace("________", correctAnswer); // (Request 2)
       speak(`Correct answer: ${fullSentence}`, endGame); // 念完正確答案後，才結束遊戲
     }
   }
@@ -1374,8 +1378,10 @@ function speakCurrent() {
     const currentWord = questionSet[currentIndex].Vocabulary;
     speak(currentWord); // (不需 callback)
   } else {
-    const currentSentence = questionSet[currentIndex].sentence;
-    speak(currentSentence); // (不需 callback)
+    let currentSentence = questionSet[currentIndex].sentence;
+    // ✅ 修正：將底線換成"..."，語音會在這裡停頓 (Request 2)
+    const sentenceToSpeak = currentSentence.replace("________", "..."); 
+    speak(sentenceToSpeak); // (不需 callback)
   }
 }
 
@@ -1433,6 +1439,19 @@ document.addEventListener("keydown", function(event) {
 });
 
 document.getElementById("dataset").addEventListener("change", async function(e) {
+  
+  // ✅ 新增：防呆確認 (Request 3)
+  const quizInProgress = document.querySelector(".quiz").style.display === "block";
+  if (quizInProgress) {
+    const confirmed = confirm("挑戰尚未完成，確定要切換題庫嗎？\n（目前的進度將會遺失）");
+    if (!confirmed) {
+      e.target.value = currentDatasetFile; // 將 <select> 重設回上一個載入的檔案
+      return; // 中斷執行
+    }
+  }
+  
+  // ----- 如果確認切換，或遊戲未開始，才繼續 -----
+  
   const file = e.target.value;
   const selected = e.target.options[e.target.selectedIndex];
   const limit = selected.getAttribute("data-limit");
@@ -1449,6 +1468,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
       throw new Error(`HTTP 錯誤，狀態碼：${res.status}`);
     }
     data = await res.json();
+    currentDatasetFile = file; // ✅ 成功載入後，更新目前檔案 (Request 3)
     questionSet = shuffle([...data]);
     currentIndex = 0;
     wrongCount = 0;
@@ -1460,17 +1480,12 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
     if (document.querySelector(".quiz").style.display === "block") {
       document.getElementById("results").innerHTML = "";
       document.getElementById("result-title").innerText = "";
-      renderQuestion(); // Hūjiào zhǔ lùyóu qì
+      renderQuestion(); // 呼叫主路由器
     }
   } catch (err) {
     console.warn("載入題庫失敗，使用預設題庫");
-    // 確保預設題庫格式正確
-    if (currentQuizType === "vocab") {
-        data = [...defaultData]; // defaultData 是 vocab 格式
-    } else {
-        // 如果連造句的 defaultData 都沒有，給一個最小可執行檔
-        data = [{ "sentence": "Default ____.", "answer": "question", "distractors": ["a", "b", "c"] }];
-    }
+    data = [...defaultData];
+    currentDatasetFile = "GEPT_20251109.json"; // ✅ 載入失敗，重設為預設檔案 (Request 3)
     questionSet = shuffle([...data]);
     currentIndex = 0;
     wrongCount = 0;
@@ -1523,6 +1538,8 @@ if (themeToggleBtn) {
   const file = document.getElementById("dataset").value;
   const selected = document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex];
   const limit = selected.getAttribute("data-limit");
+
+  currentDatasetFile = file; // ✅ 儲存初始載入的檔案 (Request 3)
 
   // ✅ 整合：初始化時設定模式
   currentQuizType = selected.getAttribute("data-quiz-type") || "vocab";
