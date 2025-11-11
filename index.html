@@ -189,6 +189,18 @@
       border-color: rgba(0, 224, 255, 0.9);
     }
 
+    /* ✅ 修正：深色模式下 <option> 的樣式 */
+    #dataset option {
+      background: var(--bg-deep, #050816); /* 確保有預設深色背景 */
+      color: var(--text-main, #f5f7ff);
+    }
+    
+    /* ✅ 修正：亮色模式下 <option> 的樣式 */
+    body.light-mode #dataset option {
+      background: #ffffff;
+      color: #1e293b;
+    }
+
     #username {
       padding: 8px 12px;
       font-size: 0.95em;
@@ -858,11 +870,11 @@ body.light-mode #start-btn:active {
     <div class="control-row" style="margin-top: 10px; margin-bottom: 16px;">
       <label for="dataset">題庫選擇：</label>
       <select id="dataset">
-        <!-- 注意：我把 sentence_gept0304.json 改成 v2，記得上傳新檔案 -->
-        <option value="sentence_gept0304.json" data-limit="all" data-quiz-type="sentence">🟡 (造句) GEPT 第三回+第四回 </option>
-        <option value="sentences_week1.json" data-limit="all" data-quiz-type="sentence">🟡 (造句) Week 1 </option>
-        <option value="sentences_week2.json" data-limit="all" data-quiz-type="sentence">🟡 (造句) Week 2 </option>
+        <!-- ✅ 2025/11/11 更新題庫列表 -->
+        <option value="sentence_gept0304.json" data-limit="all" data-quiz-type="sentence">🟡 GEPT 第三回+第四回 (造句) </option>
         <option value="GEPT_20251109.json" data-limit="all" data-quiz-type="vocab">🌎 GEPT 第三回+第四回 (單字)</option>
+        <option value="sentences_week1.json" data-limit="all" data-quiz-type="sentence">🟡 Week 1 (造句) </option>
+        <option value="sentences_week2.json" data-limit="all" data-quiz-type="sentence">🟡 Week 2 (造句) </option>
         <option value="week1.json" data-limit="all" data-quiz-type="vocab">🟡 Week 1 (主題課文25題)</option>
         <option value="week2.json" data-limit="all" data-quiz-type="vocab">🟡 Week 2 (主題課文30題)</option>
         <option value="week2-bonus.json" data-limit="25" data-quiz-type="vocab">✨ Week 2 (擴充挑戰25/50)</option>
@@ -1378,10 +1390,12 @@ function handleVocabChoice(button, choice) {
     if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
       document.getElementById("result-title").innerText = `${window.username} 的挑戰結果：`;
     }
-    document.getElementById("results").innerHTML += 
-      (attempts === 1
+    
+    // ✅ 2025/11/11 答題紀錄改為顯示在最上方
+    const logEntry = (attempts === 1
         ? `<li>✅ ${questionSet[currentIndex].Vocabulary} — ${questionSet[currentIndex].Chinese} — ${attempts} 次 — +5分</li>`
         : `<li style="color: #facc15;">🟡 ${questionSet[currentIndex].Vocabulary} — ${questionSet[currentIndex].Chinese} — ${attempts} 次 — 0分</li>`);
+    document.getElementById("results").innerHTML = logEntry + document.getElementById("results").innerHTML;
 
     if (attempts === 1) {
       score += 5;
@@ -1472,8 +1486,9 @@ function handleSentenceChoice(button, choice) {
         ? `<li>✅ ${fullSentence} — ${attempts} 次 — +5分`
         : `<li style="color: #facc15;">🟡 ${fullSentence} — ${attempts} 次 — 0分`);
     
-    // ✅ 將翻譯加在下一行
-    document.getElementById("results").innerHTML += `${logEntry}<br><small style="color: var(--text-muted); padding-left: 20px;">${translation}</small></li>`;
+    // ✅ 2025/11/11 答題紀錄改為顯示在最上方
+    // ✅ 將翻譯加在下一行 (並移到最上面)
+    document.getElementById("results").innerHTML = `${logEntry}<br><small style="color: var(--text-muted); padding-left: 20px;">${translation}</small></li>` + document.getElementById("results").innerHTML;
 
     if (attempts === 1) {
       score += 5;
@@ -1519,8 +1534,9 @@ function handleSentenceChoice(button, choice) {
       const translation = q.chinese || ""; // ✅ 確保結束時也能抓到翻譯
 
       // ✅ 在結束前，補上最後一題的正確答案Log
-      document.getElementById("results").innerHTML += 
-        `<li style="color: var(--danger);">❌ ${fullSentence} (正確答案)<br><small style="color: var(--text-muted); padding-left: 20px;">${translation}</small></li>`;
+      // ✅ 2025/11/11 答題紀錄改為顯示在最上方
+      document.getElementById("results").innerHTML = 
+        `<li style="color: var(--danger);">❌ ${fullSentence} (正確答案)<br><small style="color: var(--text-muted); padding-left: 20px;">${translation}</small></li>` + document.getElementById("results").innerHTML;
       
       speak(`Correct answer: ${sentenceToSpeak}`, endGame); // 念完正確答案後，才結束遊戲
     }
