@@ -775,7 +775,7 @@ body.light-mode #start-btn:active {
   </div>
 
   <div class="footer">
-    Made by Evelyn YT ｜© 2025 | 2025/11/11 14:15
+    Made by Evelyn YT ｜© 2025 | 2025/11/11 14:50
   <div>
 
   <script>
@@ -817,7 +817,7 @@ let score = 0;
 let lives = 3;
 let gameSession = Date.now();
 let currentQuizType = "vocab"; // 追蹤目前的遊戲模式
-let currentDatasetFile = ""; // ✅ 新增：追蹤目前選擇的檔案 (for Request 3)
+let currentDatasetFile = ""; // ✅ 追蹤目前選擇的檔案 (for Request 3)
 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -900,7 +900,7 @@ async function submitScore() {
 }
 
 // ===============================================
-// ✅ 語音修正：speak 函數 (Request 2)
+// 語音 speak 函數 (已修正)
 // ===============================================
 
 /**
@@ -994,9 +994,11 @@ async function fetchLeaderboard() {
 
         let questionCount = 0;
         try {
+          // ✅ 修正：使用 .includes() (Request 2)
           const option = Array.from(datasetSelect.options).find(
-            opt => opt.text.trim() === dataset.trim()
+            opt => opt.text.trim().includes(dataset.trim())
           );
+          
           if (option) {
             const file = option.value;
             if (window.datasetCache[file]) {
@@ -1014,13 +1016,14 @@ async function fetchLeaderboard() {
           console.warn("無法載入題庫題數:", dataset, err);
         }
 
-        // =========
-        // ✅ 滿分邏輯 (Request 1)
-        // 這段邏輯本來就是正確的，無需修改。
-        // =========
+        // 滿分邏輯 (Request 1)
         let fullScore = "？";
         try {
-          const option = Array.from(datasetSelect.options).find(opt => opt.text.trim() === dataset.trim());
+          // ✅ 修正：使用 .includes() (Request 2)
+          const option = Array.from(datasetSelect.options).find(
+            opt => opt.text.trim().includes(dataset.trim())
+          );
+          
           if (option) {
             const limitAttr = option.getAttribute("data-limit");
             if (limitAttr && limitAttr !== "all") {
@@ -1244,8 +1247,12 @@ function renderSentenceQuestion() {
   updateScoreDisplay();
   const q = questionSet[currentIndex];
   
-  // 顯示題目 (句子)
-  document.getElementById("question").innerText = q.sentence;
+  // ✅ 修正：使用 <span> 搭配 monospace (Request 1)
+  const questionHTML = q.sentence.replace(
+    "________", 
+    '<span style="font-family: monospace; letter-spacing: -1px;">________</span>'
+  );
+  document.getElementById("question").innerHTML = questionHTML; // 改用 .innerHTML
   
   // 建立選項 (單字)
   const allChoices = [q.answer, ...q.distractors];
@@ -1268,7 +1275,7 @@ function handleSentenceChoice(button, choice) {
     button.classList.add("correct");
     document.querySelectorAll(".options button").forEach(btn => btn.disabled = true);
     
-    // ✅ 修正：使用 8 個底線 (Request 2)
+    // 組合完整句子
     const fullSentence = sentence.replace("________", correctAnswer);
 
     if (currentIndex === 0 && !document.getElementById("result-title").innerText) {
@@ -1286,7 +1293,7 @@ function handleSentenceChoice(button, choice) {
     }
     updateScoreDisplay();
 
-    // ✅ 語音修正：使用 callback (Request 2)
+    // ✅ 語音修正：使用 callback
     const nextStep = () => {
       currentIndex++;
       const quizCompleted = typeof totalQuestionsToComplete === 'number' 
@@ -1311,7 +1318,7 @@ function handleSentenceChoice(button, choice) {
     
     if (lives <= 0) {
       // ✅ 語音修正：答錯最後一條命
-      const fullSentence = sentence.replace("________", correctAnswer); // (Request 2)
+      const fullSentence = sentence.replace("________", correctAnswer);
       speak(`Correct answer: ${fullSentence}`, endGame); // 念完正確答案後，才結束遊戲
     }
   }
@@ -1326,22 +1333,26 @@ function updateUIForQuizType(quizType) {
   const title = document.getElementById("main-title");
   const subtitle = document.getElementById("main-subtitle");
   const hint = document.getElementById("main-hint");
-  const startButton = document.getElementById("start-btn");
-
+  
   if (quizType === "vocab") {
     title.innerHTML = "GEPT Vocabulary Battle ⚡";
     subtitle.innerHTML = "聽發音、選中文，看看你能守住幾條命！";
     hint.innerHTML = "小提示：開始後按上面的按鈕可以重聽英文發音 🎧";
-    if (startButton.innerText !== "開始挑戰") {
-      startButton.innerHTML = "🔊 重聽發音";
-    }
   } else if (quizType === "sentence") {
     title.innerHTML = "GEPT Sentence Challenge ✍️";
     subtitle.innerHTML = "閱讀句子、選出正確單字，完成填空！";
     hint.innerHTML = "小提示：開始後按上面的按鈕可以重聽句子發音 🎧";
-    if (startButton.innerText !== "開始挑戰") {
-      startButton.innerHTML = "🔊 重聽句子";
-    }
+  }
+  
+  // ✅ 修正：(Request 3) 
+  // 此函數只在 "載入" 或 "切換題庫" 時呼叫
+  // 我們要確保按鈕在遊戲未開始時，顯示正確的文字與功能
+  const startButton = document.getElementById("start-btn");
+  const quizInProgress = document.querySelector(".quiz").style.display === "block";
+  
+  if (!quizInProgress) {
+      startButton.innerHTML = "開始挑戰";
+      startButton.onclick = startQuiz;
   }
 }
 
@@ -1379,7 +1390,7 @@ function speakCurrent() {
     speak(currentWord); // (不需 callback)
   } else {
     let currentSentence = questionSet[currentIndex].sentence;
-    // ✅ 修正：將底線換成"..."，語音會在這裡停頓 (Request 2)
+    // ✅ 修正：將底線換成"..."，語音會在這裡停頓 (Request 1 & 2)
     const sentenceToSpeak = currentSentence.replace("________", "..."); 
     speak(sentenceToSpeak); // (不需 callback)
   }
@@ -1393,13 +1404,17 @@ function startQuiz() {
     return;
   }
 
-  // ✅ 整合：在開始時決定模式
+  // 整合：在開始時決定模式
   const selected = document.getElementById("dataset").options[document.getElementById("dataset").selectedIndex];
   currentQuizType = selected.getAttribute("data-quiz-type") || "vocab";
   
-  // ✅ 整合：更新 UI 並綁定正確的重聽功能
-  updateUIForQuizType(currentQuizType); 
+  // ✅ 修正：(Request 3) 明確設定按鈕文字和功能
   const startButton = document.getElementById("start-btn");
+  if (currentQuizType === "vocab") {
+    startButton.innerHTML = "🔊 重聽發音";
+  } else {
+    startButton.innerHTML = "🔊 重聽句子";
+  }
   startButton.onclick = speakCurrent; // 綁定整合後的重聽函數
 
   document.getElementById("username").style.display = "none";
@@ -1456,7 +1471,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   const selected = e.target.options[e.target.selectedIndex];
   const limit = selected.getAttribute("data-limit");
   
-  // ✅ 整合：更新模式
+  // 整合：更新模式
   currentQuizType = selected.getAttribute("data-quiz-type") || "vocab";
   updateUIForQuizType(currentQuizType); // 切換題庫時立刻更新 UI
 
@@ -1478,6 +1493,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
     updateScoreDisplay();
     updateLivesDisplay();
     if (document.querySelector(".quiz").style.display === "block") {
+      // 如果遊戲已在進行中，切換後直接開始新遊戲
       document.getElementById("results").innerHTML = "";
       document.getElementById("result-title").innerText = "";
       renderQuestion(); // 呼叫主路由器
@@ -1485,7 +1501,7 @@ document.getElementById("dataset").addEventListener("change", async function(e) 
   } catch (err) {
     console.warn("載入題庫失敗，使用預設題庫");
     data = [...defaultData];
-    currentDatasetFile = "GEPT_20251109.json"; // ✅ 載入失敗，重設為預設檔案 (Request 3)
+    currentDatasetFile = document.getElementById("dataset").options[0].value; // ✅ 載入失敗，重設為預設檔案 (Request 3)
     questionSet = shuffle([...data]);
     currentIndex = 0;
     wrongCount = 0;
@@ -1541,7 +1557,7 @@ if (themeToggleBtn) {
 
   currentDatasetFile = file; // ✅ 儲存初始載入的檔案 (Request 3)
 
-  // ✅ 整合：初始化時設定模式
+  // 整合：初始化時設定模式
   currentQuizType = selected.getAttribute("data-quiz-type") || "vocab";
   updateUIForQuizType(currentQuizType); // 更新 UI
 
