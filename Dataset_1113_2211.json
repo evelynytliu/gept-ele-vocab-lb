@@ -1,0 +1,98 @@
+[
+  {
+    "Vocabulary": "message",
+    "Chinese": "訊息；口信",
+    "sentence": "I left a voice ________ for my friend because she didn't answer the phone.",
+    "answer": "message",
+    "distractors": [
+      "letter",
+      "story",
+      "sound"
+    ],
+    "chinese": "因為我的朋友沒有接電話，所以我給她留了一段語音訊息。"
+  },
+  {
+    "Vocabulary": "rule",
+    "Chinese": "規定；規則 (n.)",
+    "sentence": "You must follow the school ________ when you are in the classroom.",
+    "answer": "rule",
+    "distractors": [
+      "law",
+      "method",
+      "lesson"
+    ],
+    "chinese": "當你在教室裡時，你必須遵守學校的規定。"
+  },
+  {
+    "Vocabulary": "natural",
+    "Chinese": "自然的",
+    "sentence": "She has long, dark hair and a very ________ smile.",
+    "answer": "natural",
+    "distractors": [
+      "serious",
+      "false",
+      "difficult"
+    ],
+    "chinese": "她有著一頭烏黑的長髮和一個非常自然的笑容。"
+  },
+  {
+    "Vocabulary": "similar",
+    "Chinese": "相似的；類似的",
+    "sentence": "My new shirt is very ________ to yours, but mine is blue.",
+    "answer": "similar",
+    "distractors": [
+      "different",
+      "great",
+      "happy"
+    ],
+    "chinese": "我的新襯衫跟你的很相似，但是我的這件是藍色的。"
+  },
+  {
+    "Vocabulary": "realize",
+    "Chinese": "意識到；了解",
+    "sentence": "I didn't ________ the time was so late until my mom called.",
+    "answer": "realize",
+    "distractors": [
+      "imagine",
+      "prepare",
+      "create"
+    ],
+    "chinese": "直到我媽媽打電話來，我才意識到時間這麼晚了。"
+  },
+  {
+    "Vocabulary": "allow",
+    "Chinese": "允許；准許",
+    "sentence": "The teacher did not ________ us to use phones during the test.",
+    "answer": "allow",
+    "distractors": [
+      "order",
+      "help",
+      "hope"
+    ],
+    "chinese": "老師不允許我們在考試期間使用手機。"
+  },
+  {
+    "Vocabulary": "insist",
+    "Chinese": "堅持",
+    "sentence": "Even though I said no, she continued to ________ that I take the gift.",
+    "answer": "insist",
+    "distractors": [
+      "whisper",
+      "offer",
+      "decide"
+    ],
+    "chinese": "儘管我說了不要，她還是堅持要我收下這個禮物。"
+  },
+  {
+    "Vocabulary": "recently",
+    "Chinese": "最近地",
+    "sentence": "Have you seen any good movies ________?",
+    "answer": "recently",
+    "distractors": [
+      "sometimes",
+      "always",
+      "happily"
+    ],
+    "chinese": "你最近有看什麼好看的電影嗎？"
+  }
+]
