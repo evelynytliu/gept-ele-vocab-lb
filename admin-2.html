@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEPT 智能出題後台 (GitHub 連動版) 🚀</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --accent: #00e0ff;
+      --success: #00ff9d;
+      --warning: #f59e0b;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Poppins", "Segoe UI", sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      background: linear-gradient(to right, var(--accent), var(--success));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      font-size: 0.9em;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .card-header {
+      font-size: 1.1em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 0.9em;
+    }
+
+    input[type="text"],
+    input[type="password"], 
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #0f172a;
+      color: white;
+      font-family: inherit;
+      font-size: 1em;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+    
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #00e0ff, #00ff9d);
+      color: #0f172a;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1em;
+      transition: transform 0.2s, filter 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .btn-github {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    .btn:disabled {
+      background: #475569;
+      color: #94a3b8;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .preview-item {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .preview-input {
+      width: 100%;
+      background: transparent;
+      border: 1px solid #334155;
+      color: #e2e8f0;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      margin-bottom: 8px;
+    }
+
+    #loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      color: var(--accent);
+    }
+
+    .spinner {
+      width: 24px;
+      height: 24px;
+      border: 3px solid rgba(0, 224, 255, 0.3);
+      border-top-color: #00e0ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+    
+    .status-msg {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      display: none;
+      font-size: 0.9em;
+    }
+    .status-success { background: rgba(0, 255, 157, 0.2); color: #00ff9d; border: 1px solid #00ff9d; }
+    .status-error { background: rgba(255, 56, 96, 0.2); color: #ff3860; border: 1px solid #ff3860; }
+
+    .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🤖 GEPT 全自動出題後台</h1>
+  <div class="subtitle">AI 出題 + GitHub 自動同步 = 老師救星</div>
+
+  <!-- API 設定區 -->
+  <div class="card">
+    <div class="card-header">🔑 系統設定 (自動儲存)</div>
+    <div class="grid-2">
+      <div>
+        <label>Gemini API Key</label>
+        <input type="password" id="geminiKey" placeholder="貼上 Gemini Key" />
+      </div>
+      <div>
+        <label>GitHub Token (repo 權限)</label>
+        <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxx" />
+      </div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <label>GitHub 用戶名 (Owner)</label>
+        <input type="text" id="githubOwner" placeholder="例如: emmett-chen" />
+      </div>
+      <div>
+        <label>GitHub 倉庫名 (Repo)</label>
+        <input type="text" id="githubRepo" placeholder="例如: gept-game" />
+      </div>
+    </div>
+  </div>
+
+  <!-- 出題區 -->
+  <div class="card">
+    <div class="card-header">📝 第一步：輸入單字</div>
+    <label>輸入單字列表 (一行一個)</label>
+    <textarea id="wordList" placeholder="apple&#10;banana&#10;computer"></textarea>
+
+    <button id="generateBtn" class="btn" onclick="generateContent()">
+      ✨ AI 自動生成題目
+    </button>
+  </div>
+
+  <div id="loading">
+    <div class="spinner"></div> 正在呼叫 AI 大腦，請稍候...
+  </div>
+
+  <!-- 結果與上傳區 -->
+  <div id="resultArea" class="card" style="display:none;">
+    <div class="card-header">
+      <span>🚀 第二步：預覽與發布</span>
+      <button class="btn btn-github" style="width:auto; padding: 6px 16px; font-size:0.9em;" onclick="downloadJSON()">
+        📥 僅下載 JSON
+      </button>
+    </div>
+
+    <div style="margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+        <label style="color:var(--success);">準備上傳到 GitHub:</label>
+        <div style="display:flex; gap:10px;">
+            <input type="text" id="targetFilename" placeholder="檔名 (例如: week3.json)" style="margin-bottom:0;" />
+            <button id="uploadBtn" class="btn btn-github" style="width: 180px;" onclick="uploadToGitHub()">
+                ☁️ 上傳發布
+            </button>
+        </div>
+        <div id="uploadStatus" class="status-msg"></div>
+    </div>
+
+    <div id="previewContainer"></div>
+  </div>
+</div>
+
+<script>
+  let generatedData = [];
+
+  // 初始化：讀取 LocalStorage
+  const fields = ['geminiKey', 'githubToken', 'githubOwner', 'githubRepo'];
+  fields.forEach(id => {
+    const saved = localStorage.getItem(id);
+    if (saved) document.getElementById(id).value = saved;
+    // 綁定自動儲存
+    document.getElementById(id).addEventListener('change', (e) => {
+      localStorage.setItem(id, e.target.value.trim());
+    });
+  });
+
+  async function generateContent() {
+    const apiKey = document.getElementById('geminiKey').value.trim();
+    const words = document.getElementById('wordList').value.trim();
+
+    if (!apiKey) { alert("請輸入 Gemini API Key！"); return; }
+    if (!words) { alert("請輸入單字！"); return; }
+
+    document.getElementById('generateBtn').disabled = true;
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('resultArea').style.display = 'none';
+
+    const wordList = words.split('\n').filter(w => w.trim() !== '').join(', ');
+
+    const prompt = `
+      Act as an expert English teacher for GEPT Elementary (全民英檢初級) in Taiwan.
+      Generate a JSON array for these words: ${wordList}.
+      
+      Each object must have:
+      1. "Vocabulary": The word.
+      2. "Chinese": Traditional Chinese definition (short).
+      3. "sentence": A simple A2 level sentence, replace target word with "________".
+      4. "answer": The target word.
+      5. "distractors": Array of 3 wrong words (same part of speech).
+      6. "chinese_sentence": Traditional Chinese translation of the sentence.
+
+      Output ONLY valid JSON. No markdown.
+    `;
+
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+      });
+
+      const data = await response.json();
+      if (data.error) throw new Error(data.error.message);
+
+      let rawText = data.candidates[0].content.parts[0].text;
+      rawText = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
+      
+      generatedData = JSON.parse(rawText);
+      
+      // 自動產生預設檔名
+      const now = new Date();
+      const dateStr = `${now.getMonth()+1}${now.getDate()}`;
+      document.getElementById('targetFilename').value = `quiz_${dateStr}.json`;
+
+      renderPreview();
+      document.getElementById('resultArea').style.display = 'block';
+
+    } catch (error) {
+      alert("生成失敗：" + error.message);
+    } finally {
+      document.getElementById('generateBtn').disabled = false;
+      document.getElementById('loading').style.display = 'none';
+    }
+  }
+
+  function renderPreview() {
+    const container = document.getElementById('previewContainer');
+    container.innerHTML = '';
+
+    generatedData.forEach((item, index) => {
+      const div = document.createElement('div');
+      div.className = 'preview-item';
+      div.innerHTML = `
+        <div style="font-weight:bold; color:var(--accent); text-align:center;">${index + 1}</div>
+        <div style="width: 100%;">
+          <input class="preview-input" style="font-weight:bold; color:#fff;" value="${item.Vocabulary}" onchange="updateData(${index}, 'Vocabulary', this.value)">
+          <input class="preview-input" value="${item.Chinese}" onchange="updateData(${index}, 'Chinese', this.value)">
+          <input class="preview-input" value="${item.sentence}" onchange="updateData(${index}, 'sentence', this.value)">
+          <input class="preview-input" value="${item.chinese_sentence}" onchange="updateData(${index}, 'chinese_sentence', this.value)">
+          <input class="preview-input" style="font-size:0.8em; color:#94a3b8;" value="${item.distractors.join(', ')}" onchange="updateDistractors(${index}, this.value)">
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  function updateData(index, field, value) { generatedData[index][field] = value; }
+  function updateDistractors(index, value) { generatedData[index].distractors = value.split(',').map(s => s.trim()); }
+
+  // --- GitHub 上傳邏輯 ---
+  async function uploadToGitHub() {
+    const token = document.getElementById('githubToken').value.trim();
+    const owner = document.getElementById('githubOwner').value.trim();
+    const repo = document.getElementById('githubRepo').value.trim();
+    const filename = document.getElementById('targetFilename').value.trim();
+    const statusDiv = document.getElementById('uploadStatus');
+    const btn = document.getElementById('uploadBtn');
+
+    if (!token || !owner || !repo || !filename) {
+      alert("請填寫完整的 GitHub 設定 (Token, 用戶名, 倉庫名, 檔名)！");
+      return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = "⏳ 上傳中...";
+    statusDiv.style.display = 'none';
+
+    // 準備資料：同步 Vocabulary 和 Answer
+    const finalData = generatedData.map(item => ({
+      ...item,
+      answer: item.Vocabulary // 確保 answer 正確
+    }));
+
+    const content = JSON.stringify(finalData, null, 2);
+    // 解決中文編碼問題：先 encodeURI 再 btoa
+    const base64Content = btoa(unescape(encodeURIComponent(content)));
+    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filename}`;
+
+    try {
+      // 1. 先檢查檔案是否存在 (為了取得 sha)
+      let sha = null;
+      const checkRes = await fetch(apiUrl, {
+        headers: { 
+            'Authorization': `token ${token}`,
+            'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+
+      if (checkRes.ok) {
+        const fileData = await checkRes.json();
+        sha = fileData.sha;
+        if (!confirm(`檔案 ${filename} 已存在，確定要覆蓋嗎？`)) {
+            throw new Error("取消上傳");
+        }
+      }
+
+      // 2. 發送 PUT 請求建立/更新檔案
+      const putRes = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: `Upload via GEPT Admin: ${filename}`,
+          content: base64Content,
+          sha: sha // 如果是更新，必須帶上 sha
+        })
+      });
+
+      if (!putRes.ok) {
+        const err = await putRes.json();
+        throw new Error(err.message);
+      }
+
+      statusDiv.className = 'status-msg status-success';
+      statusDiv.innerHTML = `✅ 成功上傳！<br>檔案位置：<a href="https://github.com/${owner}/${repo}/blob/main/${filename}" target="_blank" style="color:inherit;">${filename}</a><br>請記得去遊戲設定新增此題庫。`;
+      statusDiv.style.display = 'block';
+
+    } catch (error) {
+      if (error.message !== "取消上傳") {
+        statusDiv.className = 'status-msg status-error';
+        statusDiv.innerText = `❌ 上傳失敗: ${error.message}`;
+        statusDiv.style.display = 'block';
+      }
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = "☁️ 上傳發布";
+    }
+  }
+
+  function downloadJSON() {
+    // 與上傳邏輯相同，整理資料
+    const finalData = generatedData.map(item => ({ ...item, answer: item.Vocabulary }));
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(finalData, null, 2));
+    const link = document.createElement('a');
+    link.href = dataStr;
+    link.download = document.getElementById('targetFilename').value || "data.json";
+    link.click();
+  }
+</script>
+
+</body>
+</html>
